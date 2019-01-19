@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="自从上次吧hexo博客简单的搭建好并把vps上的wordpress为数不多的流水账博客搬运上去后，就已经好几个月没有去管他了，还是因为太懒，于是今天有空，就想写点啥，正好发现自己其实对这个博客还是很不了解，就，正好写一个简单的hexo的简单安装博客。 hexo博客的安装window10下安装 相关步骤 安装Node.js并配置好Node.js环境，并使用cmd输入命令查看  12node -vnp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo简单安装">
+<meta property="og:url" content="http://yoursite.com/2019/01/19/hexo简单安装/index.html">
+<meta property="og:site_name" content="咸鱼黄">
+<meta property="og:description" content="自从上次吧hexo博客简单的搭建好并把vps上的wordpress为数不多的流水账博客搬运上去后，就已经好几个月没有去管他了，还是因为太懒，于是今天有空，就想写点啥，正好发现自己其实对这个博客还是很不了解，就，正好写一个简单的hexo的简单安装博客。 hexo博客的安装window10下安装 相关步骤 安装Node.js并配置好Node.js环境，并使用cmd输入命令查看  12node -vnp">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/node.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/Git.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/GithubNew.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/npm-hexo.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/hexo-version.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/hexo-init1.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/E:/blog/source/_posts/hexo简单安装/hexo-init2.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/npm-install.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/hexo-g.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/hexo-s.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/hexo-change-server-p.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/hexo-success.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/ssh2.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/ssh3.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/GithubSSH.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/config.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/hexo-deployer.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/finish.png">
+<meta property="og:updated_time" content="2019-01-19T11:14:24.886Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo简单安装">
+<meta name="twitter:description" content="自从上次吧hexo博客简单的搭建好并把vps上的wordpress为数不多的流水账博客搬运上去后，就已经好几个月没有去管他了，还是因为太懒，于是今天有空，就想写点啥，正好发现自己其实对这个博客还是很不了解，就，正好写一个简单的hexo的简单安装博客。 hexo博客的安装window10下安装 相关步骤 安装Node.js并配置好Node.js环境，并使用cmd输入命令查看  12node -vnp">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/19/hexo简单安装/node.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/19/hexo简单安装/"/>
+
+
+
+
+
+  <title>hexo简单安装 | 咸鱼黄</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">咸鱼黄</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">人生总有各种理由将一个人变成一条咸鱼</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/19/hexo简单安装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="咸鱼黄">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">hexo简单安装</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-19T19:10:40+08:00">
+                2019-01-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>自从上次吧hexo博客简单的搭建好并把vps上的wordpress为数不多的流水账博客搬运上去后，就已经好几个月没有去管他了，还是因为太懒，于是今天有空，就想写点啥，正好发现自己其实对这个博客还是很不了解，就，正好写一个简单的hexo的简单安装博客。</p>
+<h3 id="hexo博客的安装"><a href="#hexo博客的安装" class="headerlink" title="hexo博客的安装"></a>hexo博客的安装</h3><p>window10下安装</p>
+<h5 id="相关步骤"><a href="#相关步骤" class="headerlink" title="相关步骤"></a>相关步骤</h5><ol>
+<li>安装Node.js并配置好Node.js环境，并使用cmd输入命令查看</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/01/19/hexo简单安装/node.png" alt=""></p>
+<ol>
+<li>安装Git并配置Git环境，直接从官网下载安装，安装好后会又如图应用</li>
+</ol>
+<p><img src="/2019/01/19/hexo简单安装/Git.png" alt=""></p>
+<ol>
+<li>Github建立项目，项目必须要遵守格式：账户名.github.io，并勾选Initialize this repository with a README</li>
+</ol>
+<p><img src="/2019/01/19/hexo简单安装/GithubNew.png" alt=""></p>
+<p>建好这个项目后，得到一个网址:  saltedfishhuang.github.io,可以直接访问，但页面404</p>
+<ol>
+<li>安装Hexo，在合适的位置创建一个存博客的文件夹，因为我已经装好了，所以下面都借用网图，首先在cmd中cd到创建的文件夹下输入：<code>npm install hexo -g</code></li>
+</ol>
+<p><img src="/2019/01/19/hexo简单安装/npm-hexo.png" alt=""></p>
+<p>输入<code>hexo -v</code>,检查hexo是否安装成功</p>
+<p><img src="/2019/01/19/hexo简单安装/hexo-version.png" alt=""></p>
+<p>输入<code>hexo init</code>,初始化该文件夹</p>
+<p><img src="/2019/01/19/hexo简单安装/hexo-init1.png" alt=""></p>
+<p><img src="/2019/01/19/hexo简单安装/E:/blog\source\_posts\hexo简单安装\hexo-init2.png" alt=""></p>
+<p>输入<code>npm install</code>,安装所需要的组件</p>
+<p><img src="/2019/01/19/hexo简单安装/npm-install.png" alt=""></p>
+<p>输入<code>hexo g</code> ,本地生成页面</p>
+<p><img src="/2019/01/19/hexo简单安装/hexo-g.png" alt=""></p>
+<p>输入<code>hexo s</code> 开启本地服务，访问给出地址，可以本地浏览博客</p>
+<p><img src="/2019/01/19/hexo简单安装/hexo-s.png" alt=""></p>
+<p>如果长期无法跳转页面，可能是端口被占用，使用<code>ctrl+c</code>停止服务,输入<code>hexo server -p 端口号</code>来改变端口号</p>
+<p><img src="/2019/01/19/hexo简单安装/hexo-change-server-p.png" alt=""></p>
+<p>出现下图则成功</p>
+<p><img src="/2019/01/19/hexo简单安装/hexo-success.png" alt=""></p>
+<ol>
+<li><p>在博客文件夹下使用Git Bash，将Hexo和Github page联系起来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --glable user.name &quot;saltedfishhuang&quot;</span><br><span class="line">git config --globle user.email &quot;huangjiacheng528@gmail.com&quot;</span><br></pre></td></tr></table></figure>
+<p>输入<code>ssh-keygen -t rsa -C “huangjiacheng528@gamil.com”</code>，连续三个回车，生成密钥，最后得到了两个文件：id_rsa和id_rsa.pub（默认存储路径是：<code>C:\Users\Administrator\.ssh</code>）</p>
+</li>
+</ol>
+<p>hexo简单安装</p>
+<p> 输入<code>eval &quot;$(ssh-agent -s)&quot;</code>，添加密钥到ssh-agent</p>
+<p><img src="/2019/01/19/hexo简单安装/ssh2.png" alt=""></p>
+<p>再输入<code>ssh-add ~/.ssh/id_rsa</code>，添加生成的SSH key到ssh-agent</p>
+<p><img src="/2019/01/19/hexo简单安装/ssh3.png" alt=""></p>
+<p>在Github上，点击头像下的settings，添加ssh，新建一个new ssh key，将id_rsa.pub文件里的内容复制上去</p>
+<p><img src="/2019/01/19/hexo简单安装/GithubSSH.png" alt=""></p>
+<ol>
+<li><p>配置Deployment，在blog文件中中修改repo值</p>
+<p><img src="/2019/01/19/hexo简单安装/config.png" alt=""></p>
+</li>
+<li><p>在生成及部署博客前，安装扩展 <code>npm install hexo-deployer-git --save</code></p>
+</li>
+</ol>
+<p><img src="/2019/01/19/hexo简单安装/hexo-deployer.png" alt=""></p>
+<p>​    使用命令：<code>hexo d -g</code>，生成以及部署博客，访问http://用户名.github.io</p>
+<p><img src="/2019/01/19/hexo简单安装/finish.png" alt=""></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/11/从wordpress滚到hexo/" rel="next" title="从wordpress滚到hexo">
+                <i class="fa fa-chevron-left"></i> 从wordpress滚到hexo
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">瑟瑟发抖咸鱼黄</p>
+              <p class="site-description motion-element" itemprop="description">人生总有各种理由将一个人变成一条咸鱼</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo博客的安装"><span class="nav-number">1.</span> <span class="nav-text">hexo博客的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#相关步骤"><span class="nav-number">1.0.1.</span> <span class="nav-text">相关步骤</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">瑟瑟发抖咸鱼黄</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
