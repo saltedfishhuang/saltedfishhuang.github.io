@@ -355,7 +355,7 @@
 <h3 id="五、图片"><a href="#五、图片" class="headerlink" title="五、图片"></a>五、图片</h3><p>语法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">![图片alt](图片地址 &apos;&apos;图片title&apos;&apos;)</span><br><span class="line"></span><br><span class="line">图片alt就是显示在图片下面的文字，相当于对图片内容的解释。</span><br><span class="line">图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</span><br></pre></td></tr></table></figure>
 <p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![小姐姐](E:\blog\source\_posts\Markdown语法学习\1A14VZ8-5.jpg &quot;漫漫漫漫一点&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![小姐姐](Markdown语法学习\1A14VZ8-5.jpg &quot;漫漫漫漫一点&quot;)</span><br></pre></td></tr></table></figure>
 <p>效果如下：</p>
 <p><img src="/2019/01/19/Markdown语法学习/1A14VZ8-5.jpg" alt="小姐姐" title="漫漫漫漫一点"></p>
 <hr>
@@ -462,6 +462,8 @@
 <h3 id="十、流程图"><a href="#十、流程图" class="headerlink" title="十、流程图"></a>十、流程图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">​```flow</span><br><span class="line">st=&gt;start: 开始</span><br><span class="line">op=&gt;operation: My Operation</span><br><span class="line">cond=&gt;condition: Yes or No?</span><br><span class="line">e=&gt;end</span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br><span class="line">&amp;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">效果如下：</span><br><span class="line"></span><br><span class="line">```flow</span><br><span class="line">st=&gt;start: 开始</span><br><span class="line">op=&gt;operation: My Operation</span><br><span class="line">cond=&gt;condition: Yes or No?</span><br><span class="line">e=&gt;end</span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br><span class="line">&amp;</span><br></pre></td></tr></table></figure>
 <p><code>`</code></p>
+<hr>
+<h3 id="PS-一些注意事项"><a href="#PS-一些注意事项" class="headerlink" title="PS:一些注意事项"></a>PS:一些注意事项</h3><p>图片进行外连接跳转时使用<code>![***](博客名\***.jpg &quot;***&quot;)</code></p>
 
           
         
@@ -639,6 +641,7 @@
 <p><img src="/2019/01/19/hexo简单安装/hexo-deployer.png" alt=""></p>
 <p>​    使用命令：<code>hexo d -g</code>，生成以及部署博客，访问http://用户名.github.io</p>
 <p><img src="/2019/01/19/hexo简单安装/finish.png" alt=""></p>
+<h3 id="PS-使用过程中的一些命令和注意事项"><a href="#PS-使用过程中的一些命令和注意事项" class="headerlink" title="PS:使用过程中的一些命令和注意事项"></a>PS:使用过程中的一些命令和注意事项</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">hexo init [folder]        初始化网站</span><br><span class="line">hexo new/n &quot;博客名&quot;        新建一个博客</span><br><span class="line">hexo generate / hexo g    生成静态文件</span><br><span class="line">hexo deploy / hexo d      部署网站</span><br><span class="line">hexo server /hexo s       启动本地服务器</span><br><span class="line">hexo clean                清除缓存文件 db.json 和生成文件 public ，网站显示异常可执行此操作</span><br><span class="line">hexo --safe               安全模式，禁用加载插件和脚本，安装新插件出现问题可尝试此操作</span><br><span class="line">hexo --debug              调试模式，将详细消息记录到终端和 debug.log 文件</span><br><span class="line">hexo --silent             静默模式，静默输出到终端</span><br></pre></td></tr></table></figure>
 
           
         
