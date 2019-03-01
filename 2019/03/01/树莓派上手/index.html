@@ -79,36 +79,25 @@
 
 
 
-<meta name="description" content="自从上次吧hexo博客简单的搭建好并把vps上的wordpress为数不多的流水账博客搬运上去后，就已经好几个月没有去管他了，还是因为太懒，于是今天有空，就想写点啥，正好发现自己其实对这个博客还是很不了解，就，正好写一个简单的hexo的简单安装博客。 hexo博客的安装window10下安装 相关步骤 安装Node.js并配置好Node.js环境，并使用cmd输入命令查看  12node -vnp">
+<meta name="description" content="首先感谢富婆zz很久以前就打算买一个树莓派体验一下,一直也拖着没买，前几天在群里说了一下想买，富婆zz直接甩出一句，你要用的话，把我的拿过去就行。emmmmm，留下了贫穷的泪水，于是我就开始了我的树莓派白嫖之旅。 上手体验这次拿到的树莓派是Raspberry Pi 3 Model B，拿到手时，拆开包装还收那种电子器件新鲜的味道，基本就是全新的emmmmm  安装系统及配置镜像下载  拿到这个树莓">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo简单安装">
-<meta property="og:url" content="http://yoursite.com/2019/01/19/hexo简单安装/index.html">
+<meta property="og:title" content="树莓派上手">
+<meta property="og:url" content="http://yoursite.com/2019/03/01/树莓派上手/index.html">
 <meta property="og:site_name" content="咸鱼黄">
-<meta property="og:description" content="自从上次吧hexo博客简单的搭建好并把vps上的wordpress为数不多的流水账博客搬运上去后，就已经好几个月没有去管他了，还是因为太懒，于是今天有空，就想写点啥，正好发现自己其实对这个博客还是很不了解，就，正好写一个简单的hexo的简单安装博客。 hexo博客的安装window10下安装 相关步骤 安装Node.js并配置好Node.js环境，并使用cmd输入命令查看  12node -vnp">
+<meta property="og:description" content="首先感谢富婆zz很久以前就打算买一个树莓派体验一下,一直也拖着没买，前几天在群里说了一下想买，富婆zz直接甩出一句，你要用的话，把我的拿过去就行。emmmmm，留下了贫穷的泪水，于是我就开始了我的树莓派白嫖之旅。 上手体验这次拿到的树莓派是Raspberry Pi 3 Model B，拿到手时，拆开包装还收那种电子器件新鲜的味道，基本就是全新的emmmmm  安装系统及配置镜像下载  拿到这个树莓">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/node.png">
-<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/Git.png">
-<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/GithubNew.png">
-<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/npm-hexo.png">
-<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/hexo-version.png">
-<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/hexo-init1.png">
-<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/hexo-init2.png">
-<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/npm-install.png">
-<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/hexo-g.png">
-<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/hexo-s.png">
-<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/hexo-change-server-p.png">
-<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/hexo-success.png">
-<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/ssh2.png">
-<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/ssh3.png">
-<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/GithubSSH.png">
-<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/config.png">
-<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/hexo-deployer.png">
-<meta property="og:image" content="http://yoursite.com/2019/01/19/hexo简单安装/finish.png">
-<meta property="og:updated_time" content="2019-02-17T07:16:12.277Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/01/树莓派上手/package.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/01/树莓派上手/img.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/01/树莓派上手/Rufus.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/01/树莓派上手/config-ssh.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/01/树莓派上手/ssh-enable.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/01/树莓派上手/raspi-config.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/01/树莓派上手/5a4ca48c679b1.png">
+<meta property="og:updated_time" content="2019-03-01T13:16:18.156Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo简单安装">
-<meta name="twitter:description" content="自从上次吧hexo博客简单的搭建好并把vps上的wordpress为数不多的流水账博客搬运上去后，就已经好几个月没有去管他了，还是因为太懒，于是今天有空，就想写点啥，正好发现自己其实对这个博客还是很不了解，就，正好写一个简单的hexo的简单安装博客。 hexo博客的安装window10下安装 相关步骤 安装Node.js并配置好Node.js环境，并使用cmd输入命令查看  12node -vnp">
-<meta name="twitter:image" content="http://yoursite.com/2019/01/19/hexo简单安装/node.png">
+<meta name="twitter:title" content="树莓派上手">
+<meta name="twitter:description" content="首先感谢富婆zz很久以前就打算买一个树莓派体验一下,一直也拖着没买，前几天在群里说了一下想买，富婆zz直接甩出一句，你要用的话，把我的拿过去就行。emmmmm，留下了贫穷的泪水，于是我就开始了我的树莓派白嫖之旅。 上手体验这次拿到的树莓派是Raspberry Pi 3 Model B，拿到手时，拆开包装还收那种电子器件新鲜的味道，基本就是全新的emmmmm  安装系统及配置镜像下载  拿到这个树莓">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/01/树莓派上手/package.png">
 
 
 
@@ -138,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/19/hexo简单安装/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/01/树莓派上手/"/>
 
 
 
 
 
-  <title>hexo简单安装 | 咸鱼黄</title>
+  <title>树莓派上手 | 咸鱼黄</title>
   
 
 
@@ -254,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/19/hexo简单安装/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/01/树莓派上手/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
@@ -271,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo简单安装</h1>
+          <h1 class="post-title" itemprop="name headline">树莓派上手</h1>
         
 
         <div class="post-meta">
@@ -283,8 +272,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-19T19:10:40+08:00">
-                2019-01-19
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-01T20:28:32+08:00">
+                2019-03-01
               </time>
             
 
@@ -352,67 +341,22 @@
       
 
       
-        <p>自从上次吧hexo博客简单的搭建好并把vps上的wordpress为数不多的流水账博客搬运上去后，就已经好几个月没有去管他了，还是因为太懒，于是今天有空，就想写点啥，正好发现自己其实对这个博客还是很不了解，就，正好写一个简单的hexo的简单安装博客。</p>
-<h3 id="hexo博客的安装"><a href="#hexo博客的安装" class="headerlink" title="hexo博客的安装"></a>hexo博客的安装</h3><p>window10下安装</p>
-<h5 id="相关步骤"><a href="#相关步骤" class="headerlink" title="相关步骤"></a>相关步骤</h5><ol>
-<li>安装Node.js并配置好Node.js环境，并使用cmd输入命令查看</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/01/19/hexo简单安装/node.png" alt=""></p>
-<ol>
-<li>安装Git并配置Git环境，直接从官网下载安装，安装好后会又如图应用</li>
-</ol>
-<p><img src="/2019/01/19/hexo简单安装/Git.png" alt=""></p>
-<ol>
-<li>Github建立项目，项目必须要遵守格式：账户名.github.io，并勾选Initialize this repository with a README</li>
-</ol>
-<p><img src="/2019/01/19/hexo简单安装/GithubNew.png" alt=""></p>
-<p>建好这个项目后，得到一个网址:  saltedfishhuang.github.io,可以直接访问，但页面404</p>
-<ol>
-<li>安装Hexo，在合适的位置创建一个存博客的文件夹，因为我已经装好了，所以下面都借用网图，首先在cmd中cd到创建的文件夹下输入：<code>npm install hexo -g</code></li>
-</ol>
-<p><img src="/2019/01/19/hexo简单安装/npm-hexo.png" alt=""></p>
-<p>输入<code>hexo -v</code>,检查hexo是否安装成功</p>
-<p><img src="/2019/01/19/hexo简单安装/hexo-version.png" alt=""></p>
-<p>输入<code>hexo init</code>,初始化该文件夹</p>
-<p><img src="/2019/01/19/hexo简单安装/hexo-init1.png" alt=""></p>
-<p><img src="/2019/01/19/hexo简单安装/hexo-init2.png" alt=""></p>
-<p>输入<code>npm install</code>,安装所需要的组件</p>
-<p><img src="/2019/01/19/hexo简单安装/npm-install.png" alt=""></p>
-<p>输入<code>hexo g</code> ,本地生成页面</p>
-<p><img src="/2019/01/19/hexo简单安装/hexo-g.png" alt=""></p>
-<p>输入<code>hexo s</code> 开启本地服务，访问给出地址，可以本地浏览博客</p>
-<p><img src="/2019/01/19/hexo简单安装/hexo-s.png" alt=""></p>
-<p>如果长期无法跳转页面，可能是端口被占用，使用<code>ctrl+c</code>停止服务,输入<code>hexo server -p 端口号</code>来改变端口号</p>
-<p><img src="/2019/01/19/hexo简单安装/hexo-change-server-p.png" alt=""></p>
-<p>出现下图则成功</p>
-<p><img src="/2019/01/19/hexo简单安装/hexo-success.png" alt=""></p>
-<ol>
-<li><p>在博客文件夹下使用Git Bash，将Hexo和Github page联系起来</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --glable user.name &quot;saltedfishhuang&quot;</span><br><span class="line">git config --globle user.email &quot;huangjiacheng528@gmail.com&quot;</span><br></pre></td></tr></table></figure>
-<p>输入<code>ssh-keygen -t rsa -C “huangjiacheng528@gamil.com”</code>，连续三个回车，生成密钥，最后得到了两个文件：id_rsa和id_rsa.pub（默认存储路径是：<code>C:\Users\Administrator\.ssh</code>）</p>
-</li>
-</ol>
-<p>hexo简单安装</p>
-<p> 输入<code>eval &quot;$(ssh-agent -s)&quot;</code>，添加密钥到ssh-agent</p>
-<p><img src="/2019/01/19/hexo简单安装/ssh2.png" alt=""></p>
-<p>再输入<code>ssh-add ~/.ssh/id_rsa</code>，添加生成的SSH key到ssh-agent</p>
-<p><img src="/2019/01/19/hexo简单安装/ssh3.png" alt=""></p>
-<p>在Github上，点击头像下的settings，添加ssh，新建一个new ssh key，将id_rsa.pub文件里的内容复制上去</p>
-<p><img src="/2019/01/19/hexo简单安装/GithubSSH.png" alt=""></p>
-<ol>
-<li><p>配置Deployment，在blog文件中中修改repo值</p>
-<p><img src="/2019/01/19/hexo简单安装/config.png" alt=""></p>
-</li>
-<li><p>在生成及部署博客前，安装扩展 <code>npm install hexo-deployer-git --save</code></p>
-</li>
-</ol>
-<p><img src="/2019/01/19/hexo简单安装/hexo-deployer.png" alt=""></p>
-<p>​    使用命令：<code>hexo d -g</code>，生成以及部署博客，访问http://用户名.github.io</p>
-<p><img src="/2019/01/19/hexo简单安装/finish.png" alt=""></p>
-<h3 id="PS-使用过程中的一些命令和注意事项"><a href="#PS-使用过程中的一些命令和注意事项" class="headerlink" title="PS:使用过程中的一些命令和注意事项"></a>PS:使用过程中的一些命令和注意事项</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">hexo init [folder]        初始化网站</span><br><span class="line">hexo new/n &quot;博客名&quot;        新建一个博客</span><br><span class="line">hexo generate / hexo g    生成静态文件</span><br><span class="line">hexo deploy / hexo d      部署网站</span><br><span class="line">hexo server /hexo s       启动本地服务器</span><br><span class="line">hexo clean                清除缓存文件 db.json 和生成文件 public ，网站显示异常可执行此操作</span><br><span class="line">hexo --safe               安全模式，禁用加载插件和脚本，安装新插件出现问题可尝试此操作</span><br><span class="line">hexo --debug              调试模式，将详细消息记录到终端和 debug.log 文件</span><br><span class="line">hexo --silent             静默模式，静默输出到终端</span><br></pre></td></tr></table></figure>
-<h3 id="一些参考链接"><a href="#一些参考链接" class="headerlink" title="一些参考链接"></a>一些参考链接</h3><p><a href="https://cherryblog.site/categories/Hexo%E5%BB%BA%E7%AB%99/" target="_blank" rel="noopener">https://cherryblog.site/categories/Hexo%E5%BB%BA%E7%AB%99/</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/26625249?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/26625249?tdsourcetag=s_pctim_aiomsg</a></p>
+        <h3 id="首先感谢富婆zz"><a href="#首先感谢富婆zz" class="headerlink" title="首先感谢富婆zz"></a>首先感谢富婆zz</h3><p>很久以前就打算买一个树莓派体验一下,一直也拖着没买，前几天在群里说了一下想买，富婆zz直接甩出一句，你要用的话，把我的拿过去就行。emmmmm，留下了贫穷的泪水，于是我就开始了我的树莓派白嫖之旅。</p>
+<h3 id="上手体验"><a href="#上手体验" class="headerlink" title="上手体验"></a>上手体验</h3><p>这次拿到的树莓派是Raspberry Pi 3 Model B，拿到手时，拆开包装还收那种电子器件新鲜的味道，基本就是全新的emmmmm</p>
+<p><img src="/2019/03/01/树莓派上手/package.png" alt="package"></p>
+<h3 id="安装系统及配置"><a href="#安装系统及配置" class="headerlink" title="安装系统及配置"></a>安装系统及配置</h3><h4 id="镜像下载"><a href="#镜像下载" class="headerlink" title="镜像下载"></a>镜像下载</h4><p>  拿到这个树莓派时只有一个主机，需要自己哪内存卡重新装一个系统，于是我到官网上一次性下载了3个版本，防止装的时候出问题（立下flag），我下载的三个版本，从上到下依次为raspbian桌面+常见应用版，最简纯命令版，NOODS版。</p>
+<p><img src="/2019/03/01/树莓派上手/img.png" alt="img"></p>
+<h4 id="镜像烧录"><a href="#镜像烧录" class="headerlink" title="镜像烧录"></a>镜像烧录</h4><p>  我没有使用官方推荐的软件烧录到内存卡上，而是使用的Rufus 3.4.1430，这个软件不用安装，体量也很小，平常装系统烧录镜像我也是用的这个，非常方便！！！</p>
+<p><img src="/2019/03/01/树莓派上手/Rufus.png" alt="Rufus"></p>
+<p>没事千万不要立flag，在烧录镜像时就遇到了问题，下载的ROODS的包根本就无法打开，只有</p>
+<p>raspbian的两个镜像可以正常烧录，但是在烧录好后安装过程中又遇到了问题。</p>
+<p>完整版的系统烧录好后插入树莓派通电开机后，正常进入了系统，正常配置联网，修改pi的密码后，提示重启，这些都没有问题，可重启后进入用户登录界面后，输入密码不管怎样都是密码错误，即使直接修改密码后重新登陆也提示密码错误，经过多次尝试后，最后放弃了这个完整带有桌面的版本。</p>
+<p>最终下载的3个镜像只有最小的那个，纯命令的系统安装成功，并成功激活了root账号，安装了vim，重新配置了键盘模式  ，还开启了ssh。树莓派在现在的最简包中也可以直接开启ssh了，只需要输入<code>sudo raspi-congig</code></p>
+<p>然后按图片中的选择打开SSH就好。</p>
+<p><img src="/2019/03/01/树莓派上手/config-ssh.png" alt="config-ssh"></p>
+<p><img src="/2019/03/01/树莓派上手/ssh-enable.png" alt="ssh-enable"><img src="/2019/03/01/树莓派上手/raspi-config.png" alt="raspi-config"></p>
+<p>  最后顺便还换了一个中科大的源，毕竟本来的源那速度大家都懂emmmmm</p>
+<p><img src="/2019/03/01/树莓派上手/5a4ca48c679b1.png" alt="5a4ca48c679b1"></p>
 
       
     </div>
@@ -437,8 +381,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/11/从wordpress滚到hexo/" rel="next" title="从wordpress滚到hexo">
-                <i class="fa fa-chevron-left"></i> 从wordpress滚到hexo
+              <a href="/2019/01/19/Markdown语法学习/" rel="next" title="Markdown语法学习">
+                <i class="fa fa-chevron-left"></i> Markdown语法学习
               </a>
             
           </div>
@@ -446,10 +390,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/19/Markdown语法学习/" rel="prev" title="Markdown语法学习">
-                Markdown语法学习 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -601,7 +541,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo博客的安装"><span class="nav-number">1.</span> <span class="nav-text">hexo博客的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#相关步骤"><span class="nav-number">1.0.1.</span> <span class="nav-text">相关步骤</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PS-使用过程中的一些命令和注意事项"><span class="nav-number">2.</span> <span class="nav-text">PS:使用过程中的一些命令和注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些参考链接"><span class="nav-number">3.</span> <span class="nav-text">一些参考链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先感谢富婆zz"><span class="nav-number">1.</span> <span class="nav-text">首先感谢富婆zz</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上手体验"><span class="nav-number">2.</span> <span class="nav-text">上手体验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装系统及配置"><span class="nav-number">3.</span> <span class="nav-text">安装系统及配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#镜像下载"><span class="nav-number">3.1.</span> <span class="nav-text">镜像下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#镜像烧录"><span class="nav-number">3.2.</span> <span class="nav-text">镜像烧录</span></a></li></ol></li></ol></div>
             
 
           </div>

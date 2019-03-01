@@ -235,6 +235,172 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/01/树莓派上手/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="咸鱼黄">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/01/树莓派上手/" itemprop="url">树莓派上手</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-01T20:28:32+08:00">
+                2019-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="首先感谢富婆zz"><a href="#首先感谢富婆zz" class="headerlink" title="首先感谢富婆zz"></a>首先感谢富婆zz</h3><p>很久以前就打算买一个树莓派体验一下,一直也拖着没买，前几天在群里说了一下想买，富婆zz直接甩出一句，你要用的话，把我的拿过去就行。emmmmm，留下了贫穷的泪水，于是我就开始了我的树莓派白嫖之旅。</p>
+<h3 id="上手体验"><a href="#上手体验" class="headerlink" title="上手体验"></a>上手体验</h3><p>这次拿到的树莓派是Raspberry Pi 3 Model B，拿到手时，拆开包装还收那种电子器件新鲜的味道，基本就是全新的emmmmm</p>
+<p><img src="/2019/03/01/树莓派上手/package.png" alt="package"></p>
+<h3 id="安装系统及配置"><a href="#安装系统及配置" class="headerlink" title="安装系统及配置"></a>安装系统及配置</h3><h4 id="镜像下载"><a href="#镜像下载" class="headerlink" title="镜像下载"></a>镜像下载</h4><p>  拿到这个树莓派时只有一个主机，需要自己哪内存卡重新装一个系统，于是我到官网上一次性下载了3个版本，防止装的时候出问题（立下flag），我下载的三个版本，从上到下依次为raspbian桌面+常见应用版，最简纯命令版，NOODS版。</p>
+<p><img src="/2019/03/01/树莓派上手/img.png" alt="img"></p>
+<h4 id="镜像烧录"><a href="#镜像烧录" class="headerlink" title="镜像烧录"></a>镜像烧录</h4><p>  我没有使用官方推荐的软件烧录到内存卡上，而是使用的Rufus 3.4.1430，这个软件不用安装，体量也很小，平常装系统烧录镜像我也是用的这个，非常方便！！！</p>
+<p><img src="/2019/03/01/树莓派上手/Rufus.png" alt="Rufus"></p>
+<p>没事千万不要立flag，在烧录镜像时就遇到了问题，下载的ROODS的包根本就无法打开，只有</p>
+<p>raspbian的两个镜像可以正常烧录，但是在烧录好后安装过程中又遇到了问题。</p>
+<p>完整版的系统烧录好后插入树莓派通电开机后，正常进入了系统，正常配置联网，修改pi的密码后，提示重启，这些都没有问题，可重启后进入用户登录界面后，输入密码不管怎样都是密码错误，即使直接修改密码后重新登陆也提示密码错误，经过多次尝试后，最后放弃了这个完整带有桌面的版本。</p>
+<p>最终下载的3个镜像只有最小的那个，纯命令的系统安装成功，并成功激活了root账号，安装了vim，重新配置了键盘模式  ，还开启了ssh。树莓派在现在的最简包中也可以直接开启ssh了，只需要输入<code>sudo raspi-congig</code></p>
+<p>然后按图片中的选择打开SSH就好。</p>
+<p><img src="/2019/03/01/树莓派上手/config-ssh.png" alt="config-ssh"></p>
+<p><img src="/2019/03/01/树莓派上手/ssh-enable.png" alt="ssh-enable"><img src="/2019/03/01/树莓派上手/raspi-config.png" alt="raspi-config"></p>
+<p>  最后顺便还换了一个中科大的源，毕竟本来的源那速度大家都懂emmmmm</p>
+<p><img src="/2019/03/01/树莓派上手/5a4ca48c679b1.png" alt="5a4ca48c679b1"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/19/Markdown语法学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -910,6 +1076,160 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/05/咸鱼咸鱼咸鱼咸/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="咸鱼黄">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/05/咸鱼咸鱼咸鱼咸/" itemprop="url">咸鱼咸鱼咸鱼咸~~~</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-05T09:22:59+08:00">
+                2018-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>暑假工作室8月9号结束了培训，本来是打算直接在学校呆到开学的</p>
+<p>结果突发奇想中午买了去金华的火车票，晚上就去了浙江emmmm然后就变成了一条咸鱼，整天咸咸咸咸咸，工作室的作业也没有写完，自己的其他学习也只是看了一丢丢</p>
+<p>就这样闲到了23号返校,准备补考大雾，中途得知补考时间推迟，又变成一条咸鱼，直到现在已经开学，补考也临近</p>
+<p>emmmm我要反思（狗头）（狗头）（狗头）<br>热爱生活！！！热爱自由！！！！</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/02/暑假留校的一些学习感受/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1262,7 +1582,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
