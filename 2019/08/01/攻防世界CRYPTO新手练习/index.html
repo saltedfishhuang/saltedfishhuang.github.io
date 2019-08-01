@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CTF CRYPTO," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="0x01 base64直接base64 Decode  得到flag cyberpeace{Welcome_to_new_World!} 0x02 Caesarkey为12 的恺撒密码，解密德flag cyberpeace{you_have_learned_caesar_encryption} Tools：http://www.zjslove.com/3.decode/kaisa/index.ht">
+<meta name="keywords" content="CTF CRYPTO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="攻防世界CRYPTO新手练习">
+<meta property="og:url" content="http://yoursite.com/2019/08/01/攻防世界CRYPTO新手练习/index.html">
+<meta property="og:site_name" content="咸鱼黄">
+<meta property="og:description" content="0x01 base64直接base64 Decode  得到flag cyberpeace{Welcome_to_new_World!} 0x02 Caesarkey为12 的恺撒密码，解密德flag cyberpeace{you_have_learned_caesar_encryption} Tools：http://www.zjslove.com/3.decode/kaisa/index.ht">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/08/01/攻防世界CRYPTO新手练习/0401.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/08/01/攻防世界CRYPTO新手练习/0801.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/01/攻防世界CRYPTO新手练习/0802.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/01/攻防世界CRYPTO新手练习/0803.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/01/攻防世界CRYPTO新手练习/23333.jpg">
+<meta property="og:updated_time" content="2019-08-01T13:04:06.698Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="攻防世界CRYPTO新手练习">
+<meta name="twitter:description" content="0x01 base64直接base64 Decode  得到flag cyberpeace{Welcome_to_new_World!} 0x02 Caesarkey为12 的恺撒密码，解密德flag cyberpeace{you_have_learned_caesar_encryption} Tools：http://www.zjslove.com/3.decode/kaisa/index.ht">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/01/攻防世界CRYPTO新手练习/0401.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/01/攻防世界CRYPTO新手练习/"/>
+
+
+
+
+
+  <title>攻防世界CRYPTO新手练习 | 咸鱼黄</title>
+  
+
+
+
+
+
+
+
+
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">咸鱼黄</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">人生总有各种理由将一个人变成一条咸鱼</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/01/攻防世界CRYPTO新手练习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="咸鱼黄">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">攻防世界CRYPTO新手练习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-01T15:46:33+08:00">
+                2019-08-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="0x01-base64"><a href="#0x01-base64" class="headerlink" title="0x01 base64"></a>0x01 base64</h2><p>直接base64 Decode  得到flag <code>cyberpeace{Welcome_to_new_World!}</code></p>
+<h2 id="0x02-Caesar"><a href="#0x02-Caesar" class="headerlink" title="0x02 Caesar"></a>0x02 Caesar</h2><p>key为12 的恺撒密码，解密德flag <code>cyberpeace{you_have_learned_caesar_encryption}</code></p>
+<p>Tools：<a href="http://www.zjslove.com/3.decode/kaisa/index.html" target="_blank" rel="noopener">http://www.zjslove.com/3.decode/kaisa/index.html</a></p>
+<h2 id="0x03-Morse"><a href="#0x03-Morse" class="headerlink" title="0x03 Morse"></a>0x03 Morse</h2><p>摩斯密码 1替换成<code>-</code>,0替换成<code>.</code>,直接解密</p>
+<p><code>11 111 010 000 0 1010 111 100 0 00 000 000 111 00 10 1 0 010 0 000 1 00 10 110</code></p>
+<p><code>-- --- .-. ... . -.-. --- -.. . .. ... ... --- .. -. - . .-. . ... - .. -. --.</code></p>
+<p>解密得到flag <code>cyberpeace{morsecodeissointeresting}</code></p>
+<p>贴出大佬的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"># python3</span><br><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">CODE_TABLE = &#123;</span><br><span class="line">    # 26 个英文字符</span><br><span class="line">    &apos;A&apos;: &apos;.-&apos;, &apos;B&apos;: &apos;-...&apos;, &apos;C&apos;: &apos;-.-.&apos;,</span><br><span class="line">    &apos;D&apos;: &apos;-..&apos;, &apos;E&apos;: &apos;.&apos;, &apos;F&apos;: &apos;..-.&apos;,</span><br><span class="line">    &apos;G&apos;: &apos;--.&apos;, &apos;H&apos;: &apos;....&apos;, &apos;I&apos;: &apos;..&apos;,</span><br><span class="line">    &apos;J&apos;: &apos;.---&apos;, &apos;K&apos;: &apos;-.-&apos;, &apos;L&apos;: &apos;.-..&apos;,</span><br><span class="line">    &apos;M&apos;: &apos;--&apos;, &apos;N&apos;: &apos;-.&apos;, &apos;O&apos;: &apos;---&apos;,</span><br><span class="line">    &apos;P&apos;: &apos;.--.&apos;, &apos;Q&apos;: &apos;--.-&apos;, &apos;R&apos;: &apos;.-.&apos;,</span><br><span class="line">    &apos;S&apos;: &apos;...&apos;, &apos;T&apos;: &apos;-&apos;, &apos;U&apos;: &apos;..-&apos;,</span><br><span class="line">    &apos;V&apos;: &apos;...-&apos;, &apos;W&apos;: &apos;.--&apos;, &apos;X&apos;: &apos;-..-&apos;,</span><br><span class="line">    &apos;Y&apos;: &apos;-.--&apos;, &apos;Z&apos;: &apos;--..&apos;,</span><br><span class="line"></span><br><span class="line">    # 10 个数字</span><br><span class="line">    &apos;0&apos;: &apos;-----&apos;, &apos;1&apos;: &apos;.----&apos;, &apos;2&apos;: &apos;..---&apos;,</span><br><span class="line">    &apos;3&apos;: &apos;...--&apos;, &apos;4&apos;: &apos;....-&apos;, &apos;5&apos;: &apos;.....&apos;,</span><br><span class="line">    &apos;6&apos;: &apos;-....&apos;, &apos;7&apos;: &apos;--...&apos;, &apos;8&apos;: &apos;---..&apos;,</span><br><span class="line">    &apos;9&apos;: &apos;----.&apos;,</span><br><span class="line"></span><br><span class="line">    # 16 个特殊字符</span><br><span class="line">    &apos;,&apos;: &apos;--..--&apos;, &apos;.&apos;: &apos;.-.-.-&apos;, &apos;:&apos;: &apos;---...&apos;, &apos;;&apos;: &apos;-.-.-.&apos;,</span><br><span class="line">    &apos;?&apos;: &apos;..--..&apos;, &apos;=&apos;: &apos;-...-&apos;, &quot;&apos;&quot;: &apos;.----.&apos;, &apos;/&apos;: &apos;-..-.&apos;,</span><br><span class="line">    &apos;!&apos;: &apos;-.-.--&apos;, &apos;-&apos;: &apos;-....-&apos;, &apos;_&apos;: &apos;..--.-&apos;, &apos;(&apos;: &apos;-.--.&apos;,</span><br><span class="line">    &apos;)&apos;: &apos;-.--.-&apos;, &apos;$&apos;: &apos;...-..-&apos;, &apos;&amp;&apos;: &apos;. . . .&apos;, &apos;@&apos;: &apos;.--.-.&apos;</span><br><span class="line"></span><br><span class="line">    # 你还可以自定义</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">def morsedecode(morse):</span><br><span class="line">    msg =&apos;&apos;</span><br><span class="line">    codes = morse.split(&apos; &apos;)</span><br><span class="line">    for code in codes:</span><br><span class="line">        if code ==&apos;&apos;:</span><br><span class="line">            msg += &apos; &apos;</span><br><span class="line">        else:</span><br><span class="line">            UNCODE =dict(map(lambda t:(t[1],t[0]),CODE_TABLE.items()))</span><br><span class="line">            msg += UNCODE[code]</span><br><span class="line">    return msg</span><br><span class="line"></span><br><span class="line">a = open(r&apos;crypto3.txt&apos;,&apos;r&apos;)</span><br><span class="line">ciphertext = a.read()</span><br><span class="line"></span><br><span class="line">ciphertext = ciphertext.replace(&apos;1&apos;,&apos;-&apos;)</span><br><span class="line">ciphertext = ciphertext.replace(&apos;0&apos;,&apos;.&apos;)</span><br><span class="line"></span><br><span class="line">FLAG = morsedecode(ciphertext)</span><br><span class="line">flag = FLAG.lower()</span><br><span class="line">flag = &apos;cyberpeace&#123;&apos;+flag+&apos;&#125;&apos;</span><br><span class="line">print(&apos;flag is &apos;,flag)</span><br></pre></td></tr></table></figure>
+<h2 id="0x04-Railfence"><a href="#0x04-Railfence" class="headerlink" title="0x04 Railfence"></a>0x04 Railfence</h2><p>栅栏密码，栏数为5，解出来flag为 <code>cyberpeace{railfence_cipher_gogogo}0</code></p>
+<p>网上很多人都在这里遇到了问题，表示无法得出答案，其实这里主要的原因是国内外对栅栏密码的加密原理相同当实际过程有些不同，这道题就需要用国外的解密方法来解密</p>
+<p>贴张网图了解一下</p>
+<p><img src="/2019/08/01/攻防世界CRYPTO新手练习/0401.jpg" alt="0401"></p>
+<p>国内解密 <a href="https://www.qqxiuzi.cn/bianma/zhalanmima.php" target="_blank" rel="noopener">https://www.qqxiuzi.cn/bianma/zhalanmima.php</a></p>
+<p>国外解密 <a href="http://www.atoolbox.net/Tool.php?Id=777" target="_blank" rel="noopener">http://www.atoolbox.net/Tool.php?Id=777</a></p>
+<h2 id="0x05-easy-RSA"><a href="#0x05-easy-RSA" class="headerlink" title="0x05 easy RSA"></a>0x05 easy RSA</h2><p>一个RSA加密，直接贴出代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import gmpy2</span><br><span class="line"></span><br><span class="line">p = 473398607161</span><br><span class="line">q = 4511491</span><br><span class="line">e = 17</span><br><span class="line"></span><br><span class="line">s = (p-1)*(q-1)</span><br><span class="line">d = gmpy2.invert(e,s)</span><br><span class="line">print(&apos;flag is :&apos;,d)</span><br></pre></td></tr></table></figure>
+<p>得flag  ： <code>cyberpeace{125631357777427553}</code></p>
+<h2 id="0X06-不仅仅是Morse"><a href="#0X06-不仅仅是Morse" class="headerlink" title="0X06 不仅仅是Morse"></a>0X06 不仅仅是Morse</h2><p>下载得文件是这样的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--/.-/-.--/..--.-/-..././..--.-/..../.-/...-/./..--.-/.-/-./---/-/...././.-./..--.-/-.././-.-./---/-.././..../..../..../..../.-/.-/.-/.-/.-/-.../.-/.-/-.../-.../-.../.-/.-/-.../-.../.-/.-/.-/.-/.-/.-/.-/.-/-.../.-/.-/-.../.-/-.../.-/.-/.-/.-/.-/.-/.-/-.../-.../.-/-.../.-/.-/.-/-.../-.../.-/.-/.-/-.../-.../.-/.-/-.../.-/.-/.-/.-/-.../.-/-.../.-/.-/-.../.-/.-/.-/-.../-.../.-/-.../.-/.-/.-/-.../.-/.-/.-/-.../.-/.-/-.../.-/-.../-.../.-/.-/-.../-.../-.../.-/-.../.-/.-/.-/-.../.-/-.../.-/-.../-.../.-/.-/.-/-.../-.../.-/-.../.-/.-/.-/-.../.-/.-/-.../.-/.-/-.../.-/.-/.-/.-/-.../-.../.-/-.../-.../.-/.-/-.../-.../.-/.-/-.../.-/.-/-.../.-/.-/.-/-.../.-/.-/-.../.-/.-/-.../.-/.-/-.../.-/-.../.-/.-/-.../-.../.-/-.../.-/.-/.-/.-/-.../-.../.-/-.../.-/.-/-.../-.../.-</span><br></pre></td></tr></table></figure>
+<p>讲<code>/</code>替换成空格，可得到一串摩斯密码，解密后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AAAAABAABBBAABBAAAAAAAABAABABAAAAAAABBABAAABBAAABBAABAAAABABAABAAABBABAAABAAABAABABBAABBBABAAABABABBAAABBABAAABAABAABAAAABBABBAABBAABAABAAABAABAABAABABAABBABAAAABBABAABBA</span><br></pre></td></tr></table></figure>
+<p>培根密码，贴出(大佬的)解密代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line"></span><br><span class="line"># 密文转化为指定格式</span><br><span class="line">s = &apos;AAAAABAABBBAABBAAAAAAAABAABABAAAAAAABBABAAABBAAABBAABAAAABABAABAAABBABAAABAAABAABABBAABBBABAAABABABBAAABBABAAABAABAABAAAABBABBAABBAABAABAAABAABAABAABABAABBABAAAABBABAABBA&apos;</span><br><span class="line">a = s.lower()</span><br><span class="line"></span><br><span class="line"># 字典</span><br><span class="line">CODE_TABLE = &#123;</span><br><span class="line">    &apos;a&apos;:&apos;aaaaa&apos;,&apos;b&apos;:&apos;aaaab&apos;,&apos;c&apos;:&apos;aaaba&apos;,&apos;d&apos;:&apos;aaabb&apos;,&apos;e&apos;:&apos;aabaa&apos;,&apos;f&apos;:&apos;aabab&apos;,&apos;g&apos;:&apos;aabba&apos;,</span><br><span class="line">    &apos;h&apos;:&apos;aabbb&apos;,&apos;i&apos;:&apos;abaaa&apos;,&apos;j&apos;:&apos;abaab&apos;,&apos;k&apos;:&apos;ababa&apos;,&apos;l&apos;:&apos;ababb&apos;,&apos;m&apos;:&apos;abbaa&apos;,&apos;n&apos;:&apos;abbab&apos;,</span><br><span class="line">    &apos;o&apos;:&apos;abbba&apos;,&apos;p&apos;:&apos;abbbb&apos;,&apos;q&apos;:&apos;baaaa&apos;,&apos;r&apos;:&apos;baaab&apos;,&apos;s&apos;:&apos;baaba&apos;,&apos;t&apos;:&apos;baabb&apos;,&apos;u&apos;:&apos;babaa&apos;,</span><br><span class="line">    &apos;v&apos;:&apos;babab&apos;,&apos;w&apos;:&apos;babba&apos;,&apos;x&apos;:&apos;babbb&apos;,&apos;y&apos;:&apos;bbaaa&apos;,&apos;z&apos;:&apos;bbaab&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 5个一组进行切割并解密</span><br><span class="line">def peigendecode(peigen):</span><br><span class="line">    msg =&apos;&apos;</span><br><span class="line">    codes = re.findall(r&apos;.&#123;5&#125;&apos;, a)</span><br><span class="line">    for code in codes:</span><br><span class="line">        if code ==&apos;&apos;:</span><br><span class="line">            msg += &apos; &apos;</span><br><span class="line">        else:</span><br><span class="line">            UNCODE =dict(map(lambda t:(t[1],t[0]),CODE_TABLE.items()))</span><br><span class="line">            msg += UNCODE[code]</span><br><span class="line">    return msg</span><br><span class="line"></span><br><span class="line">flag = peigendecode(a)</span><br><span class="line">print(&apos;flag is &apos;,flag)</span><br></pre></td></tr></table></figure>
+<p>得到flag <code>cyberpeace{attackanddefenceworldisinteresting}</code></p>
+<h2 id="0x07-混合编码"><a href="#0x07-混合编码" class="headerlink" title="0x07 混合编码"></a>0x07 混合编码</h2><p>先base64 Decode 解得</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp;#76;&amp;#122;&amp;#69;&amp;#120;&amp;#79;&amp;#83;&amp;#56;&amp;#120;&amp;#77;&amp;#68;&amp;#69;&amp;#118;&amp;#77;&amp;#84;&amp;#65;&amp;#52;&amp;#76;&amp;#122;&amp;#107;&amp;#53;&amp;#76;&amp;#122;&amp;#69;&amp;#120;&amp;#77;&amp;#83;&amp;#56;&amp;#120;&amp;#77;&amp;#68;&amp;#107;&amp;#118;&amp;#77;&amp;#84;&amp;#65;&amp;#120;&amp;#76;&amp;#122;&amp;#69;&amp;#120;&amp;#78;&amp;#105;&amp;#56;&amp;#120;&amp;#77;&amp;#84;&amp;#69;&amp;#118;&amp;#79;&amp;#84;&amp;#99;&amp;#118;&amp;#77;&amp;#84;&amp;#69;&amp;#50;&amp;#76;&amp;#122;&amp;#69;&amp;#120;&amp;#78;&amp;#105;&amp;#56;&amp;#53;&amp;#78;&amp;#121;&amp;#56;&amp;#53;&amp;#79;&amp;#83;&amp;#56;&amp;#120;&amp;#77;&amp;#68;&amp;#99;&amp;#118;&amp;#79;&amp;#84;&amp;#99;&amp;#118;&amp;#77;&amp;#84;&amp;#69;&amp;#119;&amp;#76;&amp;#122;&amp;#69;&amp;#119;&amp;#77;&amp;#67;&amp;#56;&amp;#120;&amp;#77;&amp;#68;&amp;#65;&amp;#118;&amp;#77;&amp;#84;&amp;#65;&amp;#120;&amp;#76;&amp;#122;&amp;#69;&amp;#119;&amp;#77;&amp;#105;&amp;#56;&amp;#120;&amp;#77;&amp;#68;&amp;#69;&amp;#118;&amp;#77;&amp;#84;&amp;#69;&amp;#119;&amp;#76;&amp;#122;&amp;#107;&amp;#53;&amp;#76;&amp;#122;&amp;#69;&amp;#119;&amp;#77;&amp;#83;&amp;#56;&amp;#120;&amp;#77;&amp;#84;&amp;#107;&amp;#118;&amp;#77;&amp;#84;&amp;#69;&amp;#120;&amp;#76;&amp;#122;&amp;#69;&amp;#120;&amp;#78;&amp;#67;&amp;#56;&amp;#120;&amp;#77;&amp;#68;&amp;#103;&amp;#118;&amp;#77;&amp;#84;&amp;#65;&amp;#119;</span><br></pre></td></tr></table></figure>
+<p>更具ASCII转成字符串可得</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LzExOS8xMDEvMTA4Lzk5LzExMS8xMDkvMTAxLzExNi8xMTEvOTcvMTE2LzExNi85Ny85OS8xMDcvOTcvMTEwLzEwMC8xMDAvMTAxLzEwMi8xMDEvMTEwLzk5LzEwMS8xMTkvMTExLzExNC8xMDgvMTAw</span><br></pre></td></tr></table></figure>
+<p>在进行一次base64 Decode</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/119/101/108/99/111/109/101/116/111/97/116/116/97/99/107/97/110/100/100/101/102/101/110/99/101/119/111/114/108/100</span><br></pre></td></tr></table></figure>
+<p>去掉<code>/</code>再转一次字符串得到答案<code>welcometoattackanddefenceworld</code></p>
+<p>顺便贴一个大佬的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">import base64</span><br><span class="line"></span><br><span class="line">a = open(r&apos;crypto8.txt&apos;,&apos;r&apos;)</span><br><span class="line">s = a.read()</span><br><span class="line"></span><br><span class="line"># base64解密一下</span><br><span class="line">b = base64.b64decode(s).decode(&apos;ascii&apos;)</span><br><span class="line"># 对解密后的字符串进行处理</span><br><span class="line">b = b.strip(&apos;&amp;#;&apos;)</span><br><span class="line">c = []</span><br><span class="line">c = b.split(&apos;;&amp;#&apos;)</span><br><span class="line"># unicode解密</span><br><span class="line">d = &apos;&apos;</span><br><span class="line">for i in c:</span><br><span class="line">    d += chr(int(i))</span><br><span class="line"># base64再次解密</span><br><span class="line">e = base64.b64decode(d).decode(&apos;ascii&apos;)</span><br><span class="line"># 对字符进行处理</span><br><span class="line">e = e.strip(&apos;/&apos;)</span><br><span class="line">f = []</span><br><span class="line">f = e.split(&apos;/&apos;)</span><br><span class="line"># 转化为ascii码</span><br><span class="line">flag =&apos;&apos;</span><br><span class="line">for i in f:</span><br><span class="line">    flag += chr(int(i))</span><br><span class="line">print(&apos;flag is &apos;,flag)</span><br></pre></td></tr></table></figure>
+<p>flag  :  <code>cyberpeace{welcometoattackanddefenceworld}</code></p>
+<h2 id="0x08-Normal-RSA"><a href="#0x08-Normal-RSA" class="headerlink" title="0x08 Normal RSA"></a>0x08 Normal RSA</h2><p>这道题主要考察得是RSAtool的使用，我都在kail里操作</p>
+<p>先准备rsatool</p>
+<p><code>git clone https://github.com/ius/rsatool</code></p>
+<p>下载文件解压后得到<code>flag.enc</code>和<code>pubkey.pem</code>两个文件</p>
+<p>openssl提取出pubkey.pem中的参数；</p>
+<p><code>openssl rsa -pubin -text -modulus -in warmup -in pubkey.pem</code></p>
+<p><img src="/2019/08/01/攻防世界CRYPTO新手练习/0801.png" alt="0801"></p>
+<p>将得到的Modulus 16进制转为10进制，得到</p>
+<p><code>87924348264132406875276140514499937145050893665602592992418171647042491658461</code></p>
+<p>使用kail的<code>factor()将</code>这个数分解成两个素数的乘积时，直接报错了，应该是太长了，所以使用在线工具进行分解</p>
+<p>在线：<a href="https://links.jianshu.com/go?to=http%3A%2F%2Fwww.factordb.com%2F" target="_blank" rel="noopener">http://www.factordb.com/</a>  分解得：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">275127860351348928173285174381581152299 </span><br><span class="line">319576316814478949870590164193048041239</span><br></pre></td></tr></table></figure>
+<p>知道两个素数，随机定义大素数e,求出密钥文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python rsatool.py -o private.pem -e 65537 -p 275127860351348928173285174381581152299 -q 319576316814478949870590164193048041239</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/08/01/攻防世界CRYPTO新手练习/0802.png" alt="0802"></p>
+<p>这时候我们会得到一个private.pem文件，利用这个文件进行解密</p>
+<p><code>openssl rsautl -decrypt -in flag.enc -inkey private.pem</code></p>
+<p><img src="/2019/08/01/攻防世界CRYPTO新手练习/0803.png" alt="0803"></p>
+<p>得到flag  ： <code>PCTF{256b_i5_m3dium}</code></p>
+<h2 id="0x09-轮转机加密"><a href="#0x09-轮转机加密" class="headerlink" title="0x09 轮转机加密"></a>0x09 轮转机加密</h2><p>题目如此，轮转机加密</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">1:  &lt; ZWAXJGDLUBVIQHKYPNTCRMOSFE &lt;</span><br><span class="line">2:  &lt; KPBELNACZDTRXMJQOYHGVSFUWI &lt;</span><br><span class="line">3:  &lt; BDMAIZVRNSJUWFHTEQGYXPLOCK &lt;</span><br><span class="line">4:  &lt; RPLNDVHGFCUKTEBSXQYIZMJWAO &lt;</span><br><span class="line">5:  &lt; IHFRLABEUOTSGJVDKCPMNZQWXY &lt;</span><br><span class="line">6:  &lt; AMKGHIWPNYCJBFZDRUSLOQXVET &lt;</span><br><span class="line">7:  &lt; GWTHSPYBXIZULVKMRAFDCEONJQ &lt;</span><br><span class="line">8:  &lt; NOZUTWDCVRJLXKISEFAPMYGHBQ &lt;</span><br><span class="line">9:  &lt; XPLTDSRFHENYVUBMCQWAOIKZGJ &lt;</span><br><span class="line">10: &lt; UDNAJFBOWTGVRSCZQKELMXYIHP &lt;</span><br><span class="line">11： &lt; MNBVCXZQWERTPOIUYALSKDJFHG &lt;</span><br><span class="line">12： &lt; LVNCMXZPQOWEIURYTASBKJDFHG &lt;</span><br><span class="line">13： &lt; JZQAWSXCDERFVBGTYHNUMKILOP &lt;</span><br><span class="line"></span><br><span class="line">密钥为：2,3,7,5,13,12,9,1,8,10,4,11,6</span><br><span class="line">密文为：NFQKSEVOQOFNP</span><br></pre></td></tr></table></figure>
+<p>直接贴出大佬的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">import re</span><br><span class="line"></span><br><span class="line">sss = &apos;1: &lt; ZWAXJGDLUBVIQHKYPNTCRMOSFE &lt; 2: &lt; KPBELNACZDTRXMJQOYHGVSFUWI &lt; 3: &lt; BDMAIZVRNSJUWFHTEQGYXPLOCK &lt; 4: &lt; RPLNDVHGFCUKTEBSXQYIZMJWAO &lt; 5: &lt; IHFRLABEUOTSGJVDKCPMNZQWXY &lt; 6: &lt; AMKGHIWPNYCJBFZDRUSLOQXVET &lt; 7: &lt; GWTHSPYBXIZULVKMRAFDCEONJQ &lt; 8: &lt; NOZUTWDCVRJLXKISEFAPMYGHBQ &lt; 9: &lt; XPLTDSRFHENYVUBMCQWAOIKZGJ &lt; 10: &lt; UDNAJFBOWTGVRSCZQKELMXYIHP &lt; 11 &lt; MNBVCXZQWERTPOIUYALSKDJFHG &lt; 12 &lt; LVNCMXZPQOWEIURYTASBKJDFHG &lt; 13 &lt; JZQAWSXCDERFVBGTYHNUMKILOP &lt;&apos;</span><br><span class="line">m = &apos;NFQKSEVOQOFNP&apos;</span><br><span class="line"># 将sss转化为列表形式</span><br><span class="line">content=re.findall(r&apos;&lt; (.*?) &lt;&apos;,sss,re.S)</span><br><span class="line"># re.S:DOTALL，此模式下，&quot;.&quot;的匹配不受限制，可匹配任何字符，包括换行符</span><br><span class="line">iv=[2,3,7,5,13,12,9,1,8,10,4,11,6]</span><br><span class="line">print(content)</span><br><span class="line">vvv=[]</span><br><span class="line">for i in range(13):</span><br><span class="line">    index=content[iv[i]-1].index(m[i])</span><br><span class="line">    vvv.append(index)</span><br><span class="line">print(vvv)</span><br><span class="line"></span><br><span class="line">for i in range(0,26):</span><br><span class="line">    flag=&quot;&quot;</span><br><span class="line">    for j in range(13):</span><br><span class="line">        flag += content[iv[j]-1][(vvv[j]+i)%26]</span><br><span class="line">    print(flag.lower())</span><br></pre></td></tr></table></figure>
+<p>得到flag  <code>cyberpeace{fireinthehole}</code></p>
+<h2 id="0x10-easychallenge"><a href="#0x10-easychallenge" class="headerlink" title="0x10  easychallenge"></a>0x10  easychallenge</h2><p>pyc时是将python的py程序编译成的中间式文件，这道题我们需要将其反编译成我们可读的py代码</p>
+<p><a href="https://links.jianshu.com/go?to=https%3A%2F%2Ftool.lu%2Fpyc%2F" target="_blank" rel="noopener">在线反编译pyc</a></p>
+<p>反编译结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python</span><br><span class="line"># encoding: utf-8</span><br><span class="line"># 如果觉得不错，可以推荐给你的朋友！http://tool.lu/pyc</span><br><span class="line">import base64</span><br><span class="line"></span><br><span class="line">def encode1(ans):</span><br><span class="line">    s = &apos;&apos;</span><br><span class="line">    for i in ans:</span><br><span class="line">        x = ord(i) ^ 36</span><br><span class="line">        x = x + 25</span><br><span class="line">        s += chr(x)   </span><br><span class="line">    return s</span><br><span class="line">    </span><br><span class="line">def encode2(ans):</span><br><span class="line">    s = &apos;&apos;</span><br><span class="line">    for i in ans:</span><br><span class="line">        x = ord(i) + 36</span><br><span class="line">        x = x ^ 36</span><br><span class="line">        s += chr(x) </span><br><span class="line">    return s</span><br><span class="line">    </span><br><span class="line">def encode3(ans):</span><br><span class="line">    return base64.b32encode(ans)</span><br><span class="line">    </span><br><span class="line">flag = &apos; &apos;</span><br><span class="line">print &apos;Please Input your flag:&apos;</span><br><span class="line">flag = raw_input()</span><br><span class="line">final = &apos;UC7KOWVXWVNKNIC2XCXKHKK2W5NLBKNOUOSK3LNNVWW3E===&apos;</span><br><span class="line">if encode3(encode2(encode1(flag))) == final:</span><br><span class="line">    print &apos;correct&apos;</span><br><span class="line">else:</span><br><span class="line">    print &apos;wrong&apos;</span><br></pre></td></tr></table></figure>
+<p>分析代码，输入的flag需要进行三次加密（??），想求答案，写段代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import base64</span><br><span class="line"></span><br><span class="line">key = &apos;UC7KOWVXWVNKNIC2XCXKHKK2W5NLBKNOUOSK3LNNVWW3E===&apos;</span><br><span class="line">temp = base64.b32decode(key)</span><br><span class="line">#可得temp为&apos;\xa0\xbe\xa7Z\xb7\xb5Z\xa6\xa0Z\xb8\xae\xa3\xa9Z\xb7Z\xb0\xa9\xae\xa3\xa4\xad\xad\xad\xad\xad\xb2&apos;</span><br><span class="line">#手动赋值进行接下来的解密</span><br><span class="line">b = &quot;\xa0\xbe\xa7Z\xb7\xb5Z\xa6\xa0Z\xb8\xae\xa3\xa9Z\xb7Z\xb0\xa9\xae\xa3\xa4\xad\xad\xad\xad\xad\xb2&quot;</span><br><span class="line">s = &apos;&apos;</span><br><span class="line">for i in b:</span><br><span class="line">    s += chr((ord(i) ^ 36) - 36)</span><br><span class="line">l = &apos;&apos;</span><br><span class="line">for i in s:</span><br><span class="line">    l += chr((ord(i) - 25) ^ 36)</span><br><span class="line">print (&apos;flag is &apos;,l)</span><br></pre></td></tr></table></figure>
+<p>得到flag ：<code>cyberpeace{interestinghhhhh}</code></p>
+<h2 id="0x11-幂数加密"><a href="#0x11-幂数加密" class="headerlink" title="0x11 幂数加密"></a>0x11 幂数加密</h2><p>下载下来分析后，式云影密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">8842101220480224404014224202480122</span><br><span class="line">88421 122 48 2244 4 142242 248 122</span><br><span class="line">23    5   12  12  4  15    14   5</span><br><span class="line">w     e    l   l  d   o     n   e</span><br></pre></td></tr></table></figure>
+<p>就这样，以0为分界，每组加起来，去对应顺序字母</p>
+<p>贴一段大佬的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#!/user/bin/env python</span><br><span class="line"># -*-coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">a = open(r&apos;crypto11.txt&apos;,&apos;r&apos;)</span><br><span class="line">ciphertext = a.read()</span><br><span class="line"></span><br><span class="line">s = ciphertext.split(&apos;0&apos;)</span><br><span class="line"></span><br><span class="line">flag = &apos;&apos;</span><br><span class="line">for i in range(len(s)):</span><br><span class="line">    list = []</span><br><span class="line">    for j in s[i]:</span><br><span class="line">        list.append(j)</span><br><span class="line">    b = 0</span><br><span class="line">    for k in list:</span><br><span class="line">        b += int(k)</span><br><span class="line">    # 字母ascii值与字母顺序相差为96</span><br><span class="line">    flag += chr(b+96)</span><br><span class="line">print(&apos;flag is &apos;,flag)</span><br></pre></td></tr></table></figure>
+<p>flag  :  <code>cyberpeace{welldone}</code></p>
+<h2 id="0x12-easy-ECC"><a href="#0x12-easy-ECC" class="headerlink" title="0x12 easy ECC"></a>0x12 easy ECC</h2><p>ECC（椭圆曲线加密）</p>
+<p><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fblog.csdn.net%2Fdianqu6970%2Farticle%2Fdetails%2F76534222" target="_blank" rel="noopener">椭圆曲线加密原理</a><br><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwww.cnblogs.com%2FKalafinaian%2Fp%2F7392505.html" target="_blank" rel="noopener">ECC椭圆曲线详解</a><br><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwww.8btc.com%2Farticle%2F15089" target="_blank" rel="noopener">ECC加密算法入门介绍</a></p>
+<p>我现在还是一脸懵逼，只能用着大佬的脚本，苟延残喘</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">def get_inverse(mu, p):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    获取y的负元</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    for i in range(1, p):</span><br><span class="line">        if (i*mu)%p == 1:</span><br><span class="line">            return i</span><br><span class="line">    return -1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def get_gcd(zi, mu):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    获取最大公约数</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    if mu:</span><br><span class="line">        return get_gcd(mu, zi%mu)</span><br><span class="line">    else:</span><br><span class="line">        return zi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def get_np(x1, y1, x2, y2, a, p):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    获取n*p，每次+p，直到求解阶数np=-p</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    flag = 1  # 定义符号位（+/-）</span><br><span class="line"></span><br><span class="line">    # 如果 p=q  k=(3x2+a)/2y1mod p</span><br><span class="line">    if x1 == x2 and y1 == y2:</span><br><span class="line">        zi = 3 * (x1 ** 2) + a  # 计算分子      【求导】</span><br><span class="line">        mu = 2 * y1    # 计算分母</span><br><span class="line"></span><br><span class="line">    # 若P≠Q，则k=(y2-y1)/(x2-x1) mod p</span><br><span class="line">    else:</span><br><span class="line">        zi = y2 - y1</span><br><span class="line">        mu = x2 - x1</span><br><span class="line">        if zi* mu &lt; 0:</span><br><span class="line">            flag = 0        # 符号0为-（负数）</span><br><span class="line">            zi = abs(zi)</span><br><span class="line">            mu = abs(mu)</span><br><span class="line"></span><br><span class="line">    # 将分子和分母化为最简</span><br><span class="line">    gcd_value = get_gcd(zi, mu)     # 最大公約數</span><br><span class="line">    zi = zi // gcd_value            # 整除</span><br><span class="line">    mu = mu // gcd_value</span><br><span class="line">    # 求分母的逆元  逆元： ∀a ∈G ，ョb∈G 使得 ab = ba = e</span><br><span class="line">    # P(x,y)的负元是 (x,-y mod p)= (x,p-y) ，有P+(-P)= O∞</span><br><span class="line">    inverse_value = get_inverse(mu, p)</span><br><span class="line">    k = (zi * inverse_value)</span><br><span class="line"></span><br><span class="line">    if flag == 0:                   # 斜率负数 flag==0</span><br><span class="line">        k = -k</span><br><span class="line">    k = k % p</span><br><span class="line">    # 计算x3,y3 P+Q</span><br><span class="line">    x3 = (k ** 2 - x1 - x2) % p</span><br><span class="line">    y3 = (k * (x1 - x3) - y1) % p</span><br><span class="line">    return x3,y3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def get_rank(x0, y0, a, b, p):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    获取椭圆曲线的阶</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    x1 = x0             #-p的x坐标</span><br><span class="line">    y1 = (-1*y0)%p      #-p的y坐标</span><br><span class="line">    tempX = x0</span><br><span class="line">    tempY = y0</span><br><span class="line">    n = 1</span><br><span class="line">    while True:</span><br><span class="line">        n += 1</span><br><span class="line">        # 求p+q的和，得到n*p，直到求出阶</span><br><span class="line">        p_x,p_y = get_np(tempX, tempY, x0, y0, a, p)</span><br><span class="line">        # 如果 == -p,那么阶数+1，返回</span><br><span class="line">        if p_x == x1 and p_y == y1:</span><br><span class="line">            return n+1</span><br><span class="line">        tempX = p_x</span><br><span class="line">        tempY = p_y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def get_param(x0, a, b, p):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    计算p与-p</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    y0 = -1</span><br><span class="line">    for i in range(p):</span><br><span class="line">        # 满足取模约束条件，椭圆曲线Ep(a,b)，p为质数，x,y∈[0,p-1]</span><br><span class="line">        if i**2%p == (x0**3 + a*x0 + b)%p:</span><br><span class="line">            y0 = i</span><br><span class="line">            break</span><br><span class="line"></span><br><span class="line">    # 如果y0没有，返回false</span><br><span class="line">    if y0 == -1:</span><br><span class="line">        return False</span><br><span class="line"></span><br><span class="line">    # 计算-y（负数取模）</span><br><span class="line">    x1 = x0</span><br><span class="line">    y1 = (-1*y0) % p</span><br><span class="line">    return x0,y0,x1,y1</span><br><span class="line"></span><br><span class="line">def get_ng(G_x, G_y, key, a, p):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    计算nG</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    temp_x = G_x</span><br><span class="line">    temp_y = G_y</span><br><span class="line">    while key != 1:</span><br><span class="line">        temp_x,temp_y = get_np(temp_x,temp_y, G_x, G_y, a, p)</span><br><span class="line">        key -= 1</span><br><span class="line">    return temp_x,temp_y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def ecc_main():</span><br><span class="line">    while True:</span><br><span class="line">        a = int(input(&quot;请输入椭圆曲线参数a(a&gt;0)的值：&quot;))</span><br><span class="line">        b = int(input(&quot;请输入椭圆曲线参数b(b&gt;0)的值：&quot;))</span><br><span class="line">        p = int(input(&quot;请输入椭圆曲线参数p(p为素数)的值：&quot;))   #用作模运算</span><br><span class="line"></span><br><span class="line">        # 条件满足判断</span><br><span class="line">        if (4*(a**3)+27*(b**2))%p == 0:</span><br><span class="line">            print(&quot;您输入的参数有误，请重新输入！！！\n&quot;)</span><br><span class="line">        else:</span><br><span class="line">            break</span><br><span class="line"></span><br><span class="line">    # 选点作为G点</span><br><span class="line">    print(&quot;在如上坐标系中选一个值为G的坐标&quot;)</span><br><span class="line">    G_x = int(input(&quot;请输入选取的x坐标值：&quot;))</span><br><span class="line">    G_y = int(input(&quot;请输入选取的y坐标值：&quot;))</span><br><span class="line"></span><br><span class="line">    # 获取椭圆曲线的阶</span><br><span class="line">    n = get_rank(G_x, G_y, a, b, p)</span><br><span class="line"></span><br><span class="line">    # user1生成私钥，小key</span><br><span class="line">    key = int(input(&quot;请输入私钥小key（&lt;&#123;&#125;）：&quot;.format(n)))</span><br><span class="line"></span><br><span class="line">    # user1生成公钥，大KEY</span><br><span class="line">    KEY_x,kEY_y = get_ng(G_x, G_y, key, a, p)</span><br><span class="line">    print(&apos;flag is &apos;,KEY_,KEY_Y)</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    ecc_main()</span><br></pre></td></tr></table></figure>
+<p>然而题目的给的数值貌似太大，这个脚本的跑不出来，悲伤.jpg</p>
+<p>等以后看有没有机会补上（咕咕咕）</p>
+<p><img src="/2019/08/01/攻防世界CRYPTO新手练习/23333.jpg" alt="23333"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CTF-CRYPTO/" rel="tag"># CTF CRYPTO</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/01/攻防世界WEB新手练习/" rel="next" title="攻防世界WEB新手练习">
+                <i class="fa fa-chevron-left"></i> 攻防世界WEB新手练习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/HeadPortrait.png"
+                alt="瑟瑟发抖咸鱼黄" />
+            
+              <p class="site-author-name" itemprop="name">瑟瑟发抖咸鱼黄</p>
+              <p class="site-description motion-element" itemprop="description">人生总有各种理由将一个人变成一条咸鱼</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://gorgias.me/" title="巨佬" target="_blank">巨佬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://couplee.wang/" title="wnagzihxa1n" target="_blank">wnagzihxa1n</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.tity.xyz/" title="WarrenRyan" target="_blank">WarrenRyan</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://rinbn.com/" title="Rinbn" target="_blank">Rinbn</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.imzj.top/" title="imzj" target="_blank">imzj</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://egguncle.github.io/" title="Ekkkkkkko" target="_blank">Ekkkkkkko</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-base64"><span class="nav-number">1.</span> <span class="nav-text">0x01 base64</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-Caesar"><span class="nav-number">2.</span> <span class="nav-text">0x02 Caesar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-Morse"><span class="nav-number">3.</span> <span class="nav-text">0x03 Morse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04-Railfence"><span class="nav-number">4.</span> <span class="nav-text">0x04 Railfence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x05-easy-RSA"><span class="nav-number">5.</span> <span class="nav-text">0x05 easy RSA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0X06-不仅仅是Morse"><span class="nav-number">6.</span> <span class="nav-text">0X06 不仅仅是Morse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x07-混合编码"><span class="nav-number">7.</span> <span class="nav-text">0x07 混合编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x08-Normal-RSA"><span class="nav-number">8.</span> <span class="nav-text">0x08 Normal RSA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x09-轮转机加密"><span class="nav-number">9.</span> <span class="nav-text">0x09 轮转机加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x10-easychallenge"><span class="nav-number">10.</span> <span class="nav-text">0x10  easychallenge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x11-幂数加密"><span class="nav-number">11.</span> <span class="nav-text">0x11 幂数加密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x12-easy-ECC"><span class="nav-number">12.</span> <span class="nav-text">0x12 easy ECC</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=40915694&auto=0&height=66"></iframe>
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">瑟瑟发抖咸鱼黄</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
