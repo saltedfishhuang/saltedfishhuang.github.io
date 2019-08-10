@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CTF WEB," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在攻防世界上看到的一道题，完全搞不懂，看了wp把flag搞出来了，最后还是写一下解题过程吧 这一题的题目环境是一个论坛形式  正常注册账号，发现admin用户已存在，只能注册其他账号，登陆后可以回复并发表新的内容 开始做题： 1、首先在展示文章的页面post.wtf下存在路径穿越漏洞 访问http://111.198.29.45:57425/post.wtf?post=../,得到页面源码，搜索f">
+<meta name="keywords" content="CTF WEB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="攻防世界WEB-wtf.sh-150">
+<meta property="og:url" content="http://yoursite.com/2019/08/10/攻防世界WEB-wtf-sh-150/index.html">
+<meta property="og:site_name" content="咸鱼黄">
+<meta property="og:description" content="在攻防世界上看到的一道题，完全搞不懂，看了wp把flag搞出来了，最后还是写一下解题过程吧 这一题的题目环境是一个论坛形式  正常注册账号，发现admin用户已存在，只能注册其他账号，登陆后可以回复并发表新的内容 开始做题： 1、首先在展示文章的页面post.wtf下存在路径穿越漏洞 访问http://111.198.29.45:57425/post.wtf?post=../,得到页面源码，搜索f">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/08/10/攻防世界WEB-wtf-sh-150/01.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/10/攻防世界WEB-wtf-sh-150/02.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/10/攻防世界WEB-wtf-sh-150/03.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/10/攻防世界WEB-wtf-sh-150/04.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/10/攻防世界WEB-wtf-sh-150/05.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/10/攻防世界WEB-wtf-sh-150/06.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/10/攻防世界WEB-wtf-sh-150/07.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/10/攻防世界WEB-wtf-sh-150/08.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/10/攻防世界WEB-wtf-sh-150/09.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/10/攻防世界WEB-wtf-sh-150/10.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/10/攻防世界WEB-wtf-sh-150/11.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/10/攻防世界WEB-wtf-sh-150/12.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/10/攻防世界WEB-wtf-sh-150/2019062605.jpg">
+<meta property="og:updated_time" content="2019-08-10T08:19:31.453Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="攻防世界WEB-wtf.sh-150">
+<meta name="twitter:description" content="在攻防世界上看到的一道题，完全搞不懂，看了wp把flag搞出来了，最后还是写一下解题过程吧 这一题的题目环境是一个论坛形式  正常注册账号，发现admin用户已存在，只能注册其他账号，登陆后可以回复并发表新的内容 开始做题： 1、首先在展示文章的页面post.wtf下存在路径穿越漏洞 访问http://111.198.29.45:57425/post.wtf?post=../,得到页面源码，搜索f">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/10/攻防世界WEB-wtf-sh-150/01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/10/攻防世界WEB-wtf-sh-150/"/>
+
+
+
+
+
+  <title>攻防世界WEB-wtf.sh-150 | 咸鱼黄</title>
+  
+
+
+
+
+
+
+
+
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">咸鱼黄</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">人生总有各种理由将一个人变成一条咸鱼</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/10/攻防世界WEB-wtf-sh-150/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="咸鱼黄">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">攻防世界WEB-wtf.sh-150</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-10T11:48:56+08:00">
+                2019-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在攻防世界上看到的一道题，完全搞不懂，看了wp把flag搞出来了，最后还是写一下解题过程吧</p>
+<p>这一题的题目环境是一个论坛形式</p>
+<p><img src="/2019/08/10/攻防世界WEB-wtf-sh-150/01.png" alt="01"></p>
+<p>正常注册账号，发现admin用户已存在，只能注册其他账号，登陆后可以回复并发表新的内容</p>
+<p>开始做题：</p>
+<p>1、首先在展示文章的页面post.wtf下存在路径穿越漏洞</p>
+<p>访问<code>http://111.198.29.45:57425/post.wtf?post=../</code>,得到页面源码，搜索flag</p>
+<p><img src="/2019/08/10/攻防世界WEB-wtf-sh-150/02.png" alt="02"></p>
+<p>发现只要是admin用户登陆到这个页面，就会触发get_flag1,而且在这里还暴露了，存在users这个路径</p>
+<p>2、访问 <code>http://111.198.29.45:57425/post.wtf?post=../users</code></p>
+<p><img src="/2019/08/10/攻防世界WEB-wtf-sh-150/03.png" alt="03"></p>
+<p>发现系统账号的账号信息全部存储在这里了，对比我自己注册的xianyu账号发现第二排就是Cookies中的TOKEN</p>
+<p>3、伪造Cookies登陆admin账号<img src="/2019/08/10/攻防世界WEB-wtf-sh-150/04.png" alt="04"></p>
+<p>在profile里面得到flag1</p>
+<p><img src="/2019/08/10/攻防世界WEB-wtf-sh-150/05.png" alt="05"></p>
+<p>flag1: <code>Flag: xctf{cb49256d1ab48803</code></p>
+<p>4、继续代码审计，寻找代码执行，来get_flag2,寻找解析wtf文件的代码，定位到这里</p>
+<p><img src="/2019/08/10/攻防世界WEB-wtf-sh-150/06.png" alt="06"></p>
+<p>将代码格式化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">max_page_include_depth=64</span><br><span class="line">page_include_depth=0</span><br><span class="line">function include_page &#123;</span><br><span class="line">    # include_page pathname</span><br><span class="line">    local pathname=$1</span><br><span class="line">    local cmd=</span><br><span class="line">    [[ $&#123;pathname(-4)&#125; = &apos;.wtf&apos; ]];</span><br><span class="line">    local can_execute=$;</span><br><span class="line">    page_include_depth=$(($page_include_depth+1))</span><br><span class="line">    if [[ $page_include_depth -lt $max_page_include_depth ]]</span><br><span class="line">    then</span><br><span class="line">        local line;</span><br><span class="line">        while read -r line; do</span><br><span class="line">            # check if we&apos;re in a script line or not ($ at the beginning implies script line)</span><br><span class="line">            # also, our extension needs to be .wtf</span><br><span class="line">            [[ $ = $&#123;line01&#125; &amp;&amp; $&#123;can_execute&#125; = 0 ]];</span><br><span class="line">            is_script=$;</span><br><span class="line">            # execute the line.</span><br><span class="line">            if [[ $is_script = 0 ]]</span><br><span class="line">            then</span><br><span class="line">                cmd+=$&apos;n&apos;$&#123;line#$&#125;;</span><br><span class="line">            else</span><br><span class="line">                if [[ -n $cmd ]]</span><br><span class="line">                then</span><br><span class="line">                    eval $cmd  log Error during execution of $&#123;cmd&#125;;</span><br><span class="line">                    cmd=</span><br><span class="line">                fi</span><br><span class="line">                echo $line</span><br><span class="line">            fi</span><br><span class="line">        done  $&#123;pathname&#125;</span><br><span class="line">    else</span><br><span class="line">        echo pMax include depth exceeded!</span><br><span class="line">        pfi</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过这段代码我们发现服务器能够解析并执行 wtf 文件，如果还能够上传 wtf 文件并执行的话，就可以达到控制服务器的目的。</p>
+<p>于是继续审计代码，发现如下代码给了这个机会：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function reply &#123;</span><br><span class="line">    local post_id=$1;</span><br><span class="line">    local username=$2;</span><br><span class="line">    local text=$3;</span><br><span class="line">    local hashed=$(hash_username &quot;$&#123;username&#125;&quot;);</span><br><span class="line">    curr_id=$(for d in posts/$&#123;post_id&#125;/*; do basename $d; done | sort -n | tail -n 1);</span><br><span class="line">    next_reply_id=$(awk &apos;&#123;print $1+1&#125;&apos; &lt;&lt;&lt; &quot;$&#123;curr_id&#125;&quot;);</span><br><span class="line">    next_file=(posts/$&#123;post_id&#125;/$&#123;next_reply_id&#125;);</span><br><span class="line">    echo &quot;$&#123;username&#125;&quot; &gt; &quot;$&#123;next_file&#125;&quot;;</span><br><span class="line">    echo &quot;RE: $(nth_line 2 &lt; &quot;posts/$&#123;post_id&#125;/1&quot;)&quot; &gt;&gt; &quot;$&#123;next_file&#125;&quot;;</span><br><span class="line">    echo &quot;$&#123;text&#125;&quot; &gt;&gt; &quot;$&#123;next_file&#125;&quot;;</span><br><span class="line">    # add post this is in reply to to posts cache</span><br><span class="line">    echo &quot;$&#123;post_id&#125;/$&#123;next_reply_id&#125;&quot; &gt;&gt; &quot;users_lookup/$&#123;hashed&#125;/posts&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是评论功能的后台代码，同样存在路径穿越</p>
+<p>分析发现，代码中的<code>echo &quot;${username}&quot; &gt; &quot;${next_file}&quot;;</code> 会将用户名写入到评论文件之中，如果username是一段可执行代码，并且写入的文件是wtf格式时，那么这个文件就能执行我们插入的代码。(并且wtf.sh只运行文件扩展名为.wtf的脚本和前缀为“$”的行)</p>
+<p>5、评论时进行抓包，并修改POST内容，进行路径穿越，上传后门sh.wtf(%09是水平制表符，必须加上，不然都太会把我们的后门文件当作目录去解析)</p>
+<p><img src="/2019/08/10/攻防世界WEB-wtf-sh-150/07.png" alt="07"></p>
+<p>访问页面<code>http://111.198.29.45:57425/users_lookup/sh.wtf</code>,已经写入</p>
+<p><img src="/2019/08/10/攻防世界WEB-wtf-sh-150/08.png" alt="08"></p>
+<p>6、接下来，注册用户，使用户名中含有恶意代码，再进行回复，将用户名写入users_lookup/sh.wtf</p>
+<p>首先创建一个用户名为<code>${find,/,-iname,get_flag2}</code>的用户，代码含义为查询到get_flag2的位置</p>
+<p><img src="/2019/08/10/攻防世界WEB-wtf-sh-150/09.png" alt="09"></p>
+<p>访问页面<code>http://111.198.29.45:57425/users_lookup/sh.wtf</code>,已经写入，并且恶意代码已经执行，得到了get_flag2的地址</p>
+<p><img src="/2019/08/10/攻防世界WEB-wtf-sh-150/10.png" alt="10"></p>
+<p>7、继续构造恶意用户名的用户，来执行刚才得到的get_flag2文件，</p>
+<p>用户名为<code>$/usr/bin/get_flag2</code>,并用这个用户，回复，写入sh.wtf</p>
+<p><img src="/2019/08/10/攻防世界WEB-wtf-sh-150/11.png" alt="11"></p>
+<p>访问页面<code>http://111.198.29.45:57425/users_lookup/sh.wtf</code>,已经写入，并且恶意代码已经执行，得到了flag2<img src="/2019/08/10/攻防世界WEB-wtf-sh-150/12.png" alt="12"></p>
+<p>flag2: <code>149e5ec49d3c29ca}</code></p>
+<p>将flag1和flag2拼接，得到完整flag    <code>xctf{cb49256d1ab48803149e5ec49d3c29ca}</code></p>
+<p>这道题主要考核的就是这个路径穿越，以及后面的代码执行，需要很仔细的审阅代码</p>
+<p>留下了不学无术的眼泪.jpg</p>
+<p><img src="/2019/08/10/攻防世界WEB-wtf-sh-150/2019062605.jpg" alt="2019062605"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CTF-WEB/" rel="tag"># CTF WEB</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/01/攻防世界CRYPTO新手练习/" rel="next" title="攻防世界CRYPTO新手练习">
+                <i class="fa fa-chevron-left"></i> 攻防世界CRYPTO新手练习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/HeadPortrait.png"
+                alt="瑟瑟发抖咸鱼黄" />
+            
+              <p class="site-author-name" itemprop="name">瑟瑟发抖咸鱼黄</p>
+              <p class="site-description motion-element" itemprop="description">人生总有各种理由将一个人变成一条咸鱼</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://gorgias.me/" title="巨佬" target="_blank">巨佬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://couplee.wang/" title="wnagzihxa1n" target="_blank">wnagzihxa1n</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.tity.xyz/" title="WarrenRyan" target="_blank">WarrenRyan</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://rinbn.com/" title="Rinbn" target="_blank">Rinbn</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.imzj.top/" title="imzj" target="_blank">imzj</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://egguncle.github.io/" title="Ekkkkkkko" target="_blank">Ekkkkkkko</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=40915694&auto=0&height=66"></iframe>
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">瑟瑟发抖咸鱼黄</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
