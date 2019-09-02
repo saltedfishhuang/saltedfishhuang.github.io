@@ -979,9 +979,9 @@
 <p>二进制转字符串得到f<code>flag{FuN_giF}</code></p>
 <h2 id="0x08-SimpleRAR"><a href="#0x08-SimpleRAR" class="headerlink" title="0x08 SimpleRAR"></a>0x08 SimpleRAR</h2><p>下载下来是一个rar压缩包，直接解压只有一个flag.txt文件，但是打开只是提示flag is not here</p>
 <p>binwalk分析没有发现，使用winhex打开，发现又secret.png，但是16进制文件头有问题，将7A改成74</p>
-<p><img src="/2019/06/02/攻防世界MISC新手练习/E:/Blog\source\_posts\攻防世界MISC新手练习\0801.png" alt="0801"></p>
+<p><img src="/2019/06/02/攻防世界MISC新手练习/0801.png" alt="0801"></p>
 <p>重新解压得到一个空白得png文件使用binwalk分析是一个gif，将后缀修改</p>
-<p><img src="/2019/06/02/攻防世界MISC新手练习/E:/Blog\source\_posts\攻防世界MISC新手练习\0802.png" alt="0802"></p>
+<p><img src="/2019/06/02/攻防世界MISC新手练习/0802.png" alt="0802"></p>
 <p>用Stegsolve打开，使用Analyse中的Frame Browser分离出两个图片以png方式保存，再分别用Stegsolve打开，调整通道可以得到如下图片<img src="/2019/06/02/攻防世界MISC新手练习/0803.png" alt="0803"></p>
 <p>将两张图片拼接在一起，并补全定位点，扫描得到<code>flag{yanji4n_bu_we1shi}</code></p>
 <p><img src="/2019/06/02/攻防世界MISC新手练习/0804.png" alt="0804"></p>
