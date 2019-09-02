@@ -235,6 +235,407 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/02/新VPS的简单配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="咸鱼黄">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/02/新VPS的简单配置/" itemprop="url">新VPS的简单配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-02T19:22:24+08:00">
+                2019-09-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近新弄了一个VPS，重新搭了酸酸，和lamp并跑了DVWA和pikachu两个靶场</p>
+<p>想了想，要把酸酸的一键脚本和lamp脚本记录一下，作为备份</p>
+<h3 id="酸酸乳的安装脚本"><a href="#酸酸乳的安装脚本" class="headerlink" title="酸酸乳的安装脚本"></a>酸酸乳的安装脚本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh</span><br><span class="line">chmod +x shadowsocks-all.sh</span><br><span class="line">./shadowsocks-all.sh 2&gt;&amp;1 | tee shadowsocks-all.log</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh &amp;&amp; chmod +x shadowsocks-all.sh &amp;&amp; ./shadowsocks-all.sh</span><br></pre></td></tr></table></figure>
+<h3 id="一键安装最新内核并开启-BBR-脚本-谷歌大法好，VPS加速"><a href="#一键安装最新内核并开启-BBR-脚本-谷歌大法好，VPS加速" class="headerlink" title="一键安装最新内核并开启 BBR 脚本(谷歌大法好，VPS加速)"></a>一键安装最新内核并开启 BBR 脚本(谷歌大法好，VPS加速)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh &amp;&amp; chmod +x bbr.sh &amp;&amp; ./bbr.sh</span><br></pre></td></tr></table></figure>
+<h3 id="lamp环境，github上有项目"><a href="#lamp环境，github上有项目" class="headerlink" title="lamp环境，github上有项目"></a>lamp环境，github上有项目</h3><h4 id="Debian-Ubuntu"><a href="#Debian-Ubuntu" class="headerlink" title="Debian/Ubuntu"></a>Debian/Ubuntu</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apt-get -y install wget screen git</span><br><span class="line">git clone https://github.com/teddysun/lamp.git</span><br><span class="line">cd lamp</span><br><span class="line">chmod 755 *.sh</span><br><span class="line">screen -S lamp</span><br><span class="line">./lamp.sh</span><br></pre></td></tr></table></figure>
+<h4 id="Amazon-Linux-CentOS-Fedora"><a href="#Amazon-Linux-CentOS-Fedora" class="headerlink" title="Amazon Linux/CentOS/Fedora"></a>Amazon Linux/CentOS/Fedora</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget screen git</span><br><span class="line">git clone https://github.com/teddysun/lamp.git</span><br><span class="line">cd lamp</span><br><span class="line">chmod 755 *.sh</span><br><span class="line">screen -S lamp</span><br><span class="line">./lamp.sh</span><br></pre></td></tr></table></figure>
+<h4 id="Upgrade"><a href="#Upgrade" class="headerlink" title="Upgrade"></a>Upgrade</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cd ~/lamp</span><br><span class="line">git reset --hard         // Resets the index and working tree</span><br><span class="line">git pull                 // Get latest version first</span><br><span class="line">chmod 755 *.sh</span><br><span class="line"></span><br><span class="line">./upgrade.sh             // Select one to upgrade</span><br><span class="line">./upgrade.sh apache      // Upgrade Apache</span><br><span class="line">./upgrade.sh db          // Upgrade MySQL/MariaDB/Percona</span><br><span class="line">./upgrade.sh php         // Upgrade PHP</span><br><span class="line">./upgrade.sh phpmyadmin  // Upgrade phpMyAdmin</span><br></pre></td></tr></table></figure>
+<h4 id="Backup"><a href="#Backup" class="headerlink" title="Backup"></a>Backup</h4><ul>
+<li><p>You must modify the config before run it</p>
+</li>
+<li><p>Backup MySQL/MariaDB/Percona datebases, files and directories</p>
+</li>
+<li><p>Backup file is encrypted with AES256-cbc with SHA1 message-digest (option)</p>
+</li>
+<li><p>Auto transfer backup file to Google Drive (need install <a href="https://teddysun.com/469.html" target="_blank" rel="noopener">gdrive</a> command) (option)</p>
+</li>
+<li><p>Auto transfer backup file to FTP server (option)</p>
+</li>
+<li><p>Auto delete Google Drive’s or FTP server’s remote file (option)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./backup.sh</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Uninstall"><a href="#Uninstall" class="headerlink" title="Uninstall"></a>Uninstall</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./uninstall.sh</span><br></pre></td></tr></table></figure>
+<h4 id="Default-Installation-Location"><a href="#Default-Installation-Location" class="headerlink" title="Default Installation Location"></a>Default Installation Location</h4><table>
+<thead>
+<tr>
+<th>Apache Location</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Install Prefix</td>
+<td>/usr/local/apache</td>
+</tr>
+<tr>
+<td>Web root location</td>
+<td>/data/www/default</td>
+</tr>
+<tr>
+<td>Main Configuration File</td>
+<td>/usr/local/apache/conf/httpd.conf</td>
+</tr>
+<tr>
+<td>Default Virtual Host conf</td>
+<td>/usr/local/apache/conf/extra/httpd-vhosts.conf</td>
+</tr>
+<tr>
+<td>Virtual Host location</td>
+<td>/data/www/virtual_host_names</td>
+</tr>
+<tr>
+<td>Virtual Host log location</td>
+<td>/data/wwwlog/virtual_host_names</td>
+</tr>
+<tr>
+<td>Virtual Host conf</td>
+<td>/usr/local/apache/conf/vhost/virtual_host.conf</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>phpMyAdmin Location</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Installation location</td>
+<td>/data/www/default/phpmyadmin</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>KodExplorer Location</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Installation location</td>
+<td>/data/www/default/kod</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>PHP Location</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Install Prefix</td>
+<td>/usr/local/php</td>
+</tr>
+<tr>
+<td>Configuration File</td>
+<td>/usr/local/php/etc/php.ini</td>
+</tr>
+<tr>
+<td>ini additional location</td>
+<td>/usr/local/php/php.d</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>MySQL Location</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Install Prefix</td>
+<td>/usr/local/mysql</td>
+</tr>
+<tr>
+<td>Data Location</td>
+<td>/usr/local/mysql/data</td>
+</tr>
+<tr>
+<td>my.cnf Configuration File</td>
+<td>/etc/my.cnf</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>MariaDB Location</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Install Prefix</td>
+<td>/usr/local/mariadb</td>
+</tr>
+<tr>
+<td>Data Location</td>
+<td>/usr/local/mariadb/data</td>
+</tr>
+<tr>
+<td>my.cnf Configuration File</td>
+<td>/etc/my.cnf</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Percona Location</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Install Prefix</td>
+<td>/usr/local/percona</td>
+</tr>
+<tr>
+<td>Data Location</td>
+<td>/usr/local/percona/data</td>
+</tr>
+<tr>
+<td>my.cnf Configuration File</td>
+<td>/etc/my.cnf</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Process-Management"><a href="#Process-Management" class="headerlink" title="Process Management"></a>Process Management</h4><table>
+<thead>
+<tr>
+<th>Process</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Apache</td>
+<td>/etc/init.d/httpd (start\</td>
+<td>stop\</td>
+<td>status\</td>
+<td>restart)</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>/etc/init.d/mysqld (start\</td>
+<td>stop\</td>
+<td>status\</td>
+<td>restart)</td>
+</tr>
+<tr>
+<td>MariaDB</td>
+<td>/etc/init.d/mysqld (start\</td>
+<td>stop\</td>
+<td>status\</td>
+<td>restart)</td>
+</tr>
+<tr>
+<td>Percona</td>
+<td>/etc/init.d/mysqld (start\</td>
+<td>stop\</td>
+<td>status\</td>
+<td>restart)</td>
+</tr>
+<tr>
+<td>Memcached</td>
+<td>/etc/init.d/memcached (start\</td>
+<td>stop\</td>
+<td>restart)</td>
+</tr>
+<tr>
+<td>Redis-Server</td>
+<td>/etc/init.d/redis-server (start\</td>
+<td>stop\</td>
+<td>restart)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="lamp-Command"><a href="#lamp-Command" class="headerlink" title="lamp Command"></a>lamp Command</h4><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lamp add</td>
+<td>create a virtual host</td>
+</tr>
+<tr>
+<td>lamp list</td>
+<td>list all virtual host</td>
+</tr>
+<tr>
+<td>lamp del</td>
+<td>remove a virtual host</td>
+</tr>
+</tbody>
+</table>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>补考完数学分析，原地爆炸，老老实实做好陪小学妹重修的准备了（然而并没有小学妹陪，卑微,jpg）</p>
+<p><img src="/2019/09/02/新VPS的简单配置/0101.jpg" alt="0101"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/10/攻防世界WEB-wtf-sh-150/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2088,159 +2489,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/从wordpress滚到hexo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/HeadPortrait.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="咸鱼黄">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/11/从wordpress滚到hexo/" itemprop="url">从wordpress滚到hexo</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-11T20:18:11+08:00">
-                2018-10-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>本来在今年暑假期间在VPS上搭建了一个服务器的，可想到服务器迟早会过期，到时候又要换服务器，原来写的博客又要备份（其实是太菜不会备份），于是在得知可以使用github+hexo部署博客时就搭建了一个。</p>
-<p>后面也会把以前的博客也一起上传emmmmmm。</p>
-<p><img src="/2018/10/11/从wordpress滚到hexo/E:/Blog\source\_posts\从wordpress滚到hexo\1.jpg" alt=""></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2295,7 +2543,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2308,7 +2556,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

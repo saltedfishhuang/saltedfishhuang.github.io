@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="VPS," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="最近新弄了一个VPS，重新搭了酸酸，和lamp并跑了DVWA和pikachu两个靶场 想了想，要把酸酸的一键脚本和lamp脚本记录一下，作为备份 酸酸乳的安装脚本12345wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/m">
+<meta name="keywords" content="VPS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="新VPS的简单配置">
+<meta property="og:url" content="http://yoursite.com/2019/09/02/新VPS的简单配置/index.html">
+<meta property="og:site_name" content="咸鱼黄">
+<meta property="og:description" content="最近新弄了一个VPS，重新搭了酸酸，和lamp并跑了DVWA和pikachu两个靶场 想了想，要把酸酸的一键脚本和lamp脚本记录一下，作为备份 酸酸乳的安装脚本12345wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/m">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/09/02/新VPS的简单配置/0101.jpg">
+<meta property="og:updated_time" content="2019-09-02T11:30:33.662Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="新VPS的简单配置">
+<meta name="twitter:description" content="最近新弄了一个VPS，重新搭了酸酸，和lamp并跑了DVWA和pikachu两个靶场 想了想，要把酸酸的一键脚本和lamp脚本记录一下，作为备份 酸酸乳的安装脚本12345wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/m">
+<meta name="twitter:image" content="http://yoursite.com/2019/09/02/新VPS的简单配置/0101.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/02/新VPS的简单配置/"/>
+
+
+
+
+
+  <title>新VPS的简单配置 | 咸鱼黄</title>
+  
+
+
+
+
+
+
+
+
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">咸鱼黄</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">人生总有各种理由将一个人变成一条咸鱼</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/02/新VPS的简单配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="咸鱼黄">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">新VPS的简单配置</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-02T19:22:24+08:00">
+                2019-09-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近新弄了一个VPS，重新搭了酸酸，和lamp并跑了DVWA和pikachu两个靶场</p>
+<p>想了想，要把酸酸的一键脚本和lamp脚本记录一下，作为备份</p>
+<h3 id="酸酸乳的安装脚本"><a href="#酸酸乳的安装脚本" class="headerlink" title="酸酸乳的安装脚本"></a>酸酸乳的安装脚本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh</span><br><span class="line">chmod +x shadowsocks-all.sh</span><br><span class="line">./shadowsocks-all.sh 2&gt;&amp;1 | tee shadowsocks-all.log</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh &amp;&amp; chmod +x shadowsocks-all.sh &amp;&amp; ./shadowsocks-all.sh</span><br></pre></td></tr></table></figure>
+<h3 id="一键安装最新内核并开启-BBR-脚本-谷歌大法好，VPS加速"><a href="#一键安装最新内核并开启-BBR-脚本-谷歌大法好，VPS加速" class="headerlink" title="一键安装最新内核并开启 BBR 脚本(谷歌大法好，VPS加速)"></a>一键安装最新内核并开启 BBR 脚本(谷歌大法好，VPS加速)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh &amp;&amp; chmod +x bbr.sh &amp;&amp; ./bbr.sh</span><br></pre></td></tr></table></figure>
+<h3 id="lamp环境，github上有项目"><a href="#lamp环境，github上有项目" class="headerlink" title="lamp环境，github上有项目"></a>lamp环境，github上有项目</h3><h4 id="Debian-Ubuntu"><a href="#Debian-Ubuntu" class="headerlink" title="Debian/Ubuntu"></a>Debian/Ubuntu</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apt-get -y install wget screen git</span><br><span class="line">git clone https://github.com/teddysun/lamp.git</span><br><span class="line">cd lamp</span><br><span class="line">chmod 755 *.sh</span><br><span class="line">screen -S lamp</span><br><span class="line">./lamp.sh</span><br></pre></td></tr></table></figure>
+<h4 id="Amazon-Linux-CentOS-Fedora"><a href="#Amazon-Linux-CentOS-Fedora" class="headerlink" title="Amazon Linux/CentOS/Fedora"></a>Amazon Linux/CentOS/Fedora</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget screen git</span><br><span class="line">git clone https://github.com/teddysun/lamp.git</span><br><span class="line">cd lamp</span><br><span class="line">chmod 755 *.sh</span><br><span class="line">screen -S lamp</span><br><span class="line">./lamp.sh</span><br></pre></td></tr></table></figure>
+<h4 id="Upgrade"><a href="#Upgrade" class="headerlink" title="Upgrade"></a>Upgrade</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cd ~/lamp</span><br><span class="line">git reset --hard         // Resets the index and working tree</span><br><span class="line">git pull                 // Get latest version first</span><br><span class="line">chmod 755 *.sh</span><br><span class="line"></span><br><span class="line">./upgrade.sh             // Select one to upgrade</span><br><span class="line">./upgrade.sh apache      // Upgrade Apache</span><br><span class="line">./upgrade.sh db          // Upgrade MySQL/MariaDB/Percona</span><br><span class="line">./upgrade.sh php         // Upgrade PHP</span><br><span class="line">./upgrade.sh phpmyadmin  // Upgrade phpMyAdmin</span><br></pre></td></tr></table></figure>
+<h4 id="Backup"><a href="#Backup" class="headerlink" title="Backup"></a>Backup</h4><ul>
+<li><p>You must modify the config before run it</p>
+</li>
+<li><p>Backup MySQL/MariaDB/Percona datebases, files and directories</p>
+</li>
+<li><p>Backup file is encrypted with AES256-cbc with SHA1 message-digest (option)</p>
+</li>
+<li><p>Auto transfer backup file to Google Drive (need install <a href="https://teddysun.com/469.html" target="_blank" rel="noopener">gdrive</a> command) (option)</p>
+</li>
+<li><p>Auto transfer backup file to FTP server (option)</p>
+</li>
+<li><p>Auto delete Google Drive’s or FTP server’s remote file (option)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./backup.sh</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Uninstall"><a href="#Uninstall" class="headerlink" title="Uninstall"></a>Uninstall</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./uninstall.sh</span><br></pre></td></tr></table></figure>
+<h4 id="Default-Installation-Location"><a href="#Default-Installation-Location" class="headerlink" title="Default Installation Location"></a>Default Installation Location</h4><table>
+<thead>
+<tr>
+<th>Apache Location</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Install Prefix</td>
+<td>/usr/local/apache</td>
+</tr>
+<tr>
+<td>Web root location</td>
+<td>/data/www/default</td>
+</tr>
+<tr>
+<td>Main Configuration File</td>
+<td>/usr/local/apache/conf/httpd.conf</td>
+</tr>
+<tr>
+<td>Default Virtual Host conf</td>
+<td>/usr/local/apache/conf/extra/httpd-vhosts.conf</td>
+</tr>
+<tr>
+<td>Virtual Host location</td>
+<td>/data/www/virtual_host_names</td>
+</tr>
+<tr>
+<td>Virtual Host log location</td>
+<td>/data/wwwlog/virtual_host_names</td>
+</tr>
+<tr>
+<td>Virtual Host conf</td>
+<td>/usr/local/apache/conf/vhost/virtual_host.conf</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>phpMyAdmin Location</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Installation location</td>
+<td>/data/www/default/phpmyadmin</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>KodExplorer Location</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Installation location</td>
+<td>/data/www/default/kod</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>PHP Location</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Install Prefix</td>
+<td>/usr/local/php</td>
+</tr>
+<tr>
+<td>Configuration File</td>
+<td>/usr/local/php/etc/php.ini</td>
+</tr>
+<tr>
+<td>ini additional location</td>
+<td>/usr/local/php/php.d</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>MySQL Location</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Install Prefix</td>
+<td>/usr/local/mysql</td>
+</tr>
+<tr>
+<td>Data Location</td>
+<td>/usr/local/mysql/data</td>
+</tr>
+<tr>
+<td>my.cnf Configuration File</td>
+<td>/etc/my.cnf</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>MariaDB Location</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Install Prefix</td>
+<td>/usr/local/mariadb</td>
+</tr>
+<tr>
+<td>Data Location</td>
+<td>/usr/local/mariadb/data</td>
+</tr>
+<tr>
+<td>my.cnf Configuration File</td>
+<td>/etc/my.cnf</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Percona Location</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Install Prefix</td>
+<td>/usr/local/percona</td>
+</tr>
+<tr>
+<td>Data Location</td>
+<td>/usr/local/percona/data</td>
+</tr>
+<tr>
+<td>my.cnf Configuration File</td>
+<td>/etc/my.cnf</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Process-Management"><a href="#Process-Management" class="headerlink" title="Process Management"></a>Process Management</h4><table>
+<thead>
+<tr>
+<th>Process</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Apache</td>
+<td>/etc/init.d/httpd (start\</td>
+<td>stop\</td>
+<td>status\</td>
+<td>restart)</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>/etc/init.d/mysqld (start\</td>
+<td>stop\</td>
+<td>status\</td>
+<td>restart)</td>
+</tr>
+<tr>
+<td>MariaDB</td>
+<td>/etc/init.d/mysqld (start\</td>
+<td>stop\</td>
+<td>status\</td>
+<td>restart)</td>
+</tr>
+<tr>
+<td>Percona</td>
+<td>/etc/init.d/mysqld (start\</td>
+<td>stop\</td>
+<td>status\</td>
+<td>restart)</td>
+</tr>
+<tr>
+<td>Memcached</td>
+<td>/etc/init.d/memcached (start\</td>
+<td>stop\</td>
+<td>restart)</td>
+</tr>
+<tr>
+<td>Redis-Server</td>
+<td>/etc/init.d/redis-server (start\</td>
+<td>stop\</td>
+<td>restart)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="lamp-Command"><a href="#lamp-Command" class="headerlink" title="lamp Command"></a>lamp Command</h4><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lamp add</td>
+<td>create a virtual host</td>
+</tr>
+<tr>
+<td>lamp list</td>
+<td>list all virtual host</td>
+</tr>
+<tr>
+<td>lamp del</td>
+<td>remove a virtual host</td>
+</tr>
+</tbody>
+</table>
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>补考完数学分析，原地爆炸，老老实实做好陪小学妹重修的准备了（然而并没有小学妹陪，卑微,jpg）</p>
+<p><img src="/2019/09/02/新VPS的简单配置/0101.jpg" alt="0101"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/VPS/" rel="tag"># VPS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/10/攻防世界WEB-wtf-sh-150/" rel="next" title="攻防世界WEB-wtf.sh-150">
+                <i class="fa fa-chevron-left"></i> 攻防世界WEB-wtf.sh-150
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/HeadPortrait.png"
+                alt="瑟瑟发抖咸鱼黄" />
+            
+              <p class="site-author-name" itemprop="name">瑟瑟发抖咸鱼黄</p>
+              <p class="site-description motion-element" itemprop="description">人生总有各种理由将一个人变成一条咸鱼</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://gorgias.me/" title="巨佬" target="_blank">巨佬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://couplee.wang/" title="wnagzihxa1n" target="_blank">wnagzihxa1n</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.tity.xyz/" title="WarrenRyan" target="_blank">WarrenRyan</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://rinbn.com/" title="Rinbn" target="_blank">Rinbn</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.imzj.top/" title="imzj" target="_blank">imzj</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://egguncle.github.io/" title="Ekkkkkkko" target="_blank">Ekkkkkkko</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#酸酸乳的安装脚本"><span class="nav-number">1.</span> <span class="nav-text">酸酸乳的安装脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一键安装最新内核并开启-BBR-脚本-谷歌大法好，VPS加速"><span class="nav-number">2.</span> <span class="nav-text">一键安装最新内核并开启 BBR 脚本(谷歌大法好，VPS加速)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lamp环境，github上有项目"><span class="nav-number">3.</span> <span class="nav-text">lamp环境，github上有项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Debian-Ubuntu"><span class="nav-number">3.1.</span> <span class="nav-text">Debian/Ubuntu</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Amazon-Linux-CentOS-Fedora"><span class="nav-number">3.2.</span> <span class="nav-text">Amazon Linux/CentOS/Fedora</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Upgrade"><span class="nav-number">3.3.</span> <span class="nav-text">Upgrade</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Backup"><span class="nav-number">3.4.</span> <span class="nav-text">Backup</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Uninstall"><span class="nav-number">3.5.</span> <span class="nav-text">Uninstall</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Default-Installation-Location"><span class="nav-number">3.6.</span> <span class="nav-text">Default Installation Location</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Process-Management"><span class="nav-number">3.7.</span> <span class="nav-text">Process Management</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lamp-Command"><span class="nav-number">3.8.</span> <span class="nav-text">lamp Command</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后"><span class="nav-number">4.</span> <span class="nav-text">最后</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=40915694&auto=0&height=66"></iframe>
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">瑟瑟发抖咸鱼黄</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
