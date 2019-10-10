@@ -245,6 +245,186 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/10/http状态码/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="咸鱼黄">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/10/http状态码/" itemprop="url">http状态码</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-10-10T21:22:46+08:00">
+                2019-10-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="记一下笔记，假装自己最近学习了"><a href="#记一下笔记，假装自己最近学习了" class="headerlink" title="记一下笔记，假装自己最近学习了"></a>记一下笔记，假装自己最近学习了</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">1xx：信息响应类，表示接收到请求并且继续处理</span><br><span class="line">2xx：处理成功响应类，表示动作被成功接收、理解和接受</span><br><span class="line">3xx：重定向响应类，为了完成指定的动作，必须接受进一步处理</span><br><span class="line">4xx：客户端错误，客户请求包含语法错误或者是不能正确执行</span><br><span class="line">5xx：服务端错误，服务器不能正确执行一个正确的请求</span><br><span class="line"></span><br><span class="line">100——客户必须继续发出请求</span><br><span class="line">101——客户要求服务器根据请求转换HTTP协议版本</span><br><span class="line">200——交易成功</span><br><span class="line">201——提示知道新文件的URL</span><br><span class="line">202——接受和处理、但处理未完成</span><br><span class="line">203——返回信息不确定或不完整</span><br><span class="line">204——请求收到，但返回信息为空</span><br><span class="line">205——服务器完成了请求，用户代理必须复位当前已经浏览过的文件</span><br><span class="line">206——服务器已经完成了部分用户的GET请求</span><br><span class="line">300——请求的资源可在多处得到</span><br><span class="line">301——删除请求数据</span><br><span class="line">302——在其他地址发现了请求数据</span><br><span class="line">303——建议客户访问其他URL或访问方式</span><br><span class="line">304——客户端已经执行了GET，但文件未变化</span><br><span class="line">305——请求的资源必须从服务器指定的地址得到</span><br><span class="line">306——前一版本HTTP中使用的代码，现行版本中不再使用</span><br><span class="line">307——申明请求的资源临时性删除</span><br><span class="line">400——错误请求，如语法错误</span><br><span class="line">401——请求授权失败</span><br><span class="line">402——保留有效ChargeTo头响应</span><br><span class="line">403——请求不允许</span><br><span class="line">404——没有发现文件、查询或URl</span><br><span class="line">405——用户在Request-Line字段定义的方法不允许</span><br><span class="line">406——根据用户发送的Accept拖，请求资源不可访问</span><br><span class="line">407——类似``401``，用户必须首先在代理服务器上得到授权</span><br><span class="line">408——客户端没有在用户指定的饿时间内完成请求</span><br><span class="line">409——对当前资源状态，请求不能完成</span><br><span class="line">410——服务器上不再有此资源且无进一步的参考地址</span><br><span class="line">411——服务器拒绝用户定义的Content-Length属性请求</span><br><span class="line">412——一个或多个请求头字段在当前请求中错误ss</span><br><span class="line">413——请求的资源大于服务器允许的大小</span><br><span class="line">414——请求的资源URL长于服务器允许的长度</span><br><span class="line">415——请求资源不支持请求项目格式</span><br><span class="line">416——请求中包含Range请求头字段，在当前请求资源范围内没有range指示值，请求也不包含If-Range请求头字段</span><br><span class="line">417——服务器不满足请求Expect头字段指定的期望值，如果是代理服务器，可能是下一级服务器不能满足请求</span><br><span class="line">500——服务器产生内部错误</span><br><span class="line">501——服务器不支持请求的函数</span><br><span class="line">502——服务器暂时不可用，有时是为了防止发生系统过载</span><br><span class="line">503——服务器过载或暂停维修</span><br><span class="line">504——关口过载，服务器使用另一个关口或服务来响应用户，等待时间设定值较长</span><br><span class="line">505——服务器不支持或拒绝支请求头中指定的HTTP版本</span><br></pre></td></tr></table></figure>
+<p>​    开学已经快一个半月了，还是要小小的总结一下做了些啥</p>
+<ul>
+<li><p>尝试复现了一些经典的漏洞，0708持续蓝屏</p>
+</li>
+<li><p>从大佬实验室蹭到了好多资料，深感自己是个five</p>
+</li>
+<li><p>学习了一下CS框架</p>
+</li>
+<li><p>刷了不少攻防世界的web题目，虽然大部分都是看了WP才做出来的，但是感觉真的学到了很多东西，主要是一些思路</p>
+</li>
+<li><p>看了很多关于安全的文章，继续感叹自己是个five</p>
+</li>
+<li><p>在91陈先生的领导下，学习dotnet core webapi 的相关知识，他出去实习后就要和文文一起接手他留下来的项目，然而自己实在是太菜了，还要继续学习好多东西才有可能顺利接手这个项目</p>
+</li>
+<li><p>VPS持续爆炸，只能在等几天花3$换IP了</p>
+</li>
+<li><p>kali也直接爆炸了，应该是gnome更新的问题，直接爆炸，收集的好多工具和一些文档也没了，超级难受</p>
+</li>
+<li><p>看着其他大佬在看计算机网络，于是我放下了刚打开的编译原理拿起了计算机网络，这么久了看了不到1/3，卑微.jpg</p>
+</li>
+<li><p>web题目刷的难受的同时，尝试去看了看逆向的相关的内容，了解了一些最最最最基本的概念，和一些工具的时候</p>
+</li>
+<li><p>学校这学期开了数据结构，后悔当初为啥不好好学习C 和 CPP ,现在啥也不会，继续卑微.jpg</p>
+</li>
+<li><p>花了一整天的时间，重新看了一个叫做pikachu的靶场和配套的视频，最基础的那种，从中也发现了自己好多以前忽略了的东西，基础还是太差了</p>
+<h4 id="总之，这个月的状态就是无时无刻感叹自己的菜，面对事情的无能为力，要学的东西还有太多太多，five还是要加把劲，不然毕业真的只能去送外卖了。。。"><a href="#总之，这个月的状态就是无时无刻感叹自己的菜，面对事情的无能为力，要学的东西还有太多太多，five还是要加把劲，不然毕业真的只能去送外卖了。。。" class="headerlink" title="总之，这个月的状态就是无时无刻感叹自己的菜，面对事情的无能为力，要学的东西还有太多太多，five还是要加把劲，不然毕业真的只能去送外卖了。。。"></a>总之，这个月的状态就是无时无刻感叹自己的菜，面对事情的无能为力，要学的东西还有太多太多，five还是要加把劲，不然毕业真的只能去送外卖了。。。</h4><p>7点起，11点睡的生活虽然枯燥无味，但至少比以前多了很多不一样的色彩，也算是很幸运也很庆幸了，five还是要继续加油啊~~~</p>
+</li>
+</ul>
+<p><img src="http状态码\five.png" alt="2019090102"><img src="http状态码\2019040148.jpg" alt="2019040148"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/02/新VPS的简单配置/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -2288,217 +2468,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/19/hexo简单安装/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/HeadPortrait.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="咸鱼黄">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/19/hexo简单安装/" itemprop="url">hexo简单安装</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-19T19:10:40+08:00">
-                2019-01-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>自从上次吧hexo博客简单的搭建好并把vps上的wordpress为数不多的流水账博客搬运上去后，就已经好几个月没有去管他了，还是因为太懒，于是今天有空，就想写点啥，正好发现自己其实对这个博客还是很不了解，就，正好写一个简单的hexo的简单安装博客。</p>
-<h3 id="hexo博客的安装"><a href="#hexo博客的安装" class="headerlink" title="hexo博客的安装"></a>hexo博客的安装</h3><p>window10下安装</p>
-<h5 id="相关步骤"><a href="#相关步骤" class="headerlink" title="相关步骤"></a>相关步骤</h5><ol>
-<li>安装Node.js并配置好Node.js环境，并使用cmd输入命令查看</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/01/19/hexo简单安装/node.png" alt=""></p>
-<ol>
-<li>安装Git并配置Git环境，直接从官网下载安装，安装好后会又如图应用</li>
-</ol>
-<p><img src="/2019/01/19/hexo简单安装/Git.png" alt=""></p>
-<ol>
-<li>Github建立项目，项目必须要遵守格式：账户名.github.io，并勾选Initialize this repository with a README</li>
-</ol>
-<p><img src="/2019/01/19/hexo简单安装/GithubNew.png" alt=""></p>
-<p>建好这个项目后，得到一个网址:  saltedfishhuang.github.io,可以直接访问，但页面404</p>
-<ol>
-<li>安装Hexo，在合适的位置创建一个存博客的文件夹，因为我已经装好了，所以下面都借用网图，首先在cmd中cd到创建的文件夹下输入：<code>npm install hexo -g</code></li>
-</ol>
-<p><img src="/2019/01/19/hexo简单安装/npm-hexo.png" alt=""></p>
-<p>输入<code>hexo -v</code>,检查hexo是否安装成功</p>
-<p><img src="/2019/01/19/hexo简单安装/hexo-version.png" alt=""></p>
-<p>输入<code>hexo init</code>,初始化该文件夹</p>
-<p><img src="/2019/01/19/hexo简单安装/hexo-init1.png" alt=""></p>
-<p><img src="/2019/01/19/hexo简单安装/hexo-init2.png" alt=""></p>
-<p>输入<code>npm install</code>,安装所需要的组件</p>
-<p><img src="/2019/01/19/hexo简单安装/npm-install.png" alt=""></p>
-<p>输入<code>hexo g</code> ,本地生成页面</p>
-<p><img src="/2019/01/19/hexo简单安装/hexo-g.png" alt=""></p>
-<p>输入<code>hexo s</code> 开启本地服务，访问给出地址，可以本地浏览博客</p>
-<p><img src="/2019/01/19/hexo简单安装/hexo-s.png" alt=""></p>
-<p>如果长期无法跳转页面，可能是端口被占用，使用<code>ctrl+c</code>停止服务,输入<code>hexo server -p 端口号</code>来改变端口号</p>
-<p><img src="/2019/01/19/hexo简单安装/hexo-change-server-p.png" alt=""></p>
-<p>出现下图则成功</p>
-<p><img src="/2019/01/19/hexo简单安装/hexo-success.png" alt=""></p>
-<ol>
-<li><p>在博客文件夹下使用Git Bash，将Hexo和Github page联系起来</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --glable user.name &quot;saltedfishhuang&quot;</span><br><span class="line">git config --globle user.email &quot;huangjiacheng528@gmail.com&quot;</span><br></pre></td></tr></table></figure>
-<p>输入<code>ssh-keygen -t rsa -C “huangjiacheng528@gamil.com”</code>，连续三个回车，生成密钥，最后得到了两个文件：id_rsa和id_rsa.pub（默认存储路径是：<code>C:\Users\Administrator\.ssh</code>）</p>
-</li>
-</ol>
-<p>hexo简单安装</p>
-<p> 输入<code>eval &quot;$(ssh-agent -s)&quot;</code>，添加密钥到ssh-agent</p>
-<p><img src="/2019/01/19/hexo简单安装/ssh2.png" alt=""></p>
-<p>再输入<code>ssh-add ~/.ssh/id_rsa</code>，添加生成的SSH key到ssh-agent</p>
-<p><img src="/2019/01/19/hexo简单安装/ssh3.png" alt=""></p>
-<p>在Github上，点击头像下的settings，添加ssh，新建一个new ssh key，将id_rsa.pub文件里的内容复制上去</p>
-<p><img src="/2019/01/19/hexo简单安装/GithubSSH.png" alt=""></p>
-<ol>
-<li><p>配置Deployment，在blog文件中中修改repo值</p>
-<p><img src="/2019/01/19/hexo简单安装/config.png" alt=""></p>
-</li>
-<li><p>在生成及部署博客前，安装扩展 <code>npm install hexo-deployer-git --save</code></p>
-</li>
-</ol>
-<p><img src="/2019/01/19/hexo简单安装/hexo-deployer.png" alt=""></p>
-<p>​    使用命令：<code>hexo d -g</code>，生成以及部署博客，访问http://用户名.github.io</p>
-<p><img src="/2019/01/19/hexo简单安装/finish.png" alt=""></p>
-<h3 id="PS-使用过程中的一些命令和注意事项"><a href="#PS-使用过程中的一些命令和注意事项" class="headerlink" title="PS:使用过程中的一些命令和注意事项"></a>PS:使用过程中的一些命令和注意事项</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">hexo init [folder]        初始化网站</span><br><span class="line">hexo new/n &quot;博客名&quot;        新建一个博客</span><br><span class="line">hexo generate / hexo g    生成静态文件</span><br><span class="line">hexo deploy / hexo d      部署网站</span><br><span class="line">hexo server /hexo s       启动本地服务器</span><br><span class="line">hexo clean                清除缓存文件 db.json 和生成文件 public ，网站显示异常可执行此操作</span><br><span class="line">hexo --safe               安全模式，禁用加载插件和脚本，安装新插件出现问题可尝试此操作</span><br><span class="line">hexo --debug              调试模式，将详细消息记录到终端和 debug.log 文件</span><br><span class="line">hexo --silent             静默模式，静默输出到终端</span><br></pre></td></tr></table></figure>
-<h3 id="一些参考链接"><a href="#一些参考链接" class="headerlink" title="一些参考链接"></a>一些参考链接</h3><p><a href="https://cherryblog.site/categories/Hexo%E5%BB%BA%E7%AB%99/" target="_blank" rel="noopener">https://cherryblog.site/categories/Hexo%E5%BB%BA%E7%AB%99/</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/26625249?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/26625249?tdsourcetag=s_pctim_aiomsg</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2551,7 +2520,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2564,7 +2533,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

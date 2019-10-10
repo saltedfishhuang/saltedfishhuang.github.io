@@ -245,6 +245,217 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/19/hexo简单安装/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="咸鱼黄">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/19/hexo简单安装/" itemprop="url">hexo简单安装</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-19T19:10:40+08:00">
+                2019-01-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>自从上次吧hexo博客简单的搭建好并把vps上的wordpress为数不多的流水账博客搬运上去后，就已经好几个月没有去管他了，还是因为太懒，于是今天有空，就想写点啥，正好发现自己其实对这个博客还是很不了解，就，正好写一个简单的hexo的简单安装博客。</p>
+<h3 id="hexo博客的安装"><a href="#hexo博客的安装" class="headerlink" title="hexo博客的安装"></a>hexo博客的安装</h3><p>window10下安装</p>
+<h5 id="相关步骤"><a href="#相关步骤" class="headerlink" title="相关步骤"></a>相关步骤</h5><ol>
+<li>安装Node.js并配置好Node.js环境，并使用cmd输入命令查看</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/01/19/hexo简单安装/node.png" alt=""></p>
+<ol>
+<li>安装Git并配置Git环境，直接从官网下载安装，安装好后会又如图应用</li>
+</ol>
+<p><img src="/2019/01/19/hexo简单安装/Git.png" alt=""></p>
+<ol>
+<li>Github建立项目，项目必须要遵守格式：账户名.github.io，并勾选Initialize this repository with a README</li>
+</ol>
+<p><img src="/2019/01/19/hexo简单安装/GithubNew.png" alt=""></p>
+<p>建好这个项目后，得到一个网址:  saltedfishhuang.github.io,可以直接访问，但页面404</p>
+<ol>
+<li>安装Hexo，在合适的位置创建一个存博客的文件夹，因为我已经装好了，所以下面都借用网图，首先在cmd中cd到创建的文件夹下输入：<code>npm install hexo -g</code></li>
+</ol>
+<p><img src="/2019/01/19/hexo简单安装/npm-hexo.png" alt=""></p>
+<p>输入<code>hexo -v</code>,检查hexo是否安装成功</p>
+<p><img src="/2019/01/19/hexo简单安装/hexo-version.png" alt=""></p>
+<p>输入<code>hexo init</code>,初始化该文件夹</p>
+<p><img src="/2019/01/19/hexo简单安装/hexo-init1.png" alt=""></p>
+<p><img src="/2019/01/19/hexo简单安装/hexo-init2.png" alt=""></p>
+<p>输入<code>npm install</code>,安装所需要的组件</p>
+<p><img src="/2019/01/19/hexo简单安装/npm-install.png" alt=""></p>
+<p>输入<code>hexo g</code> ,本地生成页面</p>
+<p><img src="/2019/01/19/hexo简单安装/hexo-g.png" alt=""></p>
+<p>输入<code>hexo s</code> 开启本地服务，访问给出地址，可以本地浏览博客</p>
+<p><img src="/2019/01/19/hexo简单安装/hexo-s.png" alt=""></p>
+<p>如果长期无法跳转页面，可能是端口被占用，使用<code>ctrl+c</code>停止服务,输入<code>hexo server -p 端口号</code>来改变端口号</p>
+<p><img src="/2019/01/19/hexo简单安装/hexo-change-server-p.png" alt=""></p>
+<p>出现下图则成功</p>
+<p><img src="/2019/01/19/hexo简单安装/hexo-success.png" alt=""></p>
+<ol>
+<li><p>在博客文件夹下使用Git Bash，将Hexo和Github page联系起来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --glable user.name &quot;saltedfishhuang&quot;</span><br><span class="line">git config --globle user.email &quot;huangjiacheng528@gmail.com&quot;</span><br></pre></td></tr></table></figure>
+<p>输入<code>ssh-keygen -t rsa -C “huangjiacheng528@gamil.com”</code>，连续三个回车，生成密钥，最后得到了两个文件：id_rsa和id_rsa.pub（默认存储路径是：<code>C:\Users\Administrator\.ssh</code>）</p>
+</li>
+</ol>
+<p>hexo简单安装</p>
+<p> 输入<code>eval &quot;$(ssh-agent -s)&quot;</code>，添加密钥到ssh-agent</p>
+<p><img src="/2019/01/19/hexo简单安装/ssh2.png" alt=""></p>
+<p>再输入<code>ssh-add ~/.ssh/id_rsa</code>，添加生成的SSH key到ssh-agent</p>
+<p><img src="/2019/01/19/hexo简单安装/ssh3.png" alt=""></p>
+<p>在Github上，点击头像下的settings，添加ssh，新建一个new ssh key，将id_rsa.pub文件里的内容复制上去</p>
+<p><img src="/2019/01/19/hexo简单安装/GithubSSH.png" alt=""></p>
+<ol>
+<li><p>配置Deployment，在blog文件中中修改repo值</p>
+<p><img src="/2019/01/19/hexo简单安装/config.png" alt=""></p>
+</li>
+<li><p>在生成及部署博客前，安装扩展 <code>npm install hexo-deployer-git --save</code></p>
+</li>
+</ol>
+<p><img src="/2019/01/19/hexo简单安装/hexo-deployer.png" alt=""></p>
+<p>​    使用命令：<code>hexo d -g</code>，生成以及部署博客，访问http://用户名.github.io</p>
+<p><img src="/2019/01/19/hexo简单安装/finish.png" alt=""></p>
+<h3 id="PS-使用过程中的一些命令和注意事项"><a href="#PS-使用过程中的一些命令和注意事项" class="headerlink" title="PS:使用过程中的一些命令和注意事项"></a>PS:使用过程中的一些命令和注意事项</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">hexo init [folder]        初始化网站</span><br><span class="line">hexo new/n &quot;博客名&quot;        新建一个博客</span><br><span class="line">hexo generate / hexo g    生成静态文件</span><br><span class="line">hexo deploy / hexo d      部署网站</span><br><span class="line">hexo server /hexo s       启动本地服务器</span><br><span class="line">hexo clean                清除缓存文件 db.json 和生成文件 public ，网站显示异常可执行此操作</span><br><span class="line">hexo --safe               安全模式，禁用加载插件和脚本，安装新插件出现问题可尝试此操作</span><br><span class="line">hexo --debug              调试模式，将详细消息记录到终端和 debug.log 文件</span><br><span class="line">hexo --silent             静默模式，静默输出到终端</span><br></pre></td></tr></table></figure>
+<h3 id="一些参考链接"><a href="#一些参考链接" class="headerlink" title="一些参考链接"></a>一些参考链接</h3><p><a href="https://cherryblog.site/categories/Hexo%E5%BB%BA%E7%AB%99/" target="_blank" rel="noopener">https://cherryblog.site/categories/Hexo%E5%BB%BA%E7%AB%99/</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/26625249?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/26625249?tdsourcetag=s_pctim_aiomsg</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/从wordpress滚到hexo/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -906,7 +1117,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -919,7 +1130,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
