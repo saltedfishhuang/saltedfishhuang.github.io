@@ -348,7 +348,12 @@
         
           
           ​    前几天跟着几个大佬一起看了看中科大的Hackergame2019，这个比赛主要针对的是新手，激发新生对CTF比赛的兴趣，虽然我已经大三了，但实在是因为我过于five，也只能帮大佬打打杂，这里把自己做的题还是写一下wp，记录一下。
-0x01 签到题其实前面3个都是签到题，没意思，就不写了~~
+0x01 签到题其实前面3个都是签到题，没意思，就不写了~~~
+
+0x02 网页读取器一个简单的SSRF
+
+后台代码写了个白名单，可以绕过，下载下来的源代码如下，check_hostname为过滤函数
+12345678910111213141516171819
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -505,7 +510,7 @@
       
         
           
-          记一下笔记，假装自己最近学习了12345678910111213141516171819202122232425262728293031323334353637383940414243444546471xx：信息响应类，表示接收到请求并且继续处理2xx：处理成功响应类，表示动作被成功接收、理解和接受
+          记一下笔记，假装自己最近学习了12345678910111213141516171819202122232425262728293031323334353637383940414243444546471xx：信息响应类，表示接收到请求并且继续处理2xx：处理成功响应类，表示动作被成功接收、理解和接受3xx：重定向响应类，为了完成指定的动作，必须接受进一步处理4xx：客户端错误，客户请求包含语法错误或者是不能正确执行5xx：服务端错误，服务器不能正确执行一个正确的请求100——客户必须继续发出请求
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -664,7 +669,7 @@
           
           最近新弄了一个VPS，重新搭了酸酸，和lamp并跑了DVWA和pikachu两个靶场
 想了想，要把酸酸的一键脚本和lamp脚本记录一下，作为备份
-酸酸乳的安装脚本12345wget --no-check-certificate -O shadowsocks-all.sh https://raw.gi
+酸酸乳的安装脚本12345wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.shchmod +x shadowsocks-all.s
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -827,7 +832,9 @@
 正常注册账号，发现admin用户已存在，只能注册其他账号，登陆后可以回复并发表新的内容
 开始做题：
 1、首先在展示文章的页面post.wtf下存在路径穿越漏洞
-访问http:
+访问http://111.198.29.45:57425/post.wtf?post=../,得到页面源码，搜索flag
+
+发现只要是admin用户登陆到这个页面，就会触发get_flag1,而且在这里还暴露了，存
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -986,7 +993,9 @@
           
           0x01 base64直接base64 Decode  得到flag cyberpeace{Welcome_to_new_World!}
 0x02 Caesarkey为12 的恺撒密码，解密德flag cyberpeace{you_have_learned_caesar_encryption}
-To
+Tools：http://www.zjslove.com/3.decode/kaisa/index.html
+0x03 Morse摩斯密码 1替换成-,0替换成.,直接解密
+11 111 010 000 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1028,11 +1037,500 @@ To
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/08/01/攻防世界WEB新手练习/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="咸鱼黄">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/01/攻防世界WEB新手练习/" itemprop="url">攻防世界WEB新手练习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-01T12:30:36+08:00">
+                2019-08-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          0x01 view_source0x02 get_post​    这道题就是最基础的get和post请求的发送
+
+
+flag：cyberpeace{b1e763710ff23f2acf16c2358d3132d3}
+0x03 rebotsRebots.txt 是用来声明该网站中不想被爬虫访问的部分，这道题直接访问rebots.txt文件
+
+接着访问 f1ag_1s_h3re.php 页面即可得到flag
+
+flag   cyberpeace{306fadfe172cc2b119b280d295
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/01/攻防世界WEB新手练习/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/06/02/攻防世界MISC新手练习/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="咸鱼黄">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/02/攻防世界MISC新手练习/" itemprop="url">攻防世界MISC新手练习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-02T18:51:46+08:00">
+                2019-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          0x01 this_is_flag
+对！！！这就是flag
+0x02 ext3题目提示是Linux光盘，附件下载下来
+在linux中挂载mount linux /mnt
+找一下flagtrings linux | grep flag,发现在这个路径~root/Desktop/file/O7avZhikgKgbF/flag.txt
+
+ZmxhZ3tzYWpiY2lienNrampjbmJoc2J2Y2pianN6Y3N6Ymt6an0=
+Base64 Decode flag{sajbcibzskj
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/06/02/攻防世界MISC新手练习/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/05/27/2019强网杯/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="咸鱼黄">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/27/2019强网杯/" itemprop="url">2019强网杯</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-27T14:58:16+08:00">
+                2019-05-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          0x01 前言 前两天菜鸡+x和几个大哥算是正式参加了一次ctf的线上赛，也是第一次参加这种比赛（前一段时间巨佬也给了我们一个西班牙的比赛，不过不算是正式参赛，做题的时候，比赛已经结束了），没想到出师不利，菜的一B，除了一个证明你签了到的签到题，一道题也没有弄出来，今天的我也是一个卑微的弟弟啊！比赛结束了，大佬们开始放writeup了，准备有些题目还是再看一看，复现一下。
+0x02 鲲or鳗orGame最先开始做的便是这道MISC的题目“鲲or鳗orGame”
+
+进入网站后，发现鲲or鳗orGa
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/27/2019强网杯/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1352,5 +1850,5 @@ To
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-z16"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>
