@@ -96,7 +96,7 @@
 <meta property="og:image" content="http://www.xianfish.xyz/2019/11/06/区块链学习四-共识/7.png">
 <meta property="og:image" content="http://www.xianfish.xyz/2019/11/06/区块链学习四-共识/8.png">
 <meta property="og:image" content="http://www.xianfish.xyz/2019/11/06/区块链学习四-共识/2019062609.jpg">
-<meta property="og:updated_time" content="2019-11-06T01:19:33.098Z">
+<meta property="og:updated_time" content="2019-11-06T04:57:16.289Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="区块链学习四-共识">
 <meta name="twitter:description" content="​    共识是一个区块链系统稳定运行的基础，只有所有节点对区块链达成了共识，这个区块链才是一个健康的系统，这篇文章主要讲了如何添加peer节点以及当节点区块数据不一致时如何解决冲突，达成一致访问。 一、Blockchain类扩展想要解决和其它节点的区块冲突问题，首先需要能够获取其它节点的数据，我们再Blockchain类里添加一个nodes属性 this.nodes = new Set();">
@@ -390,6 +390,7 @@
 <p><img src="/2019/11/06/区块链学习四-共识/7.png" alt="7"></p>
 <p>接着调用解决冲突的API，可以看到3000的区块链已被3001端口的所替代，本节点已经和其他节点的最长区块链达成共识：</p>
 <p><img src="/2019/11/06/区块链学习四-共识/8.png" alt="8"></p>
+<p> <a href="https://github.com/saltedfishhuang/BlockChainStudy" target="_blank" rel="noopener">源码地址</a></p>
 <p>这样下来，四篇学习笔记就写(chao)完了,虽然文章设计的内容都时最基础的知识，但也让我对区块链，已经区块链中一些基础的知识有了初步的了解，又学到了新的东西还是非常高兴的！！！</p>
 <p><img src="/2019/11/06/区块链学习四-共识/2019062609.jpg" alt="2019062609"></p>
 
