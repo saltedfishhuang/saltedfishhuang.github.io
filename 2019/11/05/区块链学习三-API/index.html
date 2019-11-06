@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="区块链,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1、挖矿奖励一、挖矿奖励开始写代码之前，先了解一下挖矿奖励这个概念。 在前一篇文章中，我们了解到了服务器消耗了自己的计算资源，并计算出了预期结果后，会在区块的第一笔交易的位置创建一笔新的交易，这个交易没有发送人，接手人可以是任何人（通常为自己），奖励的数额由系统设定，在BTC中，最开始的奖励为50BTC，每隔四年减半一次。这笔奖励室友系统保证的，并且可以通过任何一个其他节点的验证。 二、代码重构我">
+<meta name="keywords" content="区块链">
+<meta property="og:type" content="article">
+<meta property="og:title" content="区块链学习三-API">
+<meta property="og:url" content="http://www.xianfish.xyz/2019/11/05/区块链学习三-API/index.html">
+<meta property="og:site_name" content="咸鱼黄">
+<meta property="og:description" content="1、挖矿奖励一、挖矿奖励开始写代码之前，先了解一下挖矿奖励这个概念。 在前一篇文章中，我们了解到了服务器消耗了自己的计算资源，并计算出了预期结果后，会在区块的第一笔交易的位置创建一笔新的交易，这个交易没有发送人，接手人可以是任何人（通常为自己），奖励的数额由系统设定，在BTC中，最开始的奖励为50BTC，每隔四年减半一次。这笔奖励室友系统保证的，并且可以通过任何一个其他节点的验证。 二、代码重构我">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://www.xianfish.xyz/2019/11/05/区块链学习三-API/1.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2019/11/05/区块链学习三-API/2.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2019/11/05/区块链学习三-API/3.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2019/11/05/区块链学习三-API/4.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2019/11/05/区块链学习三-API/5.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2019/11/05/区块链学习三-API/6.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2019/11/05/区块链学习三-API/7.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2019/11/05/区块链学习三-API/2019040126.jpg">
+<meta property="og:updated_time" content="2019-11-05T05:55:10.818Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="区块链学习三-API">
+<meta name="twitter:description" content="1、挖矿奖励一、挖矿奖励开始写代码之前，先了解一下挖矿奖励这个概念。 在前一篇文章中，我们了解到了服务器消耗了自己的计算资源，并计算出了预期结果后，会在区块的第一笔交易的位置创建一笔新的交易，这个交易没有发送人，接手人可以是任何人（通常为自己），奖励的数额由系统设定，在BTC中，最开始的奖励为50BTC，每隔四年减半一次。这笔奖励室友系统保证的，并且可以通过任何一个其他节点的验证。 二、代码重构我">
+<meta name="twitter:image" content="http://www.xianfish.xyz/2019/11/05/区块链学习三-API/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.xianfish.xyz/2019/11/05/区块链学习三-API/">
+
+
+
+
+
+  <title>区块链学习三-API | 咸鱼黄</title>
+  
+
+
+
+
+
+
+
+
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">咸鱼黄</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">人生总有各种理由将一个人变成一条咸鱼</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/05/区块链学习三-API/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="咸鱼黄">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">区块链学习三-API</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-05T13:28:14+08:00">
+                2019-11-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1、挖矿奖励"><a href="#1、挖矿奖励" class="headerlink" title="1、挖矿奖励"></a>1、挖矿奖励</h3><h3 id="一、挖矿奖励"><a href="#一、挖矿奖励" class="headerlink" title="一、挖矿奖励"></a>一、挖矿奖励</h3><p>开始写代码之前，先了解一下挖矿奖励这个概念。</p>
+<p>在前一篇文章中，我们了解到了服务器消耗了自己的计算资源，并计算出了预期结果后，会在区块的第一笔交易的位置创建一笔新的交易，这个交易没有发送人，接手人可以是任何人（通常为自己），奖励的数额由系统设定，在BTC中，最开始的奖励为50BTC，每隔四年减半一次。这笔奖励室友系统保证的，并且可以通过任何一个其他节点的验证。</p>
+<h3 id="二、代码重构"><a href="#二、代码重构" class="headerlink" title="二、代码重构"></a>二、代码重构</h3><p>我们要将当前的代码改造成适合通过API对外提供的形式，进行一下的处理：</p>
+<ol>
+<li>在Blockchain类中添加属性currentTransactions，由于收集最新交易，并且准备打包到下一个区块中</li>
+</ol>
+<p><img src="/2019/11/05/区块链学习三-API/1.png" alt="1"></p>
+<ul>
+<li><p>把Block类中的addNewTransaction方法一道Blockchain类里面</p>
+</li>
+<li><p>把Block类和Blockchain类export出去</p>
+</li>
+<li><p>并修改Blockchain类中的createGenesisBlock代码</p>
+</li>
+</ul>
+<p>最后修改完的代码为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> SHA256 = <span class="built_in">require</span>(<span class="string">'crypto-js/sha256'</span>);</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Block</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(index, timestamp) &#123;</span><br><span class="line">    <span class="keyword">this</span>.index = index;</span><br><span class="line">    <span class="keyword">this</span>.timestamp = timestamp;</span><br><span class="line">    <span class="keyword">this</span>.transactions = [];</span><br><span class="line">    <span class="keyword">this</span>.previousHash = <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">this</span>.hash = <span class="keyword">this</span>.calculateHash();</span><br><span class="line">    <span class="keyword">this</span>.nonce = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  calculateHash() &#123;</span><br><span class="line">    <span class="keyword">return</span> SHA256(<span class="keyword">this</span>.index + <span class="keyword">this</span>.previousHash + <span class="keyword">this</span>.timestamp + <span class="built_in">JSON</span>.stringify(<span class="keyword">this</span>.transactions) + <span class="keyword">this</span>.nonce).toString();    </span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  mineBlock(difficulty) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Mining block <span class="subst">$&#123;<span class="keyword">this</span>.index&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">while</span> (<span class="keyword">this</span>.hash.substring(<span class="number">0</span>, difficulty) !== <span class="built_in">Array</span>(difficulty + <span class="number">1</span>).join(<span class="string">"0"</span>)) &#123;</span><br><span class="line">        <span class="keyword">this</span>.nonce++;</span><br><span class="line">        <span class="keyword">this</span>.hash = <span class="keyword">this</span>.calculateHash();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"BLOCK MINED: "</span> + <span class="keyword">this</span>.hash);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  getTransactions() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.transactions;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Blockchain</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.chain = [<span class="keyword">this</span>.createGenesisBlock()];</span><br><span class="line">    <span class="keyword">this</span>.difficulty = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">this</span>.currentTransactions = [];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  addNewTransaction(sender, recipient, amount) &#123;</span><br><span class="line">    <span class="keyword">this</span>.currentTransactions.push(&#123;</span><br><span class="line">      sender,</span><br><span class="line">      recipient,</span><br><span class="line">      amount</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  createGenesisBlock() &#123;</span><br><span class="line">    <span class="keyword">const</span> genesisBlock = <span class="keyword">new</span> Block(<span class="number">0</span>, <span class="string">"01/10/2017"</span>);</span><br><span class="line">    genesisBlock.previousHash = <span class="string">'0'</span>;</span><br><span class="line">    genesisBlock.transactions.push(&#123;</span><br><span class="line">      sender: <span class="string">'xianyu'</span>,</span><br><span class="line">      recipient: <span class="string">'five'</span>,</span><br><span class="line">      amount: <span class="number">520</span></span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> genesisBlock;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  getLatestBlock() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.chain[<span class="keyword">this</span>.chain.length - <span class="number">1</span>];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  addBlock(newBlock) &#123;</span><br><span class="line">    newBlock.previousHash = <span class="keyword">this</span>.getLatestBlock().hash;</span><br><span class="line">    newBlock.mineBlock(<span class="keyword">this</span>.difficulty);</span><br><span class="line">    <span class="keyword">this</span>.chain.push(newBlock);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  isChainValid() &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; <span class="keyword">this</span>.chain.length; i++)&#123;</span><br><span class="line">      <span class="keyword">const</span> currentBlock = <span class="keyword">this</span>.chain[i];</span><br><span class="line">      <span class="keyword">const</span> previousBlock = <span class="keyword">this</span>.chain[i - <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(currentBlock.hash !== currentBlock.calculateHash())&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(currentBlock.previousHash !== previousBlock.hash)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  Block,</span><br><span class="line">  Blockchain</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="三、使用Express提供API服务"><a href="#三、使用Express提供API服务" class="headerlink" title="三、使用Express提供API服务"></a>三、使用Express提供API服务</h3><p>我们使用Node.js中的Express框架，对完来提供三个接口：</p>
+<ul>
+<li><p>/transactionns/new  添加新的交易，格式为JSON；</p>
+</li>
+<li><p>/mini  打包目前的交易到新的区块；</p>
+</li>
+<li><p>/chain  返回当前的区块链</p>
+</li>
+</ul>
+<p>新建一个server.js，基础代码为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">const</span> uuidv4 = <span class="built_in">require</span>(<span class="string">'uuis/v4'</span>);</span><br><span class="line"><span class="keyword">const</span> Blockchain = <span class="built_in">require</span>(<span class="string">'./BlockChain3'</span>).Blockchain;</span><br><span class="line"><span class="keyword">const</span> port = process.env.port || <span class="number">3000</span>;</span><br><span class="line">cosnt app = express();</span><br><span class="line"><span class="keyword">const</span> nodeIdentifier = uuidv4();</span><br><span class="line"><span class="keyword">const</span> xianyuCoin = <span class="keyword">new</span> Blockchain();</span><br><span class="line">app.get(<span class="string">'/mine'</span>, (req,res) =&gt;&#123;</span><br><span class="line">  res.send(<span class="string">"我们打包了一个新的区块。"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.post(<span class="string">'/transaction/new'</span>, (req,res) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> response = &#123;</span><br><span class="line">    chain: xianyuCoin.chain,</span><br><span class="line">    length: xianyuCoin.chain.length</span><br><span class="line">  &#125;</span><br><span class="line">  res.send(response);</span><br><span class="line">&#125;)</span><br><span class="line">app.listen(port, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'服务已运行在 $&#123;port&#125; 端口上。'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>继续完善路由 ‘/mine’ 和’/transactions/new’，有需要也可以添加一些日志功能</p>
+<p>先看路由 /transaction/new ，在这个接口中，我们接受一个JSON格式的交易，内容为 </p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="attr">"sender"</span>: <span class="string">"my address"</span>,</span><br><span class="line"> <span class="attr">"recipient"</span>: <span class="string">"someone else's address"</span>,</span><br><span class="line"> <span class="attr">"amount"</span>: <span class="number">5</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>然后把这个交易添加到当前区块链的currentTransactions中。这里会用到body-parser模块，组后代码为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bodyParser = <span class="built_in">require</span>(<span class="string">"body-parser"</span>);</span><br><span class="line"><span class="keyword">const</span> jsonParser = bodyParser.json();</span><br><span class="line">app.post(<span class="string">'/transactions/new'</span>, jsonParser, (req, res) =&gt; &#123;</span><br><span class="line"> <span class="keyword">const</span> newTransaction = req.body;</span><br><span class="line"> xianyuCoin.addNewTransaction(newTransaction)</span><br><span class="line"> res.send(<span class="string">`交易： <span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(newTransaction)&#125;</span> 已成功添加到区块链中！`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>接下来是路由/mine。该接口实现的功能是收集当前未被打包的交易，打包到一个新的区块中；添加奖励交易（这里设置为100，接收地址为uuid）；进行符合难度要求的挖矿，返回新区块信息。代码实现如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">'/mine'</span>, (req, res) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> latestBlockIndex = xianyuCoin.chain.length;</span><br><span class="line">    <span class="keyword">const</span> newBlock = <span class="keyword">new</span> Block(latestBlockIndex, <span class="keyword">new</span> <span class="built_in">Date</span>().toString());</span><br><span class="line">    newBlock.transactions = xianyuCoin.currentTransactions;</span><br><span class="line">    newBlock.transactions.unshift(&#123;</span><br><span class="line">      sender: <span class="string">'0'</span>,</span><br><span class="line">      recipient: nodeIdentifier,</span><br><span class="line">      amount: <span class="number">50</span></span><br><span class="line">    &#125;)</span><br><span class="line">    xianyuCoin.addBlock(newBlock);</span><br><span class="line">    xianyuCoin.currentTransactions = [];</span><br><span class="line">    res.send(<span class="string">`Mined new block <span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(newBlock, <span class="literal">undefined</span>, <span class="number">2</span>)&#125;</span>`</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<p>在添加一个日志记录中间件(卑微的报错了：<code>Reference Error: fs is not defined</code></p>
+<p>只能把日志记录代码注释掉，暂时搁置了~~~)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">app.use(<span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">   <span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>().toString();</span><br><span class="line">   <span class="keyword">var</span> log = <span class="string">`<span class="subst">$&#123;now&#125;</span>: <span class="subst">$&#123;req.method&#125;</span> <span class="subst">$&#123;req.url&#125;</span>`</span>;</span><br><span class="line">   <span class="built_in">console</span>.log(log);</span><br><span class="line">  fs.appendFile(<span class="string">'server.log'</span>, log + <span class="string">'\n'</span>, (err) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) <span class="built_in">console</span>.log(err);</span><br><span class="line">  &#125;);</span><br><span class="line">  next;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="四、测试API"><a href="#四、测试API" class="headerlink" title="四、测试API"></a>四、测试API</h3><p><code>Node server.js</code> 启动程序</p>
+<p><img src="/2019/11/05/区块链学习三-API/2.png" alt="2"></p>
+<p>我们使用Postman来进行后面的测试，为了测试方便，将困难度调整到较低的3</p>
+<p>访问<code>127.0.0.1:3000/chain</code>获取当前区块链的信息，能够看到创世块的信息</p>
+<p><img src="/2019/11/05/区块链学习三-API/3.png" alt="3"></p>
+<p>我们再使用post的方式向<code>127.0.0.1/3000/transactions/new</code> 发送一个Json交易信息，成功的添加了一个新的交易信息</p>
+<p><img src="/2019/11/05/区块链学习三-API/4.png" alt="4"></p>
+<p>接下来再访问<code>127.0.0.1/mine</code> 开始挖矿，并成功的将一笔交易打包添加到了新的区块中，而且难度也符合要求</p>
+<p><img src="/2019/11/05/区块链学习三-API/5.png" alt="5"></p>
+<p>这时候如果不添加交易挖矿会怎样么样呢？其实，一般在一个区块链项目的早起，交易的数量每天都很少很少，但是挖矿的工作需要一直持续下去，只不过每个区块中就只有奖励信息，这种区块一般被叫做”空块”，测试的时候，不添加交易，直接调用mine接口,返回的结果就没有交易数据：</p>
+<p><img src="/2019/11/05/区块链学习三-API/6.png" alt="6"></p>
+<p>我们再次访问chain接口，查看当前区块链的信息，就可以看到我们添加的区块了 </p>
+<p><img src="/2019/11/05/区块链学习三-API/7.png" alt="7"></p>
+<p><img src="/2019/11/05/区块链学习三-API/2019040126.jpg" alt="2019040126"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/区块链/" rel="tag"># 区块链</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/05/区块链学习二-工作量证明/" rel="next" title="区块链学习二-工作量证明">
+                <i class="fa fa-chevron-left"></i> 区块链学习二-工作量证明
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/06/区块链学习四-共识/" rel="prev" title="区块链学习四-共识">
+                区块链学习四-共识 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/HeadPortrait.png" alt="瑟瑟发抖咸鱼黄">
+            
+              <p class="site-author-name" itemprop="name">瑟瑟发抖咸鱼黄</p>
+              <p class="site-description motion-element" itemprop="description">人生总有各种理由将一个人变成一条咸鱼</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://gorgias.me/" title="巨佬" target="_blank">巨佬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://couplee.wang/" title="wnagzihxa1n" target="_blank">wnagzihxa1n</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.tity.xyz/" title="WarrenRyan" target="_blank">WarrenRyan</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://rinbn.com/" title="Rinbn" target="_blank">Rinbn</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.imzj.top/" title="imzj" target="_blank">imzj</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://egguncle.github.io/" title="Ekkkkkkko" target="_blank">Ekkkkkkko</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、挖矿奖励"><span class="nav-number">1.</span> <span class="nav-text">1、挖矿奖励</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、挖矿奖励"><span class="nav-number">2.</span> <span class="nav-text">一、挖矿奖励</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、代码重构"><span class="nav-number">3.</span> <span class="nav-text">二、代码重构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、使用Express提供API服务"><span class="nav-number">4.</span> <span class="nav-text">三、使用Express提供API服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、测试API"><span class="nav-number">5.</span> <span class="nav-text">四、测试API</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=40915694&auto=0&height=66"></iframe>
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">瑟瑟发抖咸鱼黄</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
