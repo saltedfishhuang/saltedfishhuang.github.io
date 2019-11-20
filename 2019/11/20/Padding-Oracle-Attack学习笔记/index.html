@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="emmmmm,">
+  <meta name="keywords" content="crypto,">
 
 
 
@@ -79,24 +79,23 @@
 
 
 
-<meta name="description" content="瞎逼逼  学校在上课学期开就对校园网进行了改造，原来宿舍的宽带本来可以一个人办理，用个路由器就可以全寝室一起使用。改造之后，每次上网都需要进行认证，而且无法正常通过路由器分享一个人的宽带套餐，每个设备都要单独认证，一个账号也只能同时两个设备同时在线。即使学校的三大运营商给出了一些优惠的套餐，但始终都不方便（其实是贫穷.jpg）,学校也给了一个月8.5的校园网wifi套餐，但2兆的网速确实不够用，于">
-<meta name="keywords" content="emmmmm">
+<meta name="description" content="0x01 背景知识我第一次看到这个的时候，还真的傻乎乎的以为是和Oracle(甲骨文)相关的漏洞，然而，这个和甲骨文的关系并不大emmmm，oracle翻译成中文有预言、神谕的意思。在密码学中，oracle是一个代表 用户或者攻击者 执行给定加密操作的系统。 Padding Oracle Attract是针对CBC模式的攻击，关于CBC加密解密与翻转攻击，上一篇笔记有写到，这里就不再重复了。 0x">
+<meta name="keywords" content="crypto">
 <meta property="og:type" content="article">
-<meta property="og:title" content="白嫖校园网">
-<meta property="og:url" content="http://www.xianfish.xyz/2019/03/18/白嫖校园网/index.html">
+<meta property="og:title" content="Padding Oracle Attack学习笔记">
+<meta property="og:url" content="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack学习笔记/index.html">
 <meta property="og:site_name" content="咸鱼黄">
-<meta property="og:description" content="瞎逼逼  学校在上课学期开就对校园网进行了改造，原来宿舍的宽带本来可以一个人办理，用个路由器就可以全寝室一起使用。改造之后，每次上网都需要进行认证，而且无法正常通过路由器分享一个人的宽带套餐，每个设备都要单独认证，一个账号也只能同时两个设备同时在线。即使学校的三大运营商给出了一些优惠的套餐，但始终都不方便（其实是贫穷.jpg）,学校也给了一个月8.5的校园网wifi套餐，但2兆的网速确实不够用，于">
+<meta property="og:description" content="0x01 背景知识我第一次看到这个的时候，还真的傻乎乎的以为是和Oracle(甲骨文)相关的漏洞，然而，这个和甲骨文的关系并不大emmmm，oracle翻译成中文有预言、神谕的意思。在密码学中，oracle是一个代表 用户或者攻击者 执行给定加密操作的系统。 Padding Oracle Attract是针对CBC模式的攻击，关于CBC加密解密与翻转攻击，上一篇笔记有写到，这里就不再重复了。 0x">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/03/18/白嫖校园网/1.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/03/18/白嫖校园网/2.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/03/18/白嫖校园网/3.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/03/18/白嫖校园网/4.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/03/18/白嫖校园网/5.jpg">
-<meta property="og:updated_time" content="2019-11-19T08:08:06.549Z">
+<meta property="og:image" content="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack学习笔记/1.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack学习笔记/2.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack学习笔记/3.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack学习笔记/2019062609.jpg">
+<meta property="og:updated_time" content="2019-11-20T13:07:33.717Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="白嫖校园网">
-<meta name="twitter:description" content="瞎逼逼  学校在上课学期开就对校园网进行了改造，原来宿舍的宽带本来可以一个人办理，用个路由器就可以全寝室一起使用。改造之后，每次上网都需要进行认证，而且无法正常通过路由器分享一个人的宽带套餐，每个设备都要单独认证，一个账号也只能同时两个设备同时在线。即使学校的三大运营商给出了一些优惠的套餐，但始终都不方便（其实是贫穷.jpg）,学校也给了一个月8.5的校园网wifi套餐，但2兆的网速确实不够用，于">
-<meta name="twitter:image" content="http://www.xianfish.xyz/2019/03/18/白嫖校园网/1.png">
+<meta name="twitter:title" content="Padding Oracle Attack学习笔记">
+<meta name="twitter:description" content="0x01 背景知识我第一次看到这个的时候，还真的傻乎乎的以为是和Oracle(甲骨文)相关的漏洞，然而，这个和甲骨文的关系并不大emmmm，oracle翻译成中文有预言、神谕的意思。在密码学中，oracle是一个代表 用户或者攻击者 执行给定加密操作的系统。 Padding Oracle Attract是针对CBC模式的攻击，关于CBC加密解密与翻转攻击，上一篇笔记有写到，这里就不再重复了。 0x">
+<meta name="twitter:image" content="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack学习笔记/1.png">
 
 
 
@@ -126,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://www.xianfish.xyz/2019/03/18/白嫖校园网/">
+  <link rel="canonical" href="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack学习笔记/">
 
 
 
 
 
-  <title>白嫖校园网 | 咸鱼黄</title>
+  <title>Padding Oracle Attack学习笔记 | 咸鱼黄</title>
   
 
 
@@ -252,7 +251,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/03/18/白嫖校园网/">
+    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack学习笔记/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
@@ -269,7 +268,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">白嫖校园网</h1>
+          <h1 class="post-title" itemprop="name headline">Padding Oracle Attack学习笔记</h1>
         
 
         <div class="post-meta">
@@ -281,8 +280,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T14:59:42+08:00">
-                2019-03-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-20T20:55:27+08:00">
+                2019-11-20
               </time>
             
 
@@ -350,23 +349,51 @@
       
 
       
-        <h3 id="瞎逼逼"><a href="#瞎逼逼" class="headerlink" title="瞎逼逼"></a>瞎逼逼</h3><p>  学校在上课学期开就对校园网进行了改造，原来宿舍的宽带本来可以一个人办理，用个路由器就可以全寝室一起使用。改造之后，每次上网都需要进行认证，而且无法正常通过路由器分享一个人的宽带套餐，每个设备都要单独认证，一个账号也只能同时两个设备同时在线。即使学校的三大运营商给出了一些优惠的套餐，但始终都不方便（其实是贫穷.jpg）,学校也给了一个月8.5的校园网wifi套餐，但2兆的网速确实不够用，于是就像找到一些办法来提升校园网使用质量（白嫖）。</p>
-<h3 id="特别情况"><a href="#特别情况" class="headerlink" title="特别情况"></a>特别情况</h3><p>刚在校园网开始使用的时候，就有人找到有办法，让一个宿舍可以共享一个账号，现在貌似也只能电信的宽带可以，具体的做法就是，先直接将校园网的网线插在一台电脑上，进行认证后，获得到电脑的mac地址，并手动修改路由器的mac地址，时路由器和认证的电脑mac地址相同，然后将网线直接插在路由器上，就可以通过修改mac的方式欺骗认证系统，实现网络共享</p>
-<p><img src="/2019/03/18/白嫖校园网/1.png" alt="1"></p>
-<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><p>就在不久前，当我躺在床上看番卡的要死时，突然产生了一个想法，学校虽然无线网最便宜的套餐只有2兆的网速，但是如果只是访问学校内网，其实是不会限速的。而在学校办公室或者实验室之类的地方，还是走的以前的校园网认证，这个认证后的网络也是不用限速的，于是产生了在办公室做一个代理的想法。</p>
-<p><img src="/2019/03/18/白嫖校园网/2.png" alt="2"></p>
-<p>正好前一段时间，白嫖到了富婆zz的树莓派，用它来做代理是再好不过了，而且工作室是24小时不断电的，条件也满足。经过考虑，我打算直接使用配置简单的SS来进行代理，终端设备上也直接用Shadosocks或者SSR的客户端就行。安装代码如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh</span><br><span class="line">sudo chmod +x shadowsocks-all.sh</span><br><span class="line">sudo ./shadowsocks-all.sh 2&gt;&amp;1 | tee shadowsocks-all.log</span><br></pre></td></tr></table></figure>
-<p>中途会要求配置端口、密码和加密方式，自己随意</p>
-<p>安装完成后，脚本提示如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Congratulations, your_shadowsocks_version install completed!</span><br><span class="line">Your Server IP        :your_server_ip</span><br><span class="line">Your Server Port      :your_server_port</span><br><span class="line">Your Password         :your_password</span><br><span class="line">Your Encryption Method:your_encryption_method</span><br><span class="line"></span><br><span class="line">Your QR Code: (For Shadowsocks Windows, OSX, Android and iOS clients)</span><br><span class="line"> ss://your_encryption_method:your_password@your_server_ip:your_server_port</span><br><span class="line">Your QR Code has been saved as a PNG file path:</span><br><span class="line"> your_path.png</span><br><span class="line"></span><br><span class="line">Welcome to visit:https://teddysun.com/486.html</span><br><span class="line">Enjoy it!</span><br></pre></td></tr></table></figure>
-<p>然后就可以使用设备上的app进行配置</p>
-<p><img src="/2019/03/18/白嫖校园网/3.png" alt="3"></p>
-<p>最后连上校园网的wifi，打开代理，使用全局，美滋滋！！！</p>
-<p><img src="/2019/03/18/白嫖校园网/4.png" alt="4"></p>
-<h3 id="一些疑问"><a href="#一些疑问" class="headerlink" title="一些疑问"></a>一些疑问</h3><p>在后面使用过程中，手机端使用基本没有问题，延迟和速度都很棒，但在电脑端使用时，发现很多时候延迟会很大而且网速也远远没有手机上快，这就很迷，后面慢慢使用在修改吧！</p>
-<p>白嫖大法好！！！！</p>
-<p><img src="/2019/03/18/白嫖校园网/5.jpg" alt="5"></p>
+        <h3 id="0x01-背景知识"><a href="#0x01-背景知识" class="headerlink" title="0x01 背景知识"></a>0x01 背景知识</h3><p>我第一次看到这个的时候，还真的傻乎乎的以为是和Oracle(甲骨文)相关的漏洞，然而，这个和甲骨文的关系并不大emmmm，oracle翻译成中文有预言、神谕的意思。在密码学中，oracle是一个代表 用户或者攻击者 执行给定加密操作的系统。</p>
+<p>Padding Oracle Attract是针对CBC模式的攻击，关于CBC加密解密与翻转攻击，上一篇笔记有写到，这里就不再重复了。</p>
+<h3 id="0x02-原理"><a href="#0x02-原理" class="headerlink" title="0x02 原理"></a>0x02 原理</h3><p>我们已经知道，在常用的对称算法，比如3DES、AES在加密的时候一般都会采用分组密码(Block Cipher)，将明文进行分组。但分组的同时就会带来一个问题，我们需要加密的明文不可能全部都是block(我们规定的区块长度)的整数倍，所以需要对不能整除的数据进行填充操作。我们常用的填充操作有PKCS#5和PKCS#7，在最后一个block中将不足的bit位数的值作为内容进行填充，例如如果最后一个区块缺少5个bit，就直接填充5个0x05到后面。我们子在解密的时候也会去检验明文的填充是否满足这个规则，如果满足以n个0x0n结束，就表示解密成功，否则解密失败。所以，当我们向服务器提交一个密文想要解密时，服务器一共会有三种判断结果：</p>
+<ol>
+<li>密文不能正常解密；</li>
+<li>密文可以正常解密但解密结果不对；</li>
+<li>密文可以正常解密并且解密结果对比正确；</li>
+</ol>
+<h3 id="0x03-攻击步骤"><a href="#0x03-攻击步骤" class="headerlink" title="0x03 攻击步骤"></a>0x03 攻击步骤</h3><ol>
+<li>我们先假设存在一组密文 </li>
+</ol>
+<p><code>7B216A634951170FF851D6CC68FC9537858795A28ED4AAC6</code></p>
+<p>将其分为3组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">IV(初始化向量)：7B 21 6A 63 49 51 17 0F</span><br><span class="line"></span><br><span class="line">第一组密文：F8 51 D6 CC 68 FC 95 37</span><br><span class="line"></span><br><span class="line">第二组密文：85 87 95 A2 8E D4 AA C6</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>对第一组密文进行破解，先假设我们明文只填充了一个字节，首先将IV全部设置为0，我们这时候假设存在一个解密系统，我们输入</p>
+<p>​    <code>00000000000000000F851D6CC68FC9537</code></p>
+</li>
+</ol>
+<p>运行结果如图</p>
+<p><img src="/2019/11/20/Padding-Oracle-Attack学习笔记/1.png" alt="1"></p>
+<p>我们可以看到，明文的最后一个字节填充的是0x3D,肯定不满足我们上面说的填充条件的，这里校验肯定就会失败，系统就会和我们返回错误，所以我们需要对IV的最后一个字节从0x01到0xff逐个赋值进行校验，知道最后得到的明文最后一位位0x01，这里我们可以知道我们构造的为0x3C</p>
+<p><img src="/2019/11/20/Padding-Oracle-Attack学习笔记/2.png" alt="2"></p>
+<ol start="3">
+<li>利用xor运算的性质，我们只需要将我们构造的IV的最后一个字节与0x01进行xor运算后就可以得到最后一位密文解密后的中间值是什么了，我们设它为M1，我们再看一张图</li>
+</ol>
+<p><img src="/2019/11/20/Padding-Oracle-Attack学习笔记/3.png" alt="3"></p>
+<p>这一过程其实就是这张CBC原理图中标记的地方，右边的红圈就是我们想要得到的中间值，左边的红圈就是我们构造的密文，也就是最后一组密文的IV，我们已经知道了最后一组Plaintext的最后一个字节是0x01，从图中可以看到它是由我们构造的IV值与中间值的最后一字节异或得到的</p>
+<ol start="4">
+<li>再假定明文填充了两字节也就是明文最后两字节是0×02，接着构造倒数第二组密文，我们把M1与0×02异或可以得到填充两字节时密文的最后一位应该是什么，这时候我们只需要对倒数第二位进行不断地赋值尝试（也是从0×00到0xff），当服务器返回值表示可以正常解密时，我们把此时的倒数第二位密文的取值与0×02异或便可得到最后一组密文倒数第二字节对应的中间值；</li>
+</ol>
+<ol start="6">
+<li><p>再构造出倒数第三倒数第四直到得到最后一组密文的中间值，把这个中间值与截获的密文的倒数第二位异或便可得到最后一组分组的明文；</p>
+</li>
+<li><p>舍弃掉最后一组密文，只提交第一组到倒数第二组密文，通过构造倒数第三组密文得到倒数第二组密文的铭文，最后我们便可以得到全部的明文</p>
+</li>
+</ol>
+<h3 id="0x04-总结"><a href="#0x04-总结" class="headerlink" title="0x04 总结"></a>0x04 总结</h3><p>Padding oracle attract的关键思路其实就在于通过构造IV值，利用服务器的返回结果判断是否构造正确，最终找到正确的中间值，来达到绕过加密算法，直接得到解密内容的效果；</p>
+<p>进行这个攻击也需要两个重要的假设前提:</p>
+<ul>
+<li>攻击者能够获得Ciphertext(密文,包括IV)</li>
+<li>攻击者需要知道构造得结果是否正确，也就是需要一个带有响应得检测系统</li>
+</ul>
+<p>这两天我看了很多遍相关的文章，这篇学习笔记包括上一篇CBC翻转攻击其实也是各家抄过来的，但是这样下来也学到了很多很多东西、庆幸至极，同时知道自己需要学习得东西还有很多，总之，加油吧five！</p>
+<p> <img src="/2019/11/20/Padding-Oracle-Attack学习笔记/2019062609.jpg" alt="2019062609"></p>
 
       
     </div>
@@ -384,7 +411,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/emmmmm/" rel="tag"># emmmmm</a>
+            <a href="/tags/crypto/" rel="tag"># crypto</a>
           
         </div>
       
@@ -397,8 +424,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/01/树莓派上手/" rel="next" title="树莓派上手">
-                <i class="fa fa-chevron-left"></i> 树莓派上手
+              <a href="/2019/11/19/CBC字节翻转攻击/" rel="next" title="CBC字节翻转攻击">
+                <i class="fa fa-chevron-left"></i> CBC字节翻转攻击
               </a>
             
           </div>
@@ -406,10 +433,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/27/2019强网杯/" rel="prev" title="2019强网杯">
-                2019强网杯 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -568,7 +591,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#瞎逼逼"><span class="nav-number">1.</span> <span class="nav-text">瞎逼逼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特别情况"><span class="nav-number">2.</span> <span class="nav-text">特别情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正文"><span class="nav-number">3.</span> <span class="nav-text">正文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些疑问"><span class="nav-number">4.</span> <span class="nav-text">一些疑问</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-背景知识"><span class="nav-number">1.</span> <span class="nav-text">0x01 背景知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-原理"><span class="nav-number">2.</span> <span class="nav-text">0x02 原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x03-攻击步骤"><span class="nav-number">3.</span> <span class="nav-text">0x03 攻击步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x04-总结"><span class="nav-number">4.</span> <span class="nav-text">0x04 总结</span></a></li></ol></div>
             
 
           </div>
