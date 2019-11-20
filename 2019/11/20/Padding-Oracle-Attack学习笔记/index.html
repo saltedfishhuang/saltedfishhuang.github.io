@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack学习笔记/2.png">
 <meta property="og:image" content="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack学习笔记/3.png">
 <meta property="og:image" content="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack学习笔记/2019062609.jpg">
-<meta property="og:updated_time" content="2019-11-20T13:07:33.717Z">
+<meta property="og:updated_time" content="2019-11-20T13:10:05.745Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Padding Oracle Attack学习笔记">
 <meta name="twitter:description" content="0x01 背景知识我第一次看到这个的时候，还真的傻乎乎的以为是和Oracle(甲骨文)相关的漏洞，然而，这个和甲骨文的关系并不大emmmm，oracle翻译成中文有预言、神谕的意思。在密码学中，oracle是一个代表 用户或者攻击者 执行给定加密操作的系统。 Padding Oracle Attract是针对CBC模式的攻击，关于CBC加密解密与翻转攻击，上一篇笔记有写到，这里就不再重复了。 0x">
@@ -390,10 +390,17 @@
 <p>进行这个攻击也需要两个重要的假设前提:</p>
 <ul>
 <li>攻击者能够获得Ciphertext(密文,包括IV)</li>
-<li>攻击者需要知道构造得结果是否正确，也就是需要一个带有响应得检测系统</li>
+<li><p>攻击者需要知道构造得结果是否正确，也就是需要一个带有响应得检测系统</p>
+<p>参考链接：</p>
+</li>
 </ul>
+<p>​     <a href="https://blog.skullsecurity.org/2013/padding-oracle-attacks-in-depth" target="_blank" rel="noopener">https://blog.skullsecurity.org/2013/padding-oracle-attacks-in-depth</a> </p>
+<p>​     <a href="https://blog.skullsecurity.org/2013/a-padding-oracle-example" target="_blank" rel="noopener">https://blog.skullsecurity.org/2013/a-padding-oracle-example</a> </p>
+<p>​     <a href="https://www.jianshu.com/p/833582b2f560" target="_blank" rel="noopener">https://www.jianshu.com/p/833582b2f560</a> </p>
+<p>​     <a href="https://www.jianshu.com/p/ad8bdd87e131" target="_blank" rel="noopener">https://www.jianshu.com/p/ad8bdd87e131</a> </p>
+<p>​     <a href="https://www.freebuf.com/articles/database/151167.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/database/151167.html</a> </p>
 <p>这两天我看了很多遍相关的文章，这篇学习笔记包括上一篇CBC翻转攻击其实也是各家抄过来的，但是这样下来也学到了很多很多东西、庆幸至极，同时知道自己需要学习得东西还有很多，总之，加油吧five！</p>
-<p> <img src="/2019/11/20/Padding-Oracle-Attack学习笔记/2019062609.jpg" alt="2019062609"></p>
+<p><img src="/2019/11/20/Padding-Oracle-Attack学习笔记/2019062609.jpg" alt="2019062609"></p>
 
       
     </div>
