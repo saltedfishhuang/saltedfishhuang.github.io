@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="web,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="0x01 一些前言以前虽然也使用过一些数据转发的工具，但其实一直对数据转发的一些东西缺乏深入的了解，于是打算开始看着巨佬的博客进行一些学习，并进行一些简单的数据转发实验。 首先我们需要了解几个概念  端口转发(port forwarding)  端口转发有时候也被叫做隧道，是安全壳为网络安全通信使用的一种方法，我们像假设我们有个拥有公网IP的路由器，下面连着多台内网主机。内网主机和外网进行通信的时">
+<meta name="keywords" content="web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据转发学习">
+<meta property="og:url" content="http://www.xianfish.xyz/2019/11/30/数据转发学习/index.html">
+<meta property="og:site_name" content="+×啥都没有">
+<meta property="og:description" content="0x01 一些前言以前虽然也使用过一些数据转发的工具，但其实一直对数据转发的一些东西缺乏深入的了解，于是打算开始看着巨佬的博客进行一些学习，并进行一些简单的数据转发实验。 首先我们需要了解几个概念  端口转发(port forwarding)  端口转发有时候也被叫做隧道，是安全壳为网络安全通信使用的一种方法，我们像假设我们有个拥有公网IP的路由器，下面连着多台内网主机。内网主机和外网进行通信的时">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://www.xianfish.xyz/2019/11/30/数据转发学习/1.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2019/11/30/数据转发学习/2.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2019/11/30/数据转发学习/2019040145.jpg">
+<meta property="og:updated_time" content="2019-12-03T10:49:24.812Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据转发学习">
+<meta name="twitter:description" content="0x01 一些前言以前虽然也使用过一些数据转发的工具，但其实一直对数据转发的一些东西缺乏深入的了解，于是打算开始看着巨佬的博客进行一些学习，并进行一些简单的数据转发实验。 首先我们需要了解几个概念  端口转发(port forwarding)  端口转发有时候也被叫做隧道，是安全壳为网络安全通信使用的一种方法，我们像假设我们有个拥有公网IP的路由器，下面连着多台内网主机。内网主机和外网进行通信的时">
+<meta name="twitter:image" content="http://www.xianfish.xyz/2019/11/30/数据转发学习/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.xianfish.xyz/2019/11/30/数据转发学习/">
+
+
+
+
+
+  <title>数据转发学习 | +×啥都没有</title>
+  
+
+
+
+
+
+
+
+
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">+×啥都没有</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">人生总有各种理由将一个人变成一个five!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/30/数据转发学习/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="+×啥都没有">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据转发学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-30T18:44:09+08:00">
+                2019-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="0x01-一些前言"><a href="#0x01-一些前言" class="headerlink" title="0x01 一些前言"></a>0x01 一些前言</h3><p>以前虽然也使用过一些数据转发的工具，但其实一直对数据转发的一些东西缺乏深入的了解，于是打算开始看着巨佬的博客进行一些学习，并进行一些简单的数据转发实验。</p>
+<p>首先我们需要了解几个概念</p>
+<ul>
+<li>端口转发(port forwarding)</li>
+</ul>
+<p>端口转发有时候也被叫做隧道，是安全壳为网络安全通信使用的一种方法，我们像假设我们有个拥有公网IP的路由器，下面连着多台内网主机。内网主机和外网进行通信的时候，当外网发送信息回来时，路由器时怎么分辨这些信息是给哪台内网主机的呢？，这个时候，在路由器中就会有一个内网IP和路由器端口对应的一张表，当路由器的某个端口收到消息时，就把这个消息发给端口对应的IP，这就是端口转发的过程，不同的端口收到的消息，转发给相对应的不同的主机。</p>
+<ul>
+<li>端口映射(port mapping)</li>
+</ul>
+<p>指将一台主机的内网主机(LAN)的IP地址映射成一个公网主机(WAN)的IP地址，当用户访问公网IP的配置好的某个端口时，服务器就把请求转移到本地设置好的某台内网主机的某个端口，比如我的路由器有一个公网IP：172.16.1.1，上面接有一台服务器，分配的局域网ip为：192.168.1.2，我们就可以在路由器上配置一个端口映射，设置路由器的80端口映射到192.168.1.2这台内网主机的80端口，这样我们在公网直接访问172.16.1.1:80，路由器就会主动把流量转到内网服务器上的80端口上,并且此时在路由器上也会存在一个session，当内网主机返回数据给路由器时，路由器能准确的将消息发送给外网请求用户的主机，这个过程中路由器充当的是一个反向代理的作用。</p>
+<ul>
+<li>反弹</li>
+</ul>
+<p>假设存在两台主机A&amp;B，A为攻击机器，B为受害机器，A监听端口、B监听端口，由于某些条件触发，使B主动去连接A主机，这就是一个反弹的过程</p>
+<h3 id="0x02-网络层-amp-数据层转发"><a href="#0x02-网络层-amp-数据层转发" class="headerlink" title="0x02 网络层&amp;数据层转发"></a>0x02 网络层&amp;数据层转发</h3><h4 id="1-SSH"><a href="#1-SSH" class="headerlink" title="1. SSH"></a>1. SSH</h4><ul>
+<li>一些参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">-c</th>
+<th style="text-align:left">启用压缩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">-N</td>
+<td style="text-align:left">只做转发，不执行命令</td>
+</tr>
+<tr>
+<td style="text-align:left">-g</td>
+<td style="text-align:left">允许远程主机连接本地转发端口，如果访问受害机本地端口就需要指定此端口</td>
+</tr>
+<tr>
+<td style="text-align:left">-q</td>
+<td style="text-align:left">静默模式</td>
+</tr>
+<tr>
+<td style="text-align:left">-T</td>
+<td style="text-align:left">禁用伪终端，使用who看不到的伪终端用户</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>修改sshd配置文件</li>
+</ul>
+<p>文件路径：/etc/ssh/sshd_config</p>
+<p>配置一下三项内容，去掉注释并设置为yes</p>
+<p>AllowAgentForwarding yes</p>
+<p>AllowTcpForwarding yes</p>
+<p>GatewayPorts yes</p>
+<p>重启sshd</p>
+<p>service sshd restart</p>
+<ul>
+<li>本地转发</li>
+</ul>
+<p>我们有三台主机</p>
+<p>主机A：192.168.2.180</p>
+<p>主机B：192.168.2.127</p>
+<p>主机C：192.168.2.188</p>
+<p>在主机A上执行：ssh -g -L 5555:192.168.2.188:80 <a href="mailto:root@192.168.2.127" target="_blank" rel="noopener">root@192.168.2.127</a></p>
+<p>在A主机上监听5555端口，设置ssh-server(B主机)将tcp数据转发到C主机的80端口之上，最终A访问localhost:5555，就可以直接访问到C主机的80端口</p>
+<p><img src="/2019/11/30/数据转发学习/1.png" alt="1"></p>
+<ul>
+<li>远程转发</li>
+</ul>
+<p>还是上面三台主机，</p>
+<p>主机A：192.168.2.180</p>
+<p>主机B：192.168.2.127</p>
+<p>主机C：192.168.2.188</p>
+<p>我们在A主机上执行：ssh -R 9999:192.168.2.188:80 <a href="mailto:root@192.168.2.127" target="_blank" rel="noopener">root@192.168.2.127</a></p>
+<p>远程转发是在SSh-server(B主机)端建立监听端口(9999)，访问9999端口的数据包通过ssh隧道由ssh-server(B主机)发往ssh-cilent(A主机)，ssh-cilent(A主机)端收到数据包后，再与指定的地址(192.168.2.188:80)建立新的连接转发数据包。在B主机上访问localhost:9999,就可以直接访问到C主机的80端口</p>
+<p><img src="/2019/11/30/数据转发学习/2.png" alt="2"></p>
+<h4 id="2-iptables端口映射"><a href="#2-iptables端口映射" class="headerlink" title="2. iptables端口映射"></a>2. iptables端口映射</h4><h4 id="3-netsh端口映射"><a href="#3-netsh端口映射" class="headerlink" title="3. netsh端口映射"></a>3. netsh端口映射</h4><h4 id="4-netcat"><a href="#4-netcat" class="headerlink" title="4. netcat"></a>4. netcat</h4><h4 id="5-socat"><a href="#5-socat" class="headerlink" title="5. socat"></a>5. socat</h4><h4 id="6-UDP隧道"><a href="#6-UDP隧道" class="headerlink" title="6. UDP隧道"></a>6. UDP隧道</h4><h4 id="7-ICMP隧道"><a href="#7-ICMP隧道" class="headerlink" title="7. ICMP隧道"></a>7. ICMP隧道</h4><h4 id="8-SCTP隧道"><a href="#8-SCTP隧道" class="headerlink" title="8. SCTP隧道"></a>8. SCTP隧道</h4><h4 id="9-DCCP隧道"><a href="#9-DCCP隧道" class="headerlink" title="9. DCCP隧道"></a>9. DCCP隧道</h4><h4 id="10-nginx转发"><a href="#10-nginx转发" class="headerlink" title="10. nginx转发"></a>10. nginx转发</h4><h4 id="11-其他"><a href="#11-其他" class="headerlink" title="11. 其他"></a>11. 其他</h4><h3 id="0x03-应用层隧道"><a href="#0x03-应用层隧道" class="headerlink" title="0x03 应用层隧道"></a>0x03 应用层隧道</h3><h4 id="1-Socks"><a href="#1-Socks" class="headerlink" title="1. Socks"></a>1. Socks</h4><h4 id="2-APT"><a href="#2-APT" class="headerlink" title="2. APT"></a>2. APT</h4><h4 id="3-DNS-tunnel"><a href="#3-DNS-tunnel" class="headerlink" title="3. DNS tunnel"></a>3. DNS tunnel</h4><h4 id="4-Webshell-tunnel"><a href="#4-Webshell-tunnel" class="headerlink" title="4. Webshell tunnel"></a>4. Webshell tunnel</h4><h4 id="5-RMI-Deserialized-tunnel"><a href="#5-RMI-Deserialized-tunnel" class="headerlink" title="5. RMI Deserialized tunnel"></a>5. RMI Deserialized tunnel</h4><h4 id="6-复用资源"><a href="#6-复用资源" class="headerlink" title="6. 复用资源"></a>6. 复用资源</h4><h4 id="7-Webshell"><a href="#7-Webshell" class="headerlink" title="7. Webshell"></a>7. Webshell</h4><h4 id="8-iptables规则"><a href="#8-iptables规则" class="headerlink" title="8. iptables规则"></a>8. iptables规则</h4><h4 id="9-IPV6"><a href="#9-IPV6" class="headerlink" title="9. IPV6"></a>9. IPV6</h4><h3 id="0x04-慢慢补-咕咕咕"><a href="#0x04-慢慢补-咕咕咕" class="headerlink" title="0x04 慢慢补(咕咕咕)~~~"></a>0x04 慢慢补(咕咕咕)~~~</h3><p><img src="/2019/11/30/数据转发学习/2019040145.jpg" alt="2019040145"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/web/" rel="tag"># web</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/20/Padding-Oracle-Attack学习笔记/" rel="next" title="Padding Oracle Attack学习笔记">
+                <i class="fa fa-chevron-left"></i> Padding Oracle Attack学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/01/Vulnhub-XXE靶机学习/" rel="prev" title="Vulnhub-XXE靶机学习">
+                Vulnhub-XXE靶机学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/HeadPortrait.png" alt="瑟瑟发抖咸鱼黄">
+            
+              <p class="site-author-name" itemprop="name">瑟瑟发抖咸鱼黄</p>
+              <p class="site-description motion-element" itemprop="description">您看！工作人啥都不配拥有!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://gorgias.me/" title="巨佬" target="_blank">巨佬</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://couplee.wang/" title="wnagzihxa1n" target="_blank">wnagzihxa1n</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.tity.xyz/" title="WarrenRyan" target="_blank">WarrenRyan</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://pukrr.github.io/" title="pukrr" target="_blank">pukrr</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://rinbn.com/" title="Rinbn" target="_blank">Rinbn</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.imzj.top/" title="imzj" target="_blank">imzj</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://q0o0p.top" title="q0o0p" target="_blank">q0o0p</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-一些前言"><span class="nav-number">1.</span> <span class="nav-text">0x01 一些前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-网络层-amp-数据层转发"><span class="nav-number">2.</span> <span class="nav-text">0x02 网络层&amp;数据层转发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-SSH"><span class="nav-number">2.1.</span> <span class="nav-text">1. SSH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-iptables端口映射"><span class="nav-number">2.2.</span> <span class="nav-text">2. iptables端口映射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-netsh端口映射"><span class="nav-number">2.3.</span> <span class="nav-text">3. netsh端口映射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-netcat"><span class="nav-number">2.4.</span> <span class="nav-text">4. netcat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-socat"><span class="nav-number">2.5.</span> <span class="nav-text">5. socat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-UDP隧道"><span class="nav-number">2.6.</span> <span class="nav-text">6. UDP隧道</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-ICMP隧道"><span class="nav-number">2.7.</span> <span class="nav-text">7. ICMP隧道</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-SCTP隧道"><span class="nav-number">2.8.</span> <span class="nav-text">8. SCTP隧道</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-DCCP隧道"><span class="nav-number">2.9.</span> <span class="nav-text">9. DCCP隧道</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-nginx转发"><span class="nav-number">2.10.</span> <span class="nav-text">10. nginx转发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-其他"><span class="nav-number">2.11.</span> <span class="nav-text">11. 其他</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x03-应用层隧道"><span class="nav-number">3.</span> <span class="nav-text">0x03 应用层隧道</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Socks"><span class="nav-number">3.1.</span> <span class="nav-text">1. Socks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-APT"><span class="nav-number">3.2.</span> <span class="nav-text">2. APT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-DNS-tunnel"><span class="nav-number">3.3.</span> <span class="nav-text">3. DNS tunnel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Webshell-tunnel"><span class="nav-number">3.4.</span> <span class="nav-text">4. Webshell tunnel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-RMI-Deserialized-tunnel"><span class="nav-number">3.5.</span> <span class="nav-text">5. RMI Deserialized tunnel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-复用资源"><span class="nav-number">3.6.</span> <span class="nav-text">6. 复用资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-Webshell"><span class="nav-number">3.7.</span> <span class="nav-text">7. Webshell</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-iptables规则"><span class="nav-number">3.8.</span> <span class="nav-text">8. iptables规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-IPV6"><span class="nav-number">3.9.</span> <span class="nav-text">9. IPV6</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x04-慢慢补-咕咕咕"><span class="nav-number">4.</span> <span class="nav-text">0x04 慢慢补(咕咕咕)~~~</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=40915694&auto=0&height=66"></iframe>
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">瑟瑟发抖咸鱼黄</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
