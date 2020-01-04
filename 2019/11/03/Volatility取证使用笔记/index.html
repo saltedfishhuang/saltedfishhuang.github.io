@@ -1,92 +1,59 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next muse use-motion" lang="">
-<head><meta name="generator" content="Hexo 3.9.0">
+<html lang="en">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.xianfish.xyz').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
 
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="misc,">
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="最近简单的了解了一下Volatility这个开源的取证框架，这个框架能够对导出的内存镜像镜像分析，能过通过获取内核的数据结构，使用插件获取内存的详细情况和运行状态，同时可以直接dump系统文件，屏幕截图，查看进程等等等等~~~ 0x01 安装安装分为三步走：  下载 安装必要的python依赖文件 安装本体  下载你可以在Release中找到对应你系统（Mac，Win，Linux）的源代码，当然也">
+  <meta name="description" content="最近简单的了解了一下Volatility这个开源的取证框架，这个框架能够对导出的内存镜像镜像分析，能过通过获取内核的数据结构，使用插件获取内存的详细情况和运行状态，同时可以直接dump系统文件，屏幕截图，查看进程等等等等~~~ 0x01 安装安装分为三步走：  下载 安装必要的python依赖文件 安装本体  下载你可以在Release中找到对应你系统（Mac，Win，Linux）的源代码，当然也">
 <meta name="keywords" content="misc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Volatility取证使用笔记">
 <meta property="og:url" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/index.html">
 <meta property="og:site_name" content="Hi~">
 <meta property="og:description" content="最近简单的了解了一下Volatility这个开源的取证框架，这个框架能够对导出的内存镜像镜像分析，能过通过获取内核的数据结构，使用插件获取内存的详细情况和运行状态，同时可以直接dump系统文件，屏幕截图，查看进程等等等等~~~ 0x01 安装安装分为三步走：  下载 安装必要的python依赖文件 安装本体  下载你可以在Release中找到对应你系统（Mac，Win，Linux）的源代码，当然也">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="en">
 <meta property="og:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/01.png">
 <meta property="og:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/02.png">
 <meta property="og:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/03.png">
@@ -101,45 +68,23 @@
 <meta property="og:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/12.png">
 <meta property="og:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/13.png">
 <meta property="og:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/2019062606.png">
-<meta property="og:updated_time" content="2019-11-19T08:08:22.508Z">
+<meta property="og:updated_time" content="2020-01-04T03:14:11.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Volatility取证使用笔记">
 <meta name="twitter:description" content="最近简单的了解了一下Volatility这个开源的取证框架，这个框架能够对导出的内存镜像镜像分析，能过通过获取内核的数据结构，使用插件获取内存的详细情况和运行状态，同时可以直接dump系统文件，屏幕截图，查看进程等等等等~~~ 0x01 安装安装分为三步走：  下载 安装必要的python依赖文件 安装本体  下载你可以在Release中找到对应你系统（Mac，Win，Linux）的源代码，当然也">
 <meta name="twitter:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/01.png">
 
+<link rel="canonical" href="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/">
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
   };
 </script>
-
-
-
-  <link rel="canonical" href="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/">
-
-
-
-
 
   <title>Volatility取证使用笔记 | Hi~</title>
   
@@ -149,214 +94,145 @@
 
 
 
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-  
-<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
 
-    <div class="custom-logo-site-title">
+    <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Hi~</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-      
         <p class="site-subtitle">人生总有各种理由将一个人变成一个five!</p>
-      
   </div>
 
   <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
   </div>
 </div>
 
+
 <nav class="site-nav">
   
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            Home
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            Tags
-          </a>
-        </li>
-      
-        
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            Archives
-          </a>
-        </li>
-      
 
-      
-    </ul>
-  
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
 
-  
+  </li>
+  </ul>
+
 </nav>
-
-
-
- </div>
+</div>
     </header>
 
-    <main id="main" class="main">
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
+          
+
+          <div class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
+  <div class="posts-expand">
+      
   
   
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
     <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
-      <meta itemprop="description" content="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/HeadPortrait.png">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="您看！工具人啥都不配拥有!">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Hi~">
     </span>
-
-    
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">Volatility取证使用笔记</h1>
-        
+        <h1 class="post-title" itemprop="name headline">
+          Volatility取证使用笔记
+        </h1>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-03T16:32:25+08:00">
-                2019-11-03
-              </time>
-            
+              <span class="post-meta-item-text">Posted on</span>
 
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
+              <time title="Created: 2019-11-03 16:32:25" itemprop="dateCreated datePublished" datetime="2019-11-03T16:32:25+08:00">2019-11-03</time>
+            </span>
+              <span class="post-meta-item">
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
+                  <i class="fa fa-calendar-check-o"></i>
                 </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  
-                </span>
-              
-            </div>
-          
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-04 11:14:11" itemprop="dateModified" datetime="2020-01-04T11:14:11+08:00">2020-01-04</time>
+              </span>
 
           
 
         </div>
       </header>
-    
 
     
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-      
 
       
         <p>最近简单的了解了一下Volatility这个开源的取证框架，这个框架能够对导出的内存镜像镜像分析，能过通过获取内核的数据结构，使用插件获取内存的详细情况和运行状态，同时可以直接dump系统文件，屏幕截图，查看进程等等等等~~~</p>
@@ -371,7 +247,7 @@
 <h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><p>如果只是用Volatility本体，就不要安装这些依赖，但是如果想使用某些插件，就需要对这些以依赖进行安装·</p>
 <p><strong>Distorm3:</strong>牛逼的反编译库</p>
 <p><code>pip install distorm3</code></p>
-<p><strong>Yara:</strong>恶意软件分类工具</p>
+<p><strong>Yara:</strong>恶意软件分类工具<a id="more"></a></p>
 <p><code>pip install yara</code></p>
 <p><strong>PyCrypto:</strong>加密工具集</p>
 <p><code>pip install pycrypto</code></p>
@@ -423,252 +299,177 @@
 <p><img src="/2019/11/03/Volatility取证使用笔记/13.png" alt="13"></p>
 <h4 id="我真是个啥都不会，啥都要学的five啊"><a href="#我真是个啥都不会，啥都要学的five啊" class="headerlink" title="我真是个啥都不会，啥都要学的five啊"></a>我真是个啥都不会，啥都要学的five啊</h4><p><img src="/2019/11/03/Volatility取证使用笔记/2019062606.png" alt="2019062606"></p>
 
-      
     </div>
+
     
     
     
 
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/misc/" rel="tag"># misc</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/11/01/10月份总结/" rel="next" title="10月份总结">
-                <i class="fa fa-chevron-left"></i> 10月份总结
-              </a>
-            
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/misc/" rel="tag"># misc</a>
           </div>
 
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/03/区块链学习一-区块链/" rel="prev" title="区块链学习一:区块链">
-                区块链学习一:区块链 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-
-  
-
-
-
-        </div>
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/11/01/10月份总结/" rel="prev" title="10月份总结">
+      <i class="fa fa-chevron-left"></i> 10月份总结
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/11/03/区块链学习一-区块链/" rel="next" title="区块链学习一:区块链">
+      区块链学习一:区块链 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
 
-  <aside id="sidebar" class="sidebar">
-    
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
     <div class="sidebar-inner">
 
-      
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/images/HeadPortrait.png" alt="瑟瑟发抖咸鱼黄">
-            
-              <p class="site-author-name" itemprop="name">瑟瑟发抖咸鱼黄</p>
-              <p class="site-description motion-element" itemprop="description">您看！工作人啥都不配拥有!</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">31</span>
-                  <span class="site-state-item-name">posts</span>
-                </a>
-              </div>
-            
-
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
-                  <span class="site-state-item-name">tags</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          
-
-          
-          
-
-          
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                Links
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://gorgias.me/" title="巨佬" target="_blank">巨佬</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://couplee.wang/" title="wnagzihxa1n" target="_blank">wnagzihxa1n</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://blog.tity.xyz/" title="WarrenRyan" target="_blank">WarrenRyan</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://pukrr.github.io/" title="pukrr" target="_blank">pukrr</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://rinbn.com/" title="Rinbn" target="_blank">Rinbn</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://www.imzj.top/" title="imzj" target="_blank">imzj</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://q0o0p.top" title="q0o0p" target="_blank">q0o0p</a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-
-          
-
-        </div>
-      </section>
-
-      
       <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-安装"><span class="nav-number">1.</span> <span class="nav-text">0x01 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载"><span class="nav-number">1.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖"><span class="nav-number">1.2.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.3.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-使用"><span class="nav-number">2.</span> <span class="nav-text">0x02 使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Imageinfo"><span class="nav-number">2.0.1.</span> <span class="nav-text">Imageinfo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Kdbgscan"><span class="nav-number">2.0.2.</span> <span class="nav-text">Kdbgscan</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pslist"><span class="nav-number">2.0.3.</span> <span class="nav-text">Pslist</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hivelist"><span class="nav-number">2.0.4.</span> <span class="nav-text">Hivelist</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filescan"><span class="nav-number">2.0.5.</span> <span class="nav-text">filescan</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dumpfiles"><span class="nav-number">2.0.6.</span> <span class="nav-text">Dumpfiles</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cmdscan-cmdline"><span class="nav-number">2.0.7.</span> <span class="nav-text">Cmdscan/cmdline</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看截图"><span class="nav-number">2.0.8.</span> <span class="nav-text">查看截图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看系统用户名"><span class="nav-number">2.0.9.</span> <span class="nav-text">查看系统用户名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看网络连接"><span class="nav-number">2.0.10.</span> <span class="nav-text">查看网络连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我真是个啥都不会，啥都要学的five啊"><span class="nav-number">2.0.11.</span> <span class="nav-text">我真是个啥都不会，啥都要学的five啊</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-安装"><span class="nav-number">1.</span> <span class="nav-text">0x01 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载"><span class="nav-number">1.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖"><span class="nav-number">1.2.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.3.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-使用"><span class="nav-number">2.</span> <span class="nav-text">0x02 使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Imageinfo"><span class="nav-number">2.0.1.</span> <span class="nav-text">Imageinfo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Kdbgscan"><span class="nav-number">2.0.2.</span> <span class="nav-text">Kdbgscan</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pslist"><span class="nav-number">2.0.3.</span> <span class="nav-text">Pslist</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hivelist"><span class="nav-number">2.0.4.</span> <span class="nav-text">Hivelist</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filescan"><span class="nav-number">2.0.5.</span> <span class="nav-text">filescan</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dumpfiles"><span class="nav-number">2.0.6.</span> <span class="nav-text">Dumpfiles</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cmdscan-cmdline"><span class="nav-number">2.0.7.</span> <span class="nav-text">Cmdscan/cmdline</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看截图"><span class="nav-number">2.0.8.</span> <span class="nav-text">查看截图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看系统用户名"><span class="nav-number">2.0.9.</span> <span class="nav-text">查看系统用户名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看网络连接"><span class="nav-number">2.0.10.</span> <span class="nav-text">查看网络连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我真是个啥都不会，啥都要学的five啊"><span class="nav-number">2.0.11.</span> <span class="nav-text">我真是个啥都不会，啥都要学的five啊</span></a></li></ol></li></ol></li></ol></div>
+      </div>
       <!--/noindex-->
-      
 
-      
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=40915694&auto=0&height=66"></iframe>
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="瑟瑟发抖咸鱼黄"
+      src="/images/HeadPortrait.png">
+  <p class="site-author-name" itemprop="name">瑟瑟发抖咸鱼黄</p>
+  <div class="site-description" itemprop="description">您看！工具人啥都不配拥有!</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://gorgias.me/" title="https://gorgias.me/" rel="noopener" target="_blank">巨佬</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://couplee.wang/" title="http://couplee.wang/" rel="noopener" target="_blank">wnagzihxa1n</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.tity.xyz/" title="https://blog.tity.xyz/" rel="noopener" target="_blank">WarrenRyan</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://pukrr.github.io/" title="https://pukrr.github.io/" rel="noopener" target="_blank">pukrr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://rinbn.com/" title="http://rinbn.com/" rel="noopener" target="_blank">Rinbn</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.imzj.top/" title="https://www.imzj.top/" rel="noopener" target="_blank">imzj</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://q0o0p.top" title="http://q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=40915694&auto=0&height=66"></iframe>
     </div>
   </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-        
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">瑟瑟发抖咸鱼黄</span>
-
-  
 </div>
-
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
+  </div>
   <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
-
-
-
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  </div>
 
         
 
@@ -678,130 +479,20 @@
 
 
 
-        
+
       </div>
     </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-    
-
   </div>
 
   
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
   
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
 
 
 
@@ -818,22 +509,8 @@
 
 
 
-  
 
 
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
 
   
 
