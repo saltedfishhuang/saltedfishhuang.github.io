@@ -174,6 +174,90 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="您看！工具人啥都不配拥有!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hi~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/03/Volatility取证使用笔记/" class="post-title-link" itemprop="url">Volatility取证使用笔记</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-03 16:32:25" itemprop="dateCreated datePublished" datetime="2019-11-03T16:32:25+08:00">2019-11-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-04 11:14:11" itemprop="dateModified" datetime="2020-01-04T11:14:11+08:00">2020-01-04</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近简单的了解了一下Volatility这个开源的取证框架，这个框架能够对导出的内存镜像镜像分析，能过通过获取内核的数据结构，使用插件获取内存的详细情况和运行状态，同时可以直接dump系统文件，屏幕截图，查看进程等等等等~~~</p>
+<h2 id="0x01-安装"><a href="#0x01-安装" class="headerlink" title="0x01 安装"></a>0x01 安装</h2><p>安装分为三步走：</p>
+<ol>
+<li>下载</li>
+<li>安装必要的python依赖文件</li>
+<li>安装本体</li>
+</ol>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>你可以在<a href="https://link.jianshu.com?t=https:/github.com/volatilityfoundation/volatility/releases" target="_blank" rel="noopener">Release</a>中找到对应你系统（Mac，Win，Linux）的源代码，当然也可以通过github去获取源码：</p>
+<p>git clone <a href="https://github.com/volatilityfoundation/volatility.git" target="_blank" rel="noopener">https://github.com/volatilityfoundation/volatility.git</a></p>
+<h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><p>如果只是用Volatility本体，就不要安装这些依赖，但是如果想使用某些插件，就需要对这些以依赖进行安装·</p>
+<p><strong>Distorm3:</strong>牛逼的反编译库</p>
+<p><code>pip install distorm3</code></p>
+<p><strong>Yara:</strong>恶意软件分类工具</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/03/Volatility取证使用笔记/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/01/10月份总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -713,81 +797,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/08/01/攻防世界WEB新手练习/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/HeadPortrait.png">
-      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
-      <meta itemprop="description" content="您看！工具人啥都不配拥有!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hi~">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/08/01/攻防世界WEB新手练习/" class="post-title-link" itemprop="url">攻防世界WEB新手练习</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-08-01 12:30:36" itemprop="dateCreated datePublished" datetime="2019-08-01T12:30:36+08:00">2019-08-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-11 15:51:29" itemprop="dateModified" datetime="2020-01-11T15:51:29+08:00">2020-01-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="0x01-view-source"><a href="#0x01-view-source" class="headerlink" title="0x01 view_source"></a>0x01 view_source</h2><h2 id="0x02-get-post"><a href="#0x02-get-post" class="headerlink" title="0x02 get_post"></a>0x02 get_post</h2><p>​    这道题就是最基础的get和post请求的发送</p>
-<p><img src="/2019/08/01/攻防世界WEB新手练习/0201.png" alt="0201"></p>
-<p><img src="/2019/08/01/攻防世界WEB新手练习/0202.png" alt="0202"></p>
-<p>flag：<code>cyberpeace{b1e763710ff23f2acf16c2358d3132d3}</code></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/08/01/攻防世界WEB新手练习/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -860,7 +869,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
