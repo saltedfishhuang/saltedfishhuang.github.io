@@ -174,6 +174,155 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/05/区块链学习三-API/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="您看！工具人啥都不配拥有!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hi~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/05/区块链学习三-API/" class="post-title-link" itemprop="url">区块链学习三-API</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-05 13:28:14" itemprop="dateCreated datePublished" datetime="2019-11-05T13:28:14+08:00">2019-11-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-04 11:11:45" itemprop="dateModified" datetime="2020-01-04T11:11:45+08:00">2020-01-04</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="1、挖矿奖励"><a href="#1、挖矿奖励" class="headerlink" title="1、挖矿奖励"></a>1、挖矿奖励</h3><h3 id="一、挖矿奖励"><a href="#一、挖矿奖励" class="headerlink" title="一、挖矿奖励"></a>一、挖矿奖励</h3><p>开始写代码之前，先了解一下挖矿奖励这个概念。</p>
+<p>在前一篇文章中，我们了解到了服务器消耗了自己的计算资源，并计算出了预期结果后，会在区块的第一笔交易的位置创建一笔新的交易，这个交易没有发送人，接手人可以是任何人（通常为自己），奖励的数额由系统设定，在BTC中，最开始的奖励为50BTC，每隔四年减半一次。这笔奖励室友系统保证的，并且可以通过任何一个其他节点的验证。</p>
+<h3 id="二、代码重构"><a href="#二、代码重构" class="headerlink" title="二、代码重构"></a>二、代码重构</h3><p>我们要将当前的代码改造成适合通过API对外提供的形式，进行一下的处理：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/05/区块链学习三-API/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/05/区块链学习二-工作量证明/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="您看！工具人啥都不配拥有!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hi~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/05/区块链学习二-工作量证明/" class="post-title-link" itemprop="url">区块链学习二-工作量证明</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-05 13:28:03" itemprop="dateCreated datePublished" datetime="2019-11-05T13:28:03+08:00">2019-11-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-04 11:12:28" itemprop="dateModified" datetime="2020-01-04T11:12:28+08:00">2020-01-04</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>​    我们在上一篇博客中设计了几个最简单的区块链，并且很容易添加更长的区块链来覆盖掉最初的合法交易，为了维持整个系统的健康运行，我们需要设计一定的激励机制。我们都知道，有种东西叫做“挖矿”，在比特币系统中平均每10分钟，比特币系统会奖励一定量的比特币(最初是50个，每四年减少一半)。但是在网络中很多个网络节点一起“挖矿”，我们该怎么分配这个奖励呢？这就是工作量证明(Proof-of-Work)算法产生的原因。</p>
+<h3 id="一、Proof-of-Work"><a href="#一、Proof-of-Work" class="headerlink" title="一、Proof-of-Work"></a>一、Proof-of-Work</h3><p>​    一个正常的区块链系统随时都会产生交易，这时候就会有很多服务器将一个时间段(BTC为10分钟，Asch为10秒)的交易打包到一个区块，并添加到现有的区块链中，但是最终的这个时间段该选择哪个服务器打包的区块为准，这是个问题。在BTC中采用了一种叫做工作量证明的算法来决定采用哪一台服务器打包的区块并给与奖励。 </p>
+<p>​    工作量算法大致为：在一个时间段内多台服务器同时对交易进行打包后，连带区块的Hsh信息一起经过SHA256算法进行运算，在区块头和奖励交易的coinBase里，各有一个变量nonce，如果运算结果不符合难度要求，那么就调整nonce的值继续运算。如果某台服务器率先计算出符合难度的区块，他就会广播这个区块，其他服务器验证没问题后就可以添加到现有的区块链上，然后所有服务器又继续竞争下一个区块，这个过程就叫做挖矿。 </p>
+<p>​    在工作量证明算法中采用了SHA256，他的特点是难以运算但是容易验证，所以找到一个符合难度要求的区块需要耗时10分钟，但是验证它是否有效只是瞬间的事</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/05/区块链学习二-工作量证明/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/03/区块链学习一-区块链/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -645,157 +794,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/09/02/新VPS的简单配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/HeadPortrait.png">
-      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
-      <meta itemprop="description" content="您看！工具人啥都不配拥有!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hi~">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/09/02/新VPS的简单配置/" class="post-title-link" itemprop="url">新VPS的简单配置</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-09-02 19:22:24" itemprop="dateCreated datePublished" datetime="2019-09-02T19:22:24+08:00">2019-09-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-04 11:12:54" itemprop="dateModified" datetime="2020-01-04T11:12:54+08:00">2020-01-04</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>最近新弄了一个VPS，重新搭了酸酸，和lamp并跑了DVWA和pikachu两个靶场</p>
-<p>想了想，要把酸酸的一键脚本和lamp脚本记录一下，作为备份</p>
-<h3 id="酸酸乳的安装脚本"><a href="#酸酸乳的安装脚本" class="headerlink" title="酸酸乳的安装脚本"></a>酸酸乳的安装脚本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh</span><br><span class="line">chmod +x shadowsocks-all.sh</span><br><span class="line">./shadowsocks-all.sh 2&gt;&amp;1 | tee shadowsocks-all.log</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh &amp;&amp; chmod +x shadowsocks-all.sh &amp;&amp; ./shadowsocks-all.sh</span><br></pre></td></tr></table></figure>
-<h3 id="一键安装最新内核并开启-BBR-脚本-谷歌大法好，VPS加速"><a href="#一键安装最新内核并开启-BBR-脚本-谷歌大法好，VPS加速" class="headerlink" title="一键安装最新内核并开启 BBR 脚本(谷歌大法好，VPS加速)"></a>一键安装最新内核并开启 BBR 脚本(谷歌大法好，VPS加速)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh &amp;&amp; chmod +x bbr.sh &amp;&amp; ./bbr.sh</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/09/02/新VPS的简单配置/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/08/10/攻防世界WEB-wtf-sh-150/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/HeadPortrait.png">
-      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
-      <meta itemprop="description" content="您看！工具人啥都不配拥有!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hi~">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/08/10/攻防世界WEB-wtf-sh-150/" class="post-title-link" itemprop="url">攻防世界WEB-wtf.sh-150</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-08-10 11:48:56" itemprop="dateCreated datePublished" datetime="2019-08-10T11:48:56+08:00">2019-08-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-11 15:47:49" itemprop="dateModified" datetime="2020-01-11T15:47:49+08:00">2020-01-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在攻防世界上看到的一道题，完全搞不懂，看了wp把flag搞出来了，最后还是写一下解题过程吧</p>
-<p>这一题的题目环境是一个论坛形式</p>
-<p><img src="/2019/08/10/攻防世界WEB-wtf-sh-150/01.png" alt="01"></p>
-<p>正常注册账号，发现admin用户已存在，只能注册其他账号，登陆后可以回复并发表新的内容</p>
-<p>开始做题：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/08/10/攻防世界WEB-wtf-sh-150/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -868,7 +866,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
