@@ -174,6 +174,82 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/06/区块链学习四-共识/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="您看！工具人啥都不配拥有!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hi~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/06/区块链学习四-共识/" class="post-title-link" itemprop="url">区块链学习四-共识</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-06 08:54:58" itemprop="dateCreated datePublished" datetime="2019-11-06T08:54:58+08:00">2019-11-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-04 11:13:55" itemprop="dateModified" datetime="2020-01-04T11:13:55+08:00">2020-01-04</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>​    共识是一个区块链系统稳定运行的基础，只有所有节点对区块链达成了共识，这个区块链才是一个健康的系统，这篇文章主要讲了如何添加peer节点以及当节点区块数据不一致时如何解决冲突，达成一致访问。</p>
+<h3 id="一、Blockchain类扩展"><a href="#一、Blockchain类扩展" class="headerlink" title="一、Blockchain类扩展"></a>一、Blockchain类扩展</h3><p>想要解决和其它节点的区块冲突问题，首先需要能够获取其它节点的数据，我们再Blockchain类里添加一个nodes属性</p>
+<p><code>this.nodes = new Set();</code></p>
+<p><img src="/2019/11/06/区块链学习四-共识/1.png" alt="1"></p>
+<p>这里使用集合，即使重复添加也不受影响。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/06/区块链学习四-共识/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/05/区块链学习三-API/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -717,83 +793,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/10/11/状态码笔记和一些无用的话/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/HeadPortrait.png">
-      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
-      <meta itemprop="description" content="您看！工具人啥都不配拥有!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hi~">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/11/状态码笔记和一些无用的话/" class="post-title-link" itemprop="url">状态码笔记和一些无用的话</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-11 08:15:06" itemprop="dateCreated datePublished" datetime="2019-10-11T08:15:06+08:00">2019-10-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-04 11:13:46" itemprop="dateModified" datetime="2020-01-04T11:13:46+08:00">2020-01-04</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="记一下笔记，假装自己最近学习了"><a href="#记一下笔记，假装自己最近学习了" class="headerlink" title="记一下笔记，假装自己最近学习了"></a>记一下笔记，假装自己最近学习了</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">1xx：信息响应类，表示接收到请求并且继续处理</span><br><span class="line">2xx：处理成功响应类，表示动作被成功接收、理解和接受</span><br><span class="line">3xx：重定向响应类，为了完成指定的动作，必须接受进一步处理</span><br><span class="line">4xx：客户端错误，客户请求包含语法错误或者是不能正确执行</span><br><span class="line">5xx：服务端错误，服务器不能正确执行一个正确的请求</span><br><span class="line"></span><br><span class="line">100——客户必须继续发出请求</span><br><span class="line">101——客户要求服务器根据请求转换HTTP协议版本</span><br><span class="line">200——交易成功</span><br><span class="line">201——提示知道新文件的URL</span><br><span class="line">202——接受和处理、但处理未完成</span><br><span class="line">203——返回信息不确定或不完整</span><br><span class="line">204——请求收到，但返回信息为空</span><br><span class="line">205——服务器完成了请求，用户代理必须复位当前已经浏览过的文件</span><br><span class="line">206——服务器已经完成了部分用户的GET请求</span><br><span class="line">300——请求的资源可在多处得到</span><br><span class="line">301——删除请求数据</span><br><span class="line">302——在其他地址发现了请求数据</span><br><span class="line">303——建议客户访问其他URL或访问方式</span><br><span class="line">304——客户端已经执行了GET，但文件未变化</span><br><span class="line">305——请求的资源必须从服务器指定的地址得到</span><br><span class="line">306——前一版本HTTP中使用的代码，现行版本中不再使用</span><br><span class="line">307——申明请求的资源临时性删除</span><br><span class="line">400——错误请求，如语法错误</span><br><span class="line">401——请求授权失败</span><br><span class="line">402——保留有效ChargeTo头响应</span><br><span class="line">403——请求不允许</span><br><span class="line">404——没有发现文件、查询或URl</span><br><span class="line">405——用户在Request-Line字段定义的方法不允许</span><br><span class="line">406——根据用户发送的Accept拖，请求资源不可访问</span><br><span class="line">407——类似``401``，用户必须首先在代理服务器上得到授权</span><br><span class="line">408——客户端没有在用户指定的饿时间内完成请求</span><br><span class="line">409——对当前资源状态，请求不能完成</span><br><span class="line">410——服务器上不再有此资源且无进一步的参考地址</span><br><span class="line">411——服务器拒绝用户定义的Content-Length属性请求</span><br><span class="line">412——一个或多个请求头字段在当前请求中错误ss</span><br><span class="line">413——请求的资源大于服务器允许的大小</span><br><span class="line">414——请求的资源URL长于服务器允许的长度</span><br><span class="line">415——请求资源不支持请求项目格式</span><br><span class="line">416——请求中包含Range请求头字段，在当前请求资源范围内没有range指示值，请求也不包含If-Range请求头字段</span><br><span class="line">417——服务器不满足请求Expect头字段指定的期望值，如果是代理服务器，可能是下一级服务器不能满足请求</span><br><span class="line">500——服务器产生内部错误</span><br><span class="line">501——服务器不支持请求的函数</span><br><span class="line">502——服务器暂时不可用，有时是为了防止发生系统过载</span><br><span class="line">503——服务器过载或暂停维修</span><br><span class="line">504——关口过载，服务器使用另一个关口或服务来响应用户，等待时间设定值较长</span><br><span class="line">505——服务器不支持或拒绝支请求头中指定的HTTP版本</span><br></pre></td></tr></table></figure>
-<p>开学已经快一个半月了，还是要小小的总结一下做了些啥</p>
-<ul>
-<li>尝试复现了一些经典的漏洞，0708持续蓝屏</li>
-<li>从大佬实验室蹭到了好多资料，深感自己是个five</li>
-<li>学习了一下CS框架</li></ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/10/11/状态码笔记和一些无用的话/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -866,7 +865,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -896,16 +895,22 @@
           <a href="https://blog.tity.xyz/" title="https://blog.tity.xyz/" rel="noopener" target="_blank">WarrenRyan</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://pukrr.github.io/" title="https://pukrr.github.io/" rel="noopener" target="_blank">pukrr</a>
-        </li>
-        <li class="links-of-blogroll-item">
           <a href="http://rinbn.com/" title="http://rinbn.com/" rel="noopener" target="_blank">Rinbn</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://www.imzj.top/" title="https://www.imzj.top/" rel="noopener" target="_blank">imzj</a>
         </li>
         <li class="links-of-blogroll-item">
+          <a href="https://pukrr.github.io/" title="https://pukrr.github.io/" rel="noopener" target="_blank">pukrr</a>
+        </li>
+        <li class="links-of-blogroll-item">
           <a href="http://q0o0p.top" title="http://q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://blog.immity.best" title="http://blog.immity.best" rel="noopener" target="_blank">陈组长大人</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/wushengyang" title="https://www.cnblogs.com/wushengyang" rel="noopener" target="_blank">PY</a>
         </li>
     </ul>
   </div>
