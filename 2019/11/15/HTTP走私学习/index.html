@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico">
@@ -47,29 +47,29 @@
 </script>
 
   <meta name="description" content="前一段时间做一道题目时，提到了一点关于HTTP请求走私的相关知识，在手机上写了个备忘录，然后就又搁置到现在才开始翻看一些文章，认真学习一下有关于HTTP走私的相关知识。 0x01 需要知道的一些东西我们需要了解一下目前HTTP1.1协议的两个特性：Keep-Alive和Pipeline 在之前的HTTP协议中，客户端没发送一次http请求都需要和服务器建立一个TCP链接，但是由于现在的web网站打">
-<meta name="keywords" content="web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTP走私学习">
-<meta property="og:url" content="http://www.xianfish.xyz/2019/11/15/HTTP走私学习/index.html">
+<meta property="og:url" content="http://www.xianfish.xyz/2019/11/15/HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Hi~">
 <meta property="og:description" content="前一段时间做一道题目时，提到了一点关于HTTP请求走私的相关知识，在手机上写了个备忘录，然后就又搁置到现在才开始翻看一些文章，认真学习一下有关于HTTP走私的相关知识。 0x01 需要知道的一些东西我们需要了解一下目前HTTP1.1协议的两个特性：Keep-Alive和Pipeline 在之前的HTTP协议中，客户端没发送一次http请求都需要和服务器建立一个TCP链接，但是由于现在的web网站打">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/15/HTTP走私学习/1.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/15/HTTP走私学习/2.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/15/HTTP走私学习/3.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/15/HTTP走私学习/4.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/15/HTTP走私学习/5.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/15/HTTP走私学习/6.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/15/HTTP走私学习/7.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/15/HTTP走私学习/8.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/15/HTTP走私学习/2019062604.jpg">
-<meta property="og:updated_time" content="2020-01-04T03:10:57.000Z">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0%5C1.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0%5C2.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0%5C3.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0%5C4.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0%5C5.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0%5C6.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0%5C7.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0%5C8.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0%5C2019062604.jpg">
+<meta property="article:published_time" content="2019-11-15T12:55:28.000Z">
+<meta property="article:modified_time" content="2020-01-04T03:10:57.000Z">
+<meta property="article:author" content="+×">
+<meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTTP走私学习">
-<meta name="twitter:description" content="前一段时间做一道题目时，提到了一点关于HTTP请求走私的相关知识，在手机上写了个备忘录，然后就又搁置到现在才开始翻看一些文章，认真学习一下有关于HTTP走私的相关知识。 0x01 需要知道的一些东西我们需要了解一下目前HTTP1.1协议的两个特性：Keep-Alive和Pipeline 在之前的HTTP协议中，客户端没发送一次http请求都需要和服务器建立一个TCP链接，但是由于现在的web网站打">
-<meta name="twitter:image" content="http://www.xianfish.xyz/2019/11/15/HTTP走私学习/1.png">
+<meta name="twitter:image" content="http://www.xianfish.xyz/.xyz//HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0%5C1.png">
 
-<link rel="canonical" href="http://www.xianfish.xyz/2019/11/15/HTTP走私学习/">
+<link rel="canonical" href="http://www.xianfish.xyz/2019/11/15/HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0/">
 
 
 <script id="page-configurations">
@@ -186,7 +186,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/15/HTTP走私学习/">
+    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/15/HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/HeadPortrait.png">
@@ -232,7 +232,7 @@
       
         <p>前一段时间做一道题目时，提到了一点关于HTTP请求走私的相关知识，在手机上写了个备忘录，然后就又搁置到现在才开始翻看一些文章，认真学习一下有关于HTTP走私的相关知识。</p>
 <h3 id="0x01-需要知道的一些东西"><a href="#0x01-需要知道的一些东西" class="headerlink" title="0x01 需要知道的一些东西"></a>0x01 需要知道的一些东西</h3><p>我们需要了解一下目前HTTP1.1协议的两个特性：Keep-Alive和Pipeline</p>
-<p>在之前的HTTP协议中，客户端没发送一次http请求都需要和服务器建立一个TCP链接，但是由于现在的web网站打开一个页面需要获取的资源又很多很多，如果每发送一次请求都要建立一个完整的tcp链接，服务器就会产生很大的压力，所以在HTTP1.1中增加了Keep-Alive和Pipeline这两个特性。<a id="more"></a></p>
+<p>在之前的HTTP协议中，客户端没发送一次http请求都需要和服务器建立一个TCP链接，但是由于现在的web网站打开一个页面需要获取的资源又很多很多，如果每发送一次请求都要建立一个完整的tcp链接，服务器就会产生很大的压力，所以在HTTP1.1中增加了Keep-Alive和Pipeline这两个特性。<span id="more"></span></p>
 <ul>
 <li>Keep-Alive:</li>
 </ul>
@@ -241,54 +241,71 @@
 <li>Pipeline：</li>
 </ul>
 <p>这个特性加入后，客户端就可以像流水线一样持续发送HTTP请求，无需等待服务器响应，服务器会遵循先进先出的机制，将请求和响应对应起来再发回客户端，但浏览器默认是不启用这一特性的，但一般的服务器都对该特性提供了支持。</p>
-<h3 id="0x02-产生原因"><a href="#0x02-产生原因" class="headerlink" title="0x02 产生原因"></a>0x02 产生原因</h3><p>HTTP请求走私这一攻击方式主要是因为，在复杂的网络环境下，不同服务器对RFC(<a href="https://zh.wikipedia.org/wiki/RFC)标准实现的方式和程度不同，所以不同的服务器对于同一个请求可能会产生不同的处理结果，就会引发一系列的安全问题。" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/RFC)标准实现的方式和程度不同，所以不同的服务器对于同一个请求可能会产生不同的处理结果，就会引发一系列的安全问题。</a></p>
-<p>现在的很多网站都使用上了CDN加速服务，来提升使用体验，减轻服务器的负担，其中最简单的加速服务就是在源站前面加上一个带缓存功能的反向代理服务器，用户在请求某些静态文件时，就可以直接从反向代理服务器上获取，不用再从源站获取了<img src="/2019/11/15/HTTP走私学习/1.png" alt="1"></p>
+<h3 id="0x02-产生原因"><a href="#0x02-产生原因" class="headerlink" title="0x02 产生原因"></a>0x02 产生原因</h3><p>HTTP请求走私这一攻击方式主要是因为，在复杂的网络环境下，不同服务器对RFC(<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/RFC)%E6%A0%87%E5%87%86%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%96%B9%E5%BC%8F%E5%92%8C%E7%A8%8B%E5%BA%A6%E4%B8%8D%E5%90%8C%EF%BC%8C%E6%89%80%E4%BB%A5%E4%B8%8D%E5%90%8C%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AF%B9%E4%BA%8E%E5%90%8C%E4%B8%80%E4%B8%AA%E8%AF%B7%E6%B1%82%E5%8F%AF%E8%83%BD%E4%BC%9A%E4%BA%A7%E7%94%9F%E4%B8%8D%E5%90%8C%E7%9A%84%E5%A4%84%E7%90%86%E7%BB%93%E6%9E%9C%EF%BC%8C%E5%B0%B1%E4%BC%9A%E5%BC%95%E5%8F%91%E4%B8%80%E7%B3%BB%E5%88%97%E7%9A%84%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98%E3%80%82">https://zh.wikipedia.org/wiki/RFC)标准实现的方式和程度不同，所以不同的服务器对于同一个请求可能会产生不同的处理结果，就会引发一系列的安全问题。</a></p>
+<p>现在的很多网站都使用上了CDN加速服务，来提升使用体验，减轻服务器的负担，其中最简单的加速服务就是在源站前面加上一个带缓存功能的反向代理服务器，用户在请求某些静态文件时，就可以直接从反向代理服务器上获取，不用再从源站获取了<img src="/.xyz//HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0%5C1.png" alt="1"></p>
 <p>在反向代理服务器和源站服务器之间，一般都会重用TCP链接。在实际情况中，客户端的分布范围是十分广泛的，建立的时间也不确定，这样下来，TCP链接的重用就会很困难，所以在反向代理服务器和后端源站之间对TCP进行重用也就是顺理成章的了。</p>
 <p>当我们向反向代理服务器发送比较模糊的HTTP请求时，由于代理服务器和后面的源站服务器实现的方式不同，就有可能出现代理服务器认为这是一个HTTP请求，然后将它发给了后端源站服务器，但是源站服务器只识别其中一部分的为正常请求，其余部分就算是走私的请求了，当这一部分走私的请求对用户造成了影响之后，就实现了HTTP走私攻击。</p>
 <h3 id="0x03具体类型"><a href="#0x03具体类型" class="headerlink" title="0x03具体类型"></a>0x03具体类型</h3><h4 id="1、CL不为0的GET请求"><a href="#1、CL不为0的GET请求" class="headerlink" title="1、CL不为0的GET请求"></a>1、CL不为0的GET请求</h4><p>在这种情况下，其实不仅会影响到GET请求，所有不携带请求体的HTTP请求都有可能受到它的影响，但因为GET非常典型，所以用它作为示例</p>
 <p>我们假设前端代理服务器允许GET请求携带请求体内容，而后端服务器不允许GET请求携带请求体，它就会直接忽略掉GET请求中的Content-Length头，不对它进行处理，这样就有可能导致请求走私，我们先构造一个请求</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/1.1</span><br><span class="line"> Host: example.com</span><br><span class="line"> Content-Length: 44</span><br><span class="line"></span><br><span class="line">GET / secret HTTP/1.1</span><br><span class="line"> Host: example.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/1.1</span><br><span class="line"> Host: example.com</span><br><span class="line"> Content-Length: 44</span><br><span class="line"></span><br><span class="line">GET / secret HTTP/1.1</span><br><span class="line"> Host: example.com</span><br></pre></td></tr></table></figure>
+
 <p>当前端服务器收到该请求时，读取到了Content-Length，就认为这是一个完整的请求并将其转发给了后端服务器，但后端服务器不对Content-Length进行处理，又因为pipeline的存在，后端服务器就认为这就是两个请求，这样就导致了请求的走私。</p>
 <h4 id="2、CL-CL"><a href="#2、CL-CL" class="headerlink" title="2、CL-CL"></a>2、CL-CL</h4><p>在RFC7230的第3.3.3节的第四条中，规定如果服务器收到的请求包含两个Content-Length，且两者的值不同时就应该返回400错误。</p>
 <p>但事实上不是所有服务器都会严格实现这个规范的，假设中间的代理服务器和源站服务器在收到类似的请求时，都不会返回400错误，但是中间代理服务器按照第一个Content-Length的值对请求进行处理,而后端源站会按照第二个Content-Length的值进行处理，这个时候我们就可以构造恶意请求：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">POST / HTTP/1.1</span><br><span class="line"> Host: example.com</span><br><span class="line"> Content-Length: 8</span><br><span class="line"> Content-Length: 7</span><br><span class="line"></span><br><span class="line">12345</span><br><span class="line"> A</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">POST / HTTP/1.1</span><br><span class="line"> Host: example.com</span><br><span class="line"> Content-Length: 8</span><br><span class="line"> Content-Length: 7</span><br><span class="line"></span><br><span class="line">12345</span><br><span class="line"> A</span><br></pre></td></tr></table></figure>
+
 <p>代理服务器会获取到长度为8的数据包，并将它转发给源站服务器，然而源站服务器只会获取 长度为7的数据包，读取完前7个字符后，服务器就认为已经读取完请求，并生成了对应的响应发送出去，但此时缓冲区其实还剩余一个字符 A ，后端服务器就会把它看作是下一个请求的一部分，如果此时恰巧有一个其它正常用户对服务器进行请求，请求为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET /index.html HTTP/1.1</span><br><span class="line"></span><br><span class="line">Host: example.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">GET /index.html HTTP/1.1</span><br><span class="line"></span><br><span class="line">Host: example.com</span><br></pre></td></tr></table></figure>
+
+
+
 <p>这时候后端服务器就会将前面留下来的字符A，和现在这个请求拼接在一起，这时候实际的请求就变成了:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AGET /index.html HTTP/1.1</span><br><span class="line">Host: example.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AGET /index.html HTTP/1.1</span><br><span class="line">Host: example.com</span><br></pre></td></tr></table></figure>
+
+
+
 <p>这时候该正常用户就会收到一个 <code>AGET request method not found</code> 的错误信息，这样就完成了一个HTTP走私攻击，并且对正常用户产生了影响，后续还可以扩展成类似于CSRF的攻击方式。</p>
 <p> 但是在真实环境中，一般服务器都不会接受这种存在两个请求头的请求包的，</p>
 <p>但是在RFC2616的第4.4节中，规定:如果收到同时存在Content-Length和Transfer-Encoding这两个请求头的请求包时，在处理的时候必须忽略Content-Length，这其实也就意味着请求包中同时包含这两个请求头并不算违规，服务器也不需要返回400错误。服务器在这里的实现更容易出问题。</p>
 <h4 id="3、CL-TE"><a href="#3、CL-TE" class="headerlink" title="3、CL-TE"></a>3、CL-TE</h4><p>这种情况下，当服务器收到包含两个请求包的请求时，前端代理服务器只处理Content-Length这一请求头，而后端服务器会忽略掉Content-Length，而去处理Transfer-Encoding这一请求头</p>
-<p>实验地址：<a href="https://portswigger.net/web-security/request-smuggling/lab-basic-cl-te" target="_blank" rel="noopener">https://portswigger.net/web-security/request-smuggling/lab-basic-cl-te</a></p>
+<p>实验地址：<a target="_blank" rel="noopener" href="https://portswigger.net/web-security/request-smuggling/lab-basic-cl-te">https://portswigger.net/web-security/request-smuggling/lab-basic-cl-te</a></p>
 <p>抓包后对数据包进行改造，添加上两个请求头，和内容</p>
-<p><img src="/2019/11/15/HTTP走私学习/2.png" alt="2"></p>
+<p><img src="/.xyz//HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0%5C2.png" alt="2"></p>
 <p>多次发包后就可以得到以下响应</p>
-<p><img src="/2019/11/15/HTTP走私学习/3.png" alt="3"></p>
+<p><img src="/.xyz//HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0%5C3.png" alt="3"></p>
 <p>这里变成这样的原因就是因为前端服务器处理的是Content-Length，q请求的长度为6，也就是</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0\r\n</span><br><span class="line">\r\n</span><br><span class="line">G</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0\r\n</span><br><span class="line">\r\n</span><br><span class="line">G</span><br></pre></td></tr></table></figure>
+
+
+
 <p>而这时候，后端服务器只处理Transfer-Encoding，同时chunked传输数据是以\r\n\r\n结束，所以后端请求到图中的位置，就认为这个请求已经结束了</p>
-<p><img src="/2019/11/15/HTTP走私学习/4.png" alt="4"></p>
+<p><img src="/.xyz//HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0%5C4.png" alt="4"></p>
 <p>但是，这个时候其实缓存区中还有一个字符G存在，就和和下一次的请求拼接在一起，最后的请求就换成了 GPOST / http/1.1  ,就是产生报错</p>
 <h4 id="4、CL-TE"><a href="#4、CL-TE" class="headerlink" title="4、CL-TE"></a>4、CL-TE</h4><p>这种情况下，当服务器收到包含两个请求包的请求时，前端代理服务器只处理Transfer-Encoding这一请求头，而后端服务器会忽略掉Transfer-Encoding，而去处理Content-Length这一请求头</p>
 <p>实验地址：</p>
-<p><a href="https://portswigger.net/web-security/request-smuggling/lab-basic-te-cl" target="_blank" rel="noopener">https://portswigger.net/web-security/request-smuggling/lab-basic-te-cl</a></p>
+<p><a target="_blank" rel="noopener" href="https://portswigger.net/web-security/request-smuggling/lab-basic-te-cl">https://portswigger.net/web-security/request-smuggling/lab-basic-te-cl</a></p>
 <p>抓包后构造如图请求(需要手动关闭自动更新Content-Length)</p>
-<p><img src="/2019/11/15/HTTP走私学习/5.png" alt="5"></p>
+<p><img src="/.xyz//HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0%5C5.png" alt="5"></p>
 <p>由于前端代理服务器只会处理Transfer-Encoding。所以当它读到\r\n\r\n时，就认为已经请求完毕，又将该请求完整的发给后端源站服务器，后端服务器只处理Content-Length，当它读完4个字符，也就是12\r\n时，就认为这个请求已经结束了，但是后面还有字符，就认为它时另一个请求了,也就是</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GPOST / HTTP/1.1\r\n</span><br><span class="line">\r\n</span><br><span class="line">0\r\n</span><br><span class="line">\r\n</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GPOST / HTTP/1.1\r\n</span><br><span class="line">\r\n</span><br><span class="line">0\r\n</span><br><span class="line">\r\n</span><br></pre></td></tr></table></figure>
+
+
+
 <p>第一次发包：</p>
-<p><img src="/2019/11/15/HTTP走私学习/6.png" alt="6"></p>
+<p><img src="/.xyz//HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0%5C6.png" alt="6"></p>
 <p>第二次发包：</p>
-<p><img src="/2019/11/15/HTTP走私学习/7.png" alt="7"></p>
+<p><img src="/.xyz//HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0%5C7.png" alt="7"></p>
 <p>攻击成功</p>
 <h4 id="5、TE-TE"><a href="#5、TE-TE" class="headerlink" title="5、TE-TE"></a>5、TE-TE</h4><p>这种情况也就是前端代理服务器和源站web服务器，当收到存在两个请求头的请求包时，都只处理Transfer-Encoding请求头，这时候我们可以对发送的请求包中的Transfer-Encoding进行某种混淆操作，从而使其中一个服务器不处理Transfer-Encoding请求头，也就相当于CL-TE或者TE-CL</p>
-<p>实验地址：<a href="https://portswigger.net/web-security/request-smuggling/lab-ofuscating-te-header" target="_blank" rel="noopener">https://portswigger.net/web-security/request-smuggling/lab-ofuscating-te-header</a></p>
+<p>实验地址：<a target="_blank" rel="noopener" href="https://portswigger.net/web-security/request-smuggling/lab-ofuscating-te-header">https://portswigger.net/web-security/request-smuggling/lab-ofuscating-te-header</a></p>
 <p>构造以下数据包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Content-length: 4\r\n</span><br><span class="line"> Transfer-Encoding: chunked\r\n</span><br><span class="line"> Transfer-encoding: cow\r\n</span><br><span class="line"> \r\n</span><br><span class="line"> 5c\r\n</span><br><span class="line"> GPOST / HTTP/1.1\r\n</span><br><span class="line"> Content-Type: application/x-www-form-urlencoded\r\n</span><br><span class="line"> Content-Length: 15\r\n</span><br><span class="line"> \r\n</span><br><span class="line"> x=1\r\n</span><br><span class="line"> 0\r\n</span><br><span class="line"> \r\n</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Content-length: 4\r\n</span><br><span class="line"> Transfer-Encoding: chunked\r\n</span><br><span class="line"> Transfer-encoding: cow\r\n</span><br><span class="line"> \r\n</span><br><span class="line"> 5c\r\n</span><br><span class="line"> GPOST / HTTP/1.1\r\n</span><br><span class="line"> Content-Type: application/x-www-form-urlencoded\r\n</span><br><span class="line"> Content-Length: 15\r\n</span><br><span class="line"> \r\n</span><br><span class="line"> x=1\r\n</span><br><span class="line"> 0\r\n</span><br><span class="line"> \r\n</span><br></pre></td></tr></table></figure>
+
+
+
 <p>发包两次</p>
-<p><img src="/2019/11/15/HTTP走私学习/8.png" alt="7"></p>
-<p> <img src="/2019/11/15/HTTP走私学习/2019062604.jpg" alt="2019062604"></p>
+<p><img src="/.xyz//HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0%5C8.png" alt="7"></p>
+<p> <img src="/.xyz//HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0%5C2019062604.jpg" alt="2019062604"></p>
 
     </div>
 
@@ -307,11 +324,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/11/14/RoarCTF2019WEB学习/" rel="prev" title="RoarCTF2019WEB学习">
+    <a href="/2019/11/14/RoarCTF2019WEB%E5%AD%A6%E4%B9%A0/" rel="prev" title="RoarCTF2019WEB学习">
       <i class="fa fa-chevron-left"></i> RoarCTF2019WEB学习
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/11/19/CBC字节翻转攻击/" rel="next" title="CBC字节翻转攻击">
+    <a href="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/" rel="next" title="CBC字节翻转攻击">
       CBC字节翻转攻击 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -373,7 +390,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-需要知道的一些东西"><span class="nav-number">1.</span> <span class="nav-text">0x01 需要知道的一些东西</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-产生原因"><span class="nav-number">2.</span> <span class="nav-text">0x02 产生原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x03具体类型"><span class="nav-number">3.</span> <span class="nav-text">0x03具体类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、CL不为0的GET请求"><span class="nav-number">3.1.</span> <span class="nav-text">1、CL不为0的GET请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、CL-CL"><span class="nav-number">3.2.</span> <span class="nav-text">2、CL-CL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、CL-TE"><span class="nav-number">3.3.</span> <span class="nav-text">3、CL-TE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、CL-TE"><span class="nav-number">3.4.</span> <span class="nav-text">4、CL-TE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、TE-TE"><span class="nav-number">3.5.</span> <span class="nav-text">5、TE-TE</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-%E9%9C%80%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF"><span class="nav-number">1.</span> <span class="nav-text">0x01 需要知道的一些东西</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-%E4%BA%A7%E7%94%9F%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.</span> <span class="nav-text">0x02 产生原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x03%E5%85%B7%E4%BD%93%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">0x03具体类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81CL%E4%B8%8D%E4%B8%BA0%E7%9A%84GET%E8%AF%B7%E6%B1%82"><span class="nav-number">3.1.</span> <span class="nav-text">1、CL不为0的GET请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81CL-CL"><span class="nav-number">3.2.</span> <span class="nav-text">2、CL-CL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%E3%80%81CL-TE"><span class="nav-number">3.3.</span> <span class="nav-text">3、CL-TE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%E3%80%81CL-TE"><span class="nav-number">3.4.</span> <span class="nav-text">4、CL-TE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5%E3%80%81TE-TE"><span class="nav-number">3.5.</span> <span class="nav-text">5、TE-TE</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -389,7 +406,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -410,37 +427,37 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://gorgias.me/" title="https://gorgias.me/" rel="noopener" target="_blank">巨佬</a>
+          <a href="https://gorgias.me/" title="https:&#x2F;&#x2F;gorgias.me&#x2F;" rel="noopener" target="_blank">巨佬</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://couplee.wang/" title="http://couplee.wang/" rel="noopener" target="_blank">wnagzihxa1n</a>
+          <a href="http://couplee.wang/" title="http:&#x2F;&#x2F;couplee.wang&#x2F;" rel="noopener" target="_blank">wnagzihxa1n</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/warrenryan" title="https://www.cnblogs.com/warrenryan" rel="noopener" target="_blank">WarrenRyan</a>
+          <a href="https://www.cnblogs.com/warrenryan" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;warrenryan" rel="noopener" target="_blank">WarrenRyan</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://rinbn.com/" title="http://rinbn.com/" rel="noopener" target="_blank">Rinbn</a>
+          <a href="http://rinbn.com/" title="http:&#x2F;&#x2F;rinbn.com&#x2F;" rel="noopener" target="_blank">Rinbn</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.imzj.top/" title="https://www.imzj.top/" rel="noopener" target="_blank">imzj</a>
+          <a href="https://www.imzj.top/" title="https:&#x2F;&#x2F;www.imzj.top&#x2F;" rel="noopener" target="_blank">imzj</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://pukrr.github.io/" title="https://pukrr.github.io/" rel="noopener" target="_blank">pukrr</a>
+          <a href="https://pukrr.github.io/" title="https:&#x2F;&#x2F;pukrr.github.io&#x2F;" rel="noopener" target="_blank">pukrr</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://q0o0p.top" title="http://q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
+          <a href="http://q0o0p.top/" title="http:&#x2F;&#x2F;q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://blog.immity.best" title="http://blog.immity.best" rel="noopener" target="_blank">陈组长大人</a>
+          <a href="http://blog.immity.best/" title="http:&#x2F;&#x2F;blog.immity.best" rel="noopener" target="_blank">陈组长大人</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/wushengyang" title="https://www.cnblogs.com/wushengyang" rel="noopener" target="_blank">PY</a>
+          <a href="https://www.cnblogs.com/wushengyang" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;wushengyang" rel="noopener" target="_blank">PY</a>
         </li>
     </ul>
   </div>
 
       </div>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=453468850&auto=0&height=66"></iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=431259256&auto=0&height=66"></iframe>
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>
@@ -456,16 +473,16 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">+×</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
   </div>
 
         
@@ -487,31 +504,39 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
 
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-z16"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>

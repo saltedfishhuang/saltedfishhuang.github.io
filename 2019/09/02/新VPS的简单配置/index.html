@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico">
@@ -46,22 +46,22 @@
   };
 </script>
 
-  <meta name="description" content="最近新弄了一个VPS，重新搭了酸酸，和lamp并跑了DVWA和pikachu两个靶场 想了想，要把酸酸的一键脚本和lamp脚本记录一下，作为备份 酸酸乳的安装脚本12345wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/m">
-<meta name="keywords" content="Tools">
+  <meta name="description" content="最近新弄了一个VPS，重新搭了酸酸，和lamp并跑了DVWA和pikachu两个靶场 想了想，要把酸酸的一键脚本和lamp脚本记录一下，作为备份 酸酸乳的安装脚本12345wget --no-check-certificate -O shadowsocks-all.sh https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;teddysun&#x2F;shadowsocks_install&#x2F;m">
 <meta property="og:type" content="article">
 <meta property="og:title" content="新VPS的简单配置">
-<meta property="og:url" content="http://www.xianfish.xyz/2019/09/02/新VPS的简单配置/index.html">
+<meta property="og:url" content="http://www.xianfish.xyz/2019/09/02/%E6%96%B0VPS%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Hi~">
-<meta property="og:description" content="最近新弄了一个VPS，重新搭了酸酸，和lamp并跑了DVWA和pikachu两个靶场 想了想，要把酸酸的一键脚本和lamp脚本记录一下，作为备份 酸酸乳的安装脚本12345wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/m">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/09/02/新VPS的简单配置/0101.jpg">
-<meta property="og:updated_time" content="2020-01-04T03:12:54.000Z">
+<meta property="og:description" content="最近新弄了一个VPS，重新搭了酸酸，和lamp并跑了DVWA和pikachu两个靶场 想了想，要把酸酸的一键脚本和lamp脚本记录一下，作为备份 酸酸乳的安装脚本12345wget --no-check-certificate -O shadowsocks-all.sh https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;teddysun&#x2F;shadowsocks_install&#x2F;m">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//0101.jpg">
+<meta property="article:published_time" content="2019-09-02T11:22:24.000Z">
+<meta property="article:modified_time" content="2020-01-04T03:12:54.000Z">
+<meta property="article:author" content="+×">
+<meta property="article:tag" content="Tools">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="新VPS的简单配置">
-<meta name="twitter:description" content="最近新弄了一个VPS，重新搭了酸酸，和lamp并跑了DVWA和pikachu两个靶场 想了想，要把酸酸的一键脚本和lamp脚本记录一下，作为备份 酸酸乳的安装脚本12345wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/m">
-<meta name="twitter:image" content="http://www.xianfish.xyz/2019/09/02/新VPS的简单配置/0101.jpg">
+<meta name="twitter:image" content="http://www.xianfish.xyz/.xyz//0101.jpg">
 
-<link rel="canonical" href="http://www.xianfish.xyz/2019/09/02/新VPS的简单配置/">
+<link rel="canonical" href="http://www.xianfish.xyz/2019/09/02/%E6%96%B0VPS%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/">
 
 
 <script id="page-configurations">
@@ -178,7 +178,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/09/02/新VPS的简单配置/">
+    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/09/02/%E6%96%B0VPS%E7%9A%84%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/HeadPortrait.png">
@@ -224,12 +224,18 @@
       
         <p>最近新弄了一个VPS，重新搭了酸酸，和lamp并跑了DVWA和pikachu两个靶场</p>
 <p>想了想，要把酸酸的一键脚本和lamp脚本记录一下，作为备份</p>
-<h3 id="酸酸乳的安装脚本"><a href="#酸酸乳的安装脚本" class="headerlink" title="酸酸乳的安装脚本"></a>酸酸乳的安装脚本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh</span><br><span class="line">chmod +x shadowsocks-all.sh</span><br><span class="line">./shadowsocks-all.sh 2&gt;&amp;1 | tee shadowsocks-all.log</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh &amp;&amp; chmod +x shadowsocks-all.sh &amp;&amp; ./shadowsocks-all.sh</span><br></pre></td></tr></table></figure>
-<h3 id="一键安装最新内核并开启-BBR-脚本-谷歌大法好，VPS加速"><a href="#一键安装最新内核并开启-BBR-脚本-谷歌大法好，VPS加速" class="headerlink" title="一键安装最新内核并开启 BBR 脚本(谷歌大法好，VPS加速)"></a>一键安装最新内核并开启 BBR 脚本(谷歌大法好，VPS加速)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh &amp;&amp; chmod +x bbr.sh &amp;&amp; ./bbr.sh</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="lamp环境，github上有项目"><a href="#lamp环境，github上有项目" class="headerlink" title="lamp环境，github上有项目"></a>lamp环境，github上有项目</h3><h4 id="Debian-Ubuntu"><a href="#Debian-Ubuntu" class="headerlink" title="Debian/Ubuntu"></a>Debian/Ubuntu</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apt-get -y install wget screen git</span><br><span class="line">git clone https://github.com/teddysun/lamp.git</span><br><span class="line">cd lamp</span><br><span class="line">chmod 755 *.sh</span><br><span class="line">screen -S lamp</span><br><span class="line">./lamp.sh</span><br></pre></td></tr></table></figure>
-<h4 id="Amazon-Linux-CentOS-Fedora"><a href="#Amazon-Linux-CentOS-Fedora" class="headerlink" title="Amazon Linux/CentOS/Fedora"></a>Amazon Linux/CentOS/Fedora</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget screen git</span><br><span class="line">git clone https://github.com/teddysun/lamp.git</span><br><span class="line">cd lamp</span><br><span class="line">chmod 755 *.sh</span><br><span class="line">screen -S lamp</span><br><span class="line">./lamp.sh</span><br></pre></td></tr></table></figure>
-<h4 id="Upgrade"><a href="#Upgrade" class="headerlink" title="Upgrade"></a>Upgrade</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cd ~/lamp</span><br><span class="line">git reset --hard         // Resets the index and working tree</span><br><span class="line">git pull                 // Get latest version first</span><br><span class="line">chmod 755 *.sh</span><br><span class="line"></span><br><span class="line">./upgrade.sh             // Select one to upgrade</span><br><span class="line">./upgrade.sh apache      // Upgrade Apache</span><br><span class="line">./upgrade.sh db          // Upgrade MySQL/MariaDB/Percona</span><br><span class="line">./upgrade.sh php         // Upgrade PHP</span><br><span class="line">./upgrade.sh phpmyadmin  // Upgrade phpMyAdmin</span><br></pre></td></tr></table></figure>
+<h3 id="酸酸乳的安装脚本"><a href="#酸酸乳的安装脚本" class="headerlink" title="酸酸乳的安装脚本"></a>酸酸乳的安装脚本</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh</span><br><span class="line">chmod +x shadowsocks-all.sh</span><br><span class="line">./shadowsocks-all.sh 2&gt;&amp;1 | tee shadowsocks-all.log</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh &amp;&amp; chmod +x shadowsocks-all.sh &amp;&amp; ./shadowsocks-all.sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="一键安装最新内核并开启-BBR-脚本-谷歌大法好，VPS加速"><a href="#一键安装最新内核并开启-BBR-脚本-谷歌大法好，VPS加速" class="headerlink" title="一键安装最新内核并开启 BBR 脚本(谷歌大法好，VPS加速)"></a>一键安装最新内核并开启 BBR 脚本(谷歌大法好，VPS加速)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh &amp;&amp; chmod +x bbr.sh &amp;&amp; ./bbr.sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h3 id="lamp环境，github上有项目"><a href="#lamp环境，github上有项目" class="headerlink" title="lamp环境，github上有项目"></a>lamp环境，github上有项目</h3><h4 id="Debian-Ubuntu"><a href="#Debian-Ubuntu" class="headerlink" title="Debian/Ubuntu"></a>Debian/Ubuntu</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apt-get -y install wget screen git</span><br><span class="line">git clone https://github.com/teddysun/lamp.git</span><br><span class="line">cd lamp</span><br><span class="line">chmod 755 *.sh</span><br><span class="line">screen -S lamp</span><br><span class="line">./lamp.sh</span><br></pre></td></tr></table></figure>
+
+<h4 id="Amazon-Linux-CentOS-Fedora"><a href="#Amazon-Linux-CentOS-Fedora" class="headerlink" title="Amazon Linux/CentOS/Fedora"></a>Amazon Linux/CentOS/Fedora</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yum -y install wget screen git</span><br><span class="line">git clone https://github.com/teddysun/lamp.git</span><br><span class="line">cd lamp</span><br><span class="line">chmod 755 *.sh</span><br><span class="line">screen -S lamp</span><br><span class="line">./lamp.sh</span><br></pre></td></tr></table></figure>
+
+<h4 id="Upgrade"><a href="#Upgrade" class="headerlink" title="Upgrade"></a>Upgrade</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cd ~/lamp</span><br><span class="line">git reset --hard         // Resets the index and working tree</span><br><span class="line">git pull                 // Get latest version first</span><br><span class="line">chmod 755 *.sh</span><br><span class="line"></span><br><span class="line">./upgrade.sh             // Select one to upgrade</span><br><span class="line">./upgrade.sh apache      // Upgrade Apache</span><br><span class="line">./upgrade.sh db          // Upgrade MySQL/MariaDB/Percona</span><br><span class="line">./upgrade.sh php         // Upgrade PHP</span><br><span class="line">./upgrade.sh phpmyadmin  // Upgrade phpMyAdmin</span><br></pre></td></tr></table></figure>
+
 <h4 id="Backup"><a href="#Backup" class="headerlink" title="Backup"></a>Backup</h4><ul>
 <li><p>You must modify the config before run it</p>
 </li>
@@ -237,15 +243,15 @@
 </li>
 <li><p>Backup file is encrypted with AES256-cbc with SHA1 message-digest (option)</p>
 </li>
-<li><p>Auto transfer backup file to Google Drive (need install <a href="https://teddysun.com/469.html" target="_blank" rel="noopener">gdrive</a> command) (option)</p>
+<li><p>Auto transfer backup file to Google Drive (need install <a target="_blank" rel="noopener" href="https://teddysun.com/469.html">gdrive</a> command) (option)</p>
 </li>
 <li><p>Auto transfer backup file to FTP server (option)</p>
 </li>
 <li><p>Auto delete Google Drive’s or FTP server’s remote file (option)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./backup.sh</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./backup.sh</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="Uninstall"><a href="#Uninstall" class="headerlink" title="Uninstall"></a>Uninstall</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./uninstall.sh</span><br></pre></td></tr></table></figure>
+<h4 id="Uninstall"><a href="#Uninstall" class="headerlink" title="Uninstall"></a>Uninstall</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./uninstall.sh</span><br></pre></td></tr></table></figure>
+
 <h4 id="Default-Installation-Location"><a href="#Default-Installation-Location" class="headerlink" title="Default Installation Location"></a>Default Installation Location</h4><table>
 <thead>
 <tr>
@@ -253,8 +259,7 @@
 <th>Path</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Install Prefix</td>
 <td>/usr/local/apache</td>
 </tr>
@@ -282,8 +287,7 @@
 <td>Virtual Host conf</td>
 <td>/usr/local/apache/conf/vhost/virtual_host.conf</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <table>
 <thead>
 <tr>
@@ -291,13 +295,11 @@
 <th>Path</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Installation location</td>
 <td>/data/www/default/phpmyadmin</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <table>
 <thead>
 <tr>
@@ -305,13 +307,11 @@
 <th>Path</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Installation location</td>
 <td>/data/www/default/kod</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <table>
 <thead>
 <tr>
@@ -319,8 +319,7 @@
 <th>Path</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Install Prefix</td>
 <td>/usr/local/php</td>
 </tr>
@@ -332,8 +331,7 @@
 <td>ini additional location</td>
 <td>/usr/local/php/php.d</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <table>
 <thead>
 <tr>
@@ -341,8 +339,7 @@
 <th>Path</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Install Prefix</td>
 <td>/usr/local/mysql</td>
 </tr>
@@ -354,8 +351,7 @@
 <td>my.cnf Configuration File</td>
 <td>/etc/my.cnf</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <table>
 <thead>
 <tr>
@@ -363,8 +359,7 @@
 <th>Path</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Install Prefix</td>
 <td>/usr/local/mariadb</td>
 </tr>
@@ -376,8 +371,7 @@
 <td>my.cnf Configuration File</td>
 <td>/etc/my.cnf</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <table>
 <thead>
 <tr>
@@ -385,8 +379,7 @@
 <th>Path</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Install Prefix</td>
 <td>/usr/local/percona</td>
 </tr>
@@ -398,8 +391,7 @@
 <td>my.cnf Configuration File</td>
 <td>/etc/my.cnf</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="Process-Management"><a href="#Process-Management" class="headerlink" title="Process Management"></a>Process Management</h4><table>
 <thead>
 <tr>
@@ -407,49 +399,31 @@
 <th>Command</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Apache</td>
-<td>/etc/init.d/httpd (start\</td>
-<td>stop\</td>
-<td>status\</td>
-<td>restart)</td>
+<td>/etc/init.d/httpd (start|stop|status|restart)</td>
 </tr>
 <tr>
 <td>MySQL</td>
-<td>/etc/init.d/mysqld (start\</td>
-<td>stop\</td>
-<td>status\</td>
-<td>restart)</td>
+<td>/etc/init.d/mysqld (start|stop|status|restart)</td>
 </tr>
 <tr>
 <td>MariaDB</td>
-<td>/etc/init.d/mysqld (start\</td>
-<td>stop\</td>
-<td>status\</td>
-<td>restart)</td>
+<td>/etc/init.d/mysqld (start|stop|status|restart)</td>
 </tr>
 <tr>
 <td>Percona</td>
-<td>/etc/init.d/mysqld (start\</td>
-<td>stop\</td>
-<td>status\</td>
-<td>restart)</td>
+<td>/etc/init.d/mysqld (start|stop|status|restart)</td>
 </tr>
 <tr>
 <td>Memcached</td>
-<td>/etc/init.d/memcached (start\</td>
-<td>stop\</td>
-<td>restart)</td>
+<td>/etc/init.d/memcached (start|stop|restart)</td>
 </tr>
 <tr>
 <td>Redis-Server</td>
-<td>/etc/init.d/redis-server (start\</td>
-<td>stop\</td>
-<td>restart)</td>
+<td>/etc/init.d/redis-server (start|stop|restart)</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="lamp-Command"><a href="#lamp-Command" class="headerlink" title="lamp Command"></a>lamp Command</h4><table>
 <thead>
 <tr>
@@ -457,8 +431,7 @@
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>lamp add</td>
 <td>create a virtual host</td>
 </tr>
@@ -470,10 +443,9 @@
 <td>lamp del</td>
 <td>remove a virtual host</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>补考完数学分析，原地爆炸，老老实实做好重修的准备了（卑微,jpg）</p>
-<p><img src="/2019/09/02/新VPS的简单配置/0101.jpg" alt="0101"></p>
+<p><img src="/.xyz//0101.jpg" alt="0101"></p>
 
     </div>
 
@@ -492,11 +464,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/08/10/攻防世界WEB-wtf-sh-150/" rel="prev" title="攻防世界WEB-wtf.sh-150">
+    <a href="/2019/08/10/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8CWEB-wtf-sh-150/" rel="prev" title="攻防世界WEB-wtf.sh-150">
       <i class="fa fa-chevron-left"></i> 攻防世界WEB-wtf.sh-150
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/10/11/状态码笔记和一些无用的话/" rel="next" title="状态码笔记和一些无用的话">
+    <a href="/2019/10/11/%E7%8A%B6%E6%80%81%E7%A0%81%E7%AC%94%E8%AE%B0%E5%92%8C%E4%B8%80%E4%BA%9B%E6%97%A0%E7%94%A8%E7%9A%84%E8%AF%9D/" rel="next" title="状态码笔记和一些无用的话">
       状态码笔记和一些无用的话 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -558,7 +530,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#酸酸乳的安装脚本"><span class="nav-number">1.</span> <span class="nav-text">酸酸乳的安装脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一键安装最新内核并开启-BBR-脚本-谷歌大法好，VPS加速"><span class="nav-number">2.</span> <span class="nav-text">一键安装最新内核并开启 BBR 脚本(谷歌大法好，VPS加速)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lamp环境，github上有项目"><span class="nav-number">3.</span> <span class="nav-text">lamp环境，github上有项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Debian-Ubuntu"><span class="nav-number">3.1.</span> <span class="nav-text">Debian/Ubuntu</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Amazon-Linux-CentOS-Fedora"><span class="nav-number">3.2.</span> <span class="nav-text">Amazon Linux/CentOS/Fedora</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Upgrade"><span class="nav-number">3.3.</span> <span class="nav-text">Upgrade</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Backup"><span class="nav-number">3.4.</span> <span class="nav-text">Backup</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Uninstall"><span class="nav-number">3.5.</span> <span class="nav-text">Uninstall</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Default-Installation-Location"><span class="nav-number">3.6.</span> <span class="nav-text">Default Installation Location</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Process-Management"><span class="nav-number">3.7.</span> <span class="nav-text">Process Management</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lamp-Command"><span class="nav-number">3.8.</span> <span class="nav-text">lamp Command</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最后"><span class="nav-number">4.</span> <span class="nav-text">最后</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%B8%E9%85%B8%E4%B9%B3%E7%9A%84%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC"><span class="nav-number">1.</span> <span class="nav-text">酸酸乳的安装脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E5%86%85%E6%A0%B8%E5%B9%B6%E5%BC%80%E5%90%AF-BBR-%E8%84%9A%E6%9C%AC-%E8%B0%B7%E6%AD%8C%E5%A4%A7%E6%B3%95%E5%A5%BD%EF%BC%8CVPS%E5%8A%A0%E9%80%9F"><span class="nav-number">2.</span> <span class="nav-text">一键安装最新内核并开启 BBR 脚本(谷歌大法好，VPS加速)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lamp%E7%8E%AF%E5%A2%83%EF%BC%8Cgithub%E4%B8%8A%E6%9C%89%E9%A1%B9%E7%9B%AE"><span class="nav-number">3.</span> <span class="nav-text">lamp环境，github上有项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Debian-Ubuntu"><span class="nav-number">3.1.</span> <span class="nav-text">Debian&#x2F;Ubuntu</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Amazon-Linux-CentOS-Fedora"><span class="nav-number">3.2.</span> <span class="nav-text">Amazon Linux&#x2F;CentOS&#x2F;Fedora</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Upgrade"><span class="nav-number">3.3.</span> <span class="nav-text">Upgrade</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Backup"><span class="nav-number">3.4.</span> <span class="nav-text">Backup</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Uninstall"><span class="nav-number">3.5.</span> <span class="nav-text">Uninstall</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Default-Installation-Location"><span class="nav-number">3.6.</span> <span class="nav-text">Default Installation Location</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Process-Management"><span class="nav-number">3.7.</span> <span class="nav-text">Process Management</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lamp-Command"><span class="nav-number">3.8.</span> <span class="nav-text">lamp Command</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%90%8E"><span class="nav-number">4.</span> <span class="nav-text">最后</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -574,7 +546,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -595,37 +567,37 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://gorgias.me/" title="https://gorgias.me/" rel="noopener" target="_blank">巨佬</a>
+          <a href="https://gorgias.me/" title="https:&#x2F;&#x2F;gorgias.me&#x2F;" rel="noopener" target="_blank">巨佬</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://couplee.wang/" title="http://couplee.wang/" rel="noopener" target="_blank">wnagzihxa1n</a>
+          <a href="http://couplee.wang/" title="http:&#x2F;&#x2F;couplee.wang&#x2F;" rel="noopener" target="_blank">wnagzihxa1n</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/warrenryan" title="https://www.cnblogs.com/warrenryan" rel="noopener" target="_blank">WarrenRyan</a>
+          <a href="https://www.cnblogs.com/warrenryan" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;warrenryan" rel="noopener" target="_blank">WarrenRyan</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://rinbn.com/" title="http://rinbn.com/" rel="noopener" target="_blank">Rinbn</a>
+          <a href="http://rinbn.com/" title="http:&#x2F;&#x2F;rinbn.com&#x2F;" rel="noopener" target="_blank">Rinbn</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.imzj.top/" title="https://www.imzj.top/" rel="noopener" target="_blank">imzj</a>
+          <a href="https://www.imzj.top/" title="https:&#x2F;&#x2F;www.imzj.top&#x2F;" rel="noopener" target="_blank">imzj</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://pukrr.github.io/" title="https://pukrr.github.io/" rel="noopener" target="_blank">pukrr</a>
+          <a href="https://pukrr.github.io/" title="https:&#x2F;&#x2F;pukrr.github.io&#x2F;" rel="noopener" target="_blank">pukrr</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://q0o0p.top" title="http://q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
+          <a href="http://q0o0p.top/" title="http:&#x2F;&#x2F;q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://blog.immity.best" title="http://blog.immity.best" rel="noopener" target="_blank">陈组长大人</a>
+          <a href="http://blog.immity.best/" title="http:&#x2F;&#x2F;blog.immity.best" rel="noopener" target="_blank">陈组长大人</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/wushengyang" title="https://www.cnblogs.com/wushengyang" rel="noopener" target="_blank">PY</a>
+          <a href="https://www.cnblogs.com/wushengyang" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;wushengyang" rel="noopener" target="_blank">PY</a>
         </li>
     </ul>
   </div>
 
       </div>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=453468850&auto=0&height=66"></iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=431259256&auto=0&height=66"></iframe>
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>
@@ -641,16 +613,16 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">+×</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
   </div>
 
         
@@ -672,31 +644,39 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
 
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-z16"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>

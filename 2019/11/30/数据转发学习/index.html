@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico">
@@ -47,23 +47,23 @@
 </script>
 
   <meta name="description" content="0x01 一些前言以前虽然也使用过一些数据转发的工具，但其实一直对数据转发的一些东西缺乏深入的了解，于是打算开始看着巨佬的博客进行一些学习，并进行一些简单的数据转发实验。 首先我们需要了解几个概念  端口转发(port forwarding)  端口转发有时候也被叫做隧道，是安全壳为网络安全通信使用的一种方法，我们像假设我们有个拥有公网IP的路由器，下面连着多台内网主机。内网主机和外网进行通信的时">
-<meta name="keywords" content="web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据转发学习">
-<meta property="og:url" content="http://www.xianfish.xyz/2019/11/30/数据转发学习/index.html">
+<meta property="og:url" content="http://www.xianfish.xyz/2019/11/30/%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8F%91%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Hi~">
 <meta property="og:description" content="0x01 一些前言以前虽然也使用过一些数据转发的工具，但其实一直对数据转发的一些东西缺乏深入的了解，于是打算开始看着巨佬的博客进行一些学习，并进行一些简单的数据转发实验。 首先我们需要了解几个概念  端口转发(port forwarding)  端口转发有时候也被叫做隧道，是安全壳为网络安全通信使用的一种方法，我们像假设我们有个拥有公网IP的路由器，下面连着多台内网主机。内网主机和外网进行通信的时">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/30/数据转发学习/1.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/30/数据转发学习/2.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/30/数据转发学习/2019040145.jpg">
-<meta property="og:updated_time" content="2020-01-04T03:08:42.000Z">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//1.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//2.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//2019040145.jpg">
+<meta property="article:published_time" content="2019-11-30T10:44:09.000Z">
+<meta property="article:modified_time" content="2020-01-04T03:08:42.000Z">
+<meta property="article:author" content="+×">
+<meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数据转发学习">
-<meta name="twitter:description" content="0x01 一些前言以前虽然也使用过一些数据转发的工具，但其实一直对数据转发的一些东西缺乏深入的了解，于是打算开始看着巨佬的博客进行一些学习，并进行一些简单的数据转发实验。 首先我们需要了解几个概念  端口转发(port forwarding)  端口转发有时候也被叫做隧道，是安全壳为网络安全通信使用的一种方法，我们像假设我们有个拥有公网IP的路由器，下面连着多台内网主机。内网主机和外网进行通信的时">
-<meta name="twitter:image" content="http://www.xianfish.xyz/2019/11/30/数据转发学习/1.png">
+<meta name="twitter:image" content="http://www.xianfish.xyz/.xyz//1.png">
 
-<link rel="canonical" href="http://www.xianfish.xyz/2019/11/30/数据转发学习/">
+<link rel="canonical" href="http://www.xianfish.xyz/2019/11/30/%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8F%91%E5%AD%A6%E4%B9%A0/">
 
 
 <script id="page-configurations">
@@ -180,7 +180,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/30/数据转发学习/">
+    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/30/%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8F%91%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/HeadPortrait.png">
@@ -230,7 +230,8 @@
 <li>端口转发(port forwarding)</li>
 </ul>
 <p>端口转发有时候也被叫做隧道，是安全壳为网络安全通信使用的一种方法，我们像假设我们有个拥有公网IP的路由器，下面连着多台内网主机。内网主机和外网进行通信的时候，当外网发送信息回来时，路由器时怎么分辨这些信息是给哪台内网主机的呢？，这个时候，在路由器中就会有一个内网IP和路由器端口对应的一张表，当路由器的某个端口收到消息时，就把这个消息发给端口对应的IP，这就是端口转发的过程，不同的端口收到的消息，转发给相对应的不同的主机。</p>
-<a id="more"></a>
+<span id="more"></span>
+
 <ul>
 <li>端口映射(port mapping)</li>
 </ul>
@@ -245,29 +246,27 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left">-c</th>
-<th style="text-align:left">启用压缩</th>
+<th align="left">-c</th>
+<th align="left">启用压缩</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">-N</td>
-<td style="text-align:left">只做转发，不执行命令</td>
+<tbody><tr>
+<td align="left">-N</td>
+<td align="left">只做转发，不执行命令</td>
 </tr>
 <tr>
-<td style="text-align:left">-g</td>
-<td style="text-align:left">允许远程主机连接本地转发端口，如果访问受害机本地端口就需要指定此端口</td>
+<td align="left">-g</td>
+<td align="left">允许远程主机连接本地转发端口，如果访问受害机本地端口就需要指定此端口</td>
 </tr>
 <tr>
-<td style="text-align:left">-q</td>
-<td style="text-align:left">静默模式</td>
+<td align="left">-q</td>
+<td align="left">静默模式</td>
 </tr>
 <tr>
-<td style="text-align:left">-T</td>
-<td style="text-align:left">禁用伪终端，使用who看不到的伪终端用户</td>
+<td align="left">-T</td>
+<td align="left">禁用伪终端，使用who看不到的伪终端用户</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <ul>
 <li>修改sshd配置文件</li>
 </ul>
@@ -285,9 +284,9 @@
 <p>主机A：192.168.2.180</p>
 <p>主机B：192.168.2.127</p>
 <p>主机C：192.168.2.188</p>
-<p>在主机A上执行：ssh -g -L 5555:192.168.2.188:80 <a href="mailto:root@192.168.2.127" target="_blank" rel="noopener">root@192.168.2.127</a></p>
+<p>在主机A上执行：ssh -g -L 5555:192.168.2.188:80 <a href="mailto:root@192.168.2.127">root@192.168.2.127</a></p>
 <p>在A主机上监听5555端口，设置ssh-server(B主机)将tcp数据转发到C主机的80端口之上，最终A访问localhost:5555，就可以直接访问到C主机的80端口</p>
-<p><img src="/2019/11/30/数据转发学习/1.png" alt="1"></p>
+<p><img src="/.xyz//1.png" alt="1"></p>
 <ul>
 <li>远程转发</li>
 </ul>
@@ -295,10 +294,10 @@
 <p>主机A：192.168.2.180</p>
 <p>主机B：192.168.2.127</p>
 <p>主机C：192.168.2.188</p>
-<p>我们在A主机上执行：ssh -R 9999:192.168.2.188:80 <a href="mailto:root@192.168.2.127" target="_blank" rel="noopener">root@192.168.2.127</a></p>
+<p>我们在A主机上执行：ssh -R 9999:192.168.2.188:80 <a href="mailto:root@192.168.2.127">root@192.168.2.127</a></p>
 <p>远程转发是在SSh-server(B主机)端建立监听端口(9999)，访问9999端口的数据包通过ssh隧道由ssh-server(B主机)发往ssh-cilent(A主机)，ssh-cilent(A主机)端收到数据包后，再与指定的地址(192.168.2.188:80)建立新的连接转发数据包。在B主机上访问localhost:9999,就可以直接访问到C主机的80端口</p>
-<p><img src="/2019/11/30/数据转发学习/2.png" alt="2"></p>
-<h4 id="2-iptables端口映射"><a href="#2-iptables端口映射" class="headerlink" title="2. iptables端口映射"></a>2. iptables端口映射</h4><h4 id="3-netsh端口映射"><a href="#3-netsh端口映射" class="headerlink" title="3. netsh端口映射"></a>3. netsh端口映射</h4><h4 id="4-netcat"><a href="#4-netcat" class="headerlink" title="4. netcat"></a>4. netcat</h4><h4 id="5-socat"><a href="#5-socat" class="headerlink" title="5. socat"></a>5. socat</h4><h4 id="6-UDP隧道"><a href="#6-UDP隧道" class="headerlink" title="6. UDP隧道"></a>6. UDP隧道</h4><h4 id="7-ICMP隧道"><a href="#7-ICMP隧道" class="headerlink" title="7. ICMP隧道"></a>7. ICMP隧道</h4><h4 id="8-SCTP隧道"><a href="#8-SCTP隧道" class="headerlink" title="8. SCTP隧道"></a>8. SCTP隧道</h4><h4 id="9-DCCP隧道"><a href="#9-DCCP隧道" class="headerlink" title="9. DCCP隧道"></a>9. DCCP隧道</h4><h4 id="10-nginx转发"><a href="#10-nginx转发" class="headerlink" title="10. nginx转发"></a>10. nginx转发</h4><h4 id="11-其他"><a href="#11-其他" class="headerlink" title="11. 其他"></a>11. 其他</h4><h3 id="0x03-应用层隧道"><a href="#0x03-应用层隧道" class="headerlink" title="0x03 应用层隧道"></a>0x03 应用层隧道</h3><h4 id="1-Socks"><a href="#1-Socks" class="headerlink" title="1. Socks"></a>1. Socks</h4><h4 id="2-APT"><a href="#2-APT" class="headerlink" title="2. APT"></a>2. APT</h4><h4 id="3-DNS-tunnel"><a href="#3-DNS-tunnel" class="headerlink" title="3. DNS tunnel"></a>3. DNS tunnel</h4><h4 id="4-Webshell-tunnel"><a href="#4-Webshell-tunnel" class="headerlink" title="4. Webshell tunnel"></a>4. Webshell tunnel</h4><h4 id="5-RMI-Deserialized-tunnel"><a href="#5-RMI-Deserialized-tunnel" class="headerlink" title="5. RMI Deserialized tunnel"></a>5. RMI Deserialized tunnel</h4><h4 id="6-复用资源"><a href="#6-复用资源" class="headerlink" title="6. 复用资源"></a>6. 复用资源</h4><h4 id="7-Webshell"><a href="#7-Webshell" class="headerlink" title="7. Webshell"></a>7. Webshell</h4><h4 id="8-iptables规则"><a href="#8-iptables规则" class="headerlink" title="8. iptables规则"></a>8. iptables规则</h4><h4 id="9-IPV6"><a href="#9-IPV6" class="headerlink" title="9. IPV6"></a>9. IPV6</h4><h3 id="0x04-慢慢补-咕咕咕"><a href="#0x04-慢慢补-咕咕咕" class="headerlink" title="0x04 慢慢补(咕咕咕)~~~"></a>0x04 慢慢补(咕咕咕)~~~</h3><p><img src="/2019/11/30/数据转发学习/2019040145.jpg" alt="2019040145"></p>
+<p><img src="/.xyz//2.png" alt="2"></p>
+<h4 id="2-iptables端口映射"><a href="#2-iptables端口映射" class="headerlink" title="2. iptables端口映射"></a>2. iptables端口映射</h4><h4 id="3-netsh端口映射"><a href="#3-netsh端口映射" class="headerlink" title="3. netsh端口映射"></a>3. netsh端口映射</h4><h4 id="4-netcat"><a href="#4-netcat" class="headerlink" title="4. netcat"></a>4. netcat</h4><h4 id="5-socat"><a href="#5-socat" class="headerlink" title="5. socat"></a>5. socat</h4><h4 id="6-UDP隧道"><a href="#6-UDP隧道" class="headerlink" title="6. UDP隧道"></a>6. UDP隧道</h4><h4 id="7-ICMP隧道"><a href="#7-ICMP隧道" class="headerlink" title="7. ICMP隧道"></a>7. ICMP隧道</h4><h4 id="8-SCTP隧道"><a href="#8-SCTP隧道" class="headerlink" title="8. SCTP隧道"></a>8. SCTP隧道</h4><h4 id="9-DCCP隧道"><a href="#9-DCCP隧道" class="headerlink" title="9. DCCP隧道"></a>9. DCCP隧道</h4><h4 id="10-nginx转发"><a href="#10-nginx转发" class="headerlink" title="10. nginx转发"></a>10. nginx转发</h4><h4 id="11-其他"><a href="#11-其他" class="headerlink" title="11. 其他"></a>11. 其他</h4><h3 id="0x03-应用层隧道"><a href="#0x03-应用层隧道" class="headerlink" title="0x03 应用层隧道"></a>0x03 应用层隧道</h3><h4 id="1-Socks"><a href="#1-Socks" class="headerlink" title="1. Socks"></a>1. Socks</h4><h4 id="2-APT"><a href="#2-APT" class="headerlink" title="2. APT"></a>2. APT</h4><h4 id="3-DNS-tunnel"><a href="#3-DNS-tunnel" class="headerlink" title="3. DNS tunnel"></a>3. DNS tunnel</h4><h4 id="4-Webshell-tunnel"><a href="#4-Webshell-tunnel" class="headerlink" title="4. Webshell tunnel"></a>4. Webshell tunnel</h4><h4 id="5-RMI-Deserialized-tunnel"><a href="#5-RMI-Deserialized-tunnel" class="headerlink" title="5. RMI Deserialized tunnel"></a>5. RMI Deserialized tunnel</h4><h4 id="6-复用资源"><a href="#6-复用资源" class="headerlink" title="6. 复用资源"></a>6. 复用资源</h4><h4 id="7-Webshell"><a href="#7-Webshell" class="headerlink" title="7. Webshell"></a>7. Webshell</h4><h4 id="8-iptables规则"><a href="#8-iptables规则" class="headerlink" title="8. iptables规则"></a>8. iptables规则</h4><h4 id="9-IPV6"><a href="#9-IPV6" class="headerlink" title="9. IPV6"></a>9. IPV6</h4><h3 id="0x04-慢慢补-咕咕咕"><a href="#0x04-慢慢补-咕咕咕" class="headerlink" title="0x04 慢慢补(咕咕咕)~~~"></a>0x04 慢慢补(咕咕咕)~~~</h3><p><img src="/.xyz//2019040145.jpg" alt="2019040145"></p>
 
     </div>
 
@@ -317,11 +316,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/11/20/Padding-Oracle-Attack学习笔记/" rel="prev" title="Padding Oracle Attack学习笔记">
+    <a href="/2019/11/20/Padding-Oracle-Attack%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="Padding Oracle Attack学习笔记">
       <i class="fa fa-chevron-left"></i> Padding Oracle Attack学习笔记
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/12/01/Vulnhub-XXE靶机学习/" rel="next" title="Vulnhub-XXE靶机学习">
+    <a href="/2019/12/01/Vulnhub-XXE%E9%9D%B6%E6%9C%BA%E5%AD%A6%E4%B9%A0/" rel="next" title="Vulnhub-XXE靶机学习">
       Vulnhub-XXE靶机学习 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -383,7 +382,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-一些前言"><span class="nav-number">1.</span> <span class="nav-text">0x01 一些前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-网络层-amp-数据层转发"><span class="nav-number">2.</span> <span class="nav-text">0x02 网络层&amp;数据层转发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-SSH"><span class="nav-number">2.1.</span> <span class="nav-text">1. SSH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-iptables端口映射"><span class="nav-number">2.2.</span> <span class="nav-text">2. iptables端口映射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-netsh端口映射"><span class="nav-number">2.3.</span> <span class="nav-text">3. netsh端口映射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-netcat"><span class="nav-number">2.4.</span> <span class="nav-text">4. netcat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-socat"><span class="nav-number">2.5.</span> <span class="nav-text">5. socat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-UDP隧道"><span class="nav-number">2.6.</span> <span class="nav-text">6. UDP隧道</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-ICMP隧道"><span class="nav-number">2.7.</span> <span class="nav-text">7. ICMP隧道</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-SCTP隧道"><span class="nav-number">2.8.</span> <span class="nav-text">8. SCTP隧道</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-DCCP隧道"><span class="nav-number">2.9.</span> <span class="nav-text">9. DCCP隧道</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-nginx转发"><span class="nav-number">2.10.</span> <span class="nav-text">10. nginx转发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-其他"><span class="nav-number">2.11.</span> <span class="nav-text">11. 其他</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x03-应用层隧道"><span class="nav-number">3.</span> <span class="nav-text">0x03 应用层隧道</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Socks"><span class="nav-number">3.1.</span> <span class="nav-text">1. Socks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-APT"><span class="nav-number">3.2.</span> <span class="nav-text">2. APT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-DNS-tunnel"><span class="nav-number">3.3.</span> <span class="nav-text">3. DNS tunnel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Webshell-tunnel"><span class="nav-number">3.4.</span> <span class="nav-text">4. Webshell tunnel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-RMI-Deserialized-tunnel"><span class="nav-number">3.5.</span> <span class="nav-text">5. RMI Deserialized tunnel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-复用资源"><span class="nav-number">3.6.</span> <span class="nav-text">6. 复用资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-Webshell"><span class="nav-number">3.7.</span> <span class="nav-text">7. Webshell</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-iptables规则"><span class="nav-number">3.8.</span> <span class="nav-text">8. iptables规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-IPV6"><span class="nav-number">3.9.</span> <span class="nav-text">9. IPV6</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x04-慢慢补-咕咕咕"><span class="nav-number">4.</span> <span class="nav-text">0x04 慢慢补(咕咕咕)~~~</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-%E4%B8%80%E4%BA%9B%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">0x01 一些前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-%E7%BD%91%E7%BB%9C%E5%B1%82-amp-%E6%95%B0%E6%8D%AE%E5%B1%82%E8%BD%AC%E5%8F%91"><span class="nav-number">2.</span> <span class="nav-text">0x02 网络层&amp;数据层转发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-SSH"><span class="nav-number">2.1.</span> <span class="nav-text">1. SSH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-iptables%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84"><span class="nav-number">2.2.</span> <span class="nav-text">2. iptables端口映射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-netsh%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84"><span class="nav-number">2.3.</span> <span class="nav-text">3. netsh端口映射</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-netcat"><span class="nav-number">2.4.</span> <span class="nav-text">4. netcat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-socat"><span class="nav-number">2.5.</span> <span class="nav-text">5. socat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-UDP%E9%9A%A7%E9%81%93"><span class="nav-number">2.6.</span> <span class="nav-text">6. UDP隧道</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-ICMP%E9%9A%A7%E9%81%93"><span class="nav-number">2.7.</span> <span class="nav-text">7. ICMP隧道</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-SCTP%E9%9A%A7%E9%81%93"><span class="nav-number">2.8.</span> <span class="nav-text">8. SCTP隧道</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-DCCP%E9%9A%A7%E9%81%93"><span class="nav-number">2.9.</span> <span class="nav-text">9. DCCP隧道</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-nginx%E8%BD%AC%E5%8F%91"><span class="nav-number">2.10.</span> <span class="nav-text">10. nginx转发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-%E5%85%B6%E4%BB%96"><span class="nav-number">2.11.</span> <span class="nav-text">11. 其他</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x03-%E5%BA%94%E7%94%A8%E5%B1%82%E9%9A%A7%E9%81%93"><span class="nav-number">3.</span> <span class="nav-text">0x03 应用层隧道</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Socks"><span class="nav-number">3.1.</span> <span class="nav-text">1. Socks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-APT"><span class="nav-number">3.2.</span> <span class="nav-text">2. APT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-DNS-tunnel"><span class="nav-number">3.3.</span> <span class="nav-text">3. DNS tunnel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Webshell-tunnel"><span class="nav-number">3.4.</span> <span class="nav-text">4. Webshell tunnel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-RMI-Deserialized-tunnel"><span class="nav-number">3.5.</span> <span class="nav-text">5. RMI Deserialized tunnel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E5%A4%8D%E7%94%A8%E8%B5%84%E6%BA%90"><span class="nav-number">3.6.</span> <span class="nav-text">6. 复用资源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-Webshell"><span class="nav-number">3.7.</span> <span class="nav-text">7. Webshell</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-iptables%E8%A7%84%E5%88%99"><span class="nav-number">3.8.</span> <span class="nav-text">8. iptables规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-IPV6"><span class="nav-number">3.9.</span> <span class="nav-text">9. IPV6</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x04-%E6%85%A2%E6%85%A2%E8%A1%A5-%E5%92%95%E5%92%95%E5%92%95"><span class="nav-number">4.</span> <span class="nav-text">0x04 慢慢补(咕咕咕)~~~</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -399,7 +398,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -420,37 +419,37 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://gorgias.me/" title="https://gorgias.me/" rel="noopener" target="_blank">巨佬</a>
+          <a href="https://gorgias.me/" title="https:&#x2F;&#x2F;gorgias.me&#x2F;" rel="noopener" target="_blank">巨佬</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://couplee.wang/" title="http://couplee.wang/" rel="noopener" target="_blank">wnagzihxa1n</a>
+          <a href="http://couplee.wang/" title="http:&#x2F;&#x2F;couplee.wang&#x2F;" rel="noopener" target="_blank">wnagzihxa1n</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/warrenryan" title="https://www.cnblogs.com/warrenryan" rel="noopener" target="_blank">WarrenRyan</a>
+          <a href="https://www.cnblogs.com/warrenryan" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;warrenryan" rel="noopener" target="_blank">WarrenRyan</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://rinbn.com/" title="http://rinbn.com/" rel="noopener" target="_blank">Rinbn</a>
+          <a href="http://rinbn.com/" title="http:&#x2F;&#x2F;rinbn.com&#x2F;" rel="noopener" target="_blank">Rinbn</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.imzj.top/" title="https://www.imzj.top/" rel="noopener" target="_blank">imzj</a>
+          <a href="https://www.imzj.top/" title="https:&#x2F;&#x2F;www.imzj.top&#x2F;" rel="noopener" target="_blank">imzj</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://pukrr.github.io/" title="https://pukrr.github.io/" rel="noopener" target="_blank">pukrr</a>
+          <a href="https://pukrr.github.io/" title="https:&#x2F;&#x2F;pukrr.github.io&#x2F;" rel="noopener" target="_blank">pukrr</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://q0o0p.top" title="http://q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
+          <a href="http://q0o0p.top/" title="http:&#x2F;&#x2F;q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://blog.immity.best" title="http://blog.immity.best" rel="noopener" target="_blank">陈组长大人</a>
+          <a href="http://blog.immity.best/" title="http:&#x2F;&#x2F;blog.immity.best" rel="noopener" target="_blank">陈组长大人</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/wushengyang" title="https://www.cnblogs.com/wushengyang" rel="noopener" target="_blank">PY</a>
+          <a href="https://www.cnblogs.com/wushengyang" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;wushengyang" rel="noopener" target="_blank">PY</a>
         </li>
     </ul>
   </div>
 
       </div>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=453468850&auto=0&height=66"></iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=431259256&auto=0&height=66"></iframe>
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>
@@ -466,16 +465,16 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">+×</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
   </div>
 
         
@@ -497,31 +496,39 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
 
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-z16"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>

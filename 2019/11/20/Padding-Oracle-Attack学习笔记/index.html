@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico">
@@ -47,24 +47,24 @@
 </script>
 
   <meta name="description" content="0x01 背景知识我第一次看到这个的时候，还真的傻乎乎的以为是和Oracle(甲骨文)相关的漏洞，然而，这个和甲骨文的关系并不大emmmm，oracle翻译成中文有预言、神谕的意思。在密码学中，oracle是一个代表 用户或者攻击者 执行给定加密操作的系统。 Padding Oracle Attract是针对CBC模式的攻击，关于CBC加密解密与翻转攻击，上一篇笔记有写到，这里就不再重复了。 0x">
-<meta name="keywords" content="crypto">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Padding Oracle Attack学习笔记">
-<meta property="og:url" content="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack学习笔记/index.html">
+<meta property="og:url" content="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hi~">
 <meta property="og:description" content="0x01 背景知识我第一次看到这个的时候，还真的傻乎乎的以为是和Oracle(甲骨文)相关的漏洞，然而，这个和甲骨文的关系并不大emmmm，oracle翻译成中文有预言、神谕的意思。在密码学中，oracle是一个代表 用户或者攻击者 执行给定加密操作的系统。 Padding Oracle Attract是针对CBC模式的攻击，关于CBC加密解密与翻转攻击，上一篇笔记有写到，这里就不再重复了。 0x">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack学习笔记/1.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack学习笔记/2.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack学习笔记/3.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack学习笔记/2019062609.jpg">
-<meta property="og:updated_time" content="2020-01-04T03:13:04.000Z">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Padding-Oracle-Attack%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5C1.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Padding-Oracle-Attack%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5C2.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Padding-Oracle-Attack%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5C3.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Padding-Oracle-Attack%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5C2019062609.jpg">
+<meta property="article:published_time" content="2019-11-20T12:55:27.000Z">
+<meta property="article:modified_time" content="2020-01-04T03:13:04.000Z">
+<meta property="article:author" content="+×">
+<meta property="article:tag" content="crypto">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Padding Oracle Attack学习笔记">
-<meta name="twitter:description" content="0x01 背景知识我第一次看到这个的时候，还真的傻乎乎的以为是和Oracle(甲骨文)相关的漏洞，然而，这个和甲骨文的关系并不大emmmm，oracle翻译成中文有预言、神谕的意思。在密码学中，oracle是一个代表 用户或者攻击者 执行给定加密操作的系统。 Padding Oracle Attract是针对CBC模式的攻击，关于CBC加密解密与翻转攻击，上一篇笔记有写到，这里就不再重复了。 0x">
-<meta name="twitter:image" content="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack学习笔记/1.png">
+<meta name="twitter:image" content="http://www.xianfish.xyz/.xyz//Padding-Oracle-Attack%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5C1.png">
 
-<link rel="canonical" href="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack学习笔记/">
+<link rel="canonical" href="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
@@ -181,7 +181,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack学习笔记/">
+    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/20/Padding-Oracle-Attack%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/HeadPortrait.png">
@@ -231,32 +231,34 @@
 <ol>
 <li>密文不能正常解密；</li>
 <li>密文可以正常解密但解密结果不对；</li>
-<li>密文可以正常解密并且解密结果对比正确；<a id="more"></a></li>
+<li>密文可以正常解密并且解密结果对比正确；<span id="more"></span></li>
 </ol>
 <h3 id="0x03-攻击步骤"><a href="#0x03-攻击步骤" class="headerlink" title="0x03 攻击步骤"></a>0x03 攻击步骤</h3><ol>
 <li>我们先假设存在一组密文 </li>
 </ol>
 <p><code>7B216A634951170FF851D6CC68FC9537858795A28ED4AAC6</code></p>
 <p>将其分为3组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">IV(初始化向量)：7B 21 6A 63 49 51 17 0F</span><br><span class="line"></span><br><span class="line">第一组密文：F8 51 D6 CC 68 FC 95 37</span><br><span class="line"></span><br><span class="line">第二组密文：85 87 95 A2 8E D4 AA C6</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">IV(初始化向量)：7B 21 6A 63 49 51 17 0F</span><br><span class="line"></span><br><span class="line">第一组密文：F8 51 D6 CC 68 FC 95 37</span><br><span class="line"></span><br><span class="line">第二组密文：85 87 95 A2 8E D4 AA C6</span><br></pre></td></tr></table></figure>
+
+
+
 <ol start="2">
 <li><p>对第一组密文进行破解，先假设我们明文只填充了一个字节，首先将IV全部设置为0，我们这时候假设存在一个解密系统，我们输入</p>
-<p>​    <code>00000000000000000F851D6CC68FC9537</code></p>
+<p>​    <code>00000000000000000F851D6CC68FC9537 </code></p>
 </li>
 </ol>
 <p>运行结果如图</p>
-<p><img src="/2019/11/20/Padding-Oracle-Attack学习笔记/1.png" alt="1"></p>
+<p><img src="/.xyz//Padding-Oracle-Attack%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5C1.png" alt="1"></p>
 <p>我们可以看到，明文的最后一个字节填充的是0x3D,肯定不满足我们上面说的填充条件的，这里校验肯定就会失败，系统就会和我们返回错误，所以我们需要对IV的最后一个字节从0x01到0xff逐个赋值进行校验，知道最后得到的明文最后一位位0x01，这里我们可以知道我们构造的为0x3C</p>
-<p><img src="/2019/11/20/Padding-Oracle-Attack学习笔记/2.png" alt="2"></p>
+<p><img src="/.xyz//Padding-Oracle-Attack%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5C2.png" alt="2"></p>
 <ol start="3">
 <li>利用xor运算的性质，我们只需要将我们构造的IV的最后一个字节与0x01进行xor运算后就可以得到最后一位密文解密后的中间值是什么了，我们设它为M1，我们再看一张图</li>
 </ol>
-<p><img src="/2019/11/20/Padding-Oracle-Attack学习笔记/3.png" alt="3"></p>
+<p><img src="/.xyz//Padding-Oracle-Attack%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5C3.png" alt="3"></p>
 <p>这一过程其实就是这张CBC原理图中标记的地方，右边的红圈就是我们想要得到的中间值，左边的红圈就是我们构造的密文，也就是最后一组密文的IV，我们已经知道了最后一组Plaintext的最后一个字节是0x01，从图中可以看到它是由我们构造的IV值与中间值的最后一字节异或得到的</p>
 <ol start="4">
-<li>再假定明文填充了两字节也就是明文最后两字节是0×02，接着构造倒数第二组密文，我们把M1与0×02异或可以得到填充两字节时密文的最后一位应该是什么，这时候我们只需要对倒数第二位进行不断地赋值尝试（也是从0×00到0xff），当服务器返回值表示可以正常解密时，我们把此时的倒数第二位密文的取值与0×02异或便可得到最后一组密文倒数第二字节对应的中间值；</li>
-</ol>
-<ol start="6">
+<li><p>再假定明文填充了两字节也就是明文最后两字节是0×02，接着构造倒数第二组密文，我们把M1与0×02异或可以得到填充两字节时密文的最后一位应该是什么，这时候我们只需要对倒数第二位进行不断地赋值尝试（也是从0×00到0xff），当服务器返回值表示可以正常解密时，我们把此时的倒数第二位密文的取值与0×02异或便可得到最后一组密文倒数第二字节对应的中间值；</p>
+</li>
 <li><p>再构造出倒数第三倒数第四直到得到最后一组密文的中间值，把这个中间值与截获的密文的倒数第二位异或便可得到最后一组分组的明文；</p>
 </li>
 <li><p>舍弃掉最后一组密文，只提交第一组到倒数第二组密文，通过构造倒数第三组密文得到倒数第二组密文的铭文，最后我们便可以得到全部的明文</p>
@@ -266,17 +268,16 @@
 <p>进行这个攻击也需要两个重要的假设前提:</p>
 <ul>
 <li>攻击者能够获得Ciphertext(密文,包括IV)</li>
-<li><p>攻击者需要知道构造得结果是否正确，也就是需要一个带有响应得检测系统</p>
-<p>参考链接：</p>
-</li>
+<li>攻击者需要知道构造得结果是否正确，也就是需要一个带有响应得检测系统</li>
 </ul>
-<p>​     <a href="https://blog.skullsecurity.org/2013/padding-oracle-attacks-in-depth" target="_blank" rel="noopener">https://blog.skullsecurity.org/2013/padding-oracle-attacks-in-depth</a> </p>
-<p>​     <a href="https://blog.skullsecurity.org/2013/a-padding-oracle-example" target="_blank" rel="noopener">https://blog.skullsecurity.org/2013/a-padding-oracle-example</a> </p>
-<p>​     <a href="https://www.jianshu.com/p/833582b2f560" target="_blank" rel="noopener">https://www.jianshu.com/p/833582b2f560</a> </p>
-<p>​     <a href="https://www.jianshu.com/p/ad8bdd87e131" target="_blank" rel="noopener">https://www.jianshu.com/p/ad8bdd87e131</a> </p>
-<p>​     <a href="https://www.freebuf.com/articles/database/151167.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/database/151167.html</a> </p>
+<p> 参考链接：</p>
+<p>​     <a target="_blank" rel="noopener" href="https://blog.skullsecurity.org/2013/padding-oracle-attacks-in-depth">https://blog.skullsecurity.org/2013/padding-oracle-attacks-in-depth</a> </p>
+<p>​     <a target="_blank" rel="noopener" href="https://blog.skullsecurity.org/2013/a-padding-oracle-example">https://blog.skullsecurity.org/2013/a-padding-oracle-example</a> </p>
+<p>​     <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/833582b2f560">https://www.jianshu.com/p/833582b2f560</a> </p>
+<p>​     <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ad8bdd87e131">https://www.jianshu.com/p/ad8bdd87e131</a> </p>
+<p>​     <a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/database/151167.html">https://www.freebuf.com/articles/database/151167.html</a> </p>
 <p>这两天我看了很多遍相关的文章，这篇学习笔记包括上一篇CBC翻转攻击其实也是各家抄过来的，但是这样下来也学到了很多很多东西、庆幸至极，同时知道自己需要学习得东西还有很多，总之，加油吧five！</p>
-<p><img src="/2019/11/20/Padding-Oracle-Attack学习笔记/2019062609.jpg" alt="2019062609"></p>
+<p><img src="/.xyz//Padding-Oracle-Attack%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%5C2019062609.jpg" alt="2019062609"></p>
 
     </div>
 
@@ -295,11 +296,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/11/19/CBC字节翻转攻击/" rel="prev" title="CBC字节翻转攻击">
+    <a href="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/" rel="prev" title="CBC字节翻转攻击">
       <i class="fa fa-chevron-left"></i> CBC字节翻转攻击
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/11/30/数据转发学习/" rel="next" title="数据转发学习">
+    <a href="/2019/11/30/%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8F%91%E5%AD%A6%E4%B9%A0/" rel="next" title="数据转发学习">
       数据转发学习 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -361,7 +362,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-背景知识"><span class="nav-number">1.</span> <span class="nav-text">0x01 背景知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-原理"><span class="nav-number">2.</span> <span class="nav-text">0x02 原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x03-攻击步骤"><span class="nav-number">3.</span> <span class="nav-text">0x03 攻击步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x04-总结"><span class="nav-number">4.</span> <span class="nav-text">0x04 总结</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">0x01 背景知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-%E5%8E%9F%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">0x02 原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x03-%E6%94%BB%E5%87%BB%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.</span> <span class="nav-text">0x03 攻击步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x04-%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">0x04 总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -377,7 +378,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -398,37 +399,37 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://gorgias.me/" title="https://gorgias.me/" rel="noopener" target="_blank">巨佬</a>
+          <a href="https://gorgias.me/" title="https:&#x2F;&#x2F;gorgias.me&#x2F;" rel="noopener" target="_blank">巨佬</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://couplee.wang/" title="http://couplee.wang/" rel="noopener" target="_blank">wnagzihxa1n</a>
+          <a href="http://couplee.wang/" title="http:&#x2F;&#x2F;couplee.wang&#x2F;" rel="noopener" target="_blank">wnagzihxa1n</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/warrenryan" title="https://www.cnblogs.com/warrenryan" rel="noopener" target="_blank">WarrenRyan</a>
+          <a href="https://www.cnblogs.com/warrenryan" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;warrenryan" rel="noopener" target="_blank">WarrenRyan</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://rinbn.com/" title="http://rinbn.com/" rel="noopener" target="_blank">Rinbn</a>
+          <a href="http://rinbn.com/" title="http:&#x2F;&#x2F;rinbn.com&#x2F;" rel="noopener" target="_blank">Rinbn</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.imzj.top/" title="https://www.imzj.top/" rel="noopener" target="_blank">imzj</a>
+          <a href="https://www.imzj.top/" title="https:&#x2F;&#x2F;www.imzj.top&#x2F;" rel="noopener" target="_blank">imzj</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://pukrr.github.io/" title="https://pukrr.github.io/" rel="noopener" target="_blank">pukrr</a>
+          <a href="https://pukrr.github.io/" title="https:&#x2F;&#x2F;pukrr.github.io&#x2F;" rel="noopener" target="_blank">pukrr</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://q0o0p.top" title="http://q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
+          <a href="http://q0o0p.top/" title="http:&#x2F;&#x2F;q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://blog.immity.best" title="http://blog.immity.best" rel="noopener" target="_blank">陈组长大人</a>
+          <a href="http://blog.immity.best/" title="http:&#x2F;&#x2F;blog.immity.best" rel="noopener" target="_blank">陈组长大人</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/wushengyang" title="https://www.cnblogs.com/wushengyang" rel="noopener" target="_blank">PY</a>
+          <a href="https://www.cnblogs.com/wushengyang" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;wushengyang" rel="noopener" target="_blank">PY</a>
         </li>
     </ul>
   </div>
 
       </div>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=453468850&auto=0&height=66"></iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=431259256&auto=0&height=66"></iframe>
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>
@@ -444,16 +445,16 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">+×</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
   </div>
 
         
@@ -475,31 +476,39 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
 
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-z16"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>

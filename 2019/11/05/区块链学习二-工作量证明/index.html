@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico">
@@ -47,28 +47,28 @@
 </script>
 
   <meta name="description" content="​    我们在上一篇博客中设计了几个最简单的区块链，并且很容易添加更长的区块链来覆盖掉最初的合法交易，为了维持整个系统的健康运行，我们需要设计一定的激励机制。我们都知道，有种东西叫做“挖矿”，在比特币系统中平均每10分钟，比特币系统会奖励一定量的比特币(最初是50个，每四年减少一半)。但是在网络中很多个网络节点一起“挖矿”，我们该怎么分配这个奖励呢？这就是工作量证明(Proof-of-Work)">
-<meta name="keywords" content="区块链">
 <meta property="og:type" content="article">
 <meta property="og:title" content="区块链学习二-工作量证明">
-<meta property="og:url" content="http://www.xianfish.xyz/2019/11/05/区块链学习二-工作量证明/index.html">
+<meta property="og:url" content="http://www.xianfish.xyz/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E/index.html">
 <meta property="og:site_name" content="Hi~">
 <meta property="og:description" content="​    我们在上一篇博客中设计了几个最简单的区块链，并且很容易添加更长的区块链来覆盖掉最初的合法交易，为了维持整个系统的健康运行，我们需要设计一定的激励机制。我们都知道，有种东西叫做“挖矿”，在比特币系统中平均每10分钟，比特币系统会奖励一定量的比特币(最初是50个，每四年减少一半)。但是在网络中很多个网络节点一起“挖矿”，我们该怎么分配这个奖励呢？这就是工作量证明(Proof-of-Work)">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/05/区块链学习二-工作量证明/1.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/05/区块链学习二-工作量证明/2.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/05/区块链学习二-工作量证明/3.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/05/区块链学习二-工作量证明/4.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/05/区块链学习二-工作量证明/5.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/05/区块链学习二-工作量证明/6.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/05/区块链学习二-工作量证明/7.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/05/区块链学习二-工作量证明/201904144.jpg">
-<meta property="og:updated_time" content="2020-01-04T03:12:28.000Z">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E%5C1.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E%5C2.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E%5C3.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E%5C4.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E%5C5.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E%5C6.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E%5C7.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E%5C201904144.jpg">
+<meta property="article:published_time" content="2019-11-05T05:28:03.000Z">
+<meta property="article:modified_time" content="2020-01-04T03:12:28.000Z">
+<meta property="article:author" content="+×">
+<meta property="article:tag" content="区块链">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="区块链学习二-工作量证明">
-<meta name="twitter:description" content="​    我们在上一篇博客中设计了几个最简单的区块链，并且很容易添加更长的区块链来覆盖掉最初的合法交易，为了维持整个系统的健康运行，我们需要设计一定的激励机制。我们都知道，有种东西叫做“挖矿”，在比特币系统中平均每10分钟，比特币系统会奖励一定量的比特币(最初是50个，每四年减少一半)。但是在网络中很多个网络节点一起“挖矿”，我们该怎么分配这个奖励呢？这就是工作量证明(Proof-of-Work)">
-<meta name="twitter:image" content="http://www.xianfish.xyz/2019/11/05/区块链学习二-工作量证明/1.png">
+<meta name="twitter:image" content="http://www.xianfish.xyz/.xyz//%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E%5C1.png">
 
-<link rel="canonical" href="http://www.xianfish.xyz/2019/11/05/区块链学习二-工作量证明/">
+<link rel="canonical" href="http://www.xianfish.xyz/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E/">
 
 
 <script id="page-configurations">
@@ -185,7 +185,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/05/区块链学习二-工作量证明/">
+    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/HeadPortrait.png">
@@ -232,33 +232,39 @@
         <p>​    我们在上一篇博客中设计了几个最简单的区块链，并且很容易添加更长的区块链来覆盖掉最初的合法交易，为了维持整个系统的健康运行，我们需要设计一定的激励机制。我们都知道，有种东西叫做“挖矿”，在比特币系统中平均每10分钟，比特币系统会奖励一定量的比特币(最初是50个，每四年减少一半)。但是在网络中很多个网络节点一起“挖矿”，我们该怎么分配这个奖励呢？这就是工作量证明(Proof-of-Work)算法产生的原因。</p>
 <h3 id="一、Proof-of-Work"><a href="#一、Proof-of-Work" class="headerlink" title="一、Proof-of-Work"></a>一、Proof-of-Work</h3><p>​    一个正常的区块链系统随时都会产生交易，这时候就会有很多服务器将一个时间段(BTC为10分钟，Asch为10秒)的交易打包到一个区块，并添加到现有的区块链中，但是最终的这个时间段该选择哪个服务器打包的区块为准，这是个问题。在BTC中采用了一种叫做工作量证明的算法来决定采用哪一台服务器打包的区块并给与奖励。 </p>
 <p>​    工作量算法大致为：在一个时间段内多台服务器同时对交易进行打包后，连带区块的Hsh信息一起经过SHA256算法进行运算，在区块头和奖励交易的coinBase里，各有一个变量nonce，如果运算结果不符合难度要求，那么就调整nonce的值继续运算。如果某台服务器率先计算出符合难度的区块，他就会广播这个区块，其他服务器验证没问题后就可以添加到现有的区块链上，然后所有服务器又继续竞争下一个区块，这个过程就叫做挖矿。 </p>
-<p>​    在工作量证明算法中采用了SHA256，他的特点是难以运算但是容易验证，所以找到一个符合难度要求的区块需要耗时10分钟，但是验证它是否有效只是瞬间的事 <a id="more"></a></p>
+<p>​    在工作量证明算法中采用了SHA256，他的特点是难以运算但是容易验证，所以找到一个符合难度要求的区块需要耗时10分钟，但是验证它是否有效只是瞬间的事 <span id="more"></span></p>
 <p>举一个简单的例子： 假设有一群人玩一个扔硬币游戏，每个人有十枚硬币，依次扔完十枚硬币，最后看十枚中的正面和反面的排序结果。由于是有顺序的，这里的结果有2^10种可能。现在有个规定，在一轮游戏中，谁先扔出了前4枚硬币都是正面的结果，谁就可以得到奖励。于是大家都开始扔十枚硬币并统计结果。前五枚都是正面的可能性有2^6种，因此一个人能获取该结果的期望尝试次数为2^4。 如果规定正面的个数越多，那么每个人的尝试次数就会越多，而这里的个数就是难度。如果玩游戏的人逐渐增多，那我们就可以要求前6个、前8个是正面，这样每轮游戏的时间依然差不多。这也是为什么比特币的算力大增，而依然能保持平均每10分钟产生一个区块的原因。 </p>
 <h3 id="二、实现方式"><a href="#二、实现方式" class="headerlink" title="二、实现方式"></a>二、实现方式</h3><p>任何一个数据经过SHA256运算后都会得到256bit的二进制数，可以通过调整最开始的部分连续0的个数作为难度，若我们要求第一个bit为0，那么平均没两次运算就可以得到一个结果，但是若我们要求连续10个bit都为0，这时候就需要平均2^10次才能得到一次需要的结果了，我们就可以通过调整连续0的个数来达成调整难度的目标。</p>
 <p>我们在区块的头信息中添加一个变量nonce，就可以通过不断调节nonce的值来重新计算整个区块的Hash值，直到满足难度要求。</p>
 <h3 id="三、代码实现"><a href="#三、代码实现" class="headerlink" title="三、代码实现"></a>三、代码实现</h3><p>我们先改造一下前面的代码，先在Block类中添加一个nonce变量</p>
-<p> <img src="/2019/11/05/区块链学习二-工作量证明/1.png" alt="1"></p>
+<p> <img src="/.xyz//%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E%5C1.png" alt="1"></p>
 <p>然后在Block类中添加一个mineBlock方法 </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mineBlock(difficult)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Mining block $&#123;this.index&#125;'</span>);</span><br><span class="line">  <span class="keyword">while</span>(<span class="keyword">this</span>.hash.substring(<span class="number">0</span>, difficult) !== *<span class="built_in">Array</span>*(difficult + <span class="number">1</span>).join(<span class="string">"0"</span>))&#123;</span><br><span class="line">    <span class="keyword">this</span>.nonce++;</span><br><span class="line">    <span class="keyword">this</span>.hash = <span class="keyword">this</span>.calculateHash();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"BLOCK MINED: "</span> + <span class="keyword">this</span>.hash);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">mineBlock</span>(<span class="params">difficult</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Mining block $&#123;this.index&#125;&#x27;</span>);</span><br><span class="line">  <span class="keyword">while</span>(<span class="built_in">this</span>.hash.substring(<span class="number">0</span>, difficult) !== *<span class="built_in">Array</span>*(difficult + <span class="number">1</span>).join(<span class="string">&quot;0&quot;</span>))&#123;</span><br><span class="line">    <span class="built_in">this</span>.nonce++;</span><br><span class="line">    <span class="built_in">this</span>.hash = <span class="built_in">this</span>.calculateHash();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;BLOCK MINED: &quot;</span> + <span class="built_in">this</span>.hash);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>这里的difficult指的是从这里以开始连续为0的个数，如果不符合要求，哪个nonce加1，然后重新计算区块的Hash值。</p>
 <p>将calculateHash方法进行修改加上nonce</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">calculateHash() &#123;</span><br><span class="line"> <span class="keyword">return</span> SHA256(<span class="keyword">this</span>.index + </span><br><span class="line">       <span class="keyword">this</span>.previousHash + </span><br><span class="line">       <span class="keyword">this</span>.timestamp + </span><br><span class="line">       <span class="built_in">JSON</span>.stringify(<span class="keyword">this</span>.transactions) + </span><br><span class="line">       <span class="keyword">this</span>.nonce</span><br><span class="line">       ).toString();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/11/05/区块链学习二-工作量证明/2.png" alt="2"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">calculateHash</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line"> <span class="keyword">return</span> SHA256(<span class="built_in">this</span>.index + </span><br><span class="line">       <span class="built_in">this</span>.previousHash + </span><br><span class="line">       <span class="built_in">this</span>.timestamp + </span><br><span class="line">       <span class="built_in">JSON</span>.stringify(<span class="built_in">this</span>.transactions) + </span><br><span class="line">       <span class="built_in">this</span>.nonce</span><br><span class="line">       ).toString();  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/.xyz//%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E%5C2.png" alt="2"></p>
 <p>我们接着继续在Blockchain类里定义一个难度</p>
-<p><img src="/2019/11/05/区块链学习二-工作量证明/3.png" alt="3"></p>
+<p><img src="/.xyz//%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E%5C3.png" alt="3"></p>
 <p>再把挖矿的过程应用到添加区块到区块链的过程中</p>
-<p><img src="/2019/11/05/区块链学习二-工作量证明/4.png" alt="4"></p>
+<p><img src="/.xyz//%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E%5C4.png" alt="4"></p>
 <p>添加一个区块</p>
-<p><img src="/2019/11/05/区块链学习二-工作量证明/5.png" alt="5"></p>
+<p><img src="/.xyz//%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E%5C5.png" alt="5"></p>
 <p>运行后可以得到一个结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Mining block 1</span><br><span class="line">BLOCK MINED: 0022f421c985bd9a64cf2c39989a7b0a58746f0e2340e44c8ba158e6df1f5417</span><br><span class="line">Block &#123;</span><br><span class="line">index: &apos;1&apos;</span><br><span class="line">timestamp: &apos;01/11/2019&apos;</span><br><span class="line">transactions: [ &#123; sender: &apos;didi&apos;, recipient: &apos;dada&apos;, amount: &apos;100&apos; &#125; ],</span><br><span class="line">previousHash:</span><br><span class="line">&apos;a1e4087b15e3c123bf61f78279c326149be53762213a96e1c6710bf60df5c3fb&apos;</span><br><span class="line">hash:</span><br><span class="line">&apos;0022f421c985bd9a64cf2c39989a7b0a58746f0e2340e44c8ba158e6df1f5417&apos;</span><br><span class="line">nonce: 548 &#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/11/05/区块链学习二-工作量证明/6.png" alt="6"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Mining block 1</span><br><span class="line">BLOCK MINED: 0022f421c985bd9a64cf2c39989a7b0a58746f0e2340e44c8ba158e6df1f5417</span><br><span class="line">Block &#123;</span><br><span class="line">index: &#x27;1&#x27;</span><br><span class="line">timestamp: &#x27;01/11/2019&#x27;</span><br><span class="line">transactions: [ &#123; sender: &#x27;didi&#x27;, recipient: &#x27;dada&#x27;, amount: &#x27;100&#x27; &#125; ],</span><br><span class="line">previousHash:</span><br><span class="line">&#x27;a1e4087b15e3c123bf61f78279c326149be53762213a96e1c6710bf60df5c3fb&#x27;</span><br><span class="line">hash:</span><br><span class="line">&#x27;0022f421c985bd9a64cf2c39989a7b0a58746f0e2340e44c8ba158e6df1f5417&#x27;</span><br><span class="line">nonce: 548 &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/.xyz//%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E%5C6.png" alt="6"></p>
 <p>这里的nonce表明了计算的次数，Hash是最后得到的结果，我们设置的难度为2.期望计算的次数是2^8次(Hash中一个字符占4个bit)，我们再将难度改为4，得到</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Mining block 1</span><br><span class="line">BLOCK MINED: 0000e23993def504bd94a301a1dbe8772358e481ac7086de7655820d635b6359</span><br><span class="line">Block &#123;</span><br><span class="line">index: &apos;1&apos;</span><br><span class="line">timestamp: &apos;01/11/2019&apos;</span><br><span class="line">transactions: [ &#123; sender: &apos;didi&apos;, recipient: &apos;dada&apos;, amount: &apos;100&apos; &#125; ],</span><br><span class="line">previousHash:</span><br><span class="line">&apos;a1e4087b15e3c123bf61f78279c326149be53762213a96e1c6710bf60df5c3fb&apos;</span><br><span class="line">hash:</span><br><span class="line">&apos;0000e23993def504bd94a301a1dbe8772358e481ac7086de7655820d635b6359&apos;</span><br><span class="line">nonce: 60255 &#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/11/05/区块链学习二-工作量证明/7.png" alt="7"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Mining block 1</span><br><span class="line">BLOCK MINED: 0000e23993def504bd94a301a1dbe8772358e481ac7086de7655820d635b6359</span><br><span class="line">Block &#123;</span><br><span class="line">index: &#x27;1&#x27;</span><br><span class="line">timestamp: &#x27;01/11/2019&#x27;</span><br><span class="line">transactions: [ &#123; sender: &#x27;didi&#x27;, recipient: &#x27;dada&#x27;, amount: &#x27;100&#x27; &#125; ],</span><br><span class="line">previousHash:</span><br><span class="line">&#x27;a1e4087b15e3c123bf61f78279c326149be53762213a96e1c6710bf60df5c3fb&#x27;</span><br><span class="line">hash:</span><br><span class="line">&#x27;0000e23993def504bd94a301a1dbe8772358e481ac7086de7655820d635b6359&#x27;</span><br><span class="line">nonce: 60255 &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/.xyz//%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E%5C7.png" alt="7"></p>
 <p>这里的计算次数就比困难度为2增加了很多，消耗的时间也更多了。</p>
-<p> <a href="https://github.com/saltedfishhuang/BlockChainStudy" target="_blank" rel="noopener">源码地址</a></p>
-<p><img src="/2019/11/05/区块链学习二-工作量证明/201904144.jpg" alt="201904144"></p>
+<p> <a target="_blank" rel="noopener" href="https://github.com/saltedfishhuang/BlockChainStudy">源码地址</a></p>
+<p><img src="/.xyz//%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E%5C201904144.jpg" alt="201904144"></p>
 
     </div>
 
@@ -268,7 +274,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/区块链/" rel="tag"># 区块链</a>
+              <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="tag"># 区块链</a>
           </div>
 
         
@@ -277,11 +283,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/11/03/区块链学习一-区块链/" rel="prev" title="区块链学习一:区块链">
+    <a href="/2019/11/03/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%80-%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="prev" title="区块链学习一:区块链">
       <i class="fa fa-chevron-left"></i> 区块链学习一:区块链
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/11/05/区块链学习三-API/" rel="next" title="区块链学习三-API">
+    <a href="/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/" rel="next" title="区块链学习三-API">
       区块链学习三-API <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -343,7 +349,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、Proof-of-Work"><span class="nav-number">1.</span> <span class="nav-text">一、Proof-of-Work</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、实现方式"><span class="nav-number">2.</span> <span class="nav-text">二、实现方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、代码实现"><span class="nav-number">3.</span> <span class="nav-text">三、代码实现</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81Proof-of-Work"><span class="nav-number">1.</span> <span class="nav-text">一、Proof-of-Work</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">二、实现方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">三、代码实现</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -359,7 +365,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -380,37 +386,37 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://gorgias.me/" title="https://gorgias.me/" rel="noopener" target="_blank">巨佬</a>
+          <a href="https://gorgias.me/" title="https:&#x2F;&#x2F;gorgias.me&#x2F;" rel="noopener" target="_blank">巨佬</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://couplee.wang/" title="http://couplee.wang/" rel="noopener" target="_blank">wnagzihxa1n</a>
+          <a href="http://couplee.wang/" title="http:&#x2F;&#x2F;couplee.wang&#x2F;" rel="noopener" target="_blank">wnagzihxa1n</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/warrenryan" title="https://www.cnblogs.com/warrenryan" rel="noopener" target="_blank">WarrenRyan</a>
+          <a href="https://www.cnblogs.com/warrenryan" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;warrenryan" rel="noopener" target="_blank">WarrenRyan</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://rinbn.com/" title="http://rinbn.com/" rel="noopener" target="_blank">Rinbn</a>
+          <a href="http://rinbn.com/" title="http:&#x2F;&#x2F;rinbn.com&#x2F;" rel="noopener" target="_blank">Rinbn</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.imzj.top/" title="https://www.imzj.top/" rel="noopener" target="_blank">imzj</a>
+          <a href="https://www.imzj.top/" title="https:&#x2F;&#x2F;www.imzj.top&#x2F;" rel="noopener" target="_blank">imzj</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://pukrr.github.io/" title="https://pukrr.github.io/" rel="noopener" target="_blank">pukrr</a>
+          <a href="https://pukrr.github.io/" title="https:&#x2F;&#x2F;pukrr.github.io&#x2F;" rel="noopener" target="_blank">pukrr</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://q0o0p.top" title="http://q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
+          <a href="http://q0o0p.top/" title="http:&#x2F;&#x2F;q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://blog.immity.best" title="http://blog.immity.best" rel="noopener" target="_blank">陈组长大人</a>
+          <a href="http://blog.immity.best/" title="http:&#x2F;&#x2F;blog.immity.best" rel="noopener" target="_blank">陈组长大人</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/wushengyang" title="https://www.cnblogs.com/wushengyang" rel="noopener" target="_blank">PY</a>
+          <a href="https://www.cnblogs.com/wushengyang" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;wushengyang" rel="noopener" target="_blank">PY</a>
         </li>
     </ul>
   </div>
 
       </div>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=453468850&auto=0&height=66"></iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=431259256&auto=0&height=66"></iframe>
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>
@@ -426,16 +432,16 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">+×</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
   </div>
 
         
@@ -457,31 +463,39 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
 
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-z16"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>

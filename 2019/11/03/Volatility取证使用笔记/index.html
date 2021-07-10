@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico">
@@ -47,34 +47,34 @@
 </script>
 
   <meta name="description" content="最近简单的了解了一下Volatility这个开源的取证框架，这个框架能够对导出的内存镜像镜像分析，能过通过获取内核的数据结构，使用插件获取内存的详细情况和运行状态，同时可以直接dump系统文件，屏幕截图，查看进程等等等等~~~ 0x01 安装安装分为三步走：  下载 安装必要的python依赖文件 安装本体  下载你可以在Release中找到对应你系统（Mac，Win，Linux）的源代码，当然也">
-<meta name="keywords" content="misc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Volatility取证使用笔记">
-<meta property="og:url" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/index.html">
+<meta property="og:url" content="http://www.xianfish.xyz/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hi~">
 <meta property="og:description" content="最近简单的了解了一下Volatility这个开源的取证框架，这个框架能够对导出的内存镜像镜像分析，能过通过获取内核的数据结构，使用插件获取内存的详细情况和运行状态，同时可以直接dump系统文件，屏幕截图，查看进程等等等等~~~ 0x01 安装安装分为三步走：  下载 安装必要的python依赖文件 安装本体  下载你可以在Release中找到对应你系统（Mac，Win，Linux）的源代码，当然也">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/01.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/02.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/03.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/04.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/05.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/06.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/07.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/08.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/09.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/10.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/11.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/12.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/13.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/2019062606.png">
-<meta property="og:updated_time" content="2020-01-04T03:14:11.000Z">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C01.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C02.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C03.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C04.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C05.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C06.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C07.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C08.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C09.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C10.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C11.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C12.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C13.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C2019062606.png">
+<meta property="article:published_time" content="2019-11-03T08:32:25.000Z">
+<meta property="article:modified_time" content="2020-01-04T03:14:11.000Z">
+<meta property="article:author" content="+×">
+<meta property="article:tag" content="misc">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Volatility取证使用笔记">
-<meta name="twitter:description" content="最近简单的了解了一下Volatility这个开源的取证框架，这个框架能够对导出的内存镜像镜像分析，能过通过获取内核的数据结构，使用插件获取内存的详细情况和运行状态，同时可以直接dump系统文件，屏幕截图，查看进程等等等等~~~ 0x01 安装安装分为三步走：  下载 安装必要的python依赖文件 安装本体  下载你可以在Release中找到对应你系统（Mac，Win，Linux）的源代码，当然也">
-<meta name="twitter:image" content="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/01.png">
+<meta name="twitter:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C01.png">
 
-<link rel="canonical" href="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/">
+<link rel="canonical" href="http://www.xianfish.xyz/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
@@ -191,7 +191,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/03/Volatility取证使用笔记/">
+    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/HeadPortrait.png">
@@ -242,62 +242,62 @@
 <li>安装必要的python依赖文件</li>
 <li>安装本体</li>
 </ol>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>你可以在<a href="https://link.jianshu.com?t=https:/github.com/volatilityfoundation/volatility/releases" target="_blank" rel="noopener">Release</a>中找到对应你系统（Mac，Win，Linux）的源代码，当然也可以通过github去获取源码：</p>
-<p>git clone <a href="https://github.com/volatilityfoundation/volatility.git" target="_blank" rel="noopener">https://github.com/volatilityfoundation/volatility.git</a></p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>你可以在<a target="_blank" rel="noopener" href="https://link.jianshu.com/?t=https:/github.com/volatilityfoundation/volatility/releases">Release</a>中找到对应你系统（Mac，Win，Linux）的源代码，当然也可以通过github去获取源码：</p>
+<p>git clone <a target="_blank" rel="noopener" href="https://github.com/volatilityfoundation/volatility.git">https://github.com/volatilityfoundation/volatility.git</a></p>
 <h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><p>如果只是用Volatility本体，就不要安装这些依赖，但是如果想使用某些插件，就需要对这些以依赖进行安装·</p>
-<p><strong>Distorm3:</strong>牛逼的反编译库</p>
+<p>**Distorm3:**牛逼的反编译库</p>
 <p><code>pip install distorm3</code></p>
-<p><strong>Yara:</strong>恶意软件分类工具<a id="more"></a></p>
+<p>**Yara:**恶意软件分类工具<span id="more"></span></p>
 <p><code>pip install yara</code></p>
-<p><strong>PyCrypto:</strong>加密工具集</p>
+<p>**PyCrypto:**加密工具集</p>
 <p><code>pip install pycrypto</code></p>
-<p><strong>PIL:</strong>图片处理库</p>
+<p>**PIL:**图片处理库</p>
 <p><code>pip install pil</code></p>
-<p><strong>OpenPyxl:</strong>读写excel文件</p>
+<p>**OpenPyxl:**读写excel文件</p>
 <p><code>pip install openpyxl</code></p>
-<p><strong>ujson:</strong>JSON解析</p>
+<p>**ujson:**JSON解析</p>
 <p><code>pip install ujson</code></p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>如果你用的是独立的win、linux、mac执行文件，那就不必安装了。只要用python去执行就好。</p>
 <p>若是下载了压缩文件，那你可以选择直接运行python主程序，也可以选择使用python setup.py install的方式将Volatility以一个库的形式安装在系统的特定位置上，从而以后我们可以将Volatility作为一个库在其他脚本中去引用namespace。</p>
 <h2 id="0x02-使用"><a href="#0x02-使用" class="headerlink" title="0x02 使用"></a>0x02 使用</h2><p>kali自带有volatility，于是我直接在kali山进行操作</p>
 <p>我这里也直接用我这两天看的一道CTF的题目作为实例来操作吧</p>
-<p><img src="/2019/11/03/Volatility取证使用笔记/01.png" alt="01"></p>
+<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C01.png" alt="01"></p>
 <h4 id="Imageinfo"><a href="#Imageinfo" class="headerlink" title="Imageinfo"></a>Imageinfo</h4><p>这个命令可以用来获取内存镜像的摘要信息，比如系统版本，硬件构架等</p>
 <p><code>volatility -f wuliao.data imageinfo</code></p>
 <p>通过Suggested Profile(s) 我们可以知道这个镜像文件的版本最有可能事Win7SP1x64</p>
-<p><img src="/2019/11/03/Volatility取证使用笔记/02.png" alt="02"></p>
+<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C02.png" alt="02"></p>
 <p>可以使用–info参数来查看Volatility已经添加的profile和插件信息</p>
-<p><img src="/2019/11/03/Volatility取证使用笔记/03.png" alt="03"></p>
+<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C03.png" alt="03"></p>
 <h4 id="Kdbgscan"><a href="#Kdbgscan" class="headerlink" title="Kdbgscan"></a>Kdbgscan</h4><p>这个插件可以扫描文件的profile的值，通常扫描结果有多个，只有一个结果是完全正确的，kdbgscan和imageinfo都只适用于windows的镜像</p>
-<p><img src="/2019/11/03/Volatility取证使用笔记/04.png" alt="04"></p>
+<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C04.png" alt="04"></p>
 <h4 id="Pslist"><a href="#Pslist" class="headerlink" title="Pslist"></a>Pslist</h4><p><code>volatility -f wuliao.data --profile=Win7SPx64 pslist</code></p>
 <p>pslist可以直接列出运行的进程，如果进程已经结束，会在Exit列显示日期和时间，表明进程已经结束</p>
-<p><img src="/2019/11/03/Volatility取证使用笔记/05.png" alt="05"></p>
+<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C05.png" alt="05"></p>
 <h4 id="Hivelist"><a href="#Hivelist" class="headerlink" title="Hivelist"></a>Hivelist</h4><p>列举缓存在内存中的注册表</p>
 <p><code>volatility -f wuliao.data --profile=Win7SP1x64 hivelist</code></p>
-<p><img src="/2019/11/03/Volatility取证使用笔记/06.png" alt="06"></p>
+<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C06.png" alt="06"></p>
 <h4 id="filescan"><a href="#filescan" class="headerlink" title="filescan"></a>filescan</h4><p>扫描内存中的文件</p>
 <p><code>volatility -f wuliao.data --profile=Win7SP1x64 filescan</code></p>
-<p><img src="/2019/11/03/Volatility取证使用笔记/07.png" alt="07"></p>
+<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C07.png" alt="07"></p>
 <p>filescan 也可以结合grep命令来进行筛选，比如</p>
 <p><code>volatility -f wuliao.data --profile=Win7SP1x64 filescan |grep &quot;doc\|docx\|rtf&quot;</code></p>
-<p><img src="/2019/11/03/Volatility取证使用笔记/08.png" alt="08"></p>
+<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C08.png" alt="08"></p>
 <p>也可以</p>
 <p><code>volatility -f wuliao.data --profile=Win7SP1x64 filescan |grep &quot;flag&quot;</code></p>
-<p><img src="/2019/11/03/Volatility取证使用笔记/09.png" alt="09"></p>
+<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C09.png" alt="09"></p>
 <h4 id="Dumpfiles"><a href="#Dumpfiles" class="headerlink" title="Dumpfiles"></a>Dumpfiles</h4><p>导出内存中缓存的文件</p>
 <p>我直接导出上面搜索flag得到的flag.jpeg文件</p>
 <p><code>volatility -f wuliao.data --profile=Win7SP1x64 dumpfiles -Q 0x000000007f142f20 -D ./ -u</code></p>
-<p><img src="/2019/11/03/Volatility取证使用笔记/10.png" alt="10"></p>
+<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C10.png" alt="10"></p>
 <h4 id="Cmdscan-cmdline"><a href="#Cmdscan-cmdline" class="headerlink" title="Cmdscan/cmdline"></a>Cmdscan/cmdline</h4><p>提取内存中保留的cmd命令使用情况</p>
 <p><code>volatility -f wuliao.data --profile=Win7SP1x64 cmdline</code></p>
-<p><img src="/2019/11/03/Volatility取证使用笔记/11.png" alt="11"></p>
+<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C11.png" alt="11"></p>
 <h4 id="查看截图"><a href="#查看截图" class="headerlink" title="查看截图"></a>查看截图</h4><p><code>volatility -f wuliao.data --profile=Win7SP1x64 screenshot --dump-dir=./</code></p>
-<p><img src="/2019/11/03/Volatility取证使用笔记/12.png" alt="12"></p>
+<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C12.png" alt="12"></p>
 <h4 id="查看系统用户名"><a href="#查看系统用户名" class="headerlink" title="查看系统用户名"></a>查看系统用户名</h4><p><code>volatility -f wuliao.data --profile=Win7SP1x64 printkey -K &quot;SAM\Domains\Account\Users\Names&quot;</code></p>
 <h4 id="查看网络连接"><a href="#查看网络连接" class="headerlink" title="查看网络连接"></a>查看网络连接</h4><p><code>volatility -f wuliao.data --profile=Win7SP1x64 netscan</code></p>
-<p><img src="/2019/11/03/Volatility取证使用笔记/13.png" alt="13"></p>
-<h4 id="我真是个啥都不会，啥都要学的five啊"><a href="#我真是个啥都不会，啥都要学的five啊" class="headerlink" title="我真是个啥都不会，啥都要学的five啊"></a>我真是个啥都不会，啥都要学的five啊</h4><p><img src="/2019/11/03/Volatility取证使用笔记/2019062606.png" alt="2019062606"></p>
+<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C13.png" alt="13"></p>
+<h4 id="我真是个啥都不会，啥都要学的five啊"><a href="#我真是个啥都不会，啥都要学的five啊" class="headerlink" title="我真是个啥都不会，啥都要学的five啊"></a>我真是个啥都不会，啥都要学的five啊</h4><p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C2019062606.png" alt="2019062606"></p>
 
     </div>
 
@@ -316,11 +316,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/11/01/10月份总结/" rel="prev" title="10月份总结">
+    <a href="/2019/11/01/10%E6%9C%88%E4%BB%BD%E6%80%BB%E7%BB%93/" rel="prev" title="10月份总结">
       <i class="fa fa-chevron-left"></i> 10月份总结
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/11/03/区块链学习一-区块链/" rel="next" title="区块链学习一:区块链">
+    <a href="/2019/11/03/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%80-%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="next" title="区块链学习一:区块链">
       区块链学习一:区块链 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -382,7 +382,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-安装"><span class="nav-number">1.</span> <span class="nav-text">0x01 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载"><span class="nav-number">1.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖"><span class="nav-number">1.2.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.3.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-使用"><span class="nav-number">2.</span> <span class="nav-text">0x02 使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Imageinfo"><span class="nav-number">2.0.1.</span> <span class="nav-text">Imageinfo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Kdbgscan"><span class="nav-number">2.0.2.</span> <span class="nav-text">Kdbgscan</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pslist"><span class="nav-number">2.0.3.</span> <span class="nav-text">Pslist</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hivelist"><span class="nav-number">2.0.4.</span> <span class="nav-text">Hivelist</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filescan"><span class="nav-number">2.0.5.</span> <span class="nav-text">filescan</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dumpfiles"><span class="nav-number">2.0.6.</span> <span class="nav-text">Dumpfiles</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cmdscan-cmdline"><span class="nav-number">2.0.7.</span> <span class="nav-text">Cmdscan/cmdline</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看截图"><span class="nav-number">2.0.8.</span> <span class="nav-text">查看截图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看系统用户名"><span class="nav-number">2.0.9.</span> <span class="nav-text">查看系统用户名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看网络连接"><span class="nav-number">2.0.10.</span> <span class="nav-text">查看网络连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我真是个啥都不会，啥都要学的five啊"><span class="nav-number">2.0.11.</span> <span class="nav-text">我真是个啥都不会，啥都要学的five啊</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">0x01 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96"><span class="nav-number">1.2.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.3.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">0x02 使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Imageinfo"><span class="nav-number">2.0.1.</span> <span class="nav-text">Imageinfo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Kdbgscan"><span class="nav-number">2.0.2.</span> <span class="nav-text">Kdbgscan</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pslist"><span class="nav-number">2.0.3.</span> <span class="nav-text">Pslist</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hivelist"><span class="nav-number">2.0.4.</span> <span class="nav-text">Hivelist</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filescan"><span class="nav-number">2.0.5.</span> <span class="nav-text">filescan</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dumpfiles"><span class="nav-number">2.0.6.</span> <span class="nav-text">Dumpfiles</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cmdscan-cmdline"><span class="nav-number">2.0.7.</span> <span class="nav-text">Cmdscan&#x2F;cmdline</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%88%AA%E5%9B%BE"><span class="nav-number">2.0.8.</span> <span class="nav-text">查看截图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%B3%BB%E7%BB%9F%E7%94%A8%E6%88%B7%E5%90%8D"><span class="nav-number">2.0.9.</span> <span class="nav-text">查看系统用户名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5"><span class="nav-number">2.0.10.</span> <span class="nav-text">查看网络连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%91%E7%9C%9F%E6%98%AF%E4%B8%AA%E5%95%A5%E9%83%BD%E4%B8%8D%E4%BC%9A%EF%BC%8C%E5%95%A5%E9%83%BD%E8%A6%81%E5%AD%A6%E7%9A%84five%E5%95%8A"><span class="nav-number">2.0.11.</span> <span class="nav-text">我真是个啥都不会，啥都要学的five啊</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -398,7 +398,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -419,37 +419,37 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://gorgias.me/" title="https://gorgias.me/" rel="noopener" target="_blank">巨佬</a>
+          <a href="https://gorgias.me/" title="https:&#x2F;&#x2F;gorgias.me&#x2F;" rel="noopener" target="_blank">巨佬</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://couplee.wang/" title="http://couplee.wang/" rel="noopener" target="_blank">wnagzihxa1n</a>
+          <a href="http://couplee.wang/" title="http:&#x2F;&#x2F;couplee.wang&#x2F;" rel="noopener" target="_blank">wnagzihxa1n</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/warrenryan" title="https://www.cnblogs.com/warrenryan" rel="noopener" target="_blank">WarrenRyan</a>
+          <a href="https://www.cnblogs.com/warrenryan" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;warrenryan" rel="noopener" target="_blank">WarrenRyan</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://rinbn.com/" title="http://rinbn.com/" rel="noopener" target="_blank">Rinbn</a>
+          <a href="http://rinbn.com/" title="http:&#x2F;&#x2F;rinbn.com&#x2F;" rel="noopener" target="_blank">Rinbn</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.imzj.top/" title="https://www.imzj.top/" rel="noopener" target="_blank">imzj</a>
+          <a href="https://www.imzj.top/" title="https:&#x2F;&#x2F;www.imzj.top&#x2F;" rel="noopener" target="_blank">imzj</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://pukrr.github.io/" title="https://pukrr.github.io/" rel="noopener" target="_blank">pukrr</a>
+          <a href="https://pukrr.github.io/" title="https:&#x2F;&#x2F;pukrr.github.io&#x2F;" rel="noopener" target="_blank">pukrr</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://q0o0p.top" title="http://q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
+          <a href="http://q0o0p.top/" title="http:&#x2F;&#x2F;q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://blog.immity.best" title="http://blog.immity.best" rel="noopener" target="_blank">陈组长大人</a>
+          <a href="http://blog.immity.best/" title="http:&#x2F;&#x2F;blog.immity.best" rel="noopener" target="_blank">陈组长大人</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/wushengyang" title="https://www.cnblogs.com/wushengyang" rel="noopener" target="_blank">PY</a>
+          <a href="https://www.cnblogs.com/wushengyang" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;wushengyang" rel="noopener" target="_blank">PY</a>
         </li>
     </ul>
   </div>
 
       </div>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=453468850&auto=0&height=66"></iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=431259256&auto=0&height=66"></iframe>
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>
@@ -465,16 +465,16 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">+×</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
   </div>
 
         
@@ -496,31 +496,39 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
 
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-z16"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>

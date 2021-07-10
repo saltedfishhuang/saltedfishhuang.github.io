@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico">
@@ -47,41 +47,41 @@
 </script>
 
   <meta name="description" content="前两天在微信公众号上看见了这个XXE靶场，就想试一试，虽然网上关于这个的文章已经写了太多太多了，但还是要写出来划划水，233333333，摸鱼真快乐.jpg">
-<meta name="keywords" content="web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vulnhub-XXE靶机学习">
-<meta property="og:url" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/index.html">
+<meta property="og:url" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE%E9%9D%B6%E6%9C%BA%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Hi~">
 <meta property="og:description" content="前两天在微信公众号上看见了这个XXE靶场，就想试一试，虽然网上关于这个的文章已经写了太多太多了，但还是要写出来划划水，233333333，摸鱼真快乐.jpg">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/1.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/2.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/3.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/4.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/5.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/6.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/7.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/8.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/9.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/10.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/11.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/12.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/13.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/14.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/15.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/17.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/18.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/19.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/20.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/21.png">
-<meta property="og:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/2019040141.jpg">
-<meta property="og:updated_time" content="2020-01-04T03:08:15.000Z">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//1.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//2.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//3.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//4.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//5.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//6.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//7.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//8.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//9.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//10.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//11.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//12.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//13.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//14.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//15.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//17.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//18.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//19.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//20.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//21.png">
+<meta property="og:image" content="http://www.xianfish.xyz/.xyz//2019040141.jpg">
+<meta property="article:published_time" content="2019-12-01T10:44:25.000Z">
+<meta property="article:modified_time" content="2020-01-04T03:08:15.000Z">
+<meta property="article:author" content="+×">
+<meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vulnhub-XXE靶机学习">
-<meta name="twitter:description" content="前两天在微信公众号上看见了这个XXE靶场，就想试一试，虽然网上关于这个的文章已经写了太多太多了，但还是要写出来划划水，233333333，摸鱼真快乐.jpg">
-<meta name="twitter:image" content="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/1.png">
+<meta name="twitter:image" content="http://www.xianfish.xyz/.xyz//1.png">
 
-<link rel="canonical" href="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/">
+<link rel="canonical" href="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE%E9%9D%B6%E6%9C%BA%E5%AD%A6%E4%B9%A0/">
 
 
 <script id="page-configurations">
@@ -198,7 +198,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE靶机学习/">
+    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/12/01/Vulnhub-XXE%E9%9D%B6%E6%9C%BA%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/HeadPortrait.png">
@@ -243,67 +243,75 @@
 
       
         <p>前两天在微信公众号上看见了这个XXE靶场，就想试一试，虽然网上关于这个的文章已经写了太多太多了，但还是要写出来划划水，233333333，摸鱼真快乐.jpg</p>
-<a id="more"></a>
+<span id="more"></span>
+
 <h3 id="0x01-安装"><a href="#0x01-安装" class="headerlink" title="0x01 安装"></a>0x01 安装</h3><p>这个没什么好说的，解压后vmware导入开机就好了</p>
-<p><img src="/2019/12/01/Vulnhub-XXE靶机学习/1.png" alt="1"></p>
+<p><img src="/.xyz//1.png" alt="1"></p>
 <h3 id="0x02-信息收集-amp-分析"><a href="#0x02-信息收集-amp-分析" class="headerlink" title="0x02 信息收集&amp;分析"></a>0x02 信息收集&amp;分析</h3><p>nmap先直接扫一下，不难确定靶机IP</p>
-<p><img src="/2019/12/01/Vulnhub-XXE靶机学习/2.png" alt="2"></p>
+<p><img src="/.xyz//2.png" alt="2"></p>
 <p>反正都是靶机，直接-A扫</p>
-<p><img src="/2019/12/01/Vulnhub-XXE靶机学习/3.png" alt="3"></p>
+<p><img src="/.xyz//3.png" alt="3"></p>
 <p>访问IP是apache2的默认页面，没什么用</p>
-<p><img src="/2019/12/01/Vulnhub-XXE靶机学习/4.png" alt="4"></p>
+<p><img src="/.xyz//4.png" alt="4"></p>
 <p>但根据nmap的扫描结果，存在robots.txt文件,Disable了XXE路径和admin.php</p>
-<p><img src="/2019/12/01/Vulnhub-XXE靶机学习/5.png" alt="5"></p>
+<p><img src="/.xyz//5.png" alt="5"></p>
 <p>然而admin.php无法访问，应该是没有权限emmmmm</p>
-<p><img src="/2019/12/01/Vulnhub-XXE靶机学习/6.png" alt="6"></p>
+<p><img src="/.xyz//6.png" alt="6"></p>
 <p>访问xxe路径得到</p>
-<p><img src="/2019/12/01/Vulnhub-XXE靶机学习/7.png" alt="7"></p>
+<p><img src="/.xyz//7.png" alt="7"></p>
 <p>随便登陆测试了一下，发现会把用户名输出</p>
-<p><img src="/2019/12/01/Vulnhub-XXE靶机学习/8.png" alt="8"></p>
+<p><img src="/.xyz//8.png" alt="8"></p>
 <p>Login按钮对应了一个js onclick事件</p>
-<p><img src="/2019/12/01/Vulnhub-XXE靶机学习/9.png" alt="9"></p>
+<p><img src="/.xyz//9.png" alt="9"></p>
 <p>找到对应的js代码，POST方式发送了xml请求，靶机也叫xxe，直接抓包xxe</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">XMLFunction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> xml = <span class="string">''</span> +</span><br><span class="line">        <span class="string">'&lt;?xml version="1.0" encoding="UTF-8"?&gt;'</span> +</span><br><span class="line">        <span class="string">'&lt;root&gt;'</span> +</span><br><span class="line">        <span class="string">'&lt;name&gt;'</span> + $(<span class="string">'#name'</span>).val() + <span class="string">'&lt;/name&gt;'</span> +</span><br><span class="line">        <span class="string">'&lt;password&gt;'</span> + $(<span class="string">'#password'</span>).val() + <span class="string">'&lt;/password&gt;'</span> +</span><br><span class="line">        <span class="string">'&lt;/root&gt;'</span>;</span><br><span class="line">    <span class="keyword">var</span> xmlhttp = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    xmlhttp.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(xmlhttp.readyState == <span class="number">4</span>)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(xmlhttp.readyState);</span><br><span class="line">            <span class="built_in">console</span>.log(xmlhttp.responseText);</span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">'errorMessage'</span>).innerHTML = xmlhttp.responseText;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    xmlhttp.open(<span class="string">"POST"</span>,<span class="string">"xxe.php"</span>,<span class="literal">true</span>);</span><br><span class="line">    xmlhttp.send(xml);</span><br><span class="line">&#125;;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">XMLFunction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> xml = <span class="string">&#x27;&#x27;</span> +</span><br><span class="line">        <span class="string">&#x27;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x27;</span> +</span><br><span class="line">        <span class="string">&#x27;&lt;root&gt;&#x27;</span> +</span><br><span class="line">        <span class="string">&#x27;&lt;name&gt;&#x27;</span> + $(<span class="string">&#x27;#name&#x27;</span>).val() + <span class="string">&#x27;&lt;/name&gt;&#x27;</span> +</span><br><span class="line">        <span class="string">&#x27;&lt;password&gt;&#x27;</span> + $(<span class="string">&#x27;#password&#x27;</span>).val() + <span class="string">&#x27;&lt;/password&gt;&#x27;</span> +</span><br><span class="line">        <span class="string">&#x27;&lt;/root&gt;&#x27;</span>;</span><br><span class="line">    <span class="keyword">var</span> xmlhttp = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    xmlhttp.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(xmlhttp.readyState == <span class="number">4</span>)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(xmlhttp.readyState);</span><br><span class="line">            <span class="built_in">console</span>.log(xmlhttp.responseText);</span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">&#x27;errorMessage&#x27;</span>).innerHTML = xmlhttp.responseText;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    xmlhttp.open(<span class="string">&quot;POST&quot;</span>,<span class="string">&quot;xxe.php&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">    xmlhttp.send(xml);</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
 <h3 id="0x03-实现过程"><a href="#0x03-实现过程" class="headerlink" title="0x03 实现过程"></a>0x03 实现过程</h3><p>既然已经知道了是xxe，还是linux，肯定直接读etc文件目录下的passwd文件进行测试了，验证成功，xxe漏洞存在，这里还得到了一个r00t，手动混淆肯定有大用(然而后面回来并没有用上)，先记录下来再说</p>
-<p><img src="/2019/12/01/Vulnhub-XXE靶机学习/10.png" alt="10"></p>
+<p><img src="/.xyz//10.png" alt="10"></p>
 <p>既然文件包含成功了，就尝试包含前面无法访问的admin.php试试</p>
 <p>payload <code>php://filter/read=convert.base64-encode/resource=admin.php</code></p>
-<p><img src="/2019/12/01/Vulnhub-XXE靶机学习/11.png" alt="11"></p>
+<p><img src="/.xyz//11.png" alt="11"></p>
 <p>得到的结果，Base64 Decode</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">   session_start();</span><br><span class="line">?&gt;</span><br><span class="line">&lt;html lang = &quot;en&quot;&gt;  </span><br><span class="line">   &lt;head&gt;</span><br><span class="line">      &lt;title&gt;admin&lt;/title&gt;</span><br><span class="line">      &lt;link href = &quot;css/bootstrap.min.css&quot; rel = &quot;stylesheet&quot;&gt;  </span><br><span class="line">      &lt;style&gt;</span><br><span class="line">         body &#123;</span><br><span class="line">            padding-top: 40px;</span><br><span class="line">            padding-bottom: 40px;</span><br><span class="line">            background-color: #ADABAB;</span><br><span class="line">         &#125;</span><br><span class="line">         </span><br><span class="line">         .form-signin &#123;</span><br><span class="line">            max-width: 330px;</span><br><span class="line">            padding: 15px;</span><br><span class="line">            margin: 0 auto;</span><br><span class="line">            color: #017572;</span><br><span class="line">         &#125;</span><br><span class="line">         </span><br><span class="line">         .form-signin .form-signin-heading,</span><br><span class="line">         .form-signin .checkbox &#123;</span><br><span class="line">            margin-bottom: 10px;</span><br><span class="line">         &#125;</span><br><span class="line">         </span><br><span class="line">         .form-signin .checkbox &#123;</span><br><span class="line">            font-weight: normal;</span><br><span class="line">         &#125;</span><br><span class="line">         </span><br><span class="line">         .form-signin .form-control &#123;</span><br><span class="line">            position: relative;</span><br><span class="line">            height: auto;</span><br><span class="line">            -webkit-box-sizing: border-box;</span><br><span class="line">            -moz-box-sizing: border-box;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            padding: 10px;</span><br><span class="line">            font-size: 16px;</span><br><span class="line">         &#125;</span><br><span class="line">         </span><br><span class="line">         .form-signin .form-control:focus &#123;</span><br><span class="line">            z-index: 2;</span><br><span class="line">         &#125;</span><br><span class="line">         </span><br><span class="line">         .form-signin input[type=&quot;email&quot;] &#123;</span><br><span class="line">            margin-bottom: -1px;</span><br><span class="line">            border-bottom-right-radius: 0;</span><br><span class="line">            border-bottom-left-radius: 0;</span><br><span class="line">            border-color:#017572;</span><br><span class="line">         &#125;</span><br><span class="line">         </span><br><span class="line">         .form-signin input[type=&quot;password&quot;] &#123;</span><br><span class="line">            margin-bottom: 10px;</span><br><span class="line">            border-top-left-radius: 0;</span><br><span class="line">            border-top-right-radius: 0;</span><br><span class="line">            border-color:#017572;</span><br><span class="line">         &#125;</span><br><span class="line">         </span><br><span class="line">         h2&#123;</span><br><span class="line">            text-align: center;</span><br><span class="line">            color: #017572;</span><br><span class="line">         &#125;</span><br><span class="line">      &lt;/style&gt;</span><br><span class="line">      </span><br><span class="line">   &lt;/head&gt;</span><br><span class="line">    </span><br><span class="line">   &lt;body&gt;</span><br><span class="line">      </span><br><span class="line">      &lt;h2&gt;Enter Username and Password&lt;/h2&gt; </span><br><span class="line">      &lt;div class = &quot;container form-signin&quot;&gt;</span><br><span class="line">         </span><br><span class="line">         &lt;?php</span><br><span class="line">            $msg = &apos;&apos;;</span><br><span class="line">            if (isset($_POST[&apos;login&apos;]) &amp;&amp; !empty($_POST[&apos;username&apos;]) </span><br><span class="line">               &amp;&amp; !empty($_POST[&apos;password&apos;])) &#123;</span><br><span class="line">                </span><br><span class="line">               if ($_POST[&apos;username&apos;] == &apos;administhebest&apos; &amp;&amp; </span><br><span class="line">                  md5($_POST[&apos;password&apos;]) == &apos;e6e061838856bf47e1de730719fb2609&apos;) &#123;</span><br><span class="line">                  $_SESSION[&apos;valid&apos;] = true;</span><br><span class="line">                  $_SESSION[&apos;timeout&apos;] = time();</span><br><span class="line">                  $_SESSION[&apos;username&apos;] = &apos;administhebest&apos;;</span><br><span class="line">                  </span><br><span class="line">                echo &quot;You have entered valid use name and password &lt;br /&gt;&quot;;</span><br><span class="line">        $flag = &quot;Here is the &lt;a style=&apos;color:FF0000;&apos; href=&apos;/flagmeout.php&apos;&gt;Flag&lt;/a&gt;&quot;;</span><br><span class="line">        echo $flag;</span><br><span class="line">               &#125;else &#123;</span><br><span class="line">                  $msg = &apos;Maybe Later&apos;;</span><br><span class="line">               &#125;</span><br><span class="line">            &#125;</span><br><span class="line">         ?&gt;</span><br><span class="line">      &lt;/div&gt; &lt;!-- W00t/W00t --&gt;</span><br><span class="line">      </span><br><span class="line">      &lt;div class = &quot;container&quot;&gt;</span><br><span class="line">      </span><br><span class="line">         &lt;form class = &quot;form-signin&quot; role = &quot;form&quot; </span><br><span class="line">            action = &quot;&lt;?php echo htmlspecialchars($_SERVER[&apos;PHP_SELF&apos;]); </span><br><span class="line">            ?&gt;&quot; method = &quot;post&quot;&gt;</span><br><span class="line">            &lt;h4 class = &quot;form-signin-heading&quot;&gt;&lt;?php echo $msg; ?&gt;&lt;/h4&gt;</span><br><span class="line">            &lt;input type = &quot;text&quot; class = &quot;form-control&quot; </span><br><span class="line">               name = &quot;username&quot; </span><br><span class="line">               required autofocus&gt;&lt;/br&gt;</span><br><span class="line">            &lt;input type = &quot;password&quot; class = &quot;form-control&quot;</span><br><span class="line">               name = &quot;password&quot; required&gt;</span><br><span class="line">            &lt;button class = &quot;btn btn-lg btn-primary btn-block&quot; type = &quot;submit&quot; </span><br><span class="line">               name = &quot;login&quot;&gt;Login&lt;/button&gt;</span><br><span class="line">         &lt;/form&gt;</span><br><span class="line">            </span><br><span class="line">         Click here to clean &lt;a href = &quot;adminlog.php&quot; tite = &quot;Logout&quot;&gt;Session.</span><br><span class="line">         </span><br><span class="line">      &lt;/div&gt; </span><br><span class="line">      </span><br><span class="line">   &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">   session_start();</span><br><span class="line">?&gt;</span><br><span class="line">&lt;html lang = &quot;en&quot;&gt;  </span><br><span class="line">   &lt;head&gt;</span><br><span class="line">      &lt;title&gt;admin&lt;/title&gt;</span><br><span class="line">      &lt;link href = &quot;css/bootstrap.min.css&quot; rel = &quot;stylesheet&quot;&gt;  </span><br><span class="line">      &lt;style&gt;</span><br><span class="line">         body &#123;</span><br><span class="line">            padding-top: 40px;</span><br><span class="line">            padding-bottom: 40px;</span><br><span class="line">            background-color: #ADABAB;</span><br><span class="line">         &#125;</span><br><span class="line">         </span><br><span class="line">         .form-signin &#123;</span><br><span class="line">            max-width: 330px;</span><br><span class="line">            padding: 15px;</span><br><span class="line">            margin: 0 auto;</span><br><span class="line">            color: #017572;</span><br><span class="line">         &#125;</span><br><span class="line">         </span><br><span class="line">         .form-signin .form-signin-heading,</span><br><span class="line">         .form-signin .checkbox &#123;</span><br><span class="line">            margin-bottom: 10px;</span><br><span class="line">         &#125;</span><br><span class="line">         </span><br><span class="line">         .form-signin .checkbox &#123;</span><br><span class="line">            font-weight: normal;</span><br><span class="line">         &#125;</span><br><span class="line">         </span><br><span class="line">         .form-signin .form-control &#123;</span><br><span class="line">            position: relative;</span><br><span class="line">            height: auto;</span><br><span class="line">            -webkit-box-sizing: border-box;</span><br><span class="line">            -moz-box-sizing: border-box;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            padding: 10px;</span><br><span class="line">            font-size: 16px;</span><br><span class="line">         &#125;</span><br><span class="line">         </span><br><span class="line">         .form-signin .form-control:focus &#123;</span><br><span class="line">            z-index: 2;</span><br><span class="line">         &#125;</span><br><span class="line">         </span><br><span class="line">         .form-signin input[type=&quot;email&quot;] &#123;</span><br><span class="line">            margin-bottom: -1px;</span><br><span class="line">            border-bottom-right-radius: 0;</span><br><span class="line">            border-bottom-left-radius: 0;</span><br><span class="line">            border-color:#017572;</span><br><span class="line">         &#125;</span><br><span class="line">         </span><br><span class="line">         .form-signin input[type=&quot;password&quot;] &#123;</span><br><span class="line">            margin-bottom: 10px;</span><br><span class="line">            border-top-left-radius: 0;</span><br><span class="line">            border-top-right-radius: 0;</span><br><span class="line">            border-color:#017572;</span><br><span class="line">         &#125;</span><br><span class="line">         </span><br><span class="line">         h2&#123;</span><br><span class="line">            text-align: center;</span><br><span class="line">            color: #017572;</span><br><span class="line">         &#125;</span><br><span class="line">      &lt;/style&gt;</span><br><span class="line">      </span><br><span class="line">   &lt;/head&gt;</span><br><span class="line">    </span><br><span class="line">   &lt;body&gt;</span><br><span class="line">      </span><br><span class="line">      &lt;h2&gt;Enter Username and Password&lt;/h2&gt; </span><br><span class="line">      &lt;div class = &quot;container form-signin&quot;&gt;</span><br><span class="line">         </span><br><span class="line">         &lt;?php</span><br><span class="line">            $msg = &#x27;&#x27;;</span><br><span class="line">            if (isset($_POST[&#x27;login&#x27;]) &amp;&amp; !empty($_POST[&#x27;username&#x27;]) </span><br><span class="line">               &amp;&amp; !empty($_POST[&#x27;password&#x27;])) &#123;</span><br><span class="line">                </span><br><span class="line">               if ($_POST[&#x27;username&#x27;] == &#x27;administhebest&#x27; &amp;&amp; </span><br><span class="line">                  md5($_POST[&#x27;password&#x27;]) == &#x27;e6e061838856bf47e1de730719fb2609&#x27;) &#123;</span><br><span class="line">                  $_SESSION[&#x27;valid&#x27;] = true;</span><br><span class="line">                  $_SESSION[&#x27;timeout&#x27;] = time();</span><br><span class="line">                  $_SESSION[&#x27;username&#x27;] = &#x27;administhebest&#x27;;</span><br><span class="line">                  </span><br><span class="line">                echo &quot;You have entered valid use name and password &lt;br /&gt;&quot;;</span><br><span class="line">        $flag = &quot;Here is the &lt;a style=&#x27;color:FF0000;&#x27; href=&#x27;/flagmeout.php&#x27;&gt;Flag&lt;/a&gt;&quot;;</span><br><span class="line">        echo $flag;</span><br><span class="line">               &#125;else &#123;</span><br><span class="line">                  $msg = &#x27;Maybe Later&#x27;;</span><br><span class="line">               &#125;</span><br><span class="line">            &#125;</span><br><span class="line">         ?&gt;</span><br><span class="line">      &lt;/div&gt; &lt;!-- W00t/W00t --&gt;</span><br><span class="line">      </span><br><span class="line">      &lt;div class = &quot;container&quot;&gt;</span><br><span class="line">      </span><br><span class="line">         &lt;form class = &quot;form-signin&quot; role = &quot;form&quot; </span><br><span class="line">            action = &quot;&lt;?php echo htmlspecialchars($_SERVER[&#x27;PHP_SELF&#x27;]); </span><br><span class="line">            ?&gt;&quot; method = &quot;post&quot;&gt;</span><br><span class="line">            &lt;h4 class = &quot;form-signin-heading&quot;&gt;&lt;?php echo $msg; ?&gt;&lt;/h4&gt;</span><br><span class="line">            &lt;input type = &quot;text&quot; class = &quot;form-control&quot; </span><br><span class="line">               name = &quot;username&quot; </span><br><span class="line">               required autofocus&gt;&lt;/br&gt;</span><br><span class="line">            &lt;input type = &quot;password&quot; class = &quot;form-control&quot;</span><br><span class="line">               name = &quot;password&quot; required&gt;</span><br><span class="line">            &lt;button class = &quot;btn btn-lg btn-primary btn-block&quot; type = &quot;submit&quot; </span><br><span class="line">               name = &quot;login&quot;&gt;Login&lt;/button&gt;</span><br><span class="line">         &lt;/form&gt;</span><br><span class="line">            </span><br><span class="line">         Click here to clean &lt;a href = &quot;adminlog.php&quot; tite = &quot;Logout&quot;&gt;Session.</span><br><span class="line">         </span><br><span class="line">      &lt;/div&gt; </span><br><span class="line">      </span><br><span class="line">   &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>发现用户名 <code>administhebest</code></p>
 <p>密码MD5解密后为 <code>admin@123</code></p>
-<p><img src="/2019/12/01/Vulnhub-XXE靶机学习/12.png" alt="12"></p>
+<p><img src="/.xyz//12.png" alt="12"></p>
 <p>尝试登陆，然而并没有什么用emmmmm</p>
-<p><img src="/2019/12/01/Vulnhub-XXE靶机学习/13.png" alt="13"></p>
+<p><img src="/.xyz//13.png" alt="13"></p>
 <p>在admin.php里面还看到了一个flagmeout.php文件，使用上面的方式包含</p>
-<p><img src="/2019/12/01/Vulnhub-XXE靶机学习/14.png" alt="14"></p>
-<p><img src="/2019/12/01/Vulnhub-XXE靶机学习/15.png" alt="15"></p>
+<p><img src="/.xyz//14.png" alt="14"></p>
+<p><img src="/.xyz//15.png" alt="15"></p>
 <p>Base64 Decode后</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php$flag = &quot;&lt;!-- the flag in (JQZFMMCZPE4HKWTNPBUFU6JVO5QUQQJ5) --&gt;&quot;;echo $flag;?&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php$flag = &quot;&lt;!-- the flag in (JQZFMMCZPE4HKWTNPBUFU6JVO5QUQQJ5) --&gt;&quot;;echo $flag;?&gt;</span><br></pre></td></tr></table></figure>
+
 <p>好吧，再来一次这次是Base32了emmmm</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">L2V0Yy8uZmxhZy5waHA=</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">L2V0Yy8uZmxhZy5waHA=</span><br></pre></td></tr></table></figure>
+
 <p>套娃233333，Base64</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/.flag.php</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/.flag.php</span><br></pre></td></tr></table></figure>
+
 <p>接下来也没什么好说的了，在文件包含一次，有完整路径了，直接file:///etc/.flag.php</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$_[]++;$_[]=$_._;$_____=$_[(++$__[])][(++$__[])+(++$__[])+(++$__[])];$_=$_[$_[+_]];$___=$__=$_[++$__[]];$____=$_=$_[+_];$_++;$_++;$_++;$_=$____.++$___.$___.++$_.$__.++$___;$__=$_;$_=$_____;$_++;$_++;$_++;$_++;$_++;$_++;$_++;$_++;$_++;$_++;$___=+_;$___.=$__;$___=++$_^$___[+_];$À=+_;$Á=$Â=$Ã=$Ä=$Æ=$È=$É=$Ê=$Ë=++$Á[];$Â++;$Ã++;$Ã++;$Ä++;$Ä++;$Ä++;$Æ++;$Æ++;$Æ++;$Æ++;$È++;$È++;$È++;$È++;$È++;$É++;$É++;$É++;$É++;$É++;$É++;$Ê++;$Ê++;$Ê++;$Ê++;$Ê++;$Ê++;$Ê++;$Ë++;$Ë++;$Ë++;$Ë++;$Ë++;$Ë++;$Ë++;$__(&apos;$_=&quot;&apos;.$___.$Á.$Â.$Ã.$___.$Á.$À.$Á.$___.$Á.$À.$È.$___.$Á.$À.$Ã.$___.$Á.$Â.$Ã.$___.$Á.$Â.$À.$___.$Á.$É.$Ã.$___.$Á.$É.$À.$___.$Á.$É.$À.$___.$Á.$Ä.$Æ.$___.$Á.$Ã.$É.$___.$Á.$Æ.$Á.$___.$Á.$È.$Ã.$___.$Á.$Ã.$É.$___.$Á.$È.$Ã.$___.$Á.$Æ.$É.$___.$Á.$Ã.$É.$___.$Á.$Ä.$Æ.$___.$Á.$Ä.$Á.$___.$Á.$È.$Ã.$___.$Á.$É.$Á.$___.$Á.$É.$Æ.&apos;&quot;&apos;);$__($_);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$_[]++;$_[]=$_._;$_____=$_[(++$__[])][(++$__[])+(++$__[])+(++$__[])];$_=$_[$_[+_]];$___=$__=$_[++$__[]];$____=$_=$_[+_];$_++;$_++;$_++;$_=$____.++$___.$___.++$_.$__.++$___;$__=$_;$_=$_____;$_++;$_++;$_++;$_++;$_++;$_++;$_++;$_++;$_++;$_++;$___=+_;$___.=$__;$___=++$_^$___[+_];$À=+_;$Á=$Â=$Ã=$Ä=$Æ=$È=$É=$Ê=$Ë=++$Á[];$Â++;$Ã++;$Ã++;$Ä++;$Ä++;$Ä++;$Æ++;$Æ++;$Æ++;$Æ++;$È++;$È++;$È++;$È++;$È++;$É++;$É++;$É++;$É++;$É++;$É++;$Ê++;$Ê++;$Ê++;$Ê++;$Ê++;$Ê++;$Ê++;$Ë++;$Ë++;$Ë++;$Ë++;$Ë++;$Ë++;$Ë++;$__(&#x27;$_=&quot;&#x27;.$___.$Á.$Â.$Ã.$___.$Á.$À.$Á.$___.$Á.$À.$È.$___.$Á.$À.$Ã.$___.$Á.$Â.$Ã.$___.$Á.$Â.$À.$___.$Á.$É.$Ã.$___.$Á.$É.$À.$___.$Á.$É.$À.$___.$Á.$Ä.$Æ.$___.$Á.$Ã.$É.$___.$Á.$Æ.$Á.$___.$Á.$È.$Ã.$___.$Á.$Ã.$É.$___.$Á.$È.$Ã.$___.$Á.$Æ.$É.$___.$Á.$Ã.$É.$___.$Á.$Ä.$Æ.$___.$Á.$Ä.$Á.$___.$Á.$È.$Ã.$___.$Á.$É.$Á.$___.$Á.$É.$Æ.&#x27;&quot;&#x27;);$__($_);</span><br></pre></td></tr></table></figure>
+
 <p>得到了一串奇怪的东西，看大佬的解答，和是一个变形的php webshell，放在本地跑一下就好了，问题来了，我直接包含文件读出来的东西貌似因为编码的原因所以会出现问题，所以最后还是使用<code>php://filter/read=convert.base64-encode/resource=flagmeout.php</code></p>
 <p>包含出来再Base64Decode,添加上php文件标记</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php$_[]++;$_[]=$_._;$_____=$_[(++$__[])][(++$__[])+(++$__[])+(++$__[])];$_=$_[$_[+_]];$___=$__=$_[++$__[]];$____=$_=$_[+_];$_++;$_++;$_++;$_=$____.++$___.$___.++$_.$__.++$___;$__=$_;$_=$_____;$_++;$_++;$_++;$_++;$_++;$_++;$_++;$_++;$_++;$_++;$___=+_;$___.=$__;$___=++$_^$___[+_];$脌=+_;$脕=$脗=$脙=$脛=$脝=$脠=$脡=$脢=$脣=++$脕[];$脗++;$脙++;$脙++;$脛++;$脛++;$脛++;$脝++;$脝++;$脝++;$脝++;$脠++;$脠++;$脠++;$脠++;$脠++;$脡++;$脡++;$脡++;$脡++;$脡++;$脡++;$脢++;$脢++;$脢++;$脢++;$脢++;$脢++;$脢++;$脣++;$脣++;$脣++;$脣++;$脣++;$脣++;$脣++;$__(&apos;$_=&quot;&apos;.$___.$脕.$脗.$脙.$___.$脕.$脌.$脕.$___.$脕.$脌.$脠.$___.$脕.$脌.$脙.$___.$脕.$脗.$脙.$___.$脕.$脗.$脌.$___.$脕.$脡.$脙.$___.$脕.$脡.$脌.$___.$脕.$脡.$脌.$___.$脕.$脛.$脝.$___.$脕.$脙.$脡.$___.$脕.$脝.$脕.$___.$脕.$脠.$脙.$___.$脕.$脙.$脡.$___.$脕.$脠.$脙.$___.$脕.$脝.$脡.$___.$脕.$脙.$脡.$___.$脕.$脛.$脝.$___.$脕.$脛.$脕.$___.$脕.$脠.$脙.$___.$脕.$脡.$脕.$___.$脕.$脡.$脝.&apos;&quot;&apos;);$__($_);?&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php$_[]++;$_[]=$_._;$_____=$_[(++$__[])][(++$__[])+(++$__[])+(++$__[])];$_=$_[$_[+_]];$___=$__=$_[++$__[]];$____=$_=$_[+_];$_++;$_++;$_++;$_=$____.++$___.$___.++$_.$__.++$___;$__=$_;$_=$_____;$_++;$_++;$_++;$_++;$_++;$_++;$_++;$_++;$_++;$_++;$___=+_;$___.=$__;$___=++$_^$___[+_];$脌=+_;$脕=$脗=$脙=$脛=$脝=$脠=$脡=$脢=$脣=++$脕[];$脗++;$脙++;$脙++;$脛++;$脛++;$脛++;$脝++;$脝++;$脝++;$脝++;$脠++;$脠++;$脠++;$脠++;$脠++;$脡++;$脡++;$脡++;$脡++;$脡++;$脡++;$脢++;$脢++;$脢++;$脢++;$脢++;$脢++;$脢++;$脣++;$脣++;$脣++;$脣++;$脣++;$脣++;$脣++;$__(&#x27;$_=&quot;&#x27;.$___.$脕.$脗.$脙.$___.$脕.$脌.$脕.$___.$脕.$脌.$脠.$___.$脕.$脌.$脙.$___.$脕.$脗.$脙.$___.$脕.$脗.$脌.$___.$脕.$脡.$脙.$___.$脕.$脡.$脌.$___.$脕.$脡.$脌.$___.$脕.$脛.$脝.$___.$脕.$脙.$脡.$___.$脕.$脝.$脕.$___.$脕.$脠.$脙.$___.$脕.$脙.$脡.$___.$脕.$脠.$脙.$___.$脕.$脝.$脡.$___.$脕.$脙.$脡.$___.$脕.$脛.$脝.$___.$脕.$脛.$脕.$___.$脕.$脠.$脙.$___.$脕.$脡.$脕.$___.$脕.$脡.$脝.&#x27;&quot;&#x27;);$__($_);?&gt;</span><br></pre></td></tr></table></figure>
+
 <p>最终使用phpstudy，开启错误显示，本地访问这个webshell得到了flag</p>
-<p><img src="/2019/12/01/Vulnhub-XXE靶机学习/17.png" alt="17"></p>
+<p><img src="/.xyz//17.png" alt="17"></p>
 <h3 id="0x04-后续"><a href="#0x04-后续" class="headerlink" title="0x04 后续"></a>0x04 后续</h3><p>后面虽然也的到了flag，但是发现前面的账户和密码并没有派上用场，就去找了找，看有没有其他思路，看了其他大佬的做法，dirfuzz一下xxe路径，结果这里面还有一个admin.php</p>
-<p><img src="/2019/12/01/Vulnhub-XXE靶机学习/18.png" alt="18"></p>
-<p><img src="/2019/12/01/Vulnhub-XXE靶机学习/19.png" alt="19"></p>
+<p><img src="/.xyz//18.png" alt="18"></p>
+<p><img src="/.xyz//19.png" alt="19"></p>
 <p>登陆一下，其实就是的flag跳转的就是我们前面找到的flagmeout.php</p>
-<p><img src="/2019/12/01/Vulnhub-XXE靶机学习/20.png" alt="20"></p>
+<p><img src="/.xyz//20.png" alt="20"></p>
 <p>但其实这个跳转也打不开，所以思路还是走到了xxe包含</p>
-<p><img src="/2019/12/01/Vulnhub-XXE靶机学习/21.png" alt="21"></p>
+<p><img src="/.xyz//21.png" alt="21"></p>
 <p>five一定要好好学习啊，北方的冬天有暖气啊！！！！！</p>
-<p><img src="/2019/12/01/Vulnhub-XXE靶机学习/2019040141.jpg" alt="2019040141"></p>
+<p><img src="/.xyz//2019040141.jpg" alt="2019040141"></p>
 <p>参考链接：</p>
-<p><a href="https://www.cnblogs.com/backlion/p/9302528.html" target="_blank" rel="noopener">https://www.cnblogs.com/backlion/p/9302528.html</a></p>
-<p><a href="https://mp.weixin.qq.com/s/m8m6yk_5mzpvh9rxDUhOGg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/m8m6yk_5mzpvh9rxDUhOGg</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/backlion/p/9302528.html">https://www.cnblogs.com/backlion/p/9302528.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/m8m6yk_5mzpvh9rxDUhOGg">https://mp.weixin.qq.com/s/m8m6yk_5mzpvh9rxDUhOGg</a></p>
 
     </div>
 
@@ -322,11 +330,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/11/30/数据转发学习/" rel="prev" title="数据转发学习">
+    <a href="/2019/11/30/%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8F%91%E5%AD%A6%E4%B9%A0/" rel="prev" title="数据转发学习">
       <i class="fa fa-chevron-left"></i> 数据转发学习
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/01/01/2019总结/" rel="next" title="2019总结">
+    <a href="/2020/01/01/2019%E6%80%BB%E7%BB%93/" rel="next" title="2019总结">
       2019总结 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -388,7 +396,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-安装"><span class="nav-number">1.</span> <span class="nav-text">0x01 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-信息收集-amp-分析"><span class="nav-number">2.</span> <span class="nav-text">0x02 信息收集&amp;分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x03-实现过程"><span class="nav-number">3.</span> <span class="nav-text">0x03 实现过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x04-后续"><span class="nav-number">4.</span> <span class="nav-text">0x04 后续</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">0x01 安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86-amp-%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">0x02 信息收集&amp;分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x03-%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">0x03 实现过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x04-%E5%90%8E%E7%BB%AD"><span class="nav-number">4.</span> <span class="nav-text">0x04 后续</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -404,7 +412,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -425,37 +433,37 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://gorgias.me/" title="https://gorgias.me/" rel="noopener" target="_blank">巨佬</a>
+          <a href="https://gorgias.me/" title="https:&#x2F;&#x2F;gorgias.me&#x2F;" rel="noopener" target="_blank">巨佬</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://couplee.wang/" title="http://couplee.wang/" rel="noopener" target="_blank">wnagzihxa1n</a>
+          <a href="http://couplee.wang/" title="http:&#x2F;&#x2F;couplee.wang&#x2F;" rel="noopener" target="_blank">wnagzihxa1n</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/warrenryan" title="https://www.cnblogs.com/warrenryan" rel="noopener" target="_blank">WarrenRyan</a>
+          <a href="https://www.cnblogs.com/warrenryan" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;warrenryan" rel="noopener" target="_blank">WarrenRyan</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://rinbn.com/" title="http://rinbn.com/" rel="noopener" target="_blank">Rinbn</a>
+          <a href="http://rinbn.com/" title="http:&#x2F;&#x2F;rinbn.com&#x2F;" rel="noopener" target="_blank">Rinbn</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.imzj.top/" title="https://www.imzj.top/" rel="noopener" target="_blank">imzj</a>
+          <a href="https://www.imzj.top/" title="https:&#x2F;&#x2F;www.imzj.top&#x2F;" rel="noopener" target="_blank">imzj</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://pukrr.github.io/" title="https://pukrr.github.io/" rel="noopener" target="_blank">pukrr</a>
+          <a href="https://pukrr.github.io/" title="https:&#x2F;&#x2F;pukrr.github.io&#x2F;" rel="noopener" target="_blank">pukrr</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://q0o0p.top" title="http://q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
+          <a href="http://q0o0p.top/" title="http:&#x2F;&#x2F;q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://blog.immity.best" title="http://blog.immity.best" rel="noopener" target="_blank">陈组长大人</a>
+          <a href="http://blog.immity.best/" title="http:&#x2F;&#x2F;blog.immity.best" rel="noopener" target="_blank">陈组长大人</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/wushengyang" title="https://www.cnblogs.com/wushengyang" rel="noopener" target="_blank">PY</a>
+          <a href="https://www.cnblogs.com/wushengyang" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;wushengyang" rel="noopener" target="_blank">PY</a>
         </li>
     </ul>
   </div>
 
       </div>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=453468850&auto=0&height=66"></iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=431259256&auto=0&height=66"></iframe>
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>
@@ -471,16 +479,16 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">+×</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
   </div>
 
         
@@ -502,31 +510,39 @@
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/muse.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
 
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-z16"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>
