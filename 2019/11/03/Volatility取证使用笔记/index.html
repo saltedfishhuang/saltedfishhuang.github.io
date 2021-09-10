@@ -19,7 +19,7 @@
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    hostname: new URL('http://www.xianfish.xyz').hostname,
+    hostname: new URL('http://www.addx.top').hostname,
     root: '/',
     scheme: 'Muse',
     version: '7.7.0',
@@ -49,32 +49,32 @@
   <meta name="description" content="最近简单的了解了一下Volatility这个开源的取证框架，这个框架能够对导出的内存镜像镜像分析，能过通过获取内核的数据结构，使用插件获取内存的详细情况和运行状态，同时可以直接dump系统文件，屏幕截图，查看进程等等等等~~~ 0x01 安装安装分为三步走：  下载 安装必要的python依赖文件 安装本体  下载你可以在Release中找到对应你系统（Mac，Win，Linux）的源代码，当然也">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Volatility取证使用笔记">
-<meta property="og:url" content="http://www.xianfish.xyz/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:url" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hi~">
 <meta property="og:description" content="最近简单的了解了一下Volatility这个开源的取证框架，这个框架能够对导出的内存镜像镜像分析，能过通过获取内核的数据结构，使用插件获取内存的详细情况和运行状态，同时可以直接dump系统文件，屏幕截图，查看进程等等等等~~~ 0x01 安装安装分为三步走：  下载 安装必要的python依赖文件 安装本体  下载你可以在Release中找到对应你系统（Mac，Win，Linux）的源代码，当然也">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C01.png">
-<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C02.png">
-<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C03.png">
-<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C04.png">
-<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C05.png">
-<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C06.png">
-<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C07.png">
-<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C08.png">
-<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C09.png">
-<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C10.png">
-<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C11.png">
-<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C12.png">
-<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C13.png">
-<meta property="og:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C2019062606.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C01.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C02.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C03.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C04.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C05.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C06.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C07.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C08.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C09.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C10.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C11.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C12.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C13.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C2019062606.png">
 <meta property="article:published_time" content="2019-11-03T08:32:25.000Z">
 <meta property="article:modified_time" content="2020-01-04T03:14:11.000Z">
 <meta property="article:author" content="+×">
 <meta property="article:tag" content="misc">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.xianfish.xyz/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C01.png">
+<meta name="twitter:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C01.png">
 
-<link rel="canonical" href="http://www.xianfish.xyz/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/">
+<link rel="canonical" href="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
@@ -191,7 +191,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.xianfish.xyz/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/HeadPortrait.png">
@@ -261,43 +261,43 @@
 <p>若是下载了压缩文件，那你可以选择直接运行python主程序，也可以选择使用python setup.py install的方式将Volatility以一个库的形式安装在系统的特定位置上，从而以后我们可以将Volatility作为一个库在其他脚本中去引用namespace。</p>
 <h2 id="0x02-使用"><a href="#0x02-使用" class="headerlink" title="0x02 使用"></a>0x02 使用</h2><p>kali自带有volatility，于是我直接在kali山进行操作</p>
 <p>我这里也直接用我这两天看的一道CTF的题目作为实例来操作吧</p>
-<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C01.png" alt="01"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C01.png" alt="01"></p>
 <h4 id="Imageinfo"><a href="#Imageinfo" class="headerlink" title="Imageinfo"></a>Imageinfo</h4><p>这个命令可以用来获取内存镜像的摘要信息，比如系统版本，硬件构架等</p>
 <p><code>volatility -f wuliao.data imageinfo</code></p>
 <p>通过Suggested Profile(s) 我们可以知道这个镜像文件的版本最有可能事Win7SP1x64</p>
-<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C02.png" alt="02"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C02.png" alt="02"></p>
 <p>可以使用–info参数来查看Volatility已经添加的profile和插件信息</p>
-<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C03.png" alt="03"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C03.png" alt="03"></p>
 <h4 id="Kdbgscan"><a href="#Kdbgscan" class="headerlink" title="Kdbgscan"></a>Kdbgscan</h4><p>这个插件可以扫描文件的profile的值，通常扫描结果有多个，只有一个结果是完全正确的，kdbgscan和imageinfo都只适用于windows的镜像</p>
-<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C04.png" alt="04"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C04.png" alt="04"></p>
 <h4 id="Pslist"><a href="#Pslist" class="headerlink" title="Pslist"></a>Pslist</h4><p><code>volatility -f wuliao.data --profile=Win7SPx64 pslist</code></p>
 <p>pslist可以直接列出运行的进程，如果进程已经结束，会在Exit列显示日期和时间，表明进程已经结束</p>
-<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C05.png" alt="05"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C05.png" alt="05"></p>
 <h4 id="Hivelist"><a href="#Hivelist" class="headerlink" title="Hivelist"></a>Hivelist</h4><p>列举缓存在内存中的注册表</p>
 <p><code>volatility -f wuliao.data --profile=Win7SP1x64 hivelist</code></p>
-<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C06.png" alt="06"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C06.png" alt="06"></p>
 <h4 id="filescan"><a href="#filescan" class="headerlink" title="filescan"></a>filescan</h4><p>扫描内存中的文件</p>
 <p><code>volatility -f wuliao.data --profile=Win7SP1x64 filescan</code></p>
-<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C07.png" alt="07"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C07.png" alt="07"></p>
 <p>filescan 也可以结合grep命令来进行筛选，比如</p>
 <p><code>volatility -f wuliao.data --profile=Win7SP1x64 filescan |grep &quot;doc\|docx\|rtf&quot;</code></p>
-<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C08.png" alt="08"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C08.png" alt="08"></p>
 <p>也可以</p>
 <p><code>volatility -f wuliao.data --profile=Win7SP1x64 filescan |grep &quot;flag&quot;</code></p>
-<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C09.png" alt="09"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C09.png" alt="09"></p>
 <h4 id="Dumpfiles"><a href="#Dumpfiles" class="headerlink" title="Dumpfiles"></a>Dumpfiles</h4><p>导出内存中缓存的文件</p>
 <p>我直接导出上面搜索flag得到的flag.jpeg文件</p>
 <p><code>volatility -f wuliao.data --profile=Win7SP1x64 dumpfiles -Q 0x000000007f142f20 -D ./ -u</code></p>
-<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C10.png" alt="10"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C10.png" alt="10"></p>
 <h4 id="Cmdscan-cmdline"><a href="#Cmdscan-cmdline" class="headerlink" title="Cmdscan/cmdline"></a>Cmdscan/cmdline</h4><p>提取内存中保留的cmd命令使用情况</p>
 <p><code>volatility -f wuliao.data --profile=Win7SP1x64 cmdline</code></p>
-<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C11.png" alt="11"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C11.png" alt="11"></p>
 <h4 id="查看截图"><a href="#查看截图" class="headerlink" title="查看截图"></a>查看截图</h4><p><code>volatility -f wuliao.data --profile=Win7SP1x64 screenshot --dump-dir=./</code></p>
-<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C12.png" alt="12"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C12.png" alt="12"></p>
 <h4 id="查看系统用户名"><a href="#查看系统用户名" class="headerlink" title="查看系统用户名"></a>查看系统用户名</h4><p><code>volatility -f wuliao.data --profile=Win7SP1x64 printkey -K &quot;SAM\Domains\Account\Users\Names&quot;</code></p>
 <h4 id="查看网络连接"><a href="#查看网络连接" class="headerlink" title="查看网络连接"></a>查看网络连接</h4><p><code>volatility -f wuliao.data --profile=Win7SP1x64 netscan</code></p>
-<p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C13.png" alt="13"></p>
-<h4 id="我真是个啥都不会，啥都要学的five啊"><a href="#我真是个啥都不会，啥都要学的five啊" class="headerlink" title="我真是个啥都不会，啥都要学的five啊"></a>我真是个啥都不会，啥都要学的five啊</h4><p><img src="/.xyz//Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C2019062606.png" alt="2019062606"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C13.png" alt="13"></p>
+<h4 id="我真是个啥都不会，啥都要学的five啊"><a href="#我真是个啥都不会，啥都要学的five啊" class="headerlink" title="我真是个啥都不会，啥都要学的five啊"></a>我真是个啥都不会，啥都要学的five啊</h4><p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C2019062606.png" alt="2019062606"></p>
 
     </div>
 
