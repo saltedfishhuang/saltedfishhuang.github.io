@@ -53,20 +53,20 @@
 <meta property="og:site_name" content="Hi~">
 <meta property="og:description" content="1、挖矿奖励一、挖矿奖励开始写代码之前，先了解一下挖矿奖励这个概念。 在前一篇文章中，我们了解到了服务器消耗了自己的计算资源，并计算出了预期结果后，会在区块的第一笔交易的位置创建一笔新的交易，这个交易没有发送人，接手人可以是任何人（通常为自己），奖励的数额由系统设定，在BTC中，最开始的奖励为50BTC，每隔四年减半一次。这笔奖励室友系统保证的，并且可以通过任何一个其他节点的验证。 二、代码重构我">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://www.addx.top/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API%5C1.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API%5C2.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API%5C3.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API%5C4.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API%5C5.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API%5C6.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API%5C7.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API%5C2019040126.jpg">
+<meta property="og:image" content="http://www.addx.top/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/1.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/2.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/3.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/4.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/5.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/6.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/7.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/2019040126.jpg">
 <meta property="article:published_time" content="2019-11-05T05:28:14.000Z">
-<meta property="article:modified_time" content="2021-09-10T10:26:42.345Z">
+<meta property="article:modified_time" content="2022-11-15T12:06:59.232Z">
 <meta property="article:author" content="+×">
 <meta property="article:tag" content="区块链">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.addx.top/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API%5C1.png">
+<meta name="twitter:image" content="http://www.addx.top/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/1.png">
 
 <link rel="canonical" href="http://www.addx.top/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/">
 
@@ -215,7 +215,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-10 18:26:42" itemprop="dateModified" datetime="2021-09-10T18:26:42+08:00">2021-09-10</time>
+                <time title="Modified: 2022-11-15 20:06:59" itemprop="dateModified" datetime="2022-11-15T20:06:59+08:00">2022-11-15</time>
               </span>
 
           
@@ -235,7 +235,7 @@
 <ol>
 <li>在Blockchain类中添加属性currentTransactions，由于收集最新交易，并且准备打包到下一个区块中</li>
 </ol>
-<p><img src="/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API%5C1.png" alt="1"></p>
+<p><img src="/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/1.png" alt="1"></p>
 <ul>
 <li><p>把Block类中的addNewTransaction方法一道Blockchain类里面</p>
 </li>
@@ -286,20 +286,20 @@
 
 
 <h3 id="四、测试API"><a href="#四、测试API" class="headerlink" title="四、测试API"></a>四、测试API</h3><p><code>Node server.js</code> 启动程序</p>
-<p><img src="/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API%5C2.png" alt="2"></p>
+<p><img src="/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/2.png" alt="2"></p>
 <p>我们使用Postman来进行后面的测试，为了测试方便，将困难度调整到较低的3</p>
 <p>访问<code>127.0.0.1:3000/chain</code>获取当前区块链的信息，能够看到创世块的信息</p>
-<p><img src="/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API%5C3.png" alt="3"></p>
+<p><img src="/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/3.png" alt="3"></p>
 <p>我们再使用post的方式向<code>127.0.0.1/3000/transactions/new</code> 发送一个Json交易信息，成功的添加了一个新的交易信息</p>
-<p><img src="/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API%5C4.png" alt="4"></p>
+<p><img src="/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/4.png" alt="4"></p>
 <p>接下来再访问<code>127.0.0.1/mine</code> 开始挖矿，并成功的将一笔交易打包添加到了新的区块中，而且难度也符合要求</p>
-<p><img src="/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API%5C5.png" alt="5"></p>
+<p><img src="/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/5.png" alt="5"></p>
 <p>这时候如果不添加交易挖矿会怎样么样呢？其实，一般在一个区块链项目的早起，交易的数量每天都很少很少，但是挖矿的工作需要一直持续下去，只不过每个区块中就只有奖励信息，这种区块一般被叫做”空块”，测试的时候，不添加交易，直接调用mine接口,返回的结果就没有交易数据：</p>
-<p><img src="/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API%5C6.png" alt="6"></p>
+<p><img src="/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/6.png" alt="6"></p>
 <p>我们再次访问chain接口，查看当前区块链的信息，就可以看到我们添加的区块了 </p>
-<p><img src="/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API%5C7.png" alt="7"></p>
+<p><img src="/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/7.png" alt="7"></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/saltedfishhuang/BlockChainStudy">源码地址</a></p>
-<p><img src="/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API%5C2019040126.jpg" alt="2019040126"></p>
+<p><img src="/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/2019040126.jpg" alt="2019040126"></p>
 
     </div>
 

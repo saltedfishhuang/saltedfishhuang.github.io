@@ -53,24 +53,24 @@
 <meta property="og:site_name" content="Hi~">
 <meta property="og:description" content="0x01 CBC加密  首先贴上一张原理图，其中：  Plaintext：待加密的数据块 Initialization     Vector(IV)：用于随机化加密的比特块(初始化向量) key：随机生成的密钥 Ciphertext：加密后的数据">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C1.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C2.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C3.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C4.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C5.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C6.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C7.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C8.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C9.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C10.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C2019040126.jpg">
+<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/1.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/2.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/3.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/4.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/5.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/6.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/7.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/8.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/9.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/10.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/2019040126.jpg">
 <meta property="article:published_time" content="2019-11-19T10:07:44.000Z">
-<meta property="article:modified_time" content="2021-09-10T10:27:03.281Z">
+<meta property="article:modified_time" content="2022-11-15T12:12:33.524Z">
 <meta property="article:author" content="+×">
-<meta property="article:tag" content="web">
 <meta property="article:tag" content="crypto">
+<meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C1.png">
+<meta name="twitter:image" content="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/1.png">
 
 <link rel="canonical" href="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/">
 
@@ -219,7 +219,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-10 18:27:03" itemprop="dateModified" datetime="2021-09-10T18:27:03+08:00">2021-09-10</time>
+                <time title="Modified: 2022-11-15 20:12:33" itemprop="dateModified" datetime="2022-11-15T20:12:33+08:00">2022-11-15</time>
               </span>
 
           
@@ -233,7 +233,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="0x01-CBC加密"><a href="#0x01-CBC加密" class="headerlink" title="0x01 CBC加密"></a>0x01 CBC加密</h3><p> <img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C1.png" alt="1"></p>
+        <h3 id="0x01-CBC加密"><a href="#0x01-CBC加密" class="headerlink" title="0x01 CBC加密"></a>0x01 CBC加密</h3><p> <img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/1.png" alt="1"></p>
 <p>首先贴上一张原理图，其中：</p>
 <ol>
 <li>Plaintext：待加密的数据块</li>
@@ -253,7 +253,7 @@
 <li>将最开始产生的IV和机密后的几个Ciphertext拼接到一起，得到最终的密文</li>
 </ol>
 <p>这种加密模式的最重要的特点就是：使用前一块的密文来产生后一块的密文</p>
-<h3 id="0x02-CBC解密"><a href="#0x02-CBC解密" class="headerlink" title="0x02 CBC解密"></a>0x02 CBC解密</h3><p><img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C2.png" alt="2"></p>
+<h3 id="0x02-CBC解密"><a href="#0x02-CBC解密" class="headerlink" title="0x02 CBC解密"></a>0x02 CBC解密</h3><p><img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/2.png" alt="2"></p>
 <p>原理图如上，解密过程：</p>
 <ol>
 <li>从密文中提取出IV，然后将密文进行分组</li>
@@ -262,25 +262,25 @@
 <li>重复上诉步骤，得到第三组明文</li>
 <li>将三组明文拼接，得到待求明文</li>
 </ol>
-<h3 id="0x03-CBC翻转攻击"><a href="#0x03-CBC翻转攻击" class="headerlink" title="0x03 CBC翻转攻击"></a>0x03 CBC翻转攻击</h3><p><img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C3.png" alt="3"></p>
+<h3 id="0x03-CBC翻转攻击"><a href="#0x03-CBC翻转攻击" class="headerlink" title="0x03 CBC翻转攻击"></a>0x03 CBC翻转攻击</h3><p><img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/3.png" alt="3"></p>
 <p>我们已经知道前一块的Ciphertext会用来产生下一块明文，如果我们改变前一块Ciphertext中的一个字符，再去和下一个区块得到的密文进行xor，就可以得到一个不同的明文，而这个明文我们是可以控制的，我们就可以利用这一点对服务端进行欺骗或者绕过过滤器。</p>
 <h3 id="0x04-实例分析"><a href="#0x04-实例分析" class="headerlink" title="0x04 实例分析"></a>0x04 实例分析</h3><p>打开页面后</p>
-<p><img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C4.png" alt="4"></p>
+<p><img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/4.png" alt="4"></p>
 <p>源码如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">define(&quot;SECRET_KEY&quot;, file_get_contents(&#x27;/root/key&#x27;));</span><br><span class="line">define(&quot;METHOD&quot;, &quot;aes-128-cbc&quot;);</span><br><span class="line">session_start();</span><br><span class="line"></span><br><span class="line">function get_random_iv()&#123;</span><br><span class="line">    $random_iv=&#x27;&#x27;;</span><br><span class="line">    for($i=0;$i&lt;16;$i++)&#123;</span><br><span class="line">        $random_iv.=chr(rand(1,255));</span><br><span class="line">    &#125;</span><br><span class="line">    return $random_iv;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function login($info)&#123;</span><br><span class="line">    $iv = get_random_iv();</span><br><span class="line">    $plain = serialize($info);</span><br><span class="line">    $cipher = openssl_encrypt($plain, METHOD, SECRET_KEY, OPENSSL_RAW_DATA, $iv);</span><br><span class="line">    $_SESSION[&#x27;username&#x27;] = $info[&#x27;username&#x27;];</span><br><span class="line">    setcookie(&quot;iv&quot;, base64_encode($iv));</span><br><span class="line">    setcookie(&quot;cipher&quot;, base64_encode($cipher));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function check_login()&#123;</span><br><span class="line">    if(isset($_COOKIE[&#x27;cipher&#x27;]) &amp;&amp; isset($_COOKIE[&#x27;iv&#x27;]))&#123;</span><br><span class="line">        $cipher = base64_decode($_COOKIE[&#x27;cipher&#x27;]);</span><br><span class="line">        $iv = base64_decode($_COOKIE[&quot;iv&quot;]);</span><br><span class="line">        if($plain = openssl_decrypt($cipher, METHOD, SECRET_KEY, OPENSSL_RAW_DATA, $iv))&#123;</span><br><span class="line">            $info = unserialize($plain) or die(&quot;&lt;p&gt;base64_decode(&#x27;&quot;.base64_encode($plain).&quot;&#x27;) can&#x27;t unserialize&lt;/p&gt;&quot;);</span><br><span class="line">            $_SESSION[&#x27;username&#x27;] = $info[&#x27;username&#x27;];</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            die(&quot;ERROR!&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function show_homepage()&#123;</span><br><span class="line">    if ($_SESSION[&quot;username&quot;]===&#x27;admin&#x27;)&#123;</span><br><span class="line">        echo $flag;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        echo &#x27;&lt;p&gt;hello &#x27;.$_SESSION[&#x27;username&#x27;].&#x27;&lt;/p&gt;&#x27;;</span><br><span class="line">        echo &#x27;&lt;p&gt;Only admin can see flag&lt;/p&gt;&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">    echo &#x27;&lt;p&gt;&lt;a href=&quot;loginout.php&quot;&gt;Log out&lt;/a&gt;&lt;/p&gt;&#x27;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if(isset($_POST[&#x27;username&#x27;]) &amp;&amp; isset($_POST[&#x27;password&#x27;]))&#123;</span><br><span class="line">    $username = (string)$_POST[&#x27;username&#x27;];</span><br><span class="line">    $password = (string)$_POST[&#x27;password&#x27;];</span><br><span class="line">    if($username === &#x27;admin&#x27;)&#123;</span><br><span class="line">        exit(&#x27;&lt;p&gt;admin are not allowed to login&lt;/p&gt;&#x27;);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        $info = array(&#x27;username&#x27;=&gt;$username,&#x27;password&#x27;=&gt;$password);</span><br><span class="line">        login($info);</span><br><span class="line">        show_homepage();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    if(isset($_SESSION[&quot;username&quot;]))&#123;</span><br><span class="line">        check_login();</span><br><span class="line">        show_homepage();</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        echo &#x27;&lt;body class=&quot;login-body&quot;&gt;</span><br><span class="line">                &lt;div id=&quot;wrapper&quot;&gt;</span><br><span class="line">                    &lt;div class=&quot;user-icon&quot;&gt;&lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;pass-icon&quot;&gt;&lt;/div&gt;</span><br><span class="line">                    &lt;form name=&quot;login-form&quot; class=&quot;login-form&quot; action=&quot;&quot; method=&quot;post&quot;&gt;</span><br><span class="line">                        &lt;div class=&quot;header&quot;&gt;</span><br><span class="line">                        &lt;h1&gt;Login Form&lt;/h1&gt;</span><br><span class="line">                        &lt;span&gt;Fill out the form below to login to my super awesome imaginary control panel.&lt;/span&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                        &lt;div class=&quot;content&quot;&gt;</span><br><span class="line">                        &lt;input name=&quot;username&quot; type=&quot;text&quot; class=&quot;input username&quot; value=&quot;Username&quot; onfocus=&quot;this.value=\&#x27;\&#x27;&quot; /&gt;</span><br><span class="line">                        &lt;input name=&quot;password&quot; type=&quot;password&quot; class=&quot;input password&quot; value=&quot;Password&quot; onfocus=&quot;this.value=\&#x27;\&#x27;&quot; /&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                        &lt;div class=&quot;footer&quot;&gt;</span><br><span class="line">                        &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Login&quot; class=&quot;button&quot; /&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/form&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/body&gt;&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 
 <p>在这个题目中，要求登录名为admin则输出flag，但是题目禁止了admin登陆，所以这里就可以用到CBC字节翻转攻击。</p>
-<p><img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C5.png" alt="3"></p>
+<p><img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/5.png" alt="3"></p>
 <p>这里将用户名和密码存入数组，序列化之后进行AES-CBC模式的加密，其中IV和密文都以cookie方式存储，可以控制，所以就存在攻击的可能。</p>
 <p>因为需要翻转的目标是admin，我已我们这里的登录名最好也是5位，我使用</p>
 <p>​    用户名：emmmm</p>
 <p>​    密码：qwert</p>
-<p><img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C6.png" alt="6"></p>
+<p><img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/6.png" alt="6"></p>
 <p>登录后用户名和密码被存入数组然后序列化变成：</p>
 <p><code>a:2:&#123;s:8:&quot;username&quot;;s:5:&quot;emmmm&quot;;s:8:&quot;password&quot;;s:5:&quot;qwert&quot;;&#125;</code></p>
 <p>我们需要翻转的目标为：</p>
 <p><code>a:2:&#123;s:8:&quot;username&quot;;s:5:&quot;admin&quot;;s:8:&quot;password&quot;;s:5:&quot;qwert&quot;;&#125;</code></p>
-<p><img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C7.png" alt="7"></p>
+<p><img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/7.png" alt="7"></p>
 <p>处理过程：</p>
 <ol>
 <li><p>首先对明文进行分组，16字节一组，分为4组</p>
@@ -303,12 +303,12 @@
 <ol start="4">
 <li>这样我们修改第一区块的密文就可以打到修改第二块密文的效果，但是这时候也同时破坏了第一块的明文，我们需要对第一块的数据进行恢复，用上面生成的密文修改cookie的cipher(需要将符号url Encode)，访问，返回：</li>
 </ol>
-<p><img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C8.png" alt="8"></p>
+<p><img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/8.png" alt="8"></p>
 <p>正好获取到第一次翻转后的明文：<code>RKIHz2N76jZOTfUPD/9/n21lIjtzOjU6ImFkbWluIjtzOjg6InBhc3N3b3JkIjtzOjU6InF3ZXJ0Ijt9</code></p>
 <ol start="5">
 <li>通过修改IV来修改第一块的明文：</li>
 </ol>
-<p><img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C9.png" alt="9"></p>
+<p><img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/9.png" alt="9"></p>
 <p>利用一下脚本重新生成IV：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">import base64</span><br><span class="line">plain = &#x27;RKIHz2N76jZOTfUPD/9/n21lIjtzOjU6ImFkbWluIjtzOjg6InBhc3N3b3JkIjtzOjU6InF3ZXJ0Ijt9&#x27;.decode(&#x27;base64&#x27;)</span><br><span class="line">iv = &#x27;9TKkeY91bZat0arrAaKiQw==&#x27;.decode(&#x27;base64&#x27;)</span><br><span class="line">old = plain[:16]</span><br><span class="line">new = &quot;a:2:&#123;s:8:\&quot;userna&quot;;</span><br><span class="line">for i in xrange(16):</span><br><span class="line">    iv = iv[:i] + chr(ord(iv[i]) ^ ord(old[i]) ^ ord(new[i])) + iv[i+1:]</span><br><span class="line">print iv.encode(&#x27;base64&#x27;).strip()</span><br></pre></td></tr></table></figure>
 
@@ -317,13 +317,13 @@
 <ol start="6">
 <li>s使用这里得到的VI和上面的cipher替换cookie</li>
 </ol>
-<p><img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C10.png" alt="10"></p>
+<p><img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/10.png" alt="10"></p>
 <p>发包后，响应成功，应为我这里本地只有一个php文件，所以无法返回flag，但其实CBC攻击已经完成，已经作为admin登陆</p>
 <p>参考链接：</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/csu_vc/article/details/79619309">https://blog.csdn.net/csu_vc/article/details/79619309</a></p>
 <p><a target="_blank" rel="noopener" href="https://p0sec.net/index.php/archives/99/">https://p0sec.net/index.php/archives/99/</a></p>
 <p><a target="_blank" rel="noopener" href="https://mochazz.github.io/2018/05/06/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/#CBC%E5%8E%9F%E7%90%86">https://mochazz.github.io/2018/05/06/CBC字节翻转攻击/#CBC原理</a></p>
-<p><img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C2019040126.jpg" alt="2019040126"></p>
+<p><img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/2019040126.jpg" alt="2019040126"></p>
 
     </div>
 
@@ -333,8 +333,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/web/" rel="tag"># web</a>
               <a href="/tags/crypto/" rel="tag"># crypto</a>
+              <a href="/tags/web/" rel="tag"># web</a>
           </div>
 
         
