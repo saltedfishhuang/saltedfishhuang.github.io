@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 6.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico">
@@ -53,26 +53,26 @@
 <meta property="og:site_name" content="Hi~">
 <meta property="og:description" content="最近简单的了解了一下Volatility这个开源的取证框架，这个框架能够对导出的内存镜像镜像分析，能过通过获取内核的数据结构，使用插件获取内存的详细情况和运行状态，同时可以直接dump系统文件，屏幕截图，查看进程等等等等~~~ 0x01 安装安装分为三步走：  下载 安装必要的python依赖文件 安装本体  下载你可以在Release中找到对应你系统（Mac，Win，Linux）的源代码，当然也">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C01.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C02.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C03.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C04.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C05.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C06.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C07.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C08.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C09.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C10.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C11.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C12.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C13.png">
-<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C2019062606.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/01.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/02.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/03.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/04.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/05.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/06.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/07.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/08.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/09.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/10.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/11.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/12.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/13.png">
+<meta property="og:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/2019062606.png">
 <meta property="article:published_time" content="2019-11-03T08:32:25.000Z">
-<meta property="article:modified_time" content="2020-01-04T03:14:11.000Z">
+<meta property="article:modified_time" content="2021-09-10T10:30:01.142Z">
 <meta property="article:author" content="+×">
 <meta property="article:tag" content="misc">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C01.png">
+<meta name="twitter:image" content="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/01.png">
 
 <link rel="canonical" href="http://www.addx.top/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/">
 
@@ -134,7 +134,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">人生总有各种理由将一个人变成一个five!</p>
+        <p class="site-subtitle">D~DIDI~DIDIDI!!!!</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -196,7 +196,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/HeadPortrait.png">
       <meta itemprop="name" content="+×">
-      <meta itemprop="description" content="您看！这里什么也没有!">
+      <meta itemprop="description" content="这里什么也没有!">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -221,7 +221,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-04 11:14:11" itemprop="dateModified" datetime="2020-01-04T11:14:11+08:00">2020-01-04</time>
+                <time title="Modified: 2021-09-10 18:30:01" itemprop="dateModified" datetime="2021-09-10T18:30:01+08:00">2021-09-10</time>
               </span>
 
           
@@ -261,43 +261,43 @@
 <p>若是下载了压缩文件，那你可以选择直接运行python主程序，也可以选择使用python setup.py install的方式将Volatility以一个库的形式安装在系统的特定位置上，从而以后我们可以将Volatility作为一个库在其他脚本中去引用namespace。</p>
 <h2 id="0x02-使用"><a href="#0x02-使用" class="headerlink" title="0x02 使用"></a>0x02 使用</h2><p>kali自带有volatility，于是我直接在kali山进行操作</p>
 <p>我这里也直接用我这两天看的一道CTF的题目作为实例来操作吧</p>
-<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C01.png" alt="01"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/01.png" alt="01"></p>
 <h4 id="Imageinfo"><a href="#Imageinfo" class="headerlink" title="Imageinfo"></a>Imageinfo</h4><p>这个命令可以用来获取内存镜像的摘要信息，比如系统版本，硬件构架等</p>
 <p><code>volatility -f wuliao.data imageinfo</code></p>
 <p>通过Suggested Profile(s) 我们可以知道这个镜像文件的版本最有可能事Win7SP1x64</p>
-<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C02.png" alt="02"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/02.png" alt="02"></p>
 <p>可以使用–info参数来查看Volatility已经添加的profile和插件信息</p>
-<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C03.png" alt="03"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/03.png" alt="03"></p>
 <h4 id="Kdbgscan"><a href="#Kdbgscan" class="headerlink" title="Kdbgscan"></a>Kdbgscan</h4><p>这个插件可以扫描文件的profile的值，通常扫描结果有多个，只有一个结果是完全正确的，kdbgscan和imageinfo都只适用于windows的镜像</p>
-<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C04.png" alt="04"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/04.png" alt="04"></p>
 <h4 id="Pslist"><a href="#Pslist" class="headerlink" title="Pslist"></a>Pslist</h4><p><code>volatility -f wuliao.data --profile=Win7SPx64 pslist</code></p>
 <p>pslist可以直接列出运行的进程，如果进程已经结束，会在Exit列显示日期和时间，表明进程已经结束</p>
-<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C05.png" alt="05"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/05.png" alt="05"></p>
 <h4 id="Hivelist"><a href="#Hivelist" class="headerlink" title="Hivelist"></a>Hivelist</h4><p>列举缓存在内存中的注册表</p>
 <p><code>volatility -f wuliao.data --profile=Win7SP1x64 hivelist</code></p>
-<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C06.png" alt="06"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/06.png" alt="06"></p>
 <h4 id="filescan"><a href="#filescan" class="headerlink" title="filescan"></a>filescan</h4><p>扫描内存中的文件</p>
 <p><code>volatility -f wuliao.data --profile=Win7SP1x64 filescan</code></p>
-<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C07.png" alt="07"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/07.png" alt="07"></p>
 <p>filescan 也可以结合grep命令来进行筛选，比如</p>
 <p><code>volatility -f wuliao.data --profile=Win7SP1x64 filescan |grep &quot;doc\|docx\|rtf&quot;</code></p>
-<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C08.png" alt="08"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/08.png" alt="08"></p>
 <p>也可以</p>
 <p><code>volatility -f wuliao.data --profile=Win7SP1x64 filescan |grep &quot;flag&quot;</code></p>
-<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C09.png" alt="09"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/09.png" alt="09"></p>
 <h4 id="Dumpfiles"><a href="#Dumpfiles" class="headerlink" title="Dumpfiles"></a>Dumpfiles</h4><p>导出内存中缓存的文件</p>
 <p>我直接导出上面搜索flag得到的flag.jpeg文件</p>
 <p><code>volatility -f wuliao.data --profile=Win7SP1x64 dumpfiles -Q 0x000000007f142f20 -D ./ -u</code></p>
-<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C10.png" alt="10"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/10.png" alt="10"></p>
 <h4 id="Cmdscan-cmdline"><a href="#Cmdscan-cmdline" class="headerlink" title="Cmdscan/cmdline"></a>Cmdscan/cmdline</h4><p>提取内存中保留的cmd命令使用情况</p>
 <p><code>volatility -f wuliao.data --profile=Win7SP1x64 cmdline</code></p>
-<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C11.png" alt="11"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/11.png" alt="11"></p>
 <h4 id="查看截图"><a href="#查看截图" class="headerlink" title="查看截图"></a>查看截图</h4><p><code>volatility -f wuliao.data --profile=Win7SP1x64 screenshot --dump-dir=./</code></p>
-<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C12.png" alt="12"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/12.png" alt="12"></p>
 <h4 id="查看系统用户名"><a href="#查看系统用户名" class="headerlink" title="查看系统用户名"></a>查看系统用户名</h4><p><code>volatility -f wuliao.data --profile=Win7SP1x64 printkey -K &quot;SAM\Domains\Account\Users\Names&quot;</code></p>
 <h4 id="查看网络连接"><a href="#查看网络连接" class="headerlink" title="查看网络连接"></a>查看网络连接</h4><p><code>volatility -f wuliao.data --profile=Win7SP1x64 netscan</code></p>
-<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C13.png" alt="13"></p>
-<h4 id="我真是个啥都不会，啥都要学的five啊"><a href="#我真是个啥都不会，啥都要学的five啊" class="headerlink" title="我真是个啥都不会，啥都要学的five啊"></a>我真是个啥都不会，啥都要学的five啊</h4><p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%5C2019062606.png" alt="2019062606"></p>
+<p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/13.png" alt="13"></p>
+<h4 id="我真是个啥都不会，啥都要学的five啊"><a href="#我真是个啥都不会，啥都要学的five啊" class="headerlink" title="我真是个啥都不会，啥都要学的five啊"></a>我真是个啥都不会，啥都要学的five啊</h4><p><img src="/2019/11/03/Volatility%E5%8F%96%E8%AF%81%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/2019062606.png" alt="2019062606"></p>
 
     </div>
 
@@ -391,21 +391,21 @@
     <img class="site-author-image" itemprop="image" alt="+×"
       src="/images/HeadPortrait.png">
   <p class="site-author-name" itemprop="name">+×</p>
-  <div class="site-description" itemprop="description">您看！这里什么也没有!</div>
+  <div class="site-description" itemprop="description">这里什么也没有!</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">72</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -419,19 +419,13 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://gorgias.me/" title="https:&#x2F;&#x2F;gorgias.me&#x2F;" rel="noopener" target="_blank">巨佬</a>
+          <a href="https://gorgias.me/" title="https:&#x2F;&#x2F;gorgias.me&#x2F;" rel="noopener" target="_blank">gorgias（我大哥的大哥，长发黑阔）</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://couplee.wang/" title="http:&#x2F;&#x2F;couplee.wang&#x2F;" rel="noopener" target="_blank">wnagzihxa1n</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/warrenryan" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;warrenryan" rel="noopener" target="_blank">WarrenRyan</a>
+          <a href="https://www.cnblogs.com/warrenryan" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;warrenryan" rel="noopener" target="_blank">WarrenRyan(我大哥，钢琴贼6)</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="http://rinbn.com/" title="http:&#x2F;&#x2F;rinbn.com&#x2F;" rel="noopener" target="_blank">Rinbn</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.imzj.top/" title="https:&#x2F;&#x2F;www.imzj.top&#x2F;" rel="noopener" target="_blank">imzj</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://pukrr.github.io/" title="https:&#x2F;&#x2F;pukrr.github.io&#x2F;" rel="noopener" target="_blank">pukrr</a>
@@ -440,16 +434,13 @@
           <a href="http://q0o0p.top/" title="http:&#x2F;&#x2F;q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://blog.immity.best/" title="http:&#x2F;&#x2F;blog.immity.best" rel="noopener" target="_blank">陈组长大人</a>
-        </li>
-        <li class="links-of-blogroll-item">
           <a href="https://www.cnblogs.com/wushengyang" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;wushengyang" rel="noopener" target="_blank">PY</a>
         </li>
     </ul>
   </div>
 
       </div>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=431259256&auto=0&height=66"></iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1496089152&auto=1&height=66"></iframe>
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>
@@ -465,13 +456,13 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">+×</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v6.3.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0

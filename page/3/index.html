@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 6.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico">
@@ -46,12 +46,12 @@
   };
 </script>
 
-  <meta name="description" content="您看！这里什么也没有!">
+  <meta name="description" content="这里什么也没有!">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hi~">
 <meta property="og:url" content="http://www.addx.top/page/3/index.html">
 <meta property="og:site_name" content="Hi~">
-<meta property="og:description" content="您看！这里什么也没有!">
+<meta property="og:description" content="这里什么也没有!">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="+×">
 <meta name="twitter:card" content="summary">
@@ -116,7 +116,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">人生总有各种理由将一个人变成一个five!</p>
+        <p class="site-subtitle">D~DIDI~DIDIDI!!!!</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -173,12 +173,12 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.addx.top/2019/11/30/%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8F%91%E5%AD%A6%E4%B9%A0/">
+    <link itemprop="mainEntityOfPage" href="http://www.addx.top/2022/11/15/srsLTE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/HeadPortrait.png">
       <meta itemprop="name" content="+×">
-      <meta itemprop="description" content="您看！这里什么也没有!">
+      <meta itemprop="description" content="这里什么也没有!">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -187,7 +187,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/30/%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8F%91%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">数据转发学习</a>
+            <a href="/2022/11/15/srsLTE/" class="post-title-link" itemprop="url">srsLTE</a>
         </h1>
 
         <div class="post-meta">
@@ -196,16 +196,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2019-11-30 18:44:09" itemprop="dateCreated datePublished" datetime="2019-11-30T18:44:09+08:00">2019-11-30</time>
+              <time title="Created: 2022-11-15 15:55:33 / Modified: 15:56:14" itemprop="dateCreated datePublished" datetime="2022-11-15T15:55:33+08:00">2022-11-15</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-04 11:08:42" itemprop="dateModified" datetime="2020-01-04T11:08:42+08:00">2020-01-04</time>
-              </span>
 
           
 
@@ -218,15 +212,63 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="0x01-一些前言"><a href="#0x01-一些前言" class="headerlink" title="0x01 一些前言"></a>0x01 一些前言</h3><p>以前虽然也使用过一些数据转发的工具，但其实一直对数据转发的一些东西缺乏深入的了解，于是打算开始看着巨佬的博客进行一些学习，并进行一些简单的数据转发实验。</p>
-<p>首先我们需要了解几个概念</p>
-<ul>
-<li>端口转发(port forwarding)</li>
-</ul>
-<p>端口转发有时候也被叫做隧道，是安全壳为网络安全通信使用的一种方法，我们像假设我们有个拥有公网IP的路由器，下面连着多台内网主机。内网主机和外网进行通信的时候，当外网发送信息回来时，路由器时怎么分辨这些信息是给哪台内网主机的呢？，这个时候，在路由器中就会有一个内网IP和路由器端口对应的一张表，当路由器的某个端口收到消息时，就把这个消息发给端口对应的IP，这就是端口转发的过程，不同的端口收到的消息，转发给相对应的不同的主机。</p>
+          <table>
+<thead>
+<tr>
+<th>FDD</th>
+<th>Frequency  Division Duplexing</th>
+<th>频分双工</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TDD</td>
+<td>Time  Division Duplexing</td>
+<td>时分双工</td>
+</tr>
+<tr>
+<td>SISO</td>
+<td>Single-input  single-output</td>
+<td>单一输入单一输出</td>
+</tr>
+<tr>
+<td>MIMO</td>
+<td>Multi-input  Multi-output</td>
+<td>多输入多输出</td>
+</tr>
+<tr>
+<td>PDSCH</td>
+<td>Physical Downlink Shared Channel</td>
+<td>物理下行共享信道</td>
+</tr>
+<tr>
+<td>PUSCH</td>
+<td>Physical  Uplink Shared Channel</td>
+<td>物理上行共享信道</td>
+</tr>
+<tr>
+<td>PCFICH</td>
+<td>Physical  Control Format Indicator Channel</td>
+<td>物理控制格式指示信道</td>
+</tr>
+<tr>
+<td>PDCCH</td>
+<td>Physical  Downlink Control Channel</td>
+<td>物理下行控制信道</td>
+</tr>
+<tr>
+<td>DCI</td>
+<td>Downlink  Control Indicator</td>
+<td>下行控制指示灯</td>
+</tr>
+<tr>
+<td>NAS</td>
+<td></td>
+<td>非接入层</td>
+</tr>
+</tbody></table>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/11/30/%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8F%91%E5%AD%A6%E4%B9%A0/#more" rel="contents">
+              <a class="btn" href="/2022/11/15/srsLTE/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -250,12 +292,12 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.addx.top/2019/11/20/Padding-Oracle-Attack%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://www.addx.top/2022/11/15/OpenLTE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/HeadPortrait.png">
       <meta itemprop="name" content="+×">
-      <meta itemprop="description" content="您看！这里什么也没有!">
+      <meta itemprop="description" content="这里什么也没有!">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -264,7 +306,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/20/Padding-Oracle-Attack%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Padding Oracle Attack学习笔记</a>
+            <a href="/2022/11/15/OpenLTE/" class="post-title-link" itemprop="url">OpenLTE</a>
         </h1>
 
         <div class="post-meta">
@@ -273,16 +315,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2019-11-20 20:55:27" itemprop="dateCreated datePublished" datetime="2019-11-20T20:55:27+08:00">2019-11-20</time>
+              <time title="Created: 2022-11-15 15:53:30 / Modified: 15:55:02" itemprop="dateCreated datePublished" datetime="2022-11-15T15:53:30+08:00">2022-11-15</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-04 11:13:04" itemprop="dateModified" datetime="2020-01-04T11:13:04+08:00">2020-01-04</time>
-              </span>
 
           
 
@@ -295,16 +331,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="0x01-背景知识"><a href="#0x01-背景知识" class="headerlink" title="0x01 背景知识"></a>0x01 背景知识</h3><p>我第一次看到这个的时候，还真的傻乎乎的以为是和Oracle(甲骨文)相关的漏洞，然而，这个和甲骨文的关系并不大emmmm，oracle翻译成中文有预言、神谕的意思。在密码学中，oracle是一个代表 用户或者攻击者 执行给定加密操作的系统。</p>
-<p>Padding Oracle Attract是针对CBC模式的攻击，关于CBC加密解密与翻转攻击，上一篇笔记有写到，这里就不再重复了。</p>
-<h3 id="0x02-原理"><a href="#0x02-原理" class="headerlink" title="0x02 原理"></a>0x02 原理</h3><p>我们已经知道，在常用的对称算法，比如3DES、AES在加密的时候一般都会采用分组密码(Block Cipher)，将明文进行分组。但分组的同时就会带来一个问题，我们需要加密的明文不可能全部都是block(我们规定的区块长度)的整数倍，所以需要对不能整除的数据进行填充操作。我们常用的填充操作有PKCS#5和PKCS#7，在最后一个block中将不足的bit位数的值作为内容进行填充，例如如果最后一个区块缺少5个bit，就直接填充5个0x05到后面。我们子在解密的时候也会去检验明文的填充是否满足这个规则，如果满足以n个0x0n结束，就表示解密成功，否则解密失败。所以，当我们向服务器提交一个密文想要解密时，服务器一共会有三种判断结果：</p>
-<ol>
-<li>密文不能正常解密；</li>
-<li>密文可以正常解密但解密结果不对；</li>
-<li>密文可以正常解密并且解密结果对比正确；</li></ol>
+          <h2 id="openLTE"><a href="#openLTE" class="headerlink" title="openLTE"></a>openLTE</h2><p>Wget <a target="_blank" rel="noopener" href="http://ufpr.dl.sourceforge.net/project/openlte/openlte_v00-19-04.tgz">http://ufpr.dl.sourceforge.net/project/openlte/openlte_v00-19-04.tgz</a> </p>
+<p>cd openlte_v00-19-04/   //存在问题，在Ubuntu16.04上最新的20版本编译失败，19.04成功</p>
+<p>mkdir build</p>
+<p>cd build</p>
+<p>sudo cmake ../</p>
+<p>sudo make</p>
+<p>sudo make install</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/11/20/Padding-Oracle-Attack%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more" rel="contents">
+              <a class="btn" href="/2022/11/15/OpenLTE/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -328,12 +364,12 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.addx.top/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/">
+    <link itemprop="mainEntityOfPage" href="http://www.addx.top/2022/11/15/LTE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/HeadPortrait.png">
       <meta itemprop="name" content="+×">
-      <meta itemprop="description" content="您看！这里什么也没有!">
+      <meta itemprop="description" content="这里什么也没有!">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -342,7 +378,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/" class="post-title-link" itemprop="url">CBC字节翻转攻击</a>
+            <a href="/2022/11/15/LTE/" class="post-title-link" itemprop="url">LTE</a>
         </h1>
 
         <div class="post-meta">
@@ -351,16 +387,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2019-11-19 18:07:44" itemprop="dateCreated datePublished" datetime="2019-11-19T18:07:44+08:00">2019-11-19</time>
+              <time title="Created: 2022-11-15 15:52:16 / Modified: 15:53:14" itemprop="dateCreated datePublished" datetime="2022-11-15T15:52:16+08:00">2022-11-15</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-04 11:11:31" itemprop="dateModified" datetime="2020-01-04T11:11:31+08:00">2020-01-04</time>
-              </span>
 
           
 
@@ -373,16 +403,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="0x01-CBC加密"><a href="#0x01-CBC加密" class="headerlink" title="0x01 CBC加密"></a>0x01 CBC加密</h3><p> <img src="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%5C1.png" alt="1"></p>
-<p>首先贴上一张原理图，其中：</p>
-<ol>
-<li>Plaintext：待加密的数据块</li>
-<li>Initialization     Vector(IV)：用于随机化加密的比特块(初始化向量)</li>
-<li>key：随机生成的密钥</li>
-<li>Ciphertext：加密后的数据</li></ol>
+          <p><img src="data:image/png;base64,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" alt="计算机生成了可选文字: UMTS=UE+UTRAN+CN LTE=EPS=UE+E-UTRAN+EPC EPC=EvolvedPacketCore,是+亥&#39;心网演进 EPS=EvolvedPacketSystem：整个．双纟各体系B笥全尔。 E-UTRAN=EnodeB"></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/11/19/CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/#more" rel="contents">
+              <a class="btn" href="/2022/11/15/LTE/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -406,12 +430,12 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.addx.top/2019/11/15/HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0/">
+    <link itemprop="mainEntityOfPage" href="http://www.addx.top/2022/11/15/OpenBTS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/HeadPortrait.png">
       <meta itemprop="name" content="+×">
-      <meta itemprop="description" content="您看！这里什么也没有!">
+      <meta itemprop="description" content="这里什么也没有!">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -420,7 +444,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/15/HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">HTTP走私学习</a>
+            <a href="/2022/11/15/OpenBTS/" class="post-title-link" itemprop="url">OpenBTS</a>
         </h1>
 
         <div class="post-meta">
@@ -429,16 +453,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2019-11-15 20:55:28" itemprop="dateCreated datePublished" datetime="2019-11-15T20:55:28+08:00">2019-11-15</time>
+              <time title="Created: 2022-11-15 15:51:23 / Modified: 15:51:58" itemprop="dateCreated datePublished" datetime="2022-11-15T15:51:23+08:00">2022-11-15</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-04 11:10:57" itemprop="dateModified" datetime="2020-01-04T11:10:57+08:00">2020-01-04</time>
-              </span>
 
           
 
@@ -451,12 +469,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>前一段时间做一道题目时，提到了一点关于HTTP请求走私的相关知识，在手机上写了个备忘录，然后就又搁置到现在才开始翻看一些文章，认真学习一下有关于HTTP走私的相关知识。</p>
-<h3 id="0x01-需要知道的一些东西"><a href="#0x01-需要知道的一些东西" class="headerlink" title="0x01 需要知道的一些东西"></a>0x01 需要知道的一些东西</h3><p>我们需要了解一下目前HTTP1.1协议的两个特性：Keep-Alive和Pipeline</p>
-<p>在之前的HTTP协议中，客户端没发送一次http请求都需要和服务器建立一个TCP链接，但是由于现在的web网站打开一个页面需要获取的资源又很多很多，如果每发送一次请求都要建立一个完整的tcp链接，服务器就会产生很大的压力，所以在HTTP1.1中增加了Keep-Alive和Pipeline这两个特性。</p>
+          <p>直接根据官方文档编译安装，但是只有在Ubuntu16.04上比较正常，其他环境会有很多奇怪的问题，需要对build.sh文件进行修改，安装后更目录会有OpenBTS文件夹</p>
+<p>一个坑，asterisk 有个 sqlite3.db的sqllite3数据库需要给权限，或者asterisk以root运行，不然会无法加载数据库查找数据</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/11/15/HTTP%E8%B5%B0%E7%A7%81%E5%AD%A6%E4%B9%A0/#more" rel="contents">
+              <a class="btn" href="/2022/11/15/OpenBTS/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -480,12 +497,12 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.addx.top/2019/11/14/RoarCTF2019WEB%E5%AD%A6%E4%B9%A0/">
+    <link itemprop="mainEntityOfPage" href="http://www.addx.top/2022/11/15/YateBTS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/HeadPortrait.png">
       <meta itemprop="name" content="+×">
-      <meta itemprop="description" content="您看！这里什么也没有!">
+      <meta itemprop="description" content="这里什么也没有!">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -494,7 +511,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/14/RoarCTF2019WEB%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">RoarCTF2019WEB学习</a>
+            <a href="/2022/11/15/YateBTS/" class="post-title-link" itemprop="url">YateBTS</a>
         </h1>
 
         <div class="post-meta">
@@ -503,16 +520,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2019-11-14 20:36:27" itemprop="dateCreated datePublished" datetime="2019-11-14T20:36:27+08:00">2019-11-14</time>
+              <time title="Created: 2022-11-15 15:50:08 / Modified: 17:14:23" itemprop="dateCreated datePublished" datetime="2022-11-15T15:50:08+08:00">2022-11-15</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-11 15:48:06" itemprop="dateModified" datetime="2020-01-11T15:48:06+08:00">2020-01-11</time>
-              </span>
 
           
 
@@ -525,12 +536,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="0x01-Easy-Calc"><a href="#0x01-Easy-Calc" class="headerlink" title="0x01 Easy Calc"></a>0x01 Easy Calc</h3><p>页面打开之后，是一个计算表达式的页面</p>
-<p><img src="/2019/11/14/RoarCTF2019WEB%E5%AD%A6%E4%B9%A0/RoarCTF2019WEB%E5%AD%A6%E4%B9%A0%5C1.png" alt="1"></p>
-<p>随便输入一个表达式</p>
+          <ol>
+<li>安装Yate以及YateBTS</li>
+</ol>
+<p>svn checkout <a target="_blank" rel="noopener" href="http://yate.null.ro/svn/yate/trunk">http://yate.null.ro/svn/yate/trunk</a> yate<br> svn checkout <a target="_blank" rel="noopener" href="http://voip.null.ro/svn/yatebts/trunk">http://voip.null.ro/svn/yatebts/trunk</a> yatebts</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/11/14/RoarCTF2019WEB%E5%AD%A6%E4%B9%A0/#more" rel="contents">
+              <a class="btn" href="/2022/11/15/YateBTS/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -554,12 +566,12 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.addx.top/2019/11/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E5%9B%9B-%E5%85%B1%E8%AF%86/">
+    <link itemprop="mainEntityOfPage" href="http://www.addx.top/2022/11/15/GSM%E5%97%85%E6%8E%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/HeadPortrait.png">
       <meta itemprop="name" content="+×">
-      <meta itemprop="description" content="您看！这里什么也没有!">
+      <meta itemprop="description" content="这里什么也没有!">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -568,7 +580,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E5%9B%9B-%E5%85%B1%E8%AF%86/" class="post-title-link" itemprop="url">区块链学习四-共识</a>
+            <a href="/2022/11/15/GSM%E5%97%85%E6%8E%A2/" class="post-title-link" itemprop="url">GSM嗅探</a>
         </h1>
 
         <div class="post-meta">
@@ -577,16 +589,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2019-11-06 08:54:58" itemprop="dateCreated datePublished" datetime="2019-11-06T08:54:58+08:00">2019-11-06</time>
+              <time title="Created: 2022-11-15 15:47:55 / Modified: 15:49:01" itemprop="dateCreated datePublished" datetime="2022-11-15T15:47:55+08:00">2022-11-15</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-04 11:13:55" itemprop="dateModified" datetime="2020-01-04T11:13:55+08:00">2020-01-04</time>
-              </span>
 
           
 
@@ -599,14 +605,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>​    共识是一个区块链系统稳定运行的基础，只有所有节点对区块链达成了共识，这个区块链才是一个健康的系统，这篇文章主要讲了如何添加peer节点以及当节点区块数据不一致时如何解决冲突，达成一致访问。</p>
-<h3 id="一、Blockchain类扩展"><a href="#一、Blockchain类扩展" class="headerlink" title="一、Blockchain类扩展"></a>一、Blockchain类扩展</h3><p>想要解决和其它节点的区块冲突问题，首先需要能够获取其它节点的数据，我们再Blockchain类里添加一个nodes属性</p>
-<p><code>this.nodes = new Set();</code></p>
-<p><img src="/2019/11/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E5%9B%9B-%E5%85%B1%E8%AF%86/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E5%9B%9B-%E5%85%B1%E8%AF%86%5C1.png" alt="1"></p>
-<p>这里使用集合，即使重复添加也不受影响。</p>
+          <p>使用hackrf 结合 hackrf-kalibrate可以快速寻找GSM频点</p>
+<p>kalibrate-hackrf，它能够在已知的GSM频率之间跳动，并能够识别到你的国家所使用的频率</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/11/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E5%9B%9B-%E5%85%B1%E8%AF%86/#more" rel="contents">
+              <a class="btn" href="/2022/11/15/GSM%E5%97%85%E6%8E%A2/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -630,12 +633,12 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.addx.top/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/">
+    <link itemprop="mainEntityOfPage" href="http://www.addx.top/2022/11/15/GSM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/HeadPortrait.png">
       <meta itemprop="name" content="+×">
-      <meta itemprop="description" content="您看！这里什么也没有!">
+      <meta itemprop="description" content="这里什么也没有!">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -644,7 +647,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/" class="post-title-link" itemprop="url">区块链学习三-API</a>
+            <a href="/2022/11/15/GSM/" class="post-title-link" itemprop="url">GSM</a>
         </h1>
 
         <div class="post-meta">
@@ -653,16 +656,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2019-11-05 13:28:14" itemprop="dateCreated datePublished" datetime="2019-11-05T13:28:14+08:00">2019-11-05</time>
+              <time title="Created: 2022-11-15 15:44:29 / Modified: 15:45:43" itemprop="dateCreated datePublished" datetime="2022-11-15T15:44:29+08:00">2022-11-15</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-04 11:11:45" itemprop="dateModified" datetime="2020-01-04T11:11:45+08:00">2020-01-04</time>
-              </span>
 
           
 
@@ -675,12 +672,83 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="1、挖矿奖励"><a href="#1、挖矿奖励" class="headerlink" title="1、挖矿奖励"></a>1、挖矿奖励</h3><h3 id="一、挖矿奖励"><a href="#一、挖矿奖励" class="headerlink" title="一、挖矿奖励"></a>一、挖矿奖励</h3><p>开始写代码之前，先了解一下挖矿奖励这个概念。</p>
-<p>在前一篇文章中，我们了解到了服务器消耗了自己的计算资源，并计算出了预期结果后，会在区块的第一笔交易的位置创建一笔新的交易，这个交易没有发送人，接手人可以是任何人（通常为自己），奖励的数额由系统设定，在BTC中，最开始的奖励为50BTC，每隔四年减半一次。这笔奖励室友系统保证的，并且可以通过任何一个其他节点的验证。</p>
-<h3 id="二、代码重构"><a href="#二、代码重构" class="headerlink" title="二、代码重构"></a>二、代码重构</h3><p>我们要将当前的代码改造成适合通过API对外提供的形式，进行一下的处理：</p>
+          <table>
+<thead>
+<tr>
+<th><strong>Frequency Band</strong></th>
+<th><strong>Uplink/Downlink Separation</strong></th>
+<th><strong>Uplink Frequency Range  (Transmit Device = Mobile)</strong></th>
+<th><strong>Downlink Frequency Range  (Transmit Device = Base)</strong></th>
+<th><strong>ARFCN</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GSM 450</td>
+<td>10 MHz</td>
+<td>450.4 to 457.6 MHz</td>
+<td>460.4 to 467.6 MHz</td>
+<td>259 to 293</td>
+</tr>
+<tr>
+<td>GSM 480</td>
+<td>10 MHz</td>
+<td>478.8 to 486 MHz</td>
+<td>488.8 to 496 MHz</td>
+<td>306 to 340</td>
+</tr>
+<tr>
+<td>GSM 750</td>
+<td>30 MHz</td>
+<td>747 to 762 MHz</td>
+<td>777 to 792 MHz</td>
+<td>438 to 511</td>
+</tr>
+<tr>
+<td>GSM 850</td>
+<td>45 MHz</td>
+<td>824 to 849 MHz</td>
+<td>869 to 894 MHz</td>
+<td>128 to 251</td>
+</tr>
+<tr>
+<td>P-GSM 900</td>
+<td>45 MHz</td>
+<td>890 to 915 MHz</td>
+<td>935 to 960 MHz</td>
+<td>1 to124</td>
+</tr>
+<tr>
+<td>E-GSM 900</td>
+<td>45 MHz</td>
+<td>880 to 915 MHz</td>
+<td>925 to 960 MHz</td>
+<td>0 to124  and  975 to 1023</td>
+</tr>
+<tr>
+<td>R-GSM 900</td>
+<td>45 MHz</td>
+<td>876 to 915 MHz</td>
+<td>921 to 960 MHz</td>
+<td>0 to124  and  955 to 1023</td>
+</tr>
+<tr>
+<td>DCS 1800</td>
+<td>45 MHz</td>
+<td>1710 to 1785 MHz</td>
+<td>1805 to 1880 MHz</td>
+<td>512 to 885</td>
+</tr>
+<tr>
+<td>PCS 1900</td>
+<td>45 MHz</td>
+<td>1850 to 1910 MHz</td>
+<td>1930 to 1990 MHz</td>
+<td>512 to 810</td>
+</tr>
+</tbody></table>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%B8%89-API/#more" rel="contents">
+              <a class="btn" href="/2022/11/15/GSM/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -704,12 +772,12 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.addx.top/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E/">
+    <link itemprop="mainEntityOfPage" href="http://www.addx.top/2022/11/15/%E7%A7%BB%E5%8A%A8%E7%BD%91%E7%BB%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/HeadPortrait.png">
       <meta itemprop="name" content="+×">
-      <meta itemprop="description" content="您看！这里什么也没有!">
+      <meta itemprop="description" content="这里什么也没有!">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -718,7 +786,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E/" class="post-title-link" itemprop="url">区块链学习二-工作量证明</a>
+            <a href="/2022/11/15/%E7%A7%BB%E5%8A%A8%E7%BD%91%E7%BB%9C/" class="post-title-link" itemprop="url">移动网络</a>
         </h1>
 
         <div class="post-meta">
@@ -727,16 +795,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2019-11-05 13:28:03" itemprop="dateCreated datePublished" datetime="2019-11-05T13:28:03+08:00">2019-11-05</time>
+              <time title="Created: 2022-11-15 15:43:01 / Modified: 15:46:42" itemprop="dateCreated datePublished" datetime="2022-11-15T15:43:01+08:00">2022-11-15</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-04 11:12:28" itemprop="dateModified" datetime="2020-01-04T11:12:28+08:00">2020-01-04</time>
-              </span>
 
           
 
@@ -749,13 +811,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>​    我们在上一篇博客中设计了几个最简单的区块链，并且很容易添加更长的区块链来覆盖掉最初的合法交易，为了维持整个系统的健康运行，我们需要设计一定的激励机制。我们都知道，有种东西叫做“挖矿”，在比特币系统中平均每10分钟，比特币系统会奖励一定量的比特币(最初是50个，每四年减少一半)。但是在网络中很多个网络节点一起“挖矿”，我们该怎么分配这个奖励呢？这就是工作量证明(Proof-of-Work)算法产生的原因。</p>
-<h3 id="一、Proof-of-Work"><a href="#一、Proof-of-Work" class="headerlink" title="一、Proof-of-Work"></a>一、Proof-of-Work</h3><p>​    一个正常的区块链系统随时都会产生交易，这时候就会有很多服务器将一个时间段(BTC为10分钟，Asch为10秒)的交易打包到一个区块，并添加到现有的区块链中，但是最终的这个时间段该选择哪个服务器打包的区块为准，这是个问题。在BTC中采用了一种叫做工作量证明的算法来决定采用哪一台服务器打包的区块并给与奖励。 </p>
-<p>​    工作量算法大致为：在一个时间段内多台服务器同时对交易进行打包后，连带区块的Hsh信息一起经过SHA256算法进行运算，在区块头和奖励交易的coinBase里，各有一个变量nonce，如果运算结果不符合难度要求，那么就调整nonce的值继续运算。如果某台服务器率先计算出符合难度的区块，他就会广播这个区块，其他服务器验证没问题后就可以添加到现有的区块链上，然后所有服务器又继续竞争下一个区块，这个过程就叫做挖矿。 </p>
-<p>​    在工作量证明算法中采用了SHA256，他的特点是难以运算但是容易验证，所以找到一个符合难度要求的区块需要耗时10分钟，但是验证它是否有效只是瞬间的事</p>
+          <h2 id="移动网络"><a href="#移动网络" class="headerlink" title="移动网络"></a>移动网络</h2><p>2G网络是指第二代无线蜂窝电话通讯协议，是以无线通讯数字化为代表，能够进行窄带数据通讯。常见2G无线通讯协议有GSM频分多址（GPRS和EDGE和CDMA ) 传输速度很慢。 </p>
+<p>3G网络是第三代无线蜂窝电话通讯协议，主要是在2G的基础上发展了高带宽的数据通信，并提高了语音通话安全性。3G一般的数据通信带宽都在500Kb/s以上。目前3G常用的有3种标准：WCDMA、CDMA2000、TD-SCDMA，传速速度相对较快，可以很好的满足手机上网等需求。</p>
+<p>4G网络是指第四代无线蜂窝电话通讯协议，该技术包括TD-LTE和FDD-LTE两种制式，是集3G与WLAN于一体并能够传输高质量视频图像以及图像传输质量与高清晰度电视不相上下的技术产品。 4G系统能够以100Mbps的速度下载，比拨号上网快2000倍，上传的速度也能达到20Mbps，并能够满足几乎所有用户对于无线服务的要求。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/11/05/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E4%BA%8C-%E5%B7%A5%E4%BD%9C%E9%87%8F%E8%AF%81%E6%98%8E/#more" rel="contents">
+              <a class="btn" href="/2022/11/15/%E7%A7%BB%E5%8A%A8%E7%BD%91%E7%BB%9C/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -779,7 +840,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -840,21 +901,21 @@
     <img class="site-author-image" itemprop="image" alt="+×"
       src="/images/HeadPortrait.png">
   <p class="site-author-name" itemprop="name">+×</p>
-  <div class="site-description" itemprop="description">您看！这里什么也没有!</div>
+  <div class="site-description" itemprop="description">这里什么也没有!</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">72</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -868,19 +929,13 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://gorgias.me/" title="https:&#x2F;&#x2F;gorgias.me&#x2F;" rel="noopener" target="_blank">巨佬</a>
+          <a href="https://gorgias.me/" title="https:&#x2F;&#x2F;gorgias.me&#x2F;" rel="noopener" target="_blank">gorgias（我大哥的大哥，长发黑阔）</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://couplee.wang/" title="http:&#x2F;&#x2F;couplee.wang&#x2F;" rel="noopener" target="_blank">wnagzihxa1n</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/warrenryan" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;warrenryan" rel="noopener" target="_blank">WarrenRyan</a>
+          <a href="https://www.cnblogs.com/warrenryan" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;warrenryan" rel="noopener" target="_blank">WarrenRyan(我大哥，钢琴贼6)</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="http://rinbn.com/" title="http:&#x2F;&#x2F;rinbn.com&#x2F;" rel="noopener" target="_blank">Rinbn</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.imzj.top/" title="https:&#x2F;&#x2F;www.imzj.top&#x2F;" rel="noopener" target="_blank">imzj</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://pukrr.github.io/" title="https:&#x2F;&#x2F;pukrr.github.io&#x2F;" rel="noopener" target="_blank">pukrr</a>
@@ -889,16 +944,13 @@
           <a href="http://q0o0p.top/" title="http:&#x2F;&#x2F;q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://blog.immity.best/" title="http:&#x2F;&#x2F;blog.immity.best" rel="noopener" target="_blank">陈组长大人</a>
-        </li>
-        <li class="links-of-blogroll-item">
           <a href="https://www.cnblogs.com/wushengyang" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;wushengyang" rel="noopener" target="_blank">PY</a>
         </li>
     </ul>
   </div>
 
       </div>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=431259256&auto=0&height=66"></iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1496089152&auto=1&height=66"></iframe>
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>
@@ -914,13 +966,13 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">+×</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v6.3.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0

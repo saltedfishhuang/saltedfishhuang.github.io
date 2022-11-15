@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.addx.top').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="WIFI测试漏洞验证工具Fragattacks1.完整环境部署流程系统要求​    Ubuntu 20.04 ​    kernel 5.8">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WifiFragattacks部署">
+<meta property="og:url" content="http://www.addx.top/2022/11/15/WifiFragattacks%E9%83%A8%E7%BD%B2/index.html">
+<meta property="og:site_name" content="Hi~">
+<meta property="og:description" content="WIFI测试漏洞验证工具Fragattacks1.完整环境部署流程系统要求​    Ubuntu 20.04 ​    kernel 5.8">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-11-15T08:18:07.000Z">
+<meta property="article:modified_time" content="2022-11-15T08:18:34.163Z">
+<meta property="article:author" content="+×">
+<meta property="article:tag" content="SDR">
+<meta property="article:tag" content="WIFI">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.addx.top/2022/11/15/WifiFragattacks%E9%83%A8%E7%BD%B2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>WifiFragattacks部署 | Hi~</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hi~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">D~DIDI~DIDIDI!!!!</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://www.addx.top/2022/11/15/WifiFragattacks%E9%83%A8%E7%BD%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+      <meta itemprop="name" content="+×">
+      <meta itemprop="description" content="这里什么也没有!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hi~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          WifiFragattacks部署
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-11-15 16:18:07 / Modified: 16:18:34" itemprop="dateCreated datePublished" datetime="2022-11-15T16:18:07+08:00">2022-11-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="WIFI测试漏洞验证工具"><a href="#WIFI测试漏洞验证工具" class="headerlink" title="WIFI测试漏洞验证工具"></a>WIFI测试漏洞验证工具</h1><h2 id="Fragattacks"><a href="#Fragattacks" class="headerlink" title="Fragattacks"></a>Fragattacks</h2><h3 id="1-完整环境部署流程"><a href="#1-完整环境部署流程" class="headerlink" title="1.完整环境部署流程"></a>1.完整环境部署流程</h3><h4 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h4><p>​    Ubuntu 20.04</p>
+<p>​    kernel 5.8<span id="more"></span></p>
+<h4 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h4><ul>
+<li>替换内核为5.8</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install linux-image-5.8.0-63-generic linux-headers-5.8.0-63-generic linux-hwe-5.8-headers-5.8.0-63 linux-modules-5.8.0-63-generic linux-modules-extra-5.8.0-63-generic</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>安装好后重启后使用<code>uname -a</code>验证内核版本，为5.8即可成功；</p>
+</li>
+<li><p>安装编译需要的组件</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libnl-3-dev libnl-genl-3-dev libnl-route-3-dev libssl-dev libdbus-1-dev git pkg-config build-essential macchanger net-tools python3-venv aircrack-ng rfkill firmware-ath9k-htc</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>clone并编译项目，并安装python库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/vanhoefm/fragattacks.git fragattacks</span><br><span class="line"><span class="built_in">cd</span> fragattacks/research</span><br><span class="line">./build.sh</span><br><span class="line">pip install -r requirment.txt</span><br></pre></td></tr></table></figure></li>
+<li><p>替换wifi网卡驱动为修改版</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install bison flex linux-headers-$(<span class="built_in">uname</span> -r)</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/vanhoefm/fragattacks-drivers58.git fragattacks-drivers58</span><br><span class="line"><span class="built_in">cd</span> fragattacks-drivers58</span><br><span class="line">make defconfig-wifi</span><br><span class="line">make -j 4</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
+<li><p>安装ath9k-firmware</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd research/ath9k-firmware/</span><br><span class="line">./install.sh</span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2-简易环境部署流程"><a href="#2-简易环境部署流程" class="headerlink" title="2.简易环境部署流程"></a>2.简易环境部署流程</h3><p>​    使用该方式部署能够满足漏洞检测需求，但可能受系统版本与wifi usb网卡型号影响，无法正常驱动USB网卡，需要单独安装驱动，需要部署时进行确认，但相对完整部署，难度较低；</p>
+<ul>
+<li>安装编译需要的组件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libnl-3-dev libnl-genl-3-dev libnl-route-3-dev libssl-dev libdbus-1-dev git pkg-config build-essential macchanger net-tools python3-venv aircrack-ng rfkill firmware-ath9k-htc</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>clone并编译项目，并安装python库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/vanhoefm/fragattacks.git fragattacks</span><br><span class="line"><span class="built_in">cd</span> fragattacks/research</span><br><span class="line">./build.sh</span><br><span class="line">pip install -r requirment.txt</span><br></pre></td></tr></table></figure></li>
+<li><p>安装ath9k-firmware</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd research/ath9k-firmware/</span><br><span class="line">./install.sh</span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="3-使用与验证标准"><a href="#3-使用与验证标准" class="headerlink" title="3.使用与验证标准"></a>3.使用与验证标准</h3><p>使用该工具时需要接入WiFi网卡，并获得wifi网卡接口名字，可以使用ifconfig查看，如下例，wifi网卡接口名称为：<code>wlx10634b1dff26</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">➜  research git:(master) ifconfig</span><br><span class="line"></span><br><span class="line">lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;  mtu 65536</span><br><span class="line">        inet 127.0.0.1  netmask 255.0.0.0</span><br><span class="line">        inet6 ::1  prefixlen 128  scopeid 0x10&lt;host&gt;</span><br><span class="line">        loop  txqueuelen 1000  (Local Loopback)</span><br><span class="line">        RX packets 400628  bytes 232337699 (232.3 MB)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 400628  bytes 232337699 (232.3 MB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br><span class="line">wlx10634b1dff26: flags=4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu 1500</span><br><span class="line">        ether 10:63:4b:1d:ff:26  txqueuelen 1000  (Ethernet)</span><br><span class="line">        RX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>​    进入search目录，执行相关命令，此处有两种运行方式，一种是作为AP测试终端设备，另一种时作为终端设备测试WIFI热点，使用前需要使用root用户执行，并加载python 虚拟环境；</p>
+<ul>
+<li><p>作为热点测试客户端</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./fragattacks.py &lt;wifi网卡接口名称&gt; --ap &lt;<span class="built_in">command</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>此处例如 wifi网卡接口名称为：wlx10634b1dff26；</p>
+<p>对于此处演示，command 使用 ping，用于检测环境搭建是否成功，具体检测对应CVE漏洞请参考第四章节：CVE与command对照表；</p>
+<p>具体例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./fragattacks.py wlx10634b1dff26 --ap ping</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>​    运行该命令后，若出现以下字符<code>AP-ENABLED </code>及证明wifi测试热点已经建立，可以使用待测终端进行接入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">skygo@ubuntu:~/workspace/fragattacks/research$ sudo ./fragattack.py wlx10634b1dff26 --ap ping</span><br><span class="line">[18:32:22] This is FragAttack version 1.3.</span><br><span class="line">[18:32:22] You are not running patched drivers, meaning this tool may give incorrect results!</span><br><span class="line">[18:32:22] To ignore this warning and <span class="built_in">timeout</span> add the parameter --no-drivercheck</span><br><span class="line">[18:32:28] Using interface monwlx10634b1df (mt76x2u) to inject frames.</span><br><span class="line">[18:32:28] Starting hostapd using: ../hostapd/hostapd -i wlx10634b1dff26 hostapd.conf -K</span><br><span class="line">wlx10634b1dff26: interface state UNINITIALIZED-&gt;ENABLED</span><br><span class="line">wlx10634b1dff26: AP-ENABLED </span><br></pre></td></tr></table></figure>
+
+<p>​    测试热点名称为 testnetwork，密码为：abcdefgh，使用待测终端去连接即可；</p>
+<p>​    若出现：<code>TEST COMPLETED SUCCESSFULLY</code>及证明设备存在漏洞；</p>
+<p>​    若出现：<code>Test timed out! Retry to be sure, or manually check result</code>及证明不存在漏洞</p>
+<p>​    若上述两种情况都不存在，则表明测试失败，可以尝试重试；</p>
+<ul>
+<li>作为客户端测试热点</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./fragattacks.py &lt;wifi网卡接口名称&gt;  &lt;<span class="built_in">command</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>此处例如 wifi网卡接口名称为：wlx10634b1dff26；</p>
+<p>对于仅检测漏洞，command 使用 ping即可；</p>
+<p>具体例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./fragattacks.py wlx10634b1dff26  ping</span><br></pre></td></tr></table></figure>
+
+<p>​    运行该命令后，程序会去加载以当前路径client.conf配置文件中的WiFi热点账户密码数据，去连接改热点，配置格式如下（以testnetwork热点，密码abcdefgh为例）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sae_pwe=2</span><br><span class="line">network=&#123;</span><br><span class="line">	ssid=<span class="string">&quot;testnetwork&quot;</span></span><br><span class="line">	psk=<span class="string">&quot;abcdefgh&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    若出现：<code>TEST COMPLETED SUCCESSFULLY</code>及证明设备存在漏洞；</p>
+<p>​    若出现：<code>Test timed out! Retry to be sure, or manually check result</code>及证明不存在漏洞</p>
+<p>​    若上述两种情况都不存在，则表明测试失败，可以尝试重试；</p>
+<h3 id="4-CVE与command对照表"><a href="#4-CVE与command对照表" class="headerlink" title="4.CVE与command对照表"></a>4.CVE与command对照表</h3><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>CVE</th>
+<th>command</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>CVE-2020-24588</td>
+<td>amsdu-inject</td>
+<td>A-MSDU攻击测试</td>
+</tr>
+<tr>
+<td>2</td>
+<td>CVE-2020-24587</td>
+<td>ping I,F,BE,AE –pn-per-qos</td>
+<td>混合密码攻击测试，测试AP不稳定，建议测试客户端</td>
+</tr>
+<tr>
+<td>3</td>
+<td>CVE-2020-24586</td>
+<td>ping I,E,R,AE –full-recon</td>
+<td>缓存攻击测试</td>
+</tr>
+<tr>
+<td>4</td>
+<td>CVE-2020-26146</td>
+<td>ping I,E,E –inc-pn 2</td>
+<td>非连续PN攻击</td>
+</tr>
+<tr>
+<td>5</td>
+<td>CVE-2020-26147</td>
+<td>ping I,E,P</td>
+<td>混合明文/加密攻击</td>
+</tr>
+<tr>
+<td>6</td>
+<td>CVE-2022-26140</td>
+<td>ping I,P</td>
+<td>混合明文/加密攻击</td>
+</tr>
+<tr>
+<td>7</td>
+<td>CVE-2020-26143</td>
+<td>ping I,P,P</td>
+<td>混合明文/加密攻击</td>
+</tr>
+<tr>
+<td>8</td>
+<td>CVE-2020-26145</td>
+<td>ping I,D,P –bcast-ra</td>
+<td>广播碎片攻击测试，主要测试客户端</td>
+</tr>
+<tr>
+<td>9</td>
+<td>CVE-2020-26144</td>
+<td>eapol-amsdu I,P</td>
+<td>A-MSDU EAPOL攻击测试</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/SDR/" rel="tag"># SDR</a>
+              <a href="/tags/WIFI/" rel="tag"># WIFI</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/11/15/WifiFragattacks/" rel="prev" title="WifiFragattacks">
+      <i class="fa fa-chevron-left"></i> WifiFragattacks
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/11/15/JTAG-SWD-DAP/" rel="next" title="JTAG-SWD-DAP">
+      JTAG-SWD-DAP <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#WIFI%E6%B5%8B%E8%AF%95%E6%BC%8F%E6%B4%9E%E9%AA%8C%E8%AF%81%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">WIFI测试漏洞验证工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fragattacks"><span class="nav-number">1.1.</span> <span class="nav-text">Fragattacks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AE%8C%E6%95%B4%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.完整环境部署流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E8%A6%81%E6%B1%82"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">系统要求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%B5%81%E7%A8%8B"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">安装流程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%AE%80%E6%98%93%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.简易环境部署流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BD%BF%E7%94%A8%E4%B8%8E%E9%AA%8C%E8%AF%81%E6%A0%87%E5%87%86"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.使用与验证标准</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-CVE%E4%B8%8Ecommand%E5%AF%B9%E7%85%A7%E8%A1%A8"><span class="nav-number">1.1.4.</span> <span class="nav-text">4.CVE与command对照表</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="+×"
+      src="/images/HeadPortrait.png">
+  <p class="site-author-name" itemprop="name">+×</p>
+  <div class="site-description" itemprop="description">这里什么也没有!</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://gorgias.me/" title="https:&#x2F;&#x2F;gorgias.me&#x2F;" rel="noopener" target="_blank">gorgias（我大哥的大哥，长发黑阔）</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/warrenryan" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;warrenryan" rel="noopener" target="_blank">WarrenRyan(我大哥，钢琴贼6)</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://rinbn.com/" title="http:&#x2F;&#x2F;rinbn.com&#x2F;" rel="noopener" target="_blank">Rinbn</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://pukrr.github.io/" title="https:&#x2F;&#x2F;pukrr.github.io&#x2F;" rel="noopener" target="_blank">pukrr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://q0o0p.top/" title="http:&#x2F;&#x2F;q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/wushengyang" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;wushengyang" rel="noopener" target="_blank">PY</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1496089152&auto=1&height=66"></iframe>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">+×</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v6.3.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-z16"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>

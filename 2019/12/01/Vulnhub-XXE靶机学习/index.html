@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 6.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico">
@@ -141,7 +141,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">人生总有各种理由将一个人变成一个five!</p>
+        <p class="site-subtitle">D~DIDI~DIDIDI!!!!</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -203,7 +203,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/HeadPortrait.png">
       <meta itemprop="name" content="+×">
-      <meta itemprop="description" content="您看！这里什么也没有!">
+      <meta itemprop="description" content="这里什么也没有!">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -264,7 +264,7 @@
 <p>Login按钮对应了一个js onclick事件</p>
 <p><img src="/2019/12/01/Vulnhub-XXE%E9%9D%B6%E6%9C%BA%E5%AD%A6%E4%B9%A0/9.png" alt="9"></p>
 <p>找到对应的js代码，POST方式发送了xml请求，靶机也叫xxe，直接抓包xxe</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">XMLFunction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> xml = <span class="string">&#x27;&#x27;</span> +</span><br><span class="line">        <span class="string">&#x27;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x27;</span> +</span><br><span class="line">        <span class="string">&#x27;&lt;root&gt;&#x27;</span> +</span><br><span class="line">        <span class="string">&#x27;&lt;name&gt;&#x27;</span> + $(<span class="string">&#x27;#name&#x27;</span>).val() + <span class="string">&#x27;&lt;/name&gt;&#x27;</span> +</span><br><span class="line">        <span class="string">&#x27;&lt;password&gt;&#x27;</span> + $(<span class="string">&#x27;#password&#x27;</span>).val() + <span class="string">&#x27;&lt;/password&gt;&#x27;</span> +</span><br><span class="line">        <span class="string">&#x27;&lt;/root&gt;&#x27;</span>;</span><br><span class="line">    <span class="keyword">var</span> xmlhttp = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    xmlhttp.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(xmlhttp.readyState == <span class="number">4</span>)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(xmlhttp.readyState);</span><br><span class="line">            <span class="built_in">console</span>.log(xmlhttp.responseText);</span><br><span class="line">            <span class="built_in">document</span>.getElementById(<span class="string">&#x27;errorMessage&#x27;</span>).innerHTML = xmlhttp.responseText;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    xmlhttp.open(<span class="string">&quot;POST&quot;</span>,<span class="string">&quot;xxe.php&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">    xmlhttp.send(xml);</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">XMLFunction</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> xml = <span class="string">&#x27;&#x27;</span> +</span><br><span class="line">        <span class="string">&#x27;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x27;</span> +</span><br><span class="line">        <span class="string">&#x27;&lt;root&gt;&#x27;</span> +</span><br><span class="line">        <span class="string">&#x27;&lt;name&gt;&#x27;</span> + $(<span class="string">&#x27;#name&#x27;</span>).<span class="title function_">val</span>() + <span class="string">&#x27;&lt;/name&gt;&#x27;</span> +</span><br><span class="line">        <span class="string">&#x27;&lt;password&gt;&#x27;</span> + $(<span class="string">&#x27;#password&#x27;</span>).<span class="title function_">val</span>() + <span class="string">&#x27;&lt;/password&gt;&#x27;</span> +</span><br><span class="line">        <span class="string">&#x27;&lt;/root&gt;&#x27;</span>;</span><br><span class="line">    <span class="keyword">var</span> xmlhttp = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line">    xmlhttp.<span class="property">onreadystatechange</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">if</span>(xmlhttp.<span class="property">readyState</span> == <span class="number">4</span>)&#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(xmlhttp.<span class="property">readyState</span>);</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(xmlhttp.<span class="property">responseText</span>);</span><br><span class="line">            <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;errorMessage&#x27;</span>).<span class="property">innerHTML</span> = xmlhttp.<span class="property">responseText</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    xmlhttp.<span class="title function_">open</span>(<span class="string">&quot;POST&quot;</span>,<span class="string">&quot;xxe.php&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">    xmlhttp.<span class="title function_">send</span>(xml);</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
 <h3 id="0x03-实现过程"><a href="#0x03-实现过程" class="headerlink" title="0x03 实现过程"></a>0x03 实现过程</h3><p>既然已经知道了是xxe，还是linux，肯定直接读etc文件目录下的passwd文件进行测试了，验证成功，xxe漏洞存在，这里还得到了一个r00t，手动混淆肯定有大用(然而后面回来并没有用上)，先记录下来再说</p>
 <p><img src="/2019/12/01/Vulnhub-XXE%E9%9D%B6%E6%9C%BA%E5%AD%A6%E4%B9%A0/10.png" alt="10"></p>
@@ -405,21 +405,21 @@
     <img class="site-author-image" itemprop="image" alt="+×"
       src="/images/HeadPortrait.png">
   <p class="site-author-name" itemprop="name">+×</p>
-  <div class="site-description" itemprop="description">您看！这里什么也没有!</div>
+  <div class="site-description" itemprop="description">这里什么也没有!</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-count">72</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -433,19 +433,13 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://gorgias.me/" title="https:&#x2F;&#x2F;gorgias.me&#x2F;" rel="noopener" target="_blank">巨佬</a>
+          <a href="https://gorgias.me/" title="https:&#x2F;&#x2F;gorgias.me&#x2F;" rel="noopener" target="_blank">gorgias（我大哥的大哥，长发黑阔）</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://couplee.wang/" title="http:&#x2F;&#x2F;couplee.wang&#x2F;" rel="noopener" target="_blank">wnagzihxa1n</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/warrenryan" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;warrenryan" rel="noopener" target="_blank">WarrenRyan</a>
+          <a href="https://www.cnblogs.com/warrenryan" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;warrenryan" rel="noopener" target="_blank">WarrenRyan(我大哥，钢琴贼6)</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="http://rinbn.com/" title="http:&#x2F;&#x2F;rinbn.com&#x2F;" rel="noopener" target="_blank">Rinbn</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.imzj.top/" title="https:&#x2F;&#x2F;www.imzj.top&#x2F;" rel="noopener" target="_blank">imzj</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://pukrr.github.io/" title="https:&#x2F;&#x2F;pukrr.github.io&#x2F;" rel="noopener" target="_blank">pukrr</a>
@@ -454,16 +448,13 @@
           <a href="http://q0o0p.top/" title="http:&#x2F;&#x2F;q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://blog.immity.best/" title="http:&#x2F;&#x2F;blog.immity.best" rel="noopener" target="_blank">陈组长大人</a>
-        </li>
-        <li class="links-of-blogroll-item">
           <a href="https://www.cnblogs.com/wushengyang" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;wushengyang" rel="noopener" target="_blank">PY</a>
         </li>
     </ul>
   </div>
 
       </div>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=431259256&auto=0&height=66"></iframe>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1496089152&auto=1&height=66"></iframe>
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>
@@ -479,13 +470,13 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">+×</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v5.4.0
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v6.3.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0

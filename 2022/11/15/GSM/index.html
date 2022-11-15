@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/HeadPortrait-32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/HeadPortrait-16x16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://www.addx.top').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.7.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="Frequency Band Uplink&#x2F;Downlink Separation Uplink Frequency Range  (Transmit Device &#x3D; Mobile) Downlink Frequency Range  (Transmit Device &#x3D; Base) ARFCN    GSM 450 10 MHz 450.4 to 457.6 MHz 460.4 to 4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GSM">
+<meta property="og:url" content="http://www.addx.top/2022/11/15/GSM/index.html">
+<meta property="og:site_name" content="Hi~">
+<meta property="og:description" content="Frequency Band Uplink&#x2F;Downlink Separation Uplink Frequency Range  (Transmit Device &#x3D; Mobile) Downlink Frequency Range  (Transmit Device &#x3D; Base) ARFCN    GSM 450 10 MHz 450.4 to 457.6 MHz 460.4 to 4">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-11-15T07:44:29.000Z">
+<meta property="article:modified_time" content="2022-11-15T07:45:43.144Z">
+<meta property="article:author" content="+×">
+<meta property="article:tag" content="SDR">
+<meta property="article:tag" content="CellularNetwork">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.addx.top/2022/11/15/GSM/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>GSM | Hi~</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hi~</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">D~DIDI~DIDIDI!!!!</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://www.addx.top/2022/11/15/GSM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+      <meta itemprop="name" content="+×">
+      <meta itemprop="description" content="这里什么也没有!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hi~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          GSM
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-11-15 15:44:29 / Modified: 15:45:43" itemprop="dateCreated datePublished" datetime="2022-11-15T15:44:29+08:00">2022-11-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <table>
+<thead>
+<tr>
+<th><strong>Frequency Band</strong></th>
+<th><strong>Uplink/Downlink Separation</strong></th>
+<th><strong>Uplink Frequency Range  (Transmit Device = Mobile)</strong></th>
+<th><strong>Downlink Frequency Range  (Transmit Device = Base)</strong></th>
+<th><strong>ARFCN</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GSM 450</td>
+<td>10 MHz</td>
+<td>450.4 to 457.6 MHz</td>
+<td>460.4 to 467.6 MHz</td>
+<td>259 to 293</td>
+</tr>
+<tr>
+<td>GSM 480</td>
+<td>10 MHz</td>
+<td>478.8 to 486 MHz</td>
+<td>488.8 to 496 MHz</td>
+<td>306 to 340</td>
+</tr>
+<tr>
+<td>GSM 750</td>
+<td>30 MHz</td>
+<td>747 to 762 MHz</td>
+<td>777 to 792 MHz</td>
+<td>438 to 511</td>
+</tr>
+<tr>
+<td>GSM 850</td>
+<td>45 MHz</td>
+<td>824 to 849 MHz</td>
+<td>869 to 894 MHz</td>
+<td>128 to 251</td>
+</tr>
+<tr>
+<td>P-GSM 900</td>
+<td>45 MHz</td>
+<td>890 to 915 MHz</td>
+<td>935 to 960 MHz</td>
+<td>1 to124</td>
+</tr>
+<tr>
+<td>E-GSM 900</td>
+<td>45 MHz</td>
+<td>880 to 915 MHz</td>
+<td>925 to 960 MHz</td>
+<td>0 to124  and  975 to 1023</td>
+</tr>
+<tr>
+<td>R-GSM 900</td>
+<td>45 MHz</td>
+<td>876 to 915 MHz</td>
+<td>921 to 960 MHz</td>
+<td>0 to124  and  955 to 1023</td>
+</tr>
+<tr>
+<td>DCS 1800</td>
+<td>45 MHz</td>
+<td>1710 to 1785 MHz</td>
+<td>1805 to 1880 MHz</td>
+<td>512 to 885</td>
+</tr>
+<tr>
+<td>PCS 1900</td>
+<td>45 MHz</td>
+<td>1850 to 1910 MHz</td>
+<td>1930 to 1990 MHz</td>
+<td>512 to 810</td>
+</tr>
+</tbody></table>
+<span id="more"></span>[**GSM、PLMN区、msc区、位置区、基站区、小区、TAC、CI 名词解析**](https://www.cnblogs.com/duaner92/p/11555660.html)
+
+<p><strong>GSM：</strong>全球移动<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F">通信系统</a>(Global System for Mobile Communications) ，GSM系统分为：GSM服务区，公共陆地移动网（plmn）业务区，移动交换控制区（MSC）区，位置区（LA），基站区和小区。</p>
+<p><strong>GSM服务区：</strong>有GSM网络中的全部成员国组成，</p>
+<p>**plmn业务区:**公共陆地移动网 ，一般特指某个运营商的网络覆盖区域，如<a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=%E4%B8%AD%E5%9B%BD%E7%A7%BB%E5%8A%A8&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao">中国移动</a>gsm的plmn区，既是整个中国。</p>
+<p><strong>msc区：</strong>在该区域内，有共同的编码方法及路由规划，有一个移动交换中心控制区域称为MSC业务区，一个MSC区包含一个或多个位置区。</p>
+<p><strong>位置区：</strong>最大可以等同于一个msc区，最小可以等同为一个小区的覆盖范围，是对用户发起寻呼的时候的区域，一般是若干个相邻基站的覆盖区域的总和。</p>
+<p><strong>基站区</strong>：一座基站的覆盖范围。现在一座宏站下，一般带3个扇区，即一座基站区等于3个小区的覆盖总和。</p>
+<p><strong>小区：</strong>也叫蜂窝区，理想形状是正六边形，一个小区包含一个基站。</p>
+<p><strong>CI：</strong>小区识别(Cell Identity)</p>
+<p>为了唯一地表示GSMPLMN中的每个<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%B0%8F%E5%8C%BA/2058402">小区</a>，网络运营者需分配给网络中所有的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%B0%8F%E5%8C%BA/2058402">小区</a>一个<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BB%A3%E7%A0%81/86048">代码</a>，即：小区识别(CI)，小区识别(<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/CI">CI</a>)与位置区识别码(<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/LAC">LAC</a>)结合，用于识别网络中的每个<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/BTS">BTS</a>（基站收发信站点）及其覆盖的小区</p>
+<p><strong>TAC</strong>：IMEI码的前六位数字即TAC码。TAC码代表了手机的型号</p>
+<p><strong>IMEI：</strong>（International Mobile Equipment Identity，移动设备国际识别码，又称为国际移动设备标识）由15位数字组成，是手机的唯一识别号码。</p>
+<p>组成规则如下：</p>
+<p>第一部分 TAC，Type Allocation Code，类型分配码，由8位数字组成（早期是6位），是区分手机品牌和型号的编码，该代码由GSMA及其授权机构分配。其中TAC码前两位又是分配机构标识（Reporting Body Identifier），是授权IMEI码分配机构的代码，如01为美国CTIA，35为英国BABT，86为中国TAF。</p>
+<p>第二部分 FAC，Final Assembly Code，最终装配地代码，由2位数字构成，仅在早期TAC码为6位的手机中存在，所以TAC和FAC码合计一共8位数字。FAC码用于生产商内部区分生产地代码。</p>
+<p>第三部分 SNR，Serial Number，序列号，由第9位开始的6位数字组成，区分每部手机的生产序列号。</p>
+<p>第四部分 CD，Check Digit，验证码，由前14位数字通过<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Luhn_algorithm">Luhn算法</a>计算得出。</p>
+<p>第五部分 SVN，Software Version Number，软件版本号，区分同型号手机出厂时使用的不同软件版本，仅在部分品牌的部分机型中存在。</p>
+<p><strong>IMSI：</strong>国际移动用户识别码（International Mobile Subscriber Identification Number）是用于区分<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%9C%82%E7%AA%9D%E7%BD%91%E7%BB%9C">蜂窝网络</a>中不同用户的、在所有蜂窝网络中不重复的识别码。手机将IMSI存储于一个64比特的字段发送给网络。IMSI可以用来在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%BD%92%E5%B1%9E%E4%BD%8D%E7%BD%AE%E5%AF%84%E5%AD%98%E5%99%A8">归属位置寄存器</a>（HLR，Home Location Register）或<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%8B%9C%E8%AE%BF%E4%BD%8D%E7%BD%AE%E5%AF%84%E5%AD%98%E5%99%A8">拜访位置寄存器</a>（VLR，Visitor Location Register）中查询用户的信息。为了避免被监听者识别并追踪特定的用户，大部分情形下手机和网络之间的通信会使用随机产生的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%B8%B4%E6%97%B6%E7%A7%BB%E5%8A%A8%E7%94%A8%E6%88%B7%E8%AF%86%E5%88%AB%E7%A0%81">临时移动用户识别码</a>（TMSI，Temporary Mobile Subscriber Identity）代替IMSI。</p>
+<p>结构分析：IMSI由一串十进制数字组成，最大长度为15位。实际使用的IMSI的长度绝大部分都是15位，短于15位的例子少见，例如，南非<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/MTN">MTN</a>有一些仍在网络中使用的较旧的IMSI为14位数字。IMSI由移动国家代码（MCC，Mobile Country Code）、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%A7%BB%E5%8A%A8%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%A0%81">移动网络代码</a>（MNC，Mobile Network Code）和移动订户识别代码（MSIN，Mobile subscription identification number）依次连接而成。MCC长度为3位，MNC长度由MCC的值决定，可以是2位（欧洲标准）或3位数字（北美标准），MSIN的值由运营商自行分配。</p>
+<table>
+<thead>
+<tr>
+<th><strong>MCC</strong></th>
+<th>460</th>
+<th><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD">中华人民共和国</a></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>MNC</strong></td>
+<td>00</td>
+<td><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E7%A7%BB%E5%8A%A8">中国移动</a></td>
+</tr>
+<tr>
+<td><strong>MSIN</strong></td>
+<td>1357924680</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>IMSI:460001357924680</p>
+<table>
+<thead>
+<tr>
+<th>SRV</th>
+<th>MCC</th>
+<th>MNC</th>
+<th>LAC</th>
+<th>CID</th>
+<th>ARFCN</th>
+<th>BSIC</th>
+<th>RSSI</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>N</td>
+<td>460</td>
+<td>0</td>
+<td>4421</td>
+<td>41285</td>
+<td>50</td>
+<td>32</td>
+<td></td>
+</tr>
+<tr>
+<td>N</td>
+<td>460</td>
+<td>0</td>
+<td>4421</td>
+<td>36025</td>
+<td>53</td>
+<td>22</td>
+<td></td>
+</tr>
+<tr>
+<td>N</td>
+<td>460</td>
+<td>0</td>
+<td>4421</td>
+<td>16026</td>
+<td>518</td>
+<td>52</td>
+<td></td>
+</tr>
+<tr>
+<td>N</td>
+<td>460</td>
+<td>0</td>
+<td>4421</td>
+<td>30010</td>
+<td>55</td>
+<td>35</td>
+<td></td>
+</tr>
+<tr>
+<td>N</td>
+<td>460</td>
+<td>0</td>
+<td>4421</td>
+<td>29783</td>
+<td>59</td>
+<td>14</td>
+<td></td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/SDR/" rel="tag"># SDR</a>
+              <a href="/tags/CellularNetwork/" rel="tag"># CellularNetwork</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/11/15/%E7%A7%BB%E5%8A%A8%E7%BD%91%E7%BB%9C/" rel="prev" title="移动网络">
+      <i class="fa fa-chevron-left"></i> 移动网络
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/11/15/GSM%E5%97%85%E6%8E%A2/" rel="next" title="GSM嗅探">
+      GSM嗅探 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="+×"
+      src="/images/HeadPortrait.png">
+  <p class="site-author-name" itemprop="name">+×</p>
+  <div class="site-description" itemprop="description">这里什么也没有!</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://gorgias.me/" title="https:&#x2F;&#x2F;gorgias.me&#x2F;" rel="noopener" target="_blank">gorgias（我大哥的大哥，长发黑阔）</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/warrenryan" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;warrenryan" rel="noopener" target="_blank">WarrenRyan(我大哥，钢琴贼6)</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://rinbn.com/" title="http:&#x2F;&#x2F;rinbn.com&#x2F;" rel="noopener" target="_blank">Rinbn</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://pukrr.github.io/" title="https:&#x2F;&#x2F;pukrr.github.io&#x2F;" rel="noopener" target="_blank">pukrr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://q0o0p.top/" title="http:&#x2F;&#x2F;q0o0p.top" rel="noopener" target="_blank">q0o0p</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/wushengyang" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;wushengyang" rel="noopener" target="_blank">PY</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1496089152&auto=1&height=66"></iframe>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">+×</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v6.3.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-z16"},"display":{"position":"left","width":200,"height":400},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
