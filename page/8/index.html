@@ -173,6 +173,82 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://www.addx.top/2019/11/01/SUCTF2019WEB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/HeadPortrait.png">
+      <meta itemprop="name" content="+×">
+      <meta itemprop="description" content="这里什么也没有!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hi~">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/01/SUCTF2019WEB/" class="post-title-link" itemprop="url">SUCTF2019WEB</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-01 08:55:38" itemprop="dateCreated datePublished" datetime="2019-11-01T08:55:38+08:00">2019-11-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-11-15 20:03:23" itemprop="dateModified" datetime="2022-11-15T20:03:23+08:00">2022-11-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="0x01-EasySQL"><a href="#0x01-EasySQL" class="headerlink" title="0x01 EasySQL"></a>0x01 EasySQL</h2><p><img src="/2019/11/01/SUCTF2019WEB/0101.png" alt="0101"></p>
+<p>这是一个考察堆叠注入的题目，但是这道题因为作者的过滤不够完全所以存在非预期解</p>
+<p>非预期解</p>
+<p>直接构造  <code>*,1 </code> 这样构造，最后拼接的查询语句就变成了 <code>select *,1||flag from Flag</code>,可以直接得到当前表中的全部内容，就能够直接获得flag</p>
+<p><img src="/2019/11/01/SUCTF2019WEB/0102.png" alt="0102"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/01/SUCTF2019WEB/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://www.addx.top/2019/10/24/Hackergame2019/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -700,84 +776,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.addx.top/2019/05/27/2019%E5%BC%BA%E7%BD%91%E6%9D%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/HeadPortrait.png">
-      <meta itemprop="name" content="+×">
-      <meta itemprop="description" content="这里什么也没有!">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hi~">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/05/27/2019%E5%BC%BA%E7%BD%91%E6%9D%AF/" class="post-title-link" itemprop="url">2019强网杯</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-05-27 14:58:16" itemprop="dateCreated datePublished" datetime="2019-05-27T14:58:16+08:00">2019-05-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-11-15 19:53:48" itemprop="dateModified" datetime="2022-11-15T19:53:48+08:00">2022-11-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="0x01-前言"><a href="#0x01-前言" class="headerlink" title="0x01 前言"></a>0x01 前言</h2><p> 前两天菜鸡+x和几个大哥算是正式参加了一次ctf的线上赛，也是第一次参加这种比赛（前一段时间巨佬也给了我们一个西班牙的比赛，不过不算是正式参赛，做题的时候，比赛已经结束了），没想到出师不利，菜的一B，除了一个证明你签了到的签到题，一道题也没有弄出来，今天的我也是一个卑微的弟弟啊！比赛结束了，大佬们开始放writeup了，准备有些题目还是再看一看，复现一下。</p>
-<h2 id="0x02-鲲or鳗orGame"><a href="#0x02-鲲or鳗orGame" class="headerlink" title="0x02 鲲or鳗orGame"></a>0x02 鲲or鳗orGame</h2><p>最先开始做的便是这道MISC的题目“鲲or鳗orGame”</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/05/27/2019%E5%BC%BA%E7%BD%91%E6%9D%AF/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -845,7 +848,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -903,7 +906,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
